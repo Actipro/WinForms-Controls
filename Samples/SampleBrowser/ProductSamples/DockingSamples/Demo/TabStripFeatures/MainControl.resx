@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <metadata name="imageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="imageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAB+
+        CQAAAk1TRnQBSQFMAgEBAgEAATwBAAE8AQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
+        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
+        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
+        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
+        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
+        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
+        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
+        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
+        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
+        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
+        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
+        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
+        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
+        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
+        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
+        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
+        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
+        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
+        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
+        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
+        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
+        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
+        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
+        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
+        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
+        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
+        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
+        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/xMAAfcLZiQAAWwBEgFm
+        AWwBbQFsBWYFAAH3AfMJ9wFmIwABtQH0AfEB8AG8ARwBBwEJArsCtQFmBAAB9wH0ARkB8wIZBN0B9wFm
+        IwABtQH/AfQB8wFMASUBbwHwAd0B8AEJAbUBZgQAAfcC9AEZAfMDGQLdAfcBZiMAAbUB/wHwAUwBTQFG
+        ASUBkwLdAQkBtQFmBAAB9wH0BK0BiwKGAd0B9wFmIwAB7wH/AUYBTQF1AeMBTQFGAbwBGQG8AbsBZgQA
+        AfcB/wT0AfMDGQH3AWYjAAHvAf8DlAHwAZQCTAIZAbsBEgQAAbUB/wStAYsChgEZAfcBZiMAAbsB/wH0
+        ARoC9AHyAZQBTAFvARkBCQFsBAAB7wT/A/QC8wH3AWYjAAG7Bf8B9AHzAXUBTAGTAfAB6wQAAbUB/wSt
+        AYsChgEZAfcBZiMAAQcF/wH0AvMBlAFGAZMB7QQAAbsG/wP0AfcBZiMAAQcC/wEcAnMBbgHrAewBHAGU
+        AUwB9wQAAbsB/wStAYsB/wH0AvcBZiMAAQcC/wEcAZkBoAGaAXkBdAHsAfMB8QGSBAABuwf/AfcDZiMA
+        AQcC/wH2ARwB9wHsAZkBbgH0AvMB6wQAAbsH/wG1AbwBZgHqJAADBwEcAqABmQFKA7UFAAEJB/8BtQFm
+        AeopAAIcAXMJAAYJAbsBBwG7AW1kAAFCAU0BPgcAAT4DAAEoAwABQAMAARADAAEBAQABAQUAAYAXAAP/
+        AQAC/wHAAQMEAAHAAQcBwAEDBAABgAEDAcABAwQAAYABAwHAAQMEAAGAAQMBwAEDBAABgAEDAcABAwQA
+        AYABAwHAAQMEAAGAAQMBwAEDBAABgAEDAcABAwQAAYABAwHAAQMEAAGAAQMBwAEDBAABgAEDAcABAwQA
+        AYABAwHAAQMEAAHAAQcBwAEHBAAB/AF/AcABDwQABP8EAAs=
+</value>
+  </data>
+  <data name="textBox3.Text" xml:space="preserve">
+    <value>TabStrip's major features include:
+Built-in rendering styles include VS.NET 2005, VS.NET 2002, and all Office styles - Blue, Olive, Silver, and Windows Classic. 
+Robust rendering interface allows for totally customized rendering. 
+Use as a replacement for the .NET framework TabControl. 
+Align tabs to the left, top, right, or bottom. 
+Optional display of close button. 
+Optional display of options button. 
+Three modes of tab overflow handling (normal, shrink-to-fit, and scroll buttons). 
+Scroll buttons overflow mode provides smooth scrolling of tabs. 
+Set images and text for tabs. 
+Control minimum and maximum tab sizes. 
+Handle an event to provide tooltip text for tabs on-the-fly. 
+Ability to handle automatic drag/drop reordering of tabs. 
+Default context menus may be cancelled so custom context menus can be displayed. 
+Ability to cancel selected tab changes. 
+Full designer support. 
+
+Purchase Actipro WinForms Studio securely on-line at:
+https://www.actiprosoftware.com/</value>
+  </data>
+  <data name="textBox4.Text" xml:space="preserve">
+    <value>Would you like to add a full syntax-highlighting editor control to your application?  We make the most feature-rich editor control available for .NET, named Actipro SyntaxEditor.
+
+SyntaxEditor is modeled after the code editor in VS.NET and provides nearly all of its functionality. SyntaxEditor comes packaged with a number of sample language definitions for common languages like C#, VB.NET, SQL, HTML, XML, CSS, JScript, VBScript, Python, and INI files. Custom language definitions can be developed in an easy to learn XML format and distributed with your applications. To provide maximum functionality in the editor control, SyntaxEditor uses two parsing phases, a lexical parsing phase that tokenizes text, and an optional semantic parsing phase that you can implement to generate extended semantic parse data to be used for code outlining, IntelliPrompt, etc. 
+
+Major features of SyntaxEditor include: 
+* Multiple language support 
+* Custom NFA regular expression engine 
+* XML language definitions 
+* Lexical parsing of text into tokens 
+* Open-ended design for semantic parsing of tokens 
+* Complete separation of the user interface and document/parsing object model 
+* Code outlining 
+* Unlimited undo/redo 
+* Undo/redo action grouping 
+* Line numbering in line number margin 
+* Line modification tracking 
+* Word wrap (character and token wrapping modes) 
+* Indicators (bookmarks, breakpoints, misspelling markers, etc.) in indicator margin 
+* Indentation guides 
+* Whitespace display 
+* Content dividers 
+* Block indent/outdent 
+* Line selection in the selection margin 
+* Bracket highlighting 
+* Case sensitivity and auto-correct 
+* Complete extended Unicode character support and IME support 
+* Any type of font is supported, including non-monospace fonts 
+* Triggers for handling keystroke/command combinations 
+* Feature-rich find/replace object model 
+* Customizable dialogs 
+* Four-way or two-way split views 
+* IntelliPrompt member lists 
+* IntelliPrompt info tips 
+* IntelliPrompt quick info 
+* Syntax-highlighted tooltips when hovering over collapsed outlining nodes 
+* WYSIWYG printing and print preview with print-specific format settings 
+* HTML and RTF export 
+* Custom DataObject support 
+* Single-line mode 
+* Token-specific highlighting styles enabling custom styles for user-defined keywords 
+* A TextStylePreview control that can be used to display text styles on an Options dialog 
+* Much, much more... 
+
+Get more information about Actipro SyntaxEditor at:
+https://www.actiprosoftware.com</value>
+  </data>
+  <data name="textBox5.Text" xml:space="preserve">
+    <value>Do you have a need for wizard functionality in your application?  If so, we suggest you check out Actipro Wizard.
+
+Actipro Wizard is the first wizard development control created for Windows Forms.  Its many features include:
+
+* Adheres to the Wizard97 specification 
+* Create interior pages, with header pre-generated 
+* Create exterior pages that fill the wizard client area 
+* Create welcome pages using pre-defined templates 
+* Easily design wizard pages at design-time 
+* Navigate through pages at design-time by clicking on the Next and Back buttons or by using verbs 
+* Use the Go To Page dialog to navigate directly to a page in design-time 
+* Add or remove pages using designer verbs 
+* Use the New Page Wizard to easily create new pages 
+* Templates for configuration of blank interior, exterior, and welcome pages 
+* Templates for customer information pages 
+* Templates for radio button selection pages 
+* Manage and re-order the pages collection by using the Pages collection of the Wizard control 
+* Automatically handles wizard page step flow and manages button enabled states 
+* Two types of page sequencing 
+* Programmatically override the flow of the wizard page steps and button enable states 
+* Perform validation before pages are changed and cancel page switching if data entry on a page is not complete 
+* Disable or hide buttons while performing processing tasks 
+* Inherit from the WizardDialogForm which provides a Form with a built-in Wizard control 
+* Resizes with parent Form 
+* Set the accept and cancel buttons on the container Form to wizard buttons 
+* Powerful localization support including the ability to set different fonts, text, button widths, etc. for each language 
+* Handle events at the general Wizard level or at the WizardPage-specific level 
+* Extremely customizable user interface properties 
+* Show the Finish button in the same space as the Next button or separately 
+* Optionally align the Help button to the left side of the wizard 
+* Supports Windows XP visual styles if you include a manifest in your application 
+* Control the flat styles of buttons and handle hot-tracking events to set their BackColor 
+* Uses a renderer class to draw all elements of the Wizard; the renderer can be overridden for complete custom draw 
+* Global renderer appearance property defaults that can be overridden for each page 
+* Interior page guide lines to assist in positioning child controls 
+* Uses the Actipro Shared Windows presentation layer framework 
+
+Get more information about Actipro Wizard at:
+https://www.actiprosoftware.com</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="eventsGroupBox.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAq0lEQVQ4T62RMQ7DIAwAM/Aj/sSTkNgy
+        VH0AL2Cu2Jn4AMoQXuBit1SkBEqSWjoGx5ztMDHGLrGbPAIdSgGUCMJ+4KLmzwJrYSRijATnoi0wxhAq
+        dUbm+QZSyjSJosv4rRakwl7kzk2B1vpdmvd/Ue7cFbQmKDsjIQTAdSsB7pmj9w+GBDm+OyN2Sc98dgK8
+        /FPgvQfnHGFTIXJ/rBuaAkweYSO4wm5yHDY9AW2T73G/uLQrAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="propertiesImageList.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>116, 17</value>
+  </metadata>
+  <data name="propertiesImageList.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAD2
+        BwAAAk1TRnQBSQFMAgEBAgEAATwBAAE8AQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        AwABQAMAARADAAEBAQABCAYAAQQYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
+        AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
+        AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
+        AWYDAAGZAwABzAIAATMDAAIzAgABMwFmAgABMwGZAgABMwHMAgABMwH/AgABZgMAAWYBMwIAAmYCAAFm
+        AZkCAAFmAcwCAAFmAf8CAAGZAwABmQEzAgABmQFmAgACmQIAAZkBzAIAAZkB/wIAAcwDAAHMATMCAAHM
+        AWYCAAHMAZkCAALMAgABzAH/AgAB/wFmAgAB/wGZAgAB/wHMAQABMwH/AgAB/wEAATMBAAEzAQABZgEA
+        ATMBAAGZAQABMwEAAcwBAAEzAQAB/wEAAf8BMwIAAzMBAAIzAWYBAAIzAZkBAAIzAcwBAAIzAf8BAAEz
+        AWYCAAEzAWYBMwEAATMCZgEAATMBZgGZAQABMwFmAcwBAAEzAWYB/wEAATMBmQIAATMBmQEzAQABMwGZ
+        AWYBAAEzApkBAAEzAZkBzAEAATMBmQH/AQABMwHMAgABMwHMATMBAAEzAcwBZgEAATMBzAGZAQABMwLM
+        AQABMwHMAf8BAAEzAf8BMwEAATMB/wFmAQABMwH/AZkBAAEzAf8BzAEAATMC/wEAAWYDAAFmAQABMwEA
+        AWYBAAFmAQABZgEAAZkBAAFmAQABzAEAAWYBAAH/AQABZgEzAgABZgIzAQABZgEzAWYBAAFmATMBmQEA
+        AWYBMwHMAQABZgEzAf8BAAJmAgACZgEzAQADZgEAAmYBmQEAAmYBzAEAAWYBmQIAAWYBmQEzAQABZgGZ
+        AWYBAAFmApkBAAFmAZkBzAEAAWYBmQH/AQABZgHMAgABZgHMATMBAAFmAcwBmQEAAWYCzAEAAWYBzAH/
+        AQABZgH/AgABZgH/ATMBAAFmAf8BmQEAAWYB/wHMAQABzAEAAf8BAAH/AQABzAEAApkCAAGZATMBmQEA
+        AZkBAAGZAQABmQEAAcwBAAGZAwABmQIzAQABmQEAAWYBAAGZATMBzAEAAZkBAAH/AQABmQFmAgABmQFm
+        ATMBAAGZATMBZgEAAZkBZgGZAQABmQFmAcwBAAGZATMB/wEAApkBMwEAApkBZgEAA5kBAAKZAcwBAAKZ
+        Af8BAAGZAcwCAAGZAcwBMwEAAWYBzAFmAQABmQHMAZkBAAGZAswBAAGZAcwB/wEAAZkB/wIAAZkB/wEz
+        AQABmQHMAWYBAAGZAf8BmQEAAZkB/wHMAQABmQL/AQABzAMAAZkBAAEzAQABzAEAAWYBAAHMAQABmQEA
+        AcwBAAHMAQABmQEzAgABzAIzAQABzAEzAWYBAAHMATMBmQEAAcwBMwHMAQABzAEzAf8BAAHMAWYCAAHM
+        AWYBMwEAAZkCZgEAAcwBZgGZAQABzAFmAcwBAAGZAWYB/wEAAcwBmQIAAcwBmQEzAQABzAGZAWYBAAHM
+        ApkBAAHMAZkBzAEAAcwBmQH/AQACzAIAAswBMwEAAswBZgEAAswBmQEAA8wBAALMAf8BAAHMAf8CAAHM
+        Af8BMwEAAZkB/wFmAQABzAH/AZkBAAHMAf8BzAEAAcwC/wEAAcwBAAEzAQAB/wEAAWYBAAH/AQABmQEA
+        AcwBMwIAAf8CMwEAAf8BMwFmAQAB/wEzAZkBAAH/ATMBzAEAAf8BMwH/AQAB/wFmAgAB/wFmATMBAAHM
+        AmYBAAH/AWYBmQEAAf8BZgHMAQABzAFmAf8BAAH/AZkCAAH/AZkBMwEAAf8BmQFmAQAB/wKZAQAB/wGZ
+        AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
+        AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
+        AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
+        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/0MAAf8GBwkAAf8EBwEA
+        AQcpAAH/BgcJAAH/BAcrAAH/BgcJAAH/BAcpABcHBAAFByAAF+wCAAH7AgAE7CAAAewO/wLsBv8BAAH/
+        AfsBBwEAA/8B7CAAAewO/wLsB/8BAAL7AgAC/wHsIAAB7A7/AuwH/wEAAf8B+wEHAQAC/wHsIAAB7A7/
+        AuwI/wEAAvsCAAH/AewgAAHsDv8C7Aj/AQAB/wH7AQcBAAH/AewgAAHsDv8C7An/AQAB/wMAAewgAAHs
+        Dv8C7An/AgACAQEAAewgAAHsDv8C7Ar/AQADASEAAewO/wLsCv8BAAMBIQAc7AMAAewgAAFCAU0BPgcA
+        AT4DAAEoAwABQAMAARADAAEBAQABAQUAAYAXAAP/AQABwAE/AcABPwQAAcABPwHAAT8EAAHAAT8BwAE/
+        bAAL
+</value>
+  </data>
+</root>

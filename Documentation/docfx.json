@@ -1,0 +1,97 @@
+{
+	"metadata": [
+		{
+			"src": [
+				{
+					"src": "../../Source/bin/Release",
+					"files": [
+						"net40/ActiproSoftware.Shared.WinForms.dll",
+						"net40/ActiproSoftware.Bars.WinForms.dll",
+						"net40/ActiproSoftware.Docking.WinForms.dll",
+						"net40/ActiproSoftware.Navigation.WinForms.dll",
+						"net40/ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll",
+						"net40/ActiproSoftware.SyntaxEditor.Addons.JavaScript.WinForms.dll",
+						"net40/ActiproSoftware.SyntaxEditor.Addons.Python.WinForms.dll",
+						"net40/ActiproSoftware.SyntaxEditor.Addons.Xml.WinForms.dll",
+						"net40/ActiproSoftware.SyntaxEditor.WinForms.dll",
+						"net40/ActiproSoftware.Text.Addons.DotNet.WinForms.dll",
+						"net40/ActiproSoftware.Text.Addons.DotNet.Roslyn.WinForms.dll",
+						"net40/ActiproSoftware.Text.Addons.JavaScript.WinForms.dll",
+						"net40/ActiproSoftware.Text.Addons.Python.WinForms.dll",
+						"net40/ActiproSoftware.Text.Addons.Xml.WinForms.dll",
+						"net40/ActiproSoftware.Text.LLParser.WinForms.dll",
+						"net40/ActiproSoftware.Text.WinForms.dll",
+						"net40/ActiproSoftware.Wizard.WinForms.dll"
+						// "**.csproj"
+					]
+				}
+			],
+			"dest": "topics/api",
+			"filter": "api-filter.yml"
+		}
+	],
+	"build": {
+		"content": [
+			{
+				"src": "topics",
+				"files": [
+					"**.md",
+					"api/ActiproSoftware.*.yml",
+					"api/toc.yml",
+					"toc.yml"
+				]
+			}
+		],
+		"resource": [
+			{
+				"src": "topics",
+				"files": [
+					"**.png",
+					"**.gif",
+					"**.jpg"
+				],
+			}
+		],
+		"overwrite": [
+			{
+				"files": [
+					"topics/apidoc/**.md"
+				],
+				"exclude": [
+					"obj/**",
+					"wwwroot/**"
+				]
+			}
+		],
+		"dest": "wwwroot",
+		"globalMetadata": {
+			"_appTitle": "Actipro WinForms Controls Docs",
+			"_docsCompanyHref": "https://www.actiprosoftware.com/products/controls/windowsforms",
+			"_docsCompanyName": "Actipro Software LLC",
+			"_docsCopyrightYears": "1999-2021",
+			"_docsProductHref": "https://www.actiprosoftware.com/products/controls/windowsforms",
+			"_docsProductName": "WinForms Controls",
+			"_docsProductVersion": "21.1",
+			"_disableContribution": true,
+			"_enableNewTab": true,
+			"_gitContribute": {
+				"repo": "https://github.com/Actipro/WinForms-Controls",
+				"branch": "develop",
+				"path": "Documentation/topics",
+				"apiSpecFolder": "Documentation/topics/apidoc"
+			}
+		},
+		"globalMetadataFiles": [],
+		"fileMetadataFiles": [],
+		"template": [
+			"default",
+			"../../Deploy/DocFX-Template"
+		],
+		"postProcessors": [],
+		"markdownEngineName": "markdig",
+		"noLangKeyword": false,
+		"xrefService": [
+			"https://xref.docs.microsoft.com/query?uid={uid}"
+		]
+	}
+}

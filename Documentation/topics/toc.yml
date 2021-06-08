@@ -1,0 +1,750 @@
+items:
+- name: "Welcome"
+  href: index.md
+- name: "Why Choose Actipro Products?"
+  href: why-choose-actipro.md
+- name: "Recent Documentation Updates"
+  href: recent-updates.md
+- name: "Actipro Bars"
+  href: bars/index.md
+  items:
+  - name: "Overview"
+    href: bars/index.md
+  - name: "Commands and Command Links"
+    href: bars/commands/index.md
+    items:
+    - name: "Overview"
+      href: bars/commands/index.md
+    - name: "Buttons"
+      href: bars/commands/buttons.md
+    - name: "Popup Buttons"
+      href: bars/commands/popupbuttons.md
+    - name: "Split Buttons"
+      href: bars/commands/splitbuttons.md
+    - name: "Expander Buttons"
+      href: bars/commands/expander-buttons.md
+    - name: "Labels"
+      href: bars/commands/labels.md
+    - name: "Textboxes"
+      href: bars/commands/textboxes.md
+    - name: "Comboboxes"
+      href: bars/commands/comboboxes.md
+  - name: "Bar Control Types"
+    href: bars/controls/index.md
+    items:
+    - name: "Overview"
+      href: bars/controls/index.md
+    - name: "Dockable Toolbars"
+      href: bars/controls/dockable-toolbars.md
+    - name: "Standalone Toolbars"
+      href: bars/controls/standalone-toolbars.md
+    - name: "Popup Menus"
+      href: bars/controls/popup-menus.md
+    - name: "Statusbars"
+      href: bars/controls/status-bars.md
+  - name: "Creating Layouts in the Designer"
+    href: bars/designer/index.md
+    items:
+    - name: "Overview"
+      href: bars/designer/index.md
+    - name: "Designer for .NET Framework"
+      href: bars/designer/creating-layouts.netfx.md
+    - name: "Designer for .NET Core / .NET 5 and Higher"
+      href: bars/designer/creating-layouts.md
+  - name: "Run-Time Customization"
+    href: bars/run-time-customization.md
+  - name: "Bar Layouts"
+    href: bars/layouts.md
+  - name: "Keyboard Shortcuts"
+    href: bars/keyboard-shortcuts.md
+  - name: "Checkable Buttons"
+    href: bars/checkable-buttons.md
+  - name: "Processing Command Clicks"
+    href: bars/processing-command-clicks.md
+  - name: "Application Modes"
+    href: bars/application-modes.md
+  - name: "Working with MDI"
+    href: bars/working-with-mdi.md
+  - name: "Clipboard Change Notification"
+    href: bars/clipboard-change-notification.md
+  - name: "Extensible Rendering"
+    href: bars/extensible-rendering.md
+  - name: "Troubleshooting"
+    href: bars/troubleshooting.md
+- name: "Actipro Docking & MDI"
+  href: docking/index.md
+  items:
+  - name: "Overview"
+    href: docking/index.md
+  - name: "Complex Hierarchies"
+    href: docking/complex-hierarchies.md
+  - name: "Object Model"
+    href: docking/object-model.md
+  - name: "Window Lifecycle"
+    href: docking/window-lifecycle.md
+  - name: "Tool Windows"
+    href: docking/tool-windows.md
+  - name: "Controlling Window Capabilities"
+    href: docking/controlling-window-capabilities.md
+  - name: "Auto-Hide"
+    href: docking/auto-hide.md
+  - name: "Tool Window Inner-Fill"
+    href: docking/tool-window-inner-fill.md
+  - name: "Magnetism"
+    href: docking/magnetism.md
+  - name: "Next Window Navigation Dialog"
+    href: docking/next-window-navigation.md
+  - name: "Programmatic Docking"
+    href: docking/programmatic-docking.md
+  - name: "Tool Window Layouts"
+    href: docking/tool-window-layouts.md
+  - name: "Tool Tips"
+    href: docking/tooltips.md
+  - name: "Document Windows"
+    href: docking/document-windows.md
+  - name: "Standard MDI"
+    href: docking/standard-mdi.md
+  - name: "Tabbed MDI"
+    href: docking/tabbed-mdi.md
+  - name: "Working with Documents"
+    href: docking/working-with-documents.md
+  - name: "Window Context Images"
+    href: docking/window-context-images.md
+  - name: "Using Forms as Child Controls"
+    href: docking/using-forms-as-child-controls.md
+  - name: "Using the DockManager with ToolStripContainers"
+    href: docking/using-the-dock-manager-with-tool-strip-containers.md
+  - name: "Enabling MenuStrip MDI Merging in Tabbed MDI Mode"
+    href: docking/enabling-menustrip-mdi-merging-in-tabbed-mdi-mode.md
+  - name: "Designer Support"
+    href: docking/designer-support.md
+  - name: "Extensible Rendering"
+    href: docking/extensible-rendering.md
+  - name: "TabStrip Control"
+    href: docking/tabstrip/index.md
+    items:
+    - name: "Overview"
+      href: docking/tabstrip/index.md
+    - name: "Tab Alignments"
+      href: docking/tabstrip/tab-alignments.md
+    - name: "Tab Overflow Styles"
+      href: docking/tabstrip/tab-overflow-styles.md
+    - name: "Page Selection"
+      href: docking/tabstrip/page-selection.md
+    - name: "Context Images"
+      href: docking/tabstrip/context-images.md
+    - name: "Tool Tips"
+      href: docking/tabstrip/tooltips.md
+    - name: "Context Menus"
+      href: docking/tabstrip/context-menus.md
+    - name: "Designer Support"
+      href: docking/tabstrip/designer-support.md
+    - name: "Extensible Rendering"
+      href: docking/tabstrip/extensible-rendering.md
+- name: "Actipro Navigation"
+  href: navigation/index.md
+  items:
+  - name: "Overview"
+    href: navigation/index.md
+  - name: "Run-Time Usage"
+    href: navigation/run-time-usage.md
+  - name: "Pane Selection"
+    href: navigation/pane-selection.md
+  - name: "Navigation Bar Options Dialog"
+    href: navigation/options-dialog.md
+  - name: "Context Menus"
+    href: navigation/context-menus.md
+  - name: "Layouts"
+    href: navigation/layouts.md
+  - name: "Other Events"
+    href: navigation/other-events.md
+  - name: "NavigationBarPanel"
+    href: navigation/navigationbar-panel.md
+  - name: "Designer Support"
+    href: navigation/designer-support.md
+  - name: "Extensible Rendering"
+    href: navigation/extensible-rendering.md
+- name: "Actipro SyntaxEditor"
+  href: syntaxeditor/index.md
+  items:
+  - name: "Overview"
+    href: syntaxeditor/index.md
+  - name: "Getting Started"
+    href: syntaxeditor/getting-started.md
+  - name: "Term Definitions"
+    href: syntaxeditor/term-definitions.md
+  - name: "How To..."
+    href: syntaxeditor/how-to.md
+  - name: "Assemblies and Add-on Licensing"
+    href: syntaxeditor/assemblies.md
+  - name: "Text/Parsing Framework"
+    href: syntaxeditor/text-parsing/index.md
+    items:
+    - name: "Overview"
+      href: syntaxeditor/text-parsing/index.md
+    - name: "Core Text Features"
+      href: syntaxeditor/text-parsing/core-text/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/text-parsing/core-text/index.md
+      - name: "Documents, Snapshots, and Versions"
+        href: syntaxeditor/text-parsing/core-text/documents-snapshots-versions.md
+      - name: "Offsets, Ranges, and Positions"
+        href: syntaxeditor/text-parsing/core-text/offsets-ranges-positions.md
+      - name: "Line Terminators"
+        href: syntaxeditor/text-parsing/core-text/line-terminators.md
+      - name: "Snapshot Translation"
+        href: syntaxeditor/text-parsing/core-text/snapshot-translation.md
+      - name: "Scanning Text Using a Reader"
+        href: syntaxeditor/text-parsing/core-text/scanning-text.md
+      - name: "Text Changes and Operations"
+        href: syntaxeditor/text-parsing/core-text/text-changes.md
+      - name: "Loading and Saving Files"
+        href: syntaxeditor/text-parsing/core-text/loading-saving-files.md
+    - name: "Syntax Languages"
+      href: syntaxeditor/text-parsing/syntax-languages.md
+    - name: "Lexing"
+      href: syntaxeditor/text-parsing/lexing/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/text-parsing/lexing/index.md
+      - name: "Basic Concepts"
+        href: syntaxeditor/text-parsing/lexing/basic-concepts.md
+      - name: "Tokens"
+        href: syntaxeditor/text-parsing/lexing/tokens.md
+      - name: "Dynamic Lexers"
+        href: syntaxeditor/text-parsing/lexing/dynamic-lexers.md
+      - name: "Programmatic Lexers"
+        href: syntaxeditor/text-parsing/lexing/programmatic-lexers.md
+    - name: "Tagging"
+      href: syntaxeditor/text-parsing/tagging/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/text-parsing/tagging/index.md
+      - name: "Tags and Classification Types"
+        href: syntaxeditor/text-parsing/tagging/basic-concepts.md
+      - name: "Taggers and Tagger Providers"
+        href: syntaxeditor/text-parsing/tagging/taggers.md
+      - name: "Tag Aggregators"
+        href: syntaxeditor/text-parsing/tagging/tag-aggregators.md
+    - name: "Parsing"
+      href: syntaxeditor/text-parsing/parsing/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/text-parsing/parsing/index.md
+      - name: "Parse Requests and Dispatchers"
+        href: syntaxeditor/text-parsing/parsing/parse-requests-and-dispatchers.md
+      - name: "Parsers"
+        href: syntaxeditor/text-parsing/parsing/parsers.md
+      - name: "AST Nodes"
+        href: syntaxeditor/text-parsing/parsing/ast-nodes.md
+      - name: "Code Fragments"
+        href: syntaxeditor/text-parsing/parsing/code-fragments.md
+    - name: "Advanced Text Features"
+      href: syntaxeditor/text-parsing/advanced-text/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/text-parsing/advanced-text/index.md
+      - name: "Low-Level Search Operations"
+        href: syntaxeditor/text-parsing/advanced-text/searching.md
+      - name: "Undo History"
+        href: syntaxeditor/text-parsing/advanced-text/undo-history.md
+      - name: "Text Statistics"
+        href: syntaxeditor/text-parsing/advanced-text/statistics.md
+      - name: "Exporting to HTML / RTF"
+        href: syntaxeditor/text-parsing/advanced-text/exporting.md
+      - name: "Line Commenting"
+        href: syntaxeditor/text-parsing/advanced-text/line-commenting.md
+      - name: "Text Formatting"
+        href: syntaxeditor/text-parsing/advanced-text/text-formatting.md
+      - name: "Structure Matching"
+        href: syntaxeditor/text-parsing/advanced-text/structure-matching.md
+      - name: "Lipsum Generator"
+        href: syntaxeditor/text-parsing/advanced-text/lipsum-generator.md
+      - name: "Document Properties"
+        href: syntaxeditor/text-parsing/advanced-text/document-properties.md
+  - name: "User Interface Features"
+    href: syntaxeditor/user-interface/index.md
+    items:
+    - name: "Overview"
+      href: syntaxeditor/user-interface/index.md
+    - name: "Editor View Features"
+      href: syntaxeditor/user-interface/editor-view/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/user-interface/editor-view/index.md
+      - name: "Caret"
+        href: syntaxeditor/user-interface/editor-view/caret.md
+      - name: "Selection and Block Selection"
+        href: syntaxeditor/user-interface/editor-view/selection.md
+      - name: "Locations, Offsets, and Positions"
+        href: syntaxeditor/user-interface/editor-view/locations-offsets-positions.md
+      - name: "View Lines"
+        href: syntaxeditor/user-interface/editor-view/view-lines.md
+      - name: "Splitting"
+        href: syntaxeditor/user-interface/editor-view/splitting.md
+      - name: "Editor View Margins"
+        href: syntaxeditor/user-interface/editor-view/editor-view-margins.md
+      - name: "Whitespace"
+        href: syntaxeditor/user-interface/editor-view/whitespace.md
+      - name: "Word Wrap"
+        href: syntaxeditor/user-interface/editor-view/word-wrap.md
+      - name: "Current Line Highlighting"
+        href: syntaxeditor/user-interface/editor-view/current-line-highlighting.md
+      - name: "Delimiter Highlighting"
+        href: syntaxeditor/user-interface/editor-view/delimiter-highlighting.md
+      - name: "Code Block Selection"
+        href: syntaxeditor/user-interface/editor-view/code-block-selection.md
+      - name: "Indicators"
+        href: syntaxeditor/user-interface/editor-view/indicators.md
+      - name: "Indentation Guides"
+        href: syntaxeditor/user-interface/editor-view/indentation-guides.md
+      - name: "Scrolling"
+        href: syntaxeditor/user-interface/editor-view/scrolling.md
+      - name: "Hit Testing"
+        href: syntaxeditor/user-interface/editor-view/hit-testing.md
+      - name: "View Lifecycle"
+        href: syntaxeditor/user-interface/editor-view/lifecycle.md
+      - name: "Delayed UI Updates"
+        href: syntaxeditor/user-interface/editor-view/delayedui-updates.md
+      - name: "View Properties"
+        href: syntaxeditor/user-interface/editor-view/view-properties.md
+      - name: "Single-Line Mode"
+        href: syntaxeditor/user-interface/editor-view/single-line-mode.md
+    - name: "Input/Output Features"
+      href: syntaxeditor/user-interface/input-output/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/user-interface/input-output/index.md
+      - name: "Document Swapping"
+        href: syntaxeditor/user-interface/input-output/document-swapping.md
+      - name: "Clipboard Operations"
+        href: syntaxeditor/user-interface/input-output/clipboard-operations.md
+      - name: "Drag and Drop"
+        href: syntaxeditor/user-interface/input-output/drag-drop.md
+      - name: "Edit Actions"
+        href: syntaxeditor/user-interface/input-output/edit-actions.md
+      - name: "Default Key Bindings"
+        href: syntaxeditor/user-interface/input-output/default-key-bindings.md
+      - name: "Macro Recording and Playback"
+        href: syntaxeditor/user-interface/input-output/macro-recording.md
+      - name: "Data Binding"
+        href: syntaxeditor/user-interface/input-output/data-binding.md
+      - name: "Indent Providers (Auto-Indent)"
+        href: syntaxeditor/user-interface/input-output/indent-providers.md
+      - name: "Delimiter Auto-Completion"
+        href: syntaxeditor/user-interface/input-output/delimiter-auto-completion.md
+    - name: "Printing Features"
+      href: syntaxeditor/user-interface/printing/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/user-interface/printing/index.md
+      - name: "Print Dialogs"
+        href: syntaxeditor/user-interface/printing/dialogs.md
+      - name: "Print Options"
+        href: syntaxeditor/user-interface/printing/print-options.md
+      - name: "Printer View Margins"
+        href: syntaxeditor/user-interface/printing/printer-view-margins.md
+    - name: "Searching (Find/Replace) Features"
+      href: syntaxeditor/user-interface/searching/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/user-interface/searching/index.md
+      - name: "Programmatically Searching"
+        href: syntaxeditor/user-interface/searching/programmatic-searching.md
+      - name: "Search Overlay Pane"
+        href: syntaxeditor/user-interface/searching/search-overlay-pane.md
+      - name: "Incremental Search"
+        href: syntaxeditor/user-interface/searching/incremental-search.md
+      - name: "Search Result Highlighting"
+        href: syntaxeditor/user-interface/searching/search-result-highlighting.md
+    - name: "IntelliPrompt Features"
+      href: syntaxeditor/user-interface/intelliprompt/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/user-interface/intelliprompt/index.md
+      - name: "Sessions"
+        href: syntaxeditor/user-interface/intelliprompt/sessions.md
+      - name: "Quick Info"
+        href: syntaxeditor/user-interface/intelliprompt/quick-info.md
+      - name: "Completion List"
+        href: syntaxeditor/user-interface/intelliprompt/completion-list.md
+      - name: "Parameter Info"
+        href: syntaxeditor/user-interface/intelliprompt/parameter-info.md
+      - name: "Code Snippets"
+        href: syntaxeditor/user-interface/intelliprompt/code-snippets.md
+      - name: "Content Providers"
+        href: syntaxeditor/user-interface/intelliprompt/popup-content-providers.md
+      - name: "Image Source Providers"
+        href: syntaxeditor/user-interface/intelliprompt/image-source-providers.md
+      - name: "Navigable Symbol Selector"
+        href: syntaxeditor/user-interface/intelliprompt/navigable-symbol-selector.md
+    - name: "Theme and Highlighting Style Features"
+      href: syntaxeditor/user-interface/styles/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/user-interface/styles/index.md
+      - name: "Highlighting Styles"
+        href: syntaxeditor/user-interface/styles/highlighting-styles.md
+      - name: "Highlighting Style Registries"
+        href: syntaxeditor/user-interface/styles/highlighting-style-registries.md
+      - name: "TextStylePreview Control"
+        href: syntaxeditor/user-interface/styles/text-style-preview.md
+    - name: "Adornment Features"
+      href: syntaxeditor/user-interface/adornment/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/user-interface/adornment/index.md
+      - name: "Adornment Layers"
+        href: syntaxeditor/user-interface/adornment/adornment-layers.md
+      - name: "Syntax Highlighting"
+        href: syntaxeditor/user-interface/adornment/syntax-highlighting.md
+      - name: "Squiggle Lines"
+        href: syntaxeditor/user-interface/adornment/squiggle-lines.md
+      - name: "Intra-Text Adornments"
+        href: syntaxeditor/user-interface/adornment/intra-text-adornments.md
+      - name: "Intra-Line Adornments"
+        href: syntaxeditor/user-interface/adornment/intra-line-adornments.md
+    - name: "Outlining and Collapsing Features"
+      href: syntaxeditor/user-interface/outlining/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/user-interface/outlining/index.md
+      - name: "Code Outlining (Folding)"
+        href: syntaxeditor/user-interface/outlining/outlining-general.md
+      - name: "Outlining Nodes and Definitions"
+        href: syntaxeditor/user-interface/outlining/outlining-nodes.md
+      - name: "Outlining Sources and Outliners"
+        href: syntaxeditor/user-interface/outlining/outlining-sources.md
+      - name: "Collapsing Regions Without Outlining"
+        href: syntaxeditor/user-interface/outlining/collapsed-regions.md
+    - name: "Globalization and Accessibility"
+      href: syntaxeditor/user-interface/globalization/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/user-interface/globalization/index.md
+      - name: "IME (Input Method Editor) Support"
+        href: syntaxeditor/user-interface/globalization/ime.md
+      - name: "Bi-Directional Input Support"
+        href: syntaxeditor/user-interface/globalization/bi-di.md
+  - name: "Language Creation Guide"
+    href: syntaxeditor/language-creation/index.md
+    items:
+    - name: "Overview"
+      href: syntaxeditor/language-creation/index.md
+    - name: "Step-by-Step Walkthrough"
+      href: syntaxeditor/language-creation/walkthrough.md
+    - name: "Creating an ISyntaxLanguage"
+      href: syntaxeditor/language-creation/creating-language.md
+    - name: "Loading a Language Definition (.langdef File)"
+      href: syntaxeditor/language-creation/loading-lang-def.md
+    - name: "Service Locator Architecture"
+      href: syntaxeditor/language-creation/service-locator-architecture.md
+    - name: "Feature Services"
+      href: syntaxeditor/language-creation/feature-services/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/language-creation/feature-services/index.md
+      - name: "Lexer"
+        href: syntaxeditor/language-creation/feature-services/lexer.md
+      - name: "Parser"
+        href: syntaxeditor/language-creation/feature-services/parser.md
+      - name: "Outliner"
+        href: syntaxeditor/language-creation/feature-services/outliner.md
+      - name: "Line Commenter"
+        href: syntaxeditor/language-creation/feature-services/line-commenter.md
+      - name: "Example Text"
+        href: syntaxeditor/language-creation/feature-services/example-text.md
+      - name: "Text Statistics"
+        href: syntaxeditor/language-creation/feature-services/text-statistics.md
+      - name: "Word Break Finder"
+        href: syntaxeditor/language-creation/feature-services/word-break-finder.md
+      - name: "Indent Provider (Auto-Indent)"
+        href: syntaxeditor/language-creation/feature-services/indent-provider.md
+      - name: "Text Formatter"
+        href: syntaxeditor/language-creation/feature-services/text-formatter.md
+      - name: "IntelliPrompt Navigable Symbol Provider"
+        href: syntaxeditor/language-creation/feature-services/navigable-symbol-provider.md
+      - name: "Structure Matcher"
+        href: syntaxeditor/language-creation/feature-services/structure-matcher.md
+      - name: "Code Block Finder"
+        href: syntaxeditor/language-creation/feature-services/code-block-finder.md
+      - name: "Auto-Corrector"
+        href: syntaxeditor/language-creation/feature-services/auto-corrector.md
+      - name: "Delimiter Auto-Completer"
+        href: syntaxeditor/language-creation/feature-services/delimiter-auto-completer.md
+      - name: "Line Number Provider"
+        href: syntaxeditor/language-creation/feature-services/line-number-provider.md
+    - name: "Provider Services"
+      href: syntaxeditor/language-creation/provider-services/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/language-creation/provider-services/index.md
+      - name: "Tagger Provider"
+        href: syntaxeditor/language-creation/provider-services/tagger-provider.md
+      - name: "Adornment Manager Provider"
+        href: syntaxeditor/language-creation/provider-services/adornment-manager-provider.md
+      - name: "IntelliPrompt Completion Provider"
+        href: syntaxeditor/language-creation/provider-services/completion-provider.md
+      - name: "IntelliPrompt Quick Info Provider"
+        href: syntaxeditor/language-creation/provider-services/quick-info-provider.md
+      - name: "IntelliPrompt Parameter Info Provider"
+        href: syntaxeditor/language-creation/provider-services/parameter-info-provider.md
+      - name: "IntelliPrompt Code Snippet Provider"
+        href: syntaxeditor/language-creation/provider-services/code-snippet-provider.md
+    - name: "Event Sink Services"
+      href: syntaxeditor/language-creation/event-sinks.md
+    - name: "Using a Language"
+      href: syntaxeditor/language-creation/using-language.md
+  - name: "Language Designer Tool"
+    href: syntaxeditor/language-designer-tool/index.md
+    items:
+    - name: "Overview"
+      href: syntaxeditor/language-designer-tool/index.md
+    - name: "Getting Started"
+      href: syntaxeditor/language-designer-tool/getting-started.md
+    - name: "Lexer Configuration Pane"
+      href: syntaxeditor/language-designer-tool/lexer-config-pane.md
+    - name: "AST Nodes Configuration Pane"
+      href: syntaxeditor/language-designer-tool/ast-nodes-config-pane.md
+    - name: "Other Configuration Panes"
+      href: syntaxeditor/language-designer-tool/other-config-panes.md
+    - name: "Building a Project"
+      href: syntaxeditor/language-designer-tool/building-a-project.md
+    - name: "Live Test"
+      href: syntaxeditor/language-designer-tool/live-test.md
+    - name: "Code Generation"
+      href: syntaxeditor/language-designer-tool/code-generation.md
+    - name: "LL Parser Debugger"
+      href: syntaxeditor/language-designer-tool/ll-parser-debugger.md
+  - name: "Free Languages"
+    href: syntaxeditor/free-languages.md
+  - name: "The 'Simple' Language (used in samples)"
+    href: syntaxeditor/simple-language.md
+  - name: "Regular Expression Guide"
+    href: syntaxeditor/regular-expressions/index.md
+    items:
+    - name: "Overview"
+      href: syntaxeditor/regular-expressions/index.md
+    - name: "Language Elements"
+      href: syntaxeditor/regular-expressions/language-elements.md
+    - name: "Dynamic Lexical Macros"
+      href: syntaxeditor/regular-expressions/dynamic-lexical-macros.md
+  - name: "LL(*) Parser Framework"
+    href: syntaxeditor/ll-parser-framework/index.md
+    items:
+    - name: "Overview"
+      href: syntaxeditor/ll-parser-framework/index.md
+    - name: "Getting Started"
+      href: syntaxeditor/ll-parser-framework/getting-started.md
+    - name: "Lexer Preparation"
+      href: syntaxeditor/ll-parser-framework/lexer-preparation.md
+    - name: "Parser Infrastructure"
+      href: syntaxeditor/ll-parser-framework/parser-infrastructure.md
+    - name: "Symbols and EBNF Terms"
+      href: syntaxeditor/ll-parser-framework/symbols-and-terms.md
+    - name: "Walkthrough: Symbols and EBNF Terms"
+      href: syntaxeditor/ll-parser-framework/walkthrough-symbols-and-terms.md
+    - name: "Tree Constructors"
+      href: syntaxeditor/ll-parser-framework/tree-constructors.md
+    - name: "Walkthrough: Tree Constructors"
+      href: syntaxeditor/ll-parser-framework/walkthrough-tree-constructors.md
+    - name: "Callbacks and Error Handling"
+      href: syntaxeditor/ll-parser-framework/callbacks-and-error-handling.md
+    - name: "Walkthrough: Callbacks and Error Handling"
+      href: syntaxeditor/ll-parser-framework/walkthrough-callbacks-and-error-handling.md
+    - name: "Custom Data"
+      href: syntaxeditor/ll-parser-framework/custom-data.md
+  - name: ".NET Languages Add-on"
+    href: syntaxeditor/dotnet-languages-addon/index.md
+    items:
+    - name: "Overview"
+      href: syntaxeditor/dotnet-languages-addon/index.md
+    - name: "Assemblies"
+      href: syntaxeditor/dotnet-languages-addon/assemblies.md
+    - name: "Reflection Data"
+      href: syntaxeditor/dotnet-languages-addon/reflection.md
+    - name: "Assembly Documentation"
+      href: syntaxeditor/dotnet-languages-addon/documentation.md
+    - name: "Resolver"
+      href: syntaxeditor/dotnet-languages-addon/resolver.md
+    - name: "C# Language"
+      href: syntaxeditor/dotnet-languages-addon/csharp/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/dotnet-languages-addon/csharp/index.md
+      - name: "Getting Started"
+        href: syntaxeditor/dotnet-languages-addon/csharp/getting-started.md
+      - name: "Parsing and Parse Data"
+        href: syntaxeditor/dotnet-languages-addon/csharp/parsing.md
+      - name: "Indent Provider"
+        href: syntaxeditor/dotnet-languages-addon/csharp/indent-provider.md
+      - name: "Text Formatter"
+        href: syntaxeditor/dotnet-languages-addon/csharp/text-formatter.md
+      - name: "Context"
+        href: syntaxeditor/dotnet-languages-addon/csharp/context.md
+      - name: "Automated IntelliPrompt"
+        href: syntaxeditor/dotnet-languages-addon/csharp/intelliprompt.md
+      - name: "Documentation Comment Auto-Completer"
+        href: syntaxeditor/dotnet-languages-addon/csharp/doc-comment-auto-completer.md
+    - name: "Visual Basic Language"
+      href: syntaxeditor/dotnet-languages-addon/vb/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/dotnet-languages-addon/vb/index.md
+      - name: "Getting Started"
+        href: syntaxeditor/dotnet-languages-addon/vb/getting-started.md
+      - name: "Parsing and Parse Data"
+        href: syntaxeditor/dotnet-languages-addon/vb/parsing.md
+      - name: "Indent Provider"
+        href: syntaxeditor/dotnet-languages-addon/vb/indent-provider.md
+      - name: "Text Formatter"
+        href: syntaxeditor/dotnet-languages-addon/vb/text-formatter.md
+      - name: "Context"
+        href: syntaxeditor/dotnet-languages-addon/vb/context.md
+      - name: "Automated IntelliPrompt"
+        href: syntaxeditor/dotnet-languages-addon/vb/intelliprompt.md
+      - name: "Documentation Comment Auto-Completer"
+        href: syntaxeditor/dotnet-languages-addon/vb/doc-comment-auto-completer.md
+    - name: "Troubleshooting"
+      href: syntaxeditor/dotnet-languages-addon/troubleshooting.md
+  - name: "Python Language Add-on"
+    href: syntaxeditor/python-language-addon/index.md
+    items:
+    - name: "Overview"
+      href: syntaxeditor/python-language-addon/index.md
+    - name: "Python Language"
+      href: syntaxeditor/python-language-addon/python/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/python-language-addon/python/index.md
+      - name: "Getting Started"
+        href: syntaxeditor/python-language-addon/python/getting-started.md
+      - name: "Parsing and Parse Data"
+        href: syntaxeditor/python-language-addon/python/parsing.md
+      - name: "Indent Provider"
+        href: syntaxeditor/python-language-addon/python/indent-provider.md
+      - name: "Context"
+        href: syntaxeditor/python-language-addon/python/context.md
+      - name: "Resolver"
+        href: syntaxeditor/python-language-addon/python/resolver.md
+      - name: "Automated IntelliPrompt"
+        href: syntaxeditor/python-language-addon/python/intelliprompt.md
+    - name: "Troubleshooting"
+      href: syntaxeditor/python-language-addon/troubleshooting.md
+  - name: "Web Languages Add-on"
+    href: syntaxeditor/web-languages-addon/index.md
+    items:
+    - name: "Overview"
+      href: syntaxeditor/web-languages-addon/index.md
+    - name: "XML Language"
+      href: syntaxeditor/web-languages-addon/xml/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/web-languages-addon/xml/index.md
+      - name: "Getting Started"
+        href: syntaxeditor/web-languages-addon/xml/getting-started.md
+      - name: "Parsing and Parse Data"
+        href: syntaxeditor/web-languages-addon/xml/parsing.md
+      - name: "Schema Resolver"
+        href: syntaxeditor/web-languages-addon/xml/schema-resolver.md
+      - name: "Validator"
+        href: syntaxeditor/web-languages-addon/xml/validator.md
+      - name: "End Tag Auto-Completer"
+        href: syntaxeditor/web-languages-addon/xml/end-tag-auto-completer.md
+      - name: "Indent Provider"
+        href: syntaxeditor/web-languages-addon/xml/indent-provider.md
+      - name: "Text Formatter"
+        href: syntaxeditor/web-languages-addon/xml/text-formatter.md
+      - name: "Context"
+        href: syntaxeditor/web-languages-addon/xml/context.md
+      - name: "Automated IntelliPrompt"
+        href: syntaxeditor/web-languages-addon/xml/intelliprompt.md
+    - name: "JavaScript Language"
+      href: syntaxeditor/web-languages-addon/javascript/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/web-languages-addon/javascript/index.md
+      - name: "Getting Started"
+        href: syntaxeditor/web-languages-addon/javascript/getting-started.md
+      - name: "Parsing and Parse Data"
+        href: syntaxeditor/web-languages-addon/javascript/parsing.md
+      - name: "Indent Provider"
+        href: syntaxeditor/web-languages-addon/javascript/indent-provider.md
+      - name: "Text Formatter"
+        href: syntaxeditor/web-languages-addon/javascript/text-formatter.md
+      - name: "Automated IntelliPrompt"
+        href: syntaxeditor/web-languages-addon/javascript/intelliprompt.md
+    - name: "JSON Language"
+      href: syntaxeditor/web-languages-addon/json/index.md
+      items:
+      - name: "Overview"
+        href: syntaxeditor/web-languages-addon/json/index.md
+      - name: "Getting Started"
+        href: syntaxeditor/web-languages-addon/json/getting-started.md
+      - name: "Parsing and Parse Data"
+        href: syntaxeditor/web-languages-addon/json/parsing.md
+      - name: "Indent Provider"
+        href: syntaxeditor/web-languages-addon/json/indent-provider.md
+      - name: "Text Formatter"
+        href: syntaxeditor/web-languages-addon/json/text-formatter.md
+    - name: "Troubleshooting"
+      href: syntaxeditor/web-languages-addon/troubleshooting.md
+- name: "Actipro Wizard"
+  href: wizard/index.md
+  items:
+  - name: "Overview"
+    href: wizard/index.md
+  - name: "Interior and Exterior Pages"
+    href: wizard/interior-and-exterior-pages.md
+  - name: "Getting Started"
+    href: wizard/getting-started.md
+  - name: "Wizard Dialog Form"
+    href: wizard/wizard-dialog-form.md
+  - name: "Design-Time Functionality"
+    href: wizard/design-time-functionality.md
+  - name: "Using the New Page Wizard"
+    href: wizard/new-page-wizard.md
+  - name: "Programmatically Controlling Page Sequence"
+    href: wizard/programmatically-controlling-page-sequence.md
+  - name: "Cancelling Page Changes"
+    href: wizard/cancelling-page-changes.md
+  - name: "Processing Pages"
+    href: wizard/processing-pages.md
+  - name: "Localization"
+    href: wizard/localization.md
+  - name: "Working with Background Fills"
+    href: wizard/working-with-background-fills.md
+  - name: "Troubleshooting"
+    href: wizard/troubleshooting.md
+- name: "Actipro Shared Library"
+  href: shared/index.md
+  items:
+  - name: "Overview"
+    href: shared/index.md
+  - name: "Global Renderers"
+    href: shared/global-renderers.md
+- name: "Licensing"
+  href: licensing.md
+- name: "NuGet Packages and Feeds"
+  href: nuget.md
+- name: "Deployment"
+  href: deployment.md
+- name: "Sample Code and QuickStarts"
+  href: quick-starts.md
+- name: "Conversion Notes"
+  href: conversion/index.md
+  items:
+  - name: "Overview"
+    href: conversion/index.md
+  - name: "Converting to v21.1"
+    href: conversion/converting-to-v21-1.md
+  - name: "Converting to v20.1"
+    href: conversion/converting-to-v20-1.md
+  - name: "Converting to v12.1"
+    href: conversion/converting-to-v12-1.md
+- name: "Support"
+  href: support.md
+- name: "API Reference"
+  href: api/
+  homepage: api/index.md
