@@ -13,7 +13,7 @@
 
 				<h2>v2021.1</h2>
 
-				<h3>3/15/2021 - Version 21.1.0</h3>
+				<h3>6/25/2021 - Version 21.1.0</h3>
 
 				<h4>Bars</h4>
 				<ul>
@@ -43,6 +43,7 @@
 					<li>Added the ICodeSnippetTemplateSessionEventSink.NotifySessionOpening method, allowing for code snippet declaration default text customization prior to text insertion.</li>
 					<li>Added the The SyntaxEditor.CanPointerWheelScrollUnfocusedViews property that can be set to false to prevent unfocused editor views from mouse wheel scrolling.</li>
 					<li>Added the CompletionFilter.KeyGesture property and support for key gestures to toggle filter UI buttons and tabs.  Updated the Completion List Filtering QuickStart to demonstrate the new feature.</li>
+					<li>Added a new Adornments Highlight Range QuickStart to demonstrate how to manually tag any range of text with a custom classification and highlighting style.</li>
 					<li>Improved squiggle line height to scale with font size.</li>
 					<li>Improved exception reporting for an invalid dynamic lexer regular expression pattern range.</li>
 					<li>Improved high-DPI layout of the search overlay pane.</li>
@@ -51,8 +52,11 @@
 					<li>Improved LineBasedLineCommenter's logic for determining the selection after a change.</li>
 					<li>Improved the token-caching mechanism.</li>
 					<li>Improved the logic for selection updates when text ranges are collapsed.</li>
-					<li>Improved the indentation guide display logic for scenarios with many blank lines.</li>
+					<li>Improved the logic for selection updates as a result of text changes.</li>
+					<li>Improved the indentation guide display logic for scenarios with blank lines.</li>
 					<li>Improved the print dialog to support the Selection page range option.</li>
+					<li>Improved the copy/cut line logic when on the last view line.</li>
+					<li>Improved outlining margin rendering.</li>
 					<li>Updated the maximum document TabSize to 32.</li>
 					<li>Updated a quick info session to close when a pointer wheel is scrolled.</li>
 					<li>Updated a quick info session to close when its target SnapshotRange is changed to zero-length while the session is open.</li>
@@ -60,7 +64,12 @@
 					<li>Updated clicks in various view locations to ensure the containing view is focused.</li>
 					<li>Updated clicks in the outlining margin to select the view line.</li>
 					<li>Updated how outlining nodes expand in response to text changes around them.</li>
+					<li>Updated the trigger logic for an auto-corrector.</li>
+					<li>Updated Esc key handling while incremental search mode is active to deactivate the mode, but not collapse the selection.</li>
+					<li>Updated the left/right selection adjustment edit actions to support virtual space without having to hold Alt when in Block selection mode.</li>
+					<li>Updated the EditorSnapshotChangingEventArgs/EditorSnapshotChangedEventArgs.TypedText properties to no longer require a single operation.  As a result, incremental search and parameter info can now function with block and multiple selections.</li>
 					<li>Refactored how text offsets are mapped to view character indices and vice versa.</li>
+					<li>Refactored how text selection over a collapsed outlining node is handled.</li>
 					<li>Increased the maximum outlining node depth.</li>
 					<li>Fixed a bug in the handling of a SyntaxEditor.HighlightingStyleRegistry property change.</li>
 					<li>Fixed a bug where multiple sequences of right-to-left ranges of text in a view line might not render correctly.</li>
@@ -70,10 +79,17 @@
 					<li>Fixed a bug where clicking in the number margin for the view's last visible line would scroll the view.</li>
 					<li>Fixed a bug where deleting a zero-length selection at the end of a line could also delete a collapsed outlining node on the next line.</li>
 					<li>Fixed a bug where typing at the start of an outlining node may not shift offsets properly.</li>
+					<li>Fixed a bug where certain edits around collapsed outlining nodes could lead to an invalid state.</li>
 					<li>Fixed a bug where the mouse cursor may not be correct after opening the search overlay pane.</li>
+					<li>Fixed a bug where the selection may be incorrect following certain block-based text changes.</li>
+					<li>Fixed a bug where the IME composition window might appear in the wrong location.</li>
+					<li>Fixed a bug where the IME composition helper could throw an exception in a certain scenario where a SyntaxEditor was disposed.</li>
+					<li>Fixed a bug where the drag/drop caret could show in multiple editor views.</li>
+					<li>Fixed a bug where incremental search could be deactivated by an auto-correct.</li>
 					<li>Fixed a bug with the rendering of an open collapsed outlining node at the end of a document.</li>
 					<li>Fixed a bug with how the view line maximum width cache is updated.</li>
 					<li>Fixed a bug with unused regions within a collapsed region.</li>
+					<li>Fixed a bug with collapsed region quick info indentation.</li>
 					<li>Fixed a bug in the hit-testing logic.</li>
 				</ul>
 				<h5>.NET Languages Add-on</h5>
@@ -81,7 +97,9 @@
 					<li>Added optional extensions to load binary assembly reflection data with Roslyn, which wasn't available in prior WinForms versions.</li>
 					<li>Added C# extern alias support via the new IProjectAssemblyReference.Aliases collection.</li>
 					<li>Improved enumeration of IBinaryAssemblyReferenceCollection to use thread locking.</li>
+					<li>Improved handling of FileNotFoundException when loading binary assemblies.</li>
 					<li>Updated the IntelliPrompt completion list's filters to support key gestures.</li>
+					<li>Updated the resolver to better handle a certain lambda expression scenario.</li>
 					<li>Fixed a bug where an outer type's members could incorrectly appear in the IntelliPrompt completion list in a certain scenario.</li>
 				</ul>
 				<h5>Python Language Add-on</h5>
@@ -92,6 +110,7 @@
 				<h4>Shared</h4>
 				<ul>
 					<li>Updated MarkupLabel's font-family style attribute to support several generic font family names.</li>
+					<li>Updated ScrollBar to ensure that its thumb mouse capture is released if the control becomes disabled.</li>
 				</ul>
 				<h4>All</h4>
 				<ul>

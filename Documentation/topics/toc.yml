@@ -732,6 +732,8 @@ items:
   href: deployment.md
 - name: "Sample Code and QuickStarts"
   href: quick-starts.md
+- name: "Visual Studio Designer"
+  href: visual-studio-designer.md
 - name: "Conversion Notes"
   href: conversion/index.md
   items:

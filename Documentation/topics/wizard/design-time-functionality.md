@@ -5,6 +5,11 @@ order: 5
 ---
 # Design-Time Functionality
 
+Wizard has a lot of designer functionality.  In the designer, you can add/remove pages, configure each wizard page and the child controls on it, and even change the appearance of the wizard and its pages.
+
+> [!NOTE]
+> See the [Visual Studio Designer](../visual-studio-designer.md) topic for details and requirements for designer functionality.
+
 ## Adding and Configuring Pages
 
 Pages represent each step in the wizard.  To add a page while in the designer, right-click on the [Wizard](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard) control and select either the **Add Interior Page**, **Add Exterior Page**, or **Add Welcome Page** actions.

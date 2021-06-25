@@ -45,6 +45,7 @@
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Adornments - Alternating Rows" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsAlternatingRows/" />
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Adornments - Color Preview" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsColorPreview/" />
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Adornments - Highlight Word" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsHighlightWord/" />
+      <Item Kind="InlineSample" BlurbText="New!" Category="General QuickStarts" Title="Adornments - Highlight Range" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsHighlightRange/" />
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Adornments - Squiggles Intro" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsSquigglesIntro/" />
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Adornments - Watermark" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsWatermark/" />
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Classification - Layered" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/ClassificationLayered/" />

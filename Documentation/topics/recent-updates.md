@@ -13,6 +13,8 @@ If you are looking for a list of recently-added major new features to WinForms S
 
 - **All:** Added the [Converting to 2021.1](conversion/converting-to-v21-1.md) topic with information on porting the API namespace changes we made in this version.  API namespaces across the product range were updated in this version for more clear organization and to align with the naming of other platforms.
 
+- **All:** Added the [Visual Studio Designer](visual-studio-designer.md) topic with details on support for working with designers in Visual Studio.
+
 - **Bars:** Updated the [Creating Layouts in the Designer](bars/designer/index.md) topic to differentiate between the traditional designer experience still present with .NET Framework and the new designer experience necessary for use with .NET Core or .NET 5 and higher.
 
 - **SyntaxEditor:** Updated the SyntaxEditor .NET Add-on [Assemblies](syntaxeditor/dotnet-languages-addon/assemblies.md) topic with information on the new Roslyn extensions option for loading binary assemblies.

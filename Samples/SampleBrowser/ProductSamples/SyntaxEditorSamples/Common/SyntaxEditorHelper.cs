@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using ActiproSoftware.Text;
 using ActiproSoftware.Text.Implementation;
+using ActiproSoftware.Text.Languages.DotNet.Reflection;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.Implementation;
 
@@ -19,7 +20,25 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common {
 		public const string SnippetsPath = "ActiproSoftware.ProductSamples.SyntaxEditorSamples.Languages.Snippets.";
 		public const string ThemesPath = "ActiproSoftware.ProductSamples.SyntaxEditorSamples.Languages.Themes.";
 		public const string XmlSchemasPath = "ActiproSoftware.ProductSamples.SyntaxEditorSamples.Languages.XmlSchemas.";
-		
+
+		/// <summary>
+		/// Adds common "System" assembly references to a .NET <see cref="IProjectAssembly"/> to enable IntelliPrompt
+		/// for commonly used types.
+		/// </summary>
+		/// <param name="projectAssembly">The .NET project assembly.</param>
+		public static void AddCommonDotNetSystemAssemblyReferences(IProjectAssembly projectAssembly) {
+			if (projectAssembly is null)
+				throw new ArgumentNullException(nameof(projectAssembly));
+
+			// Iterate the assemblies in the AppDomain and load all "System" assemblies
+			foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies()) {
+				if ((assembly.FullName.StartsWith("System", StringComparison.OrdinalIgnoreCase)) ||
+					(assembly.FullName.StartsWith("mscorlib", StringComparison.OrdinalIgnoreCase))) {
+					projectAssembly.AssemblyReferences.Add(assembly);
+				}
+			}
+		}
+
 		/// <summary>
 		/// Creates an <see cref="ICodeSnippetFolder"/> and initializes it with specified code snippets from embedded resources.
 		/// </summary>

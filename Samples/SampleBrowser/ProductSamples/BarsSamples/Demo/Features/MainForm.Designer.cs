@@ -412,12 +412,16 @@
             this.autoHideContainer3 = new ActiproSoftware.UI.WinForms.Controls.Docking.AutoHideContainer();
             this.autoHideTabStripPanel4 = new ActiproSoftware.UI.WinForms.Controls.Docking.AutoHideTabStripPanel();
             this.autoHideContainer4 = new ActiproSoftware.UI.WinForms.Controls.Docking.AutoHideContainer();
+            this.barManagerPropertyGridPanel = new System.Windows.Forms.Panel();
+            this.toolBarPropertiesPropertyGridPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
             this.barManagerPropertiesToolWindow.SuspendLayout();
             this.toolBarPropertiesToolWindow.SuspendLayout();
             this.eventsToolWindow.SuspendLayout();
             this.toolWindowContainer2.SuspendLayout();
+            this.barManagerPropertyGridPanel.SuspendLayout();
+            this.toolBarPropertiesPropertyGridPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // barManager
@@ -1153,6 +1157,7 @@
             // 
             // imageList
             // 
+            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList.Images.SetKeyName(0, "");
@@ -1192,9 +1197,10 @@
             this.barManagerPropertyGrid.HelpVisible = false;
             this.barManagerPropertyGrid.LineColor = System.Drawing.SystemColors.ScrollBar;
             this.barManagerPropertyGrid.Location = new System.Drawing.Point(-1, -1);
-            this.barManagerPropertyGrid.Name = "barManagerPropertyGrid";
+			this.barManagerPropertyGrid.MinimumSize = new System.Drawing.Size(10, 10);
+			this.barManagerPropertyGrid.Name = "barManagerPropertyGrid";
             this.barManagerPropertyGrid.SelectedObject = this.barManager;
-            this.barManagerPropertyGrid.Size = new System.Drawing.Size(226, 291);
+            this.barManagerPropertyGrid.Size = new System.Drawing.Size(226, 290);
             this.barManagerPropertyGrid.TabIndex = 1;
             this.barManagerPropertyGrid.ToolbarVisible = false;
             // 
@@ -1248,7 +1254,7 @@
             // 
             // barManagerPropertiesToolWindow
             // 
-            this.barManagerPropertiesToolWindow.Controls.Add(this.barManagerPropertyGrid);
+            this.barManagerPropertiesToolWindow.Controls.Add(this.barManagerPropertyGridPanel);
             this.barManagerPropertiesToolWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.barManagerPropertiesToolWindow.DockedSize = new System.Drawing.Size(226, 200);
             this.barManagerPropertiesToolWindow.DockManager = this.dockManager;
@@ -1273,8 +1279,8 @@
             // 
             // toolBarPropertiesToolWindow
             // 
+            this.toolBarPropertiesToolWindow.Controls.Add(this.toolBarPropertiesPropertyGridPanel);
             this.toolBarPropertiesToolWindow.Controls.Add(this.toolBarPropertiesPropertyGridComboBox);
-            this.toolBarPropertiesToolWindow.Controls.Add(this.toolBarPropertiesPropertyGrid);
             this.toolBarPropertiesToolWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolBarPropertiesToolWindow.DockedSize = new System.Drawing.Size(226, 200);
             this.toolBarPropertiesToolWindow.DockManager = this.dockManager;
@@ -1302,9 +1308,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.toolBarPropertiesPropertyGrid.HelpVisible = false;
             this.toolBarPropertiesPropertyGrid.LineColor = System.Drawing.SystemColors.ScrollBar;
-            this.toolBarPropertiesPropertyGrid.Location = new System.Drawing.Point(-1, 20);
-            this.toolBarPropertiesPropertyGrid.Name = "toolBarPropertiesPropertyGrid";
-            this.toolBarPropertiesPropertyGrid.Size = new System.Drawing.Size(226, 270);
+            this.toolBarPropertiesPropertyGrid.Location = new System.Drawing.Point(-1, -1);
+			this.toolBarPropertiesPropertyGrid.MinimumSize = new System.Drawing.Size(10, 10);
+			this.toolBarPropertiesPropertyGrid.Name = "toolBarPropertiesPropertyGrid";
+            this.toolBarPropertiesPropertyGrid.Size = new System.Drawing.Size(226, 267);
             this.toolBarPropertiesPropertyGrid.TabIndex = 17;
             this.toolBarPropertiesPropertyGrid.ToolbarVisible = false;
             // 
@@ -1472,6 +1479,24 @@
             this.autoHideContainer4.Size = new System.Drawing.Size(0, 0);
             this.autoHideContainer4.TabIndex = 21;
             // 
+            // barManagerPropertyGridPanel
+            // 
+            this.barManagerPropertyGridPanel.Controls.Add(this.barManagerPropertyGrid);
+            this.barManagerPropertyGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.barManagerPropertyGridPanel.Location = new System.Drawing.Point(0, 0);
+            this.barManagerPropertyGridPanel.Name = "barManagerPropertyGridPanel";
+            this.barManagerPropertyGridPanel.Size = new System.Drawing.Size(224, 288);
+            this.barManagerPropertyGridPanel.TabIndex = 1;
+            // 
+            // toolBarPropertiesPropertyGridPanel
+            // 
+            this.toolBarPropertiesPropertyGridPanel.Controls.Add(this.toolBarPropertiesPropertyGrid);
+            this.toolBarPropertiesPropertyGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolBarPropertiesPropertyGridPanel.Location = new System.Drawing.Point(0, 23);
+            this.toolBarPropertiesPropertyGridPanel.Name = "toolBarPropertiesPropertyGridPanel";
+            this.toolBarPropertiesPropertyGridPanel.Size = new System.Drawing.Size(224, 265);
+            this.toolBarPropertiesPropertyGridPanel.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
@@ -1491,7 +1516,7 @@
             this.Controls.Add(this.barDockArea3);
             this.Controls.Add(this.barDockArea4);
             this.Controls.Add(this.statusBar);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.KeyPreview = true;
@@ -1504,6 +1529,8 @@
             this.toolBarPropertiesToolWindow.ResumeLayout(false);
             this.eventsToolWindow.ResumeLayout(false);
             this.toolWindowContainer2.ResumeLayout(false);
+            this.barManagerPropertyGridPanel.ResumeLayout(false);
+            this.toolBarPropertiesPropertyGridPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -1537,5 +1564,7 @@
 		private ActiproSoftware.UI.WinForms.Controls.Docking.AutoHideTabStripPanel autoHideTabStripPanel3;
 		private ActiproSoftware.UI.WinForms.Controls.Docking.AutoHideContainer autoHideContainer4;
 		private ActiproSoftware.UI.WinForms.Controls.Docking.AutoHideTabStripPanel autoHideTabStripPanel4;
+		private System.Windows.Forms.Panel barManagerPropertyGridPanel;
+		private System.Windows.Forms.Panel toolBarPropertiesPropertyGridPanel;
 	}
 }

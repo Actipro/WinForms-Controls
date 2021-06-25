@@ -47,7 +47,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.SingleLi
 				resolver.AddSchemaFromStream(stream);
 			}
 			// Xml.xsd is also required for Xhtml.xsd
-			using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XML.xsd")) {
+			using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "Xml.xsd")) {
 				resolver.AddSchemaFromStream(stream);
 			}
 			xmlEditor.Document.Language.RegisterXmlSchemaResolver(resolver);

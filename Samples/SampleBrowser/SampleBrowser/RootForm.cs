@@ -320,7 +320,7 @@ namespace ActiproSoftware.SampleBrowser {
 		/// <param name="e">The <c>EventArgs</c> that contains data related to the event.</param>
 		private void OnOpenSampleProjectMenuItemClick(object sender, EventArgs e) {
 			var appPath = Assembly.GetExecutingAssembly().Location;
-			var path = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(appPath), @".\..\..\..\SampleApplication-CSharp.sln"));
+			var path = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(appPath), @".\..\..\..\SampleBrowser.sln"));
 			if (File.Exists(path)) {
 				// Open the solution
 				Program.ShellExecute(path);

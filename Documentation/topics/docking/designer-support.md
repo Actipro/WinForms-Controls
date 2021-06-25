@@ -9,6 +9,9 @@ The Dock controls provide design-time support, making it easy to configure the d
 
 Tool window layouts created in the designer are persisted to code.  When the application is run, the layout is restored just as it was designed in the designer.
 
+> [!NOTE]
+> See the [Visual Studio Designer](../visual-studio-designer.md) topic for details and requirements for designer functionality.
+
 ## Creating a Tool Window for a Control
 
 During design-time, you can create a tool window for a control:

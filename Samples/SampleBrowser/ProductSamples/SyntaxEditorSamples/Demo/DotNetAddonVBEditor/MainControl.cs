@@ -1,4 +1,5 @@
-﻿using ActiproSoftware.SampleBrowser;
+﻿using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
+using ActiproSoftware.SampleBrowser;
 using ActiproSoftware.Text.Languages.DotNet;
 using ActiproSoftware.Text.Languages.DotNet.Reflection;
 using ActiproSoftware.Text.Languages.VB.Implementation;
@@ -62,17 +63,13 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonVBE
 
 		private void DotNetProjectAssemblyReferenceLoader(object sender, DoWorkEventArgs e) {
 			// Add some common assemblies for reflection (any custom assemblies could be added using various Add overloads instead)
-			projectAssembly.AssemblyReferences.AddMsCorLib();
-			#if !NETCORE
-			projectAssembly.AssemblyReferences.Add("System");
-			projectAssembly.AssemblyReferences.Add("System.Core");
-			#endif
+			SyntaxEditorHelper.AddCommonDotNetSystemAssemblyReferences(projectAssembly);
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// NON-PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 		/// <summary>
 		/// Creates a new file.
 		/// </summary>
@@ -86,7 +83,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonVBE
 		/// <param name="sender">The sender of the event.</param>
 		/// <param name="e">The <c>CollectionChangeEventArgs</c> that contains data related to this event.</param>
 		private void OnAssemblyReferencesChanged(object sender, Text.Utility.CollectionChangeEventArgs<IProjectAssemblyReference> e) {
-			this.RefreshReferenceList();
+			if (this.InvokeRequired)
+				this.Invoke((Action)(() => this.RefreshReferenceList()));
+			else
+				this.RefreshReferenceList();
 		}
 
 		/// <summary>
@@ -113,9 +113,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonVBE
 						if (assembly != null) {
 							// Add to references
 							projectAssembly.AssemblyReferences.Add(assembly);
-
-							// Reset list
-							this.RefreshReferenceList();
 						}
 					}
 					catch (FileLoadException ex) {
@@ -248,9 +245,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonVBE
 
 			// Remove the selected reference
 			projectAssembly.AssemblyReferences.RemoveAt(referencesListBox.SelectedIndex);
-
-			// Reset list
-			this.RefreshReferenceList();
 		}
 		
 		/// <summary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
 using ActiproSoftware.SampleBrowser;
 using ActiproSoftware.Text;
 using ActiproSoftware.Text.Languages.CSharp.Implementation;
@@ -59,17 +60,13 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CodeFrag
 		
 		private void DotNetProjectAssemblyReferenceLoader(object sender, DoWorkEventArgs e) {
 			// Add some common assemblies for reflection (any custom assemblies could be added using various Add overloads instead)
-			projectAssembly.AssemblyReferences.AddMsCorLib();
-			#if !NETCORE
-			projectAssembly.AssemblyReferences.Add("System");
-			projectAssembly.AssemblyReferences.Add("System.Core");
-			#endif
+			SyntaxEditorHelper.AddCommonDotNetSystemAssemblyReferences(projectAssembly);
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 		/// <summary>
 		/// Notifies the UI that it has been loaded.
 		/// </summary>

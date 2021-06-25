@@ -12,6 +12,7 @@ using System.Reflection;
 using System.Security;
 using System.Text;
 using System.Windows.Forms;
+using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
 
 namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonCSharpEditor {
 
@@ -62,11 +63,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonCSh
 
 		private void DotNetProjectAssemblyReferenceLoader(object sender, DoWorkEventArgs e) {
 			// Add some common assemblies for reflection (any custom assemblies could be added using various Add overloads instead)
-			projectAssembly.AssemblyReferences.AddMsCorLib();
-			#if !NETCORE
-			projectAssembly.AssemblyReferences.Add("System");
-			projectAssembly.AssemblyReferences.Add("System.Core");
-			#endif
+			SyntaxEditorHelper.AddCommonDotNetSystemAssemblyReferences(projectAssembly);
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,7 +83,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonCSh
 		/// <param name="sender">The sender of the event.</param>
 		/// <param name="e">The <c>CollectionChangeEventArgs</c> that contains data related to this event.</param>
 		private void OnAssemblyReferencesChanged(object sender, Text.Utility.CollectionChangeEventArgs<IProjectAssemblyReference> e) {
-			this.RefreshReferenceList();
+			if (this.InvokeRequired)
+				this.Invoke((Action)(() => this.RefreshReferenceList()));
+			else
+				this.RefreshReferenceList();
 		}
 
 		/// <summary>
@@ -113,9 +113,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonCSh
 						if (assembly != null) {
 							// Add to references
 							projectAssembly.AssemblyReferences.Add(assembly);
-
-							// Reset list
-							this.RefreshReferenceList();
 						}
 					}
 					catch (FileLoadException ex) {
@@ -248,9 +245,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonCSh
 
 			// Remove the selected reference
 			projectAssembly.AssemblyReferences.RemoveAt(referencesListBox.SelectedIndex);
-
-			// Reset list
-			this.RefreshReferenceList();
 		}
 		
 		/// <summary>

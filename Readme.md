@@ -54,7 +54,7 @@ Follow these steps to run the application:
 
 Complete [product documentation](https://www.actiprosoftware.com/docs/controls/winforms/index) is available on our web site.
 
-[![Sample Browser](.github/image-content/documentation.png)](https://www.actiprosoftware.com/docs/controls/winforms/index)
+[![Online Documentation](.github/image-content/documentation.png)](https://www.actiprosoftware.com/docs/controls/winforms/index)
 
 The Markdown source code for the product documentation is contained within this repo's `Documentation\topics` folder.  The documentation is built with [DocFx](https://github.com/dotnet/docfx). 
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.PrinterViewMarginsCustom {
@@ -32,7 +33,13 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.PrinterV
 		/// <param name="sender">The sender of the event.</param>
 		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
 		private void OnShowPrintPreviewDialogButtonClick(object sender, EventArgs e) {
-			editor.ShowPrintPreviewDialog();
-		}
+			try {
+				editor.ShowPrintPreviewDialog();
+			}
+			catch (Exception ex) {
+				Debug.WriteLine($"Error executing command.  {ex}");
+				MessageBox.Show($"Error executing command.  {ex.Message}", "Error Executing Command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+}
 	}
 }

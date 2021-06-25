@@ -12,6 +12,9 @@ The Bars controls are specifically designed to make the design-time customizatio
 
 To get started working with a new bar layout, please follow the steps in this topic.
 
+> [!NOTE]
+> See the [Visual Studio Designer](../../visual-studio-designer.md) topic for details and requirements for designer functionality.
+
 ## Add a BarManager
 
 Menubars, dockable toolbars, popup menus, and (optionally) standalone toolbars are all managed by a [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager).

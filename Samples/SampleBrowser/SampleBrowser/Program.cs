@@ -1,8 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ActiproSoftware.SampleBrowser {
@@ -11,6 +10,8 @@ namespace ActiproSoftware.SampleBrowser {
 	/// Contains the main entry point for the application.
 	/// </summary>
 	static class Program {
+
+		private const string OnlineDocumentationUrl = "https://www.actiprosoftware.com/docs/controls/winforms/index";
 		
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// NON-PUBLIC PROCEDURES
@@ -108,21 +109,23 @@ namespace ActiproSoftware.SampleBrowser {
 			if (regKey != null) {
 				path = regKey.GetValue("Path") as string;
 				if (path != null)
-					path = Path.Combine(path, "Documentation.chm");
+					path = Path.Combine(path, @"Documentation\index.html");
 				regKey.Close();
 			}
 
-			if (string.IsNullOrWhiteSpace(path)) {
-				// Show a message
-				MessageBox.Show("Unable to determine the location of the product documentation.  Please access it from your Windows Programs menu's group for this product instead.", "Documentation Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-			}
-			else if (File.Exists(path)) {
-				// Open the documentation
-				ShellExecute(path);
+			if (File.Exists(path)) {
+				try {
+					// Open the documentation
+					ShellExecute(path);
+				}
+				catch (Exception ex) {
+					MessageBox.Show(String.Format(CultureInfo.CurrentCulture, "The documentation file '{0}' was unable to be opened.  The error message was: {1}", path, ex.Message),
+						"Documentation Not Opened", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				}
 			}
 			else {
-				// Show a message
-				MessageBox.Show("The documentation was not found at '" + path + "'.  Please access it from your Windows Programs menu's group for this product instead.", "Documentation Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				// Open online documentation
+				LaunchExternalBrowser(String.Format(@"{0}?v={1}.{2}", OnlineDocumentationUrl, version.Major, version.Minor));
 			}
 		}
 

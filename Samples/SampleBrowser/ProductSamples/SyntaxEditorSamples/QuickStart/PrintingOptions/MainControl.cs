@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingStarted15;
 
@@ -108,9 +109,15 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Printing
 		/// <param name="sender">The sender of the event.</param>
 		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
 		private void OnShowPrintPreviewDialogButtonClick(object sender, EventArgs e) {
-			editor.ShowPrintPreviewDialog();
+			try {
+				editor.ShowPrintPreviewDialog();
+			}
+			catch (Exception ex) {
+				Debug.WriteLine($"Error executing command.  {ex}");
+				MessageBox.Show($"Error executing command.  {ex.Message}", "Error Executing Command", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
-		
+
 		/// <summary>
 		/// Occurs when the checkbox is checked or unchecked.
 		/// </summary>

@@ -46,7 +46,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.WebAddonHtmlEd
 			}
 
 			// Xml.xsd is also required for Xhtml.xsd
-			using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XML.xsd")) {
+			using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "Xml.xsd")) {
 				resolver.AddSchemaFromStream(stream);
 			}
 			

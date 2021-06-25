@@ -15,6 +15,7 @@ using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Outlining;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
@@ -74,18 +75,8 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 
 		private void DotNetProjectAssemblyReferenceLoader(object sender, DoWorkEventArgs e) {
 			// Add some common assemblies for reflection (any custom assemblies could be added using various Add overloads instead)
-
-			cSharpProjectAssembly.AssemblyReferences.AddMsCorLib();
-			#if !NETCORE
-			cSharpProjectAssembly.AssemblyReferences.Add("System");
-			cSharpProjectAssembly.AssemblyReferences.Add("System.Core");
-			#endif
-
-			vbProjectAssembly.AssemblyReferences.AddMsCorLib();
-			#if !NETCORE
-			vbProjectAssembly.AssemblyReferences.Add("System");
-			vbProjectAssembly.AssemblyReferences.Add("System.Core");
-			#endif
+			SyntaxEditorHelper.AddCommonDotNetSystemAssemblyReferences(cSharpProjectAssembly);
+			SyntaxEditorHelper.AddCommonDotNetSystemAssemblyReferences(vbProjectAssembly);
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -351,288 +342,294 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 		/// <param name="sender">The sender of the event.</param>
 		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
 		private void OnMainToolStripItemClicked(object sender, ToolStripItemClickedEventArgs e) {
-			switch (e.ClickedItem.Name) {
-				case nameof(cancelMacroToolStripButton):
-				case nameof(cancelRecordingToolStripMenuItem):
-					editor.ActiveView.ExecuteEditAction(EditorCommands.CancelMacroRecording);
-					break;
-				case nameof(capitalizeToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.ChangeCharacterCasing(ActiproSoftware.Text.CharacterCasing.Normal);
-					break;
-				case nameof(commentLinesToolStripButton):
-				case nameof(commentLinesToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.CommentLines();
-					break;
-				case nameof(convertSpacesToTabsToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.ConvertSpacesToTabs();
-					break;
-				case nameof(convertTabsToSpacesToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.ConvertTabsToSpaces();
-					break;
-				case nameof(copyAppendToolStripMenuItem):
-					editor.ActiveView.CopyAndAppendToClipboard();
-					break;
-				case nameof(copyToolStripButton):
-				case nameof(copyToolStripMenuItem):
-					editor.ActiveView.CopyToClipboard();
-					break;
-				case nameof(cutAppendToolStripMenuItem):
-					editor.ActiveView.CutAndAppendToClipboard();
-					break;
-				case nameof(cutToolStripButton):
-				case nameof(cutToolStripMenuItem):
-					editor.ActiveView.CutToClipboard();
-					break;
-				case nameof(decreaseLineIndentToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.Outdent();
-					break;
-				case nameof(deleteToolStripButton):
-				case nameof(deleteToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.Delete();
-					break;
-				case nameof(deleteBlankLinesToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.DeleteBlankLines();
-					break;
-				case nameof(deleteHorizontalWhitespaceToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.DeleteHorizontalWhitespace();
-					break;
-				case nameof(deleteLineToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.DeleteLine();
-					break;
-				case nameof(duplicateToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.Duplicate();
-					break;
-				case nameof(exitToolStripMenuItem):
-					BeginInvoke((Action)(() => { MessageBox.Show("Close the application here."); }));
-					break;
-				case nameof(formatDocumentToolStripButton):
-				case nameof(formatDocumentToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.FormatDocument();
-					break;
-				case nameof(formatSelectionToolStripButton):
-				case nameof(formatSelectionToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.FormatSelection();
-					break;
-				case nameof(increaseLineIndentToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.Indent();
-					break;
-				case nameof(incrementalSearchToolStripMenuItem):
-					editor.ActiveView.IsIncrementalSearchActive = true;
-					break;
-				case nameof(importVisualStudioSettingsToolStripMenuItem):
-					BeginInvoke((Action)(() => { this.OpenVSSettingsFile(); }));
-					break;
-				case nameof(insertLorumIpsumToolStripMenuItem):
-					editor.ActiveView.SelectedText = new ActiproSoftware.Text.Utility.LipsumGenerator().GenerateParagraph(true, 30);
-					break;
-				case nameof(insertSnippetToolStripButton):
-				case nameof(insertSnippetToolStripMenuItem):
-					editor.ActiveView.IntelliPrompt.RequestInsertSnippetSession();
-					break;
-				case nameof(makeLowercaseToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.ChangeCharacterCasing(ActiproSoftware.Text.CharacterCasing.Lower);
-					break;
-				case nameof(makeUppercaseToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.ChangeCharacterCasing(ActiproSoftware.Text.CharacterCasing.Upper);
-					break;
-				case nameof(moveSelectedLinesDownToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.MoveSelectedLinesDown();
-					break;
-				case nameof(moveSelectedLinesUpToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.MoveSelectedLinesUp();
-					break;
-				case nameof(newDocumentToolStripButton):
-				case nameof(newToolStripMenuItem):
-					this.NewFile();
-					break;
-				case nameof(openDocumentToolStripButton):
-				case nameof(openToolStripMenuItem):
-					BeginInvoke((Action)(() => { this.OpenFile(); }));
-					break;
-				case nameof(pasteToolStripButton):
-				case nameof(pasteToolStripMenuItem):
-					editor.ActiveView.PasteFromClipboard();
-					break;
-				case nameof(pauseRecordingToolStripButton):
-				case nameof(pauseRecordingToolStripMenuItem):
-					editor.ActiveView.ExecuteEditAction(EditorCommands.PauseResumeMacroRecording);
-					break;
-				case nameof(printPreviewToolStripButton):
-				case nameof(printPreviewToolStripMenuItem):
-					editor.ShowPrintPreviewDialog();
-					break;
-				case nameof(printToolStripButton):
-				case nameof(printToolStripMenuItem):
-					editor.ShowPrintDialog();
-					break;
-				case nameof(recordMacroToolStripButton):
-				case nameof(recordMacroToolStripMenuItem):
-					editor.ActiveView.ExecuteEditAction(EditorCommands.ToggleMacroRecording);
-					break;
-				case nameof(redoToolStripButton):
-				case nameof(redoToolStripMenuItem):
-					editor.Document.UndoHistory.Redo();
-					break;
-				case nameof(requestIntelliPromptAutoCompleteToolStripButton):
-				case nameof(completeWordToolStripMenuItem):
-					editor.ActiveView.IntelliPrompt.RequestAutoComplete();
-					break;
-				case nameof(requestIntelliPromptCompletionSessionToolStripButton):
-				case nameof(completionListToolStripMenuItem):
-					editor.ActiveView.IntelliPrompt.RequestCompletionSession();
-					break;
-				case nameof(requestIntelliPromptParameterInfoSessionToolStripButton):
-				case nameof(parameterInfoToolStripMenuItem):
-					editor.ActiveView.IntelliPrompt.RequestParameterInfoSession();
-					break;
-				case nameof(requestIntelliPromptQuickInfoSessionToolStripButton):
-				case nameof(quickInfoToolStripMenuItem):
-					editor.ActiveView.IntelliPrompt.RequestQuickInfoSession();
-					break;
-				case nameof(runMacroToolStripButton):
-				case nameof(runRecordedMacroToolStripMenuItem):
-					editor.ActiveView.ExecuteEditAction(EditorCommands.RunMacro);
-					break;
-				case nameof(saveDocumentToolStripButton):
-				case nameof(saveToolStripMenuItem):
-					// NOTE: Save the document here and flag as not modified
-					BeginInvoke((Action)(() => { MessageBox.Show("Save the document here."); }));
-					editor.Document.IsModified = false;
-					break;
-				case nameof(selectAllToolStripMenuItem):
-					editor.ActiveView.Selection.SelectAll();
-					break;
-				case nameof(surroundWithToolStripMenuItem):
-					editor.ActiveView.IntelliPrompt.RequestSurroundWithSession();
-					break;
-				case nameof(tabifySelectedLinesToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.TabifySelectedLines();
-					break;
-				case nameof(toggleCharacterCasingToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.ToggleCharacterCasing();
-					break;
-				case nameof(transposeCharactersToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.TransposeCharacters();
-					break;
-				case nameof(transposeLinesToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.TransposeLines();
-					break;
-				case nameof(transposeWordsToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.TransposeWords();
-					break;
-				case nameof(trimAllTrailingWhitespaceToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.TrimAllTrailingWhitespace();
-					break;
-				case nameof(trimTrailingWhitespaceToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.TrimTrailingWhitespace();
-					break;
-				case nameof(uncommentLinesToolStripButton):
-				case nameof(uncommentLinesToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.UncommentLines();
-					break;
-				case nameof(undoToolStripButton):
-				case nameof(undoToolStripMenuItem):
-					editor.Document.UndoHistory.Undo();
-					break;
-				case nameof(untabifySelectedLinesToolStripMenuItem):
-					editor.ActiveView.TextChangeActions.UntabifySelectedLines();
-					break;
-				// View menu
-				case nameof(indicatorMarginVisibleToolStripMenuItem):
-					indicatorMarginVisibleToolStripMenuItem.Checked = !indicatorMarginVisibleToolStripMenuItem.Checked;
-					editor.IsIndicatorMarginVisible = indicatorMarginVisibleToolStripMenuItem.Checked;
-					break;
-				case nameof(lineNumberMarginVisibleToolStripMenuItem):
-					lineNumberMarginVisibleToolStripMenuItem.Checked = !lineNumberMarginVisibleToolStripMenuItem.Checked;
-					editor.IsLineNumberMarginVisible = lineNumberMarginVisibleToolStripMenuItem.Checked;
-					break;
-				case nameof(outliningMarginVisibleToolStripMenuItem):
-					outliningMarginVisibleToolStripMenuItem.Checked = !outliningMarginVisibleToolStripMenuItem.Checked;
-					editor.IsOutliningMarginVisible = outliningMarginVisibleToolStripMenuItem.Checked;
-					break;
-				case nameof(rulerMarginVisibleToolStripMenuItem):
-					rulerMarginVisibleToolStripMenuItem.Checked = !rulerMarginVisibleToolStripMenuItem.Checked;
-					editor.IsRulerMarginVisible = rulerMarginVisibleToolStripMenuItem.Checked;
-					break;
-				case nameof(selectionMarginVisibleToolStripMenuItem):
-					selectionMarginVisibleToolStripMenuItem.Checked = !selectionMarginVisibleToolStripMenuItem.Checked;
-					editor.IsSelectionMarginVisible = selectionMarginVisibleToolStripMenuItem.Checked;
-					break;
-				case nameof(wordWrapToolStripMenuItem):
-					wordWrapToolStripMenuItem.Checked = !wordWrapToolStripMenuItem.Checked;
-					editor.IsWordWrapEnabled = wordWrapToolStripMenuItem.Checked;
-					break;
-				case nameof(wordWrapGlyphsVisibleToolStripMenuItem):
-					wordWrapGlyphsVisibleToolStripMenuItem.Checked = !wordWrapGlyphsVisibleToolStripMenuItem.Checked;
-					editor.AreWordWrapGlyphsVisible = wordWrapGlyphsVisibleToolStripMenuItem.Checked;
-					break;
-				case nameof(whitespaceVisibleToolStripMenuItem):
-					whitespaceVisibleToolStripMenuItem.Checked = !whitespaceVisibleToolStripMenuItem.Checked;
-					editor.IsWhitespaceVisible = whitespaceVisibleToolStripMenuItem.Checked;
-					break;
-				case nameof(canScrollPastDocumentEndToolStripMenuItem):
-					canScrollPastDocumentEndToolStripMenuItem.Checked = !canScrollPastDocumentEndToolStripMenuItem.Checked;
-					editor.CanScrollPastDocumentEnd = canScrollPastDocumentEndToolStripMenuItem.Checked;
-					break;
-				case nameof(virtualSpaceAtLineEndToolStripMenuItem):
-					virtualSpaceAtLineEndToolStripMenuItem.Checked = !virtualSpaceAtLineEndToolStripMenuItem.Checked;
-					editor.IsVirtualSpaceAtLineEndEnabled = virtualSpaceAtLineEndToolStripMenuItem.Checked;
-					break;
-				case nameof(indentationGuidesVisibleToolStripMenuItem):
-					indentationGuidesVisibleToolStripMenuItem.Checked = !indentationGuidesVisibleToolStripMenuItem.Checked;
-					editor.AreIndentationGuidesVisible = indentationGuidesVisibleToolStripMenuItem.Checked;
-					break;
-				case nameof(lineModificationMarksVisibleToolStripMenuItem):
-					lineModificationMarksVisibleToolStripMenuItem.Checked = !lineModificationMarksVisibleToolStripMenuItem.Checked;
-					editor.AreLineModificationMarksVisible = lineModificationMarksVisibleToolStripMenuItem.Checked;
-					break;
-				case nameof(currentLineHighlightingEnabledToolStripMenuItem):
-					currentLineHighlightingEnabledToolStripMenuItem.Checked = !currentLineHighlightingEnabledToolStripMenuItem.Checked;
-					editor.IsCurrentLineHighlightingEnabled = currentLineHighlightingEnabledToolStripMenuItem.Checked;
-					break;
-				case nameof(delimiterHighlightingEnabledToolStripMenuItem):
-					delimiterHighlightingEnabledToolStripMenuItem.Checked = !delimiterHighlightingEnabledToolStripMenuItem.Checked;
-					editor.IsDelimiterHighlightingEnabled = delimiterHighlightingEnabledToolStripMenuItem.Checked;
-					break;
-				case nameof(autoCorrectEnabledToolStripMenuItem):
-					autoCorrectEnabledToolStripMenuItem.Checked = !autoCorrectEnabledToolStripMenuItem.Checked;
-					editor.IsAutoCorrectEnabled = autoCorrectEnabledToolStripMenuItem.Checked;
-					break;
-				// Outlining menu
-				case nameof(collapseToDefinitionsToolStripMenuItem):
-					editor.ActiveView.ExecuteEditAction(EditorCommands.CollapseToDefinitions);
-					break;
-				case nameof(hideSelectionToolStripMenuItem):
-					editor.ActiveView.ExecuteEditAction(EditorCommands.HideSelection);
-					break;
-				case nameof(toggleOutliningExpansionToolStripMenuItem):
-					editor.ActiveView.ExecuteEditAction(EditorCommands.ToggleOutliningExpansion);
-					break;
-				case nameof(toggleAllOutliningToolStripMenuItem):
-					editor.ActiveView.ExecuteEditAction(EditorCommands.ToggleAllOutliningExpansion);
-					break;
-				case nameof(stopOutliningToolStripMenuItem):
-					editor.ActiveView.ExecuteEditAction(EditorCommands.StopOutlining);
-					break;
-				case nameof(stopHidingCurrentToolStripMenuItem):
-					editor.ActiveView.ExecuteEditAction(EditorCommands.StopHidingCurrent);
-					break;
-				case nameof(startAutomaticOutliningToolStripMenuItem):
-					editor.ActiveView.ExecuteEditAction(EditorCommands.StartAutomaticOutlining);
-					break;
-				// Window menu
-				case nameof(canSplitHorizontallyToolStripMenuItem):
-					canSplitHorizontallyToolStripMenuItem.Checked = !canSplitHorizontallyToolStripMenuItem.Checked;
-					editor.CanSplitHorizontally = canSplitHorizontallyToolStripMenuItem.Checked;
-					break;
-				case nameof(hasHorizontalSplitToolStripMenuItem):
-					hasHorizontalSplitToolStripMenuItem.Checked = !hasHorizontalSplitToolStripMenuItem.Checked;
-					editor.HasHorizontalSplit = hasHorizontalSplitToolStripMenuItem.Checked;
-					break;
-				case nameof(isDocumentReadonlyToolStripMenuItem):
-					isDocumentReadonlyToolStripMenuItem.Checked = !isDocumentReadonlyToolStripMenuItem.Checked;
-					editor.Document.IsReadOnly = isDocumentReadonlyToolStripMenuItem.Checked;
-					break;
+			try {
+				switch (e.ClickedItem.Name) {
+					case nameof(cancelMacroToolStripButton):
+					case nameof(cancelRecordingToolStripMenuItem):
+						editor.ActiveView.ExecuteEditAction(EditorCommands.CancelMacroRecording);
+						break;
+					case nameof(capitalizeToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.ChangeCharacterCasing(ActiproSoftware.Text.CharacterCasing.Normal);
+						break;
+					case nameof(commentLinesToolStripButton):
+					case nameof(commentLinesToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.CommentLines();
+						break;
+					case nameof(convertSpacesToTabsToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.ConvertSpacesToTabs();
+						break;
+					case nameof(convertTabsToSpacesToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.ConvertTabsToSpaces();
+						break;
+					case nameof(copyAppendToolStripMenuItem):
+						editor.ActiveView.CopyAndAppendToClipboard();
+						break;
+					case nameof(copyToolStripButton):
+					case nameof(copyToolStripMenuItem):
+						editor.ActiveView.CopyToClipboard();
+						break;
+					case nameof(cutAppendToolStripMenuItem):
+						editor.ActiveView.CutAndAppendToClipboard();
+						break;
+					case nameof(cutToolStripButton):
+					case nameof(cutToolStripMenuItem):
+						editor.ActiveView.CutToClipboard();
+						break;
+					case nameof(decreaseLineIndentToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.Outdent();
+						break;
+					case nameof(deleteToolStripButton):
+					case nameof(deleteToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.Delete();
+						break;
+					case nameof(deleteBlankLinesToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.DeleteBlankLines();
+						break;
+					case nameof(deleteHorizontalWhitespaceToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.DeleteHorizontalWhitespace();
+						break;
+					case nameof(deleteLineToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.DeleteLine();
+						break;
+					case nameof(duplicateToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.Duplicate();
+						break;
+					case nameof(exitToolStripMenuItem):
+						BeginInvoke((Action)(() => { MessageBox.Show("Close the application here."); }));
+						break;
+					case nameof(formatDocumentToolStripButton):
+					case nameof(formatDocumentToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.FormatDocument();
+						break;
+					case nameof(formatSelectionToolStripButton):
+					case nameof(formatSelectionToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.FormatSelection();
+						break;
+					case nameof(increaseLineIndentToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.Indent();
+						break;
+					case nameof(incrementalSearchToolStripMenuItem):
+						editor.ActiveView.IsIncrementalSearchActive = true;
+						break;
+					case nameof(importVisualStudioSettingsToolStripMenuItem):
+						BeginInvoke((Action)(() => { this.OpenVSSettingsFile(); }));
+						break;
+					case nameof(insertLorumIpsumToolStripMenuItem):
+						editor.ActiveView.SelectedText = new ActiproSoftware.Text.Utility.LipsumGenerator().GenerateParagraph(true, 30);
+						break;
+					case nameof(insertSnippetToolStripButton):
+					case nameof(insertSnippetToolStripMenuItem):
+						editor.ActiveView.IntelliPrompt.RequestInsertSnippetSession();
+						break;
+					case nameof(makeLowercaseToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.ChangeCharacterCasing(ActiproSoftware.Text.CharacterCasing.Lower);
+						break;
+					case nameof(makeUppercaseToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.ChangeCharacterCasing(ActiproSoftware.Text.CharacterCasing.Upper);
+						break;
+					case nameof(moveSelectedLinesDownToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.MoveSelectedLinesDown();
+						break;
+					case nameof(moveSelectedLinesUpToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.MoveSelectedLinesUp();
+						break;
+					case nameof(newDocumentToolStripButton):
+					case nameof(newToolStripMenuItem):
+						this.NewFile();
+						break;
+					case nameof(openDocumentToolStripButton):
+					case nameof(openToolStripMenuItem):
+						BeginInvoke((Action)(() => { this.OpenFile(); }));
+						break;
+					case nameof(pasteToolStripButton):
+					case nameof(pasteToolStripMenuItem):
+						editor.ActiveView.PasteFromClipboard();
+						break;
+					case nameof(pauseRecordingToolStripButton):
+					case nameof(pauseRecordingToolStripMenuItem):
+						editor.ActiveView.ExecuteEditAction(EditorCommands.PauseResumeMacroRecording);
+						break;
+					case nameof(printPreviewToolStripButton):
+					case nameof(printPreviewToolStripMenuItem):
+						editor.ShowPrintPreviewDialog();
+						break;
+					case nameof(printToolStripButton):
+					case nameof(printToolStripMenuItem):
+						editor.ShowPrintDialog();
+						break;
+					case nameof(recordMacroToolStripButton):
+					case nameof(recordMacroToolStripMenuItem):
+						editor.ActiveView.ExecuteEditAction(EditorCommands.ToggleMacroRecording);
+						break;
+					case nameof(redoToolStripButton):
+					case nameof(redoToolStripMenuItem):
+						editor.Document.UndoHistory.Redo();
+						break;
+					case nameof(requestIntelliPromptAutoCompleteToolStripButton):
+					case nameof(completeWordToolStripMenuItem):
+						editor.ActiveView.IntelliPrompt.RequestAutoComplete();
+						break;
+					case nameof(requestIntelliPromptCompletionSessionToolStripButton):
+					case nameof(completionListToolStripMenuItem):
+						editor.ActiveView.IntelliPrompt.RequestCompletionSession();
+						break;
+					case nameof(requestIntelliPromptParameterInfoSessionToolStripButton):
+					case nameof(parameterInfoToolStripMenuItem):
+						editor.ActiveView.IntelliPrompt.RequestParameterInfoSession();
+						break;
+					case nameof(requestIntelliPromptQuickInfoSessionToolStripButton):
+					case nameof(quickInfoToolStripMenuItem):
+						editor.ActiveView.IntelliPrompt.RequestQuickInfoSession();
+						break;
+					case nameof(runMacroToolStripButton):
+					case nameof(runRecordedMacroToolStripMenuItem):
+						editor.ActiveView.ExecuteEditAction(EditorCommands.RunMacro);
+						break;
+					case nameof(saveDocumentToolStripButton):
+					case nameof(saveToolStripMenuItem):
+						// NOTE: Save the document here and flag as not modified
+						BeginInvoke((Action)(() => { MessageBox.Show("Save the document here."); }));
+						editor.Document.IsModified = false;
+						break;
+					case nameof(selectAllToolStripMenuItem):
+						editor.ActiveView.Selection.SelectAll();
+						break;
+					case nameof(surroundWithToolStripMenuItem):
+						editor.ActiveView.IntelliPrompt.RequestSurroundWithSession();
+						break;
+					case nameof(tabifySelectedLinesToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.TabifySelectedLines();
+						break;
+					case nameof(toggleCharacterCasingToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.ToggleCharacterCasing();
+						break;
+					case nameof(transposeCharactersToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.TransposeCharacters();
+						break;
+					case nameof(transposeLinesToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.TransposeLines();
+						break;
+					case nameof(transposeWordsToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.TransposeWords();
+						break;
+					case nameof(trimAllTrailingWhitespaceToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.TrimAllTrailingWhitespace();
+						break;
+					case nameof(trimTrailingWhitespaceToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.TrimTrailingWhitespace();
+						break;
+					case nameof(uncommentLinesToolStripButton):
+					case nameof(uncommentLinesToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.UncommentLines();
+						break;
+					case nameof(undoToolStripButton):
+					case nameof(undoToolStripMenuItem):
+						editor.Document.UndoHistory.Undo();
+						break;
+					case nameof(untabifySelectedLinesToolStripMenuItem):
+						editor.ActiveView.TextChangeActions.UntabifySelectedLines();
+						break;
+					// View menu
+					case nameof(indicatorMarginVisibleToolStripMenuItem):
+						indicatorMarginVisibleToolStripMenuItem.Checked = !indicatorMarginVisibleToolStripMenuItem.Checked;
+						editor.IsIndicatorMarginVisible = indicatorMarginVisibleToolStripMenuItem.Checked;
+						break;
+					case nameof(lineNumberMarginVisibleToolStripMenuItem):
+						lineNumberMarginVisibleToolStripMenuItem.Checked = !lineNumberMarginVisibleToolStripMenuItem.Checked;
+						editor.IsLineNumberMarginVisible = lineNumberMarginVisibleToolStripMenuItem.Checked;
+						break;
+					case nameof(outliningMarginVisibleToolStripMenuItem):
+						outliningMarginVisibleToolStripMenuItem.Checked = !outliningMarginVisibleToolStripMenuItem.Checked;
+						editor.IsOutliningMarginVisible = outliningMarginVisibleToolStripMenuItem.Checked;
+						break;
+					case nameof(rulerMarginVisibleToolStripMenuItem):
+						rulerMarginVisibleToolStripMenuItem.Checked = !rulerMarginVisibleToolStripMenuItem.Checked;
+						editor.IsRulerMarginVisible = rulerMarginVisibleToolStripMenuItem.Checked;
+						break;
+					case nameof(selectionMarginVisibleToolStripMenuItem):
+						selectionMarginVisibleToolStripMenuItem.Checked = !selectionMarginVisibleToolStripMenuItem.Checked;
+						editor.IsSelectionMarginVisible = selectionMarginVisibleToolStripMenuItem.Checked;
+						break;
+					case nameof(wordWrapToolStripMenuItem):
+						wordWrapToolStripMenuItem.Checked = !wordWrapToolStripMenuItem.Checked;
+						editor.IsWordWrapEnabled = wordWrapToolStripMenuItem.Checked;
+						break;
+					case nameof(wordWrapGlyphsVisibleToolStripMenuItem):
+						wordWrapGlyphsVisibleToolStripMenuItem.Checked = !wordWrapGlyphsVisibleToolStripMenuItem.Checked;
+						editor.AreWordWrapGlyphsVisible = wordWrapGlyphsVisibleToolStripMenuItem.Checked;
+						break;
+					case nameof(whitespaceVisibleToolStripMenuItem):
+						whitespaceVisibleToolStripMenuItem.Checked = !whitespaceVisibleToolStripMenuItem.Checked;
+						editor.IsWhitespaceVisible = whitespaceVisibleToolStripMenuItem.Checked;
+						break;
+					case nameof(canScrollPastDocumentEndToolStripMenuItem):
+						canScrollPastDocumentEndToolStripMenuItem.Checked = !canScrollPastDocumentEndToolStripMenuItem.Checked;
+						editor.CanScrollPastDocumentEnd = canScrollPastDocumentEndToolStripMenuItem.Checked;
+						break;
+					case nameof(virtualSpaceAtLineEndToolStripMenuItem):
+						virtualSpaceAtLineEndToolStripMenuItem.Checked = !virtualSpaceAtLineEndToolStripMenuItem.Checked;
+						editor.IsVirtualSpaceAtLineEndEnabled = virtualSpaceAtLineEndToolStripMenuItem.Checked;
+						break;
+					case nameof(indentationGuidesVisibleToolStripMenuItem):
+						indentationGuidesVisibleToolStripMenuItem.Checked = !indentationGuidesVisibleToolStripMenuItem.Checked;
+						editor.AreIndentationGuidesVisible = indentationGuidesVisibleToolStripMenuItem.Checked;
+						break;
+					case nameof(lineModificationMarksVisibleToolStripMenuItem):
+						lineModificationMarksVisibleToolStripMenuItem.Checked = !lineModificationMarksVisibleToolStripMenuItem.Checked;
+						editor.AreLineModificationMarksVisible = lineModificationMarksVisibleToolStripMenuItem.Checked;
+						break;
+					case nameof(currentLineHighlightingEnabledToolStripMenuItem):
+						currentLineHighlightingEnabledToolStripMenuItem.Checked = !currentLineHighlightingEnabledToolStripMenuItem.Checked;
+						editor.IsCurrentLineHighlightingEnabled = currentLineHighlightingEnabledToolStripMenuItem.Checked;
+						break;
+					case nameof(delimiterHighlightingEnabledToolStripMenuItem):
+						delimiterHighlightingEnabledToolStripMenuItem.Checked = !delimiterHighlightingEnabledToolStripMenuItem.Checked;
+						editor.IsDelimiterHighlightingEnabled = delimiterHighlightingEnabledToolStripMenuItem.Checked;
+						break;
+					case nameof(autoCorrectEnabledToolStripMenuItem):
+						autoCorrectEnabledToolStripMenuItem.Checked = !autoCorrectEnabledToolStripMenuItem.Checked;
+						editor.IsAutoCorrectEnabled = autoCorrectEnabledToolStripMenuItem.Checked;
+						break;
+					// Outlining menu
+					case nameof(collapseToDefinitionsToolStripMenuItem):
+						editor.ActiveView.ExecuteEditAction(EditorCommands.CollapseToDefinitions);
+						break;
+					case nameof(hideSelectionToolStripMenuItem):
+						editor.ActiveView.ExecuteEditAction(EditorCommands.HideSelection);
+						break;
+					case nameof(toggleOutliningExpansionToolStripMenuItem):
+						editor.ActiveView.ExecuteEditAction(EditorCommands.ToggleOutliningExpansion);
+						break;
+					case nameof(toggleAllOutliningToolStripMenuItem):
+						editor.ActiveView.ExecuteEditAction(EditorCommands.ToggleAllOutliningExpansion);
+						break;
+					case nameof(stopOutliningToolStripMenuItem):
+						editor.ActiveView.ExecuteEditAction(EditorCommands.StopOutlining);
+						break;
+					case nameof(stopHidingCurrentToolStripMenuItem):
+						editor.ActiveView.ExecuteEditAction(EditorCommands.StopHidingCurrent);
+						break;
+					case nameof(startAutomaticOutliningToolStripMenuItem):
+						editor.ActiveView.ExecuteEditAction(EditorCommands.StartAutomaticOutlining);
+						break;
+					// Window menu
+					case nameof(canSplitHorizontallyToolStripMenuItem):
+						canSplitHorizontallyToolStripMenuItem.Checked = !canSplitHorizontallyToolStripMenuItem.Checked;
+						editor.CanSplitHorizontally = canSplitHorizontallyToolStripMenuItem.Checked;
+						break;
+					case nameof(hasHorizontalSplitToolStripMenuItem):
+						hasHorizontalSplitToolStripMenuItem.Checked = !hasHorizontalSplitToolStripMenuItem.Checked;
+						editor.HasHorizontalSplit = hasHorizontalSplitToolStripMenuItem.Checked;
+						break;
+					case nameof(isDocumentReadonlyToolStripMenuItem):
+						isDocumentReadonlyToolStripMenuItem.Checked = !isDocumentReadonlyToolStripMenuItem.Checked;
+						editor.Document.IsReadOnly = isDocumentReadonlyToolStripMenuItem.Checked;
+						break;
+				}
+			}
+			catch (Exception ex) {
+				Debug.WriteLine($"Error executing command.  {ex}");
+				MessageBox.Show($"Error executing command.  {ex.Message}", "Error Executing Command", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
 		
@@ -658,7 +655,8 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 		/// <param name="sender">The sender of the event.</param>
 		/// <param name="e">A <see cref="EditorDocumentChangedEventArgs"/> that contains the event data.</param>
 		private void OnSyntaxEditorDocumentChanged(object sender, EditorDocumentChangedEventArgs e) {
-			this.AppendMessage("DocumentChanged");
+			if (!editor.IsDisposed)
+				this.AppendMessage("DocumentChanged");
 		}
 		
 		/// <summary>

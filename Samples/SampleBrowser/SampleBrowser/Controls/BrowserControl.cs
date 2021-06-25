@@ -118,12 +118,19 @@ namespace ActiproSoftware.SampleBrowser {
 					control = control.Parent;
 				}
 			}
+			else if (e.Url.OriginalString.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+				e.Url.OriginalString.StartsWith("https://", StringComparison.OrdinalIgnoreCase)) {
+				e.Cancel = true;
+
+				// Force all links to open outside of the application
+				Program.LaunchExternalBrowser(e.Url.OriginalString);
+			}
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 		/// <summary>
 		/// Navigates to the specified URL.
 		/// </summary>

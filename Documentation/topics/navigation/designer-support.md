@@ -5,7 +5,12 @@ order: 10
 ---
 # Designer Support
 
-[NavigationBar](xref:ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationBar) provides rich design-time support, making it easy to configure the control in the Visual Studio designer.  After you drop a [NavigationBar](xref:ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationBar) control on a designer `Form` from the **Toolbox**, toggle the **Smart Tag** panel for a list of designer actions. The designer actions can also be accessed from the control's context menu.  The **Add Pane** action can be used to add a new [NavigationPane](xref:ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationPane).  Alternatively, you may modify the [Panes](xref:ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationBar.Panes) collection on the [NavigationBar](xref:ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationBar) control to add/remove panes or reorder them.
+[NavigationBar](xref:ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationBar) provides rich design-time support, making it easy to configure the control in the Visual Studio designer.
+
+> [!NOTE]
+> See the [Visual Studio Designer](../visual-studio-designer.md) topic for details and requirements for designer functionality.
+
+After you drop a [NavigationBar](xref:ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationBar) control on a designer `Form` from the **Toolbox**, toggle the **Smart Tag** panel for a list of designer actions. The designer actions can also be accessed from the control's context menu.  The **Add Pane** action can be used to add a new [NavigationPane](xref:ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationPane).  Alternatively, you may modify the [Panes](xref:ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationBar.Panes) collection on the [NavigationBar](xref:ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationBar) control to add/remove panes or reorder them.
 
 ![Screenshot](images/navigationbar-designer.png)
 

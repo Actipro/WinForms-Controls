@@ -324,7 +324,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.WebAddonXmlEdi
 		private void OpenXhtmlSchema() {
 			using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XHTML.xsd")) {
 				// Xml.xsd is also required for Xhtml.xsd
-				using (Stream stream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XML.xsd")) {
+				using (Stream stream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "Xml.xsd")) {
 					this.OpenSchema("Xhtml.xsd", null, stream, stream2);
 				}
 			}
@@ -338,11 +338,11 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.WebAddonXmlEdi
 		/// Opens the XSD schema.
 		/// </summary>
 		private void OpenXsdSchema() {
-			using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XMLSchema.xsd")) {
+			using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XmlSchema.xsd")) {
 				this.OpenSchema("XmlSchema.xsd", null, stream);
 			}
 
-			using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XMLSchema.xsd")) {
+			using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XmlSchema.xsd")) {
 				this.OpenFile("XmlSchema.xsd", stream);
 			}
 		}
@@ -353,9 +353,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.WebAddonXmlEdi
 		private void OpenXsltSchema() {
 			using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XSLT.xsd")) {
 				// XmlSchema.xsd is required for Xslt.xsd
-				using (Stream stream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XMLSchema.xsd")) {
+				using (Stream stream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XmlSchema.xsd")) {
 					// Xml.xsd is also required for Xslt.xsd
-					using (Stream stream3 = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "XML.xsd")) {
+					using (Stream stream3 = Assembly.GetExecutingAssembly().GetManifestResourceStream(SyntaxEditorHelper.XmlSchemasPath + "Xml.xsd")) {
 						this.OpenSchema("Xslt.xsd", null, stream, stream2, stream3);
 					}
 				}

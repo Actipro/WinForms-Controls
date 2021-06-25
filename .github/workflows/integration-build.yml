@@ -1,14 +1,13 @@
 name: Integration Build
 
 on:
-  # TODO:
-  #push:
-  #  paths-ignore:
-  #  - '.editorconfig'
-  #  - '**.md'
-  #  - '.github/**'
-  #  - 'Documentation/**'
-  #pull_request:
+  push:
+    paths-ignore:
+    - '.editorconfig'
+    - '**.md'
+    - '.github/**'
+    - 'Documentation/**'
+  pull_request:
   workflow_dispatch:
 
 jobs:
