@@ -84,7 +84,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonCSh
 		/// <param name="e">The <c>CollectionChangeEventArgs</c> that contains data related to this event.</param>
 		private void OnAssemblyReferencesChanged(object sender, Text.Utility.CollectionChangeEventArgs<IProjectAssemblyReference> e) {
 			if (this.InvokeRequired)
-				this.Invoke((Action)(() => this.RefreshReferenceList()));
+				this.BeginInvoke((Action)(() => this.RefreshReferenceList()));
 			else
 				this.RefreshReferenceList();
 		}

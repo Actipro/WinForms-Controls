@@ -69,7 +69,7 @@ The following code calls the `ActiproLicenseManager.RegisterLicense` method usin
 ```csharp
 [STAThread]
 public static void Main() {
-	// TODO: Set "licensee" and "licenseKey" variables to your license information
+	// NOTE: Set "licensee" and "licenseKey" variables to your license information
 	ActiproSoftware.Products.ActiproLicenseManager.RegisterLicense(licensee, licenseKey);
 
 	// Application startup code here

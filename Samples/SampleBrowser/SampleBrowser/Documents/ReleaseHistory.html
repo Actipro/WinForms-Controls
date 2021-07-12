@@ -13,7 +13,7 @@
 
 				<h2>v2021.1</h2>
 
-				<h3>6/25/2021 - Version 21.1.0</h3>
+				<h3>7/12/2021 - Version 21.1.0</h3>
 
 				<h4>Bars</h4>
 				<ul>
@@ -44,19 +44,23 @@
 					<li>Added the The SyntaxEditor.CanPointerWheelScrollUnfocusedViews property that can be set to false to prevent unfocused editor views from mouse wheel scrolling.</li>
 					<li>Added the CompletionFilter.KeyGesture property and support for key gestures to toggle filter UI buttons and tabs.  Updated the Completion List Filtering QuickStart to demonstrate the new feature.</li>
 					<li>Added a new Adornments Highlight Range QuickStart to demonstrate how to manually tag any range of text with a custom classification and highlighting style.</li>
+					<li>Added support for a transparent plain text background.</li>
 					<li>Improved squiggle line height to scale with font size.</li>
 					<li>Improved exception reporting for an invalid dynamic lexer regular expression pattern range.</li>
 					<li>Improved high-DPI layout of the search overlay pane.</li>
 					<li>Improved printer view layout logic.</li>
 					<li>Improved the IOutliningManager.CollapseToDefinitions logic.</li>
-					<li>Improved LineBasedLineCommenter's logic for determining the selection after a change.</li>
+					<li>Improved the line commenter logic for determining the selection after a change.</li>
 					<li>Improved the token-caching mechanism.</li>
 					<li>Improved the logic for selection updates when text ranges are collapsed.</li>
 					<li>Improved the logic for selection updates as a result of text changes.</li>
 					<li>Improved the indentation guide display logic for scenarios with blank lines.</li>
 					<li>Improved the print dialog to support the Selection page range option.</li>
 					<li>Improved the copy/cut line logic when on the last view line.</li>
+					<li>Improved the line number margin to support bold/italic fonts.</li>
+					<li>Improved the scrolling experience when selecting in virtual space.</li>
 					<li>Improved outlining margin rendering.</li>
+					<li>Improved word wrap logic.</li>
 					<li>Updated the maximum document TabSize to 32.</li>
 					<li>Updated a quick info session to close when a pointer wheel is scrolled.</li>
 					<li>Updated a quick info session to close when its target SnapshotRange is changed to zero-length while the session is open.</li>
@@ -68,8 +72,11 @@
 					<li>Updated Esc key handling while incremental search mode is active to deactivate the mode, but not collapse the selection.</li>
 					<li>Updated the left/right selection adjustment edit actions to support virtual space without having to hold Alt when in Block selection mode.</li>
 					<li>Updated the EditorSnapshotChangingEventArgs/EditorSnapshotChangedEventArgs.TypedText properties to no longer require a single operation.  As a result, incremental search and parameter info can now function with block and multiple selections.</li>
+					<li>Updated text changes that retain selection to not scroll the editor view to the caret.</li>
+					<li>Updated clicks in a view to ensure the parent Form is activated.</li>
 					<li>Refactored how text offsets are mapped to view character indices and vice versa.</li>
 					<li>Refactored how text selection over a collapsed outlining node is handled.</li>
+					<li>Refactored how SyntaxEditor.DocumentTextChanged events are raised to ensure that they occur in snapshot version order.</li>
 					<li>Increased the maximum outlining node depth.</li>
 					<li>Fixed a bug in the handling of a SyntaxEditor.HighlightingStyleRegistry property change.</li>
 					<li>Fixed a bug where multiple sequences of right-to-left ranges of text in a view line might not render correctly.</li>
@@ -85,7 +92,10 @@
 					<li>Fixed a bug where the IME composition window might appear in the wrong location.</li>
 					<li>Fixed a bug where the IME composition helper could throw an exception in a certain scenario where a SyntaxEditor was disposed.</li>
 					<li>Fixed a bug where the drag/drop caret could show in multiple editor views.</li>
+					<li>Fixed a bug where the line number margin might not measure correctly.</li>
 					<li>Fixed a bug where incremental search could be deactivated by an auto-correct.</li>
+					<li>Fixed a bug where word-based selection around a collapsed outlining node could expand the node.</li>
+					<li>Fixed a bug where resizing a view could lead to some adornments rendering in the wrong location.</li>
 					<li>Fixed a bug with the rendering of an open collapsed outlining node at the end of a document.</li>
 					<li>Fixed a bug with how the view line maximum width cache is updated.</li>
 					<li>Fixed a bug with unused regions within a collapsed region.</li>
@@ -112,6 +122,7 @@
 				<ul>
 					<li>Updated MarkupLabel's font-family style attribute to support several generic font family names.</li>
 					<li>Updated ScrollBar to ensure that its thumb mouse capture is released if the control becomes disabled.</li>
+					<li>Updated CanvasControl's text rendering logic to ensure fallback fonts don't increase line height.</li>
 				</ul>
 				<h4>All</h4>
 				<ul>
