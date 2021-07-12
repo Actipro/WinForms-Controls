@@ -1,0 +1,160 @@
+
+body {
+	background: #eceeef;
+	font-family: Segoe UI, sans-serif;
+	font-size: 1rem;
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-size: 2rem;
+	font-weight: 400;
+	margin: 0;
+}
+
+h2 {
+	font-size: 1.8rem;
+	font-weight: 400;
+	margin: 0.5rem 0;
+}
+
+h3 {
+	color: #357935;
+	font-size: 1.5rem;
+	font-weight: 400;
+	margin: 2rem 0 0.5rem 0;
+}
+
+h4 {
+	color: #013e73;
+	font-size: 1.3rem;
+	font-weight: 400;
+	margin: 0.5rem 0;
+}
+
+h5 {
+	color: #464a4c;
+	font-size: 1.2rem;
+	font-weight: 400;
+	margin: 0.5rem 0;
+}
+
+h3:first-child {
+	margin-top: 0.5rem;
+}
+
+a {
+	color: #0267bf;
+	font-weight: 600;
+	text-decoration: none !important;
+}
+
+a:hover {
+	color: #fe9929;
+}
+
+small {
+	font-size: 85%;
+}
+
+strong {
+	font-weight: 600;
+}
+
+ul {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-left: 2em;
+	list-style-image: url("data:image/svg+xml,%3Csvg width='5' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='3' width='5' height='5' fill='%230267bf'/%3E%3C/svg%3E");
+}
+
+#master-section-wrapper {
+	border-bottom: 1px solid #cfd0d0;
+}
+
+#section-header {
+	background-color: #007acc;
+	background-image: linear-gradient(45deg, #007acc 0%, #419cea 100%);
+	border-bottom: 1px solid #cfd0d0;
+	color: #ffffff;
+	padding: 1em 50px;
+	vertical-align: middle;
+}
+
+#actipro-logo-header-link {
+	background: url('../../Resources/CompanyLogo.png') no-repeat;
+	display: block;
+	float: right;
+	height: 26px;
+	margin-top: 0.6rem;
+	width: 100px;
+}
+
+.section-content {
+	background: #fbfbfb;
+	border: 0 solid #eceeef;
+	border-width: 1px 0;
+	color: #131314;
+	padding: 1.5em 50px;
+}
+
+.section-content.bg-silver {
+	background: #f2f4f5;
+}
+
+.btn {
+	background-color: #449d44;
+	border-color: #3d8b3d;
+	border-radius: 5px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	color: #ffffff;
+	display: inline-block;
+	font-size: 1.25em;
+	padding: 0.37rem 1.5rem;
+}
+
+.btn:hover {
+	background-color: #4cae4c;
+	border-color: #3d8b3d;
+	color: #ffffff;
+}
+
+.container {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 1140px;
+}
+
+.container::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.d-none {
+	display: none;
+}
+
+.float-left {
+	float: left;
+	margin: 0 2em 1em 0;
+}
+
+.float-right {
+	float: right;
+	margin: 0 0 1em 2em;
+}
+
+.lead {
+	font-size: 1.25em;
+}
+
+.shadow {
+	background: #ffffff;
+	box-shadow: 0 3px 25px 3px rgba(0,0,0,0.07), 0 6px 6px rgba(0,0,0,0.09);
+}
+
+.text-center {
+	text-align: center;
+}

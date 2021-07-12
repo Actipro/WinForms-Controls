@@ -1,0 +1,802 @@
+<html>
+<head>
+	<title>Release History</title>
+	<link rel="stylesheet" type="text/css" href="Default.css" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+<body>
+
+	<div id="master-section-wrapper">
+
+		<div class="section-content">
+			<div class="container">
+
+				<h2>v2021.1</h2>
+
+				<h3>7/12/2021 - Version 21.1.0</h3>
+
+				<h4>Bars</h4>
+				<ul>
+					<li>Added IBarRenderer.DrawCommandLinkInCustomizeList to support rendering BarCommandLink within a user-drawn ListBox.</li>
+					<li>Improved processing of mnemonic key for BarCommandLink and auto-generated tool tip text.</li>
+					<li>Improved performance of BarManager rendering related to resolving the IBarControl containing a BarCommandLink.</li>
+					<li>Removed BarManager.PopupAnimation which has not been supported since Windows XP.</li>
+				</ul>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Added the DockManager.ExecuteTabbedMdiWindowContextMenuItem method which can be used to execute the logic of a context menu item for a specified TabbedMdiWindow.</li>
+					<li>Improved drop target rendering when dragging TabbedMdiWindow.</li>
+					<li>Updated floating document windows to not always appear on top of the main Form.</li>
+				</ul>
+				<h4>Navigation</h4>
+				<ul>
+					<li>Added NavigationBar.MoveNavigationPaneDown and NavigationBar.MoveNavigationPaneUp which can be used adjust the position of a NavigationPane. Use NavigationBar.CanMoveNavigationPaneDown and NavigationBar.CanMoveNavigationPaneUp to test if the corresponding method is valid.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added support for semi-transparent text foregrounds.</li>
+					<li>Added completion item inline descriptions that can render optional text along the right side of a completion list item.  Updated the .NET Languages Add-on's Completion Override QuickStart to demonstrate the new feature.</li>
+					<li>Added a new IUnusedRegionTag that can be applied to ranges of unused code that should be rendered using partial transparency.</li>
+					<li>Added a new Unused Regions QuickStart to demonstrate the new unused regions feature.</li>
+					<li>Added features so the macro recording mechanism can be customized.  Updates include a new IMacroAction interface, making our default MacroRecording object public, adding a virtual SyntaxEditor.CreateMacroRecording method, and more.</li>
+					<li>Added the SyntaxEditor.ViewActionExecuting event that is raised immediately before an edit action occurs within an editor view, allowing the action to be canceled.</li>
+					<li>Added the ICodeSnippetTemplateSessionEventSink.NotifySessionOpening method, allowing for code snippet declaration default text customization prior to text insertion.</li>
+					<li>Added the The SyntaxEditor.CanPointerWheelScrollUnfocusedViews property that can be set to false to prevent unfocused editor views from mouse wheel scrolling.</li>
+					<li>Added the CompletionFilter.KeyGesture property and support for key gestures to toggle filter UI buttons and tabs.  Updated the Completion List Filtering QuickStart to demonstrate the new feature.</li>
+					<li>Added a new Adornments Highlight Range QuickStart to demonstrate how to manually tag any range of text with a custom classification and highlighting style.</li>
+					<li>Added support for a transparent plain text background.</li>
+					<li>Improved squiggle line height to scale with font size.</li>
+					<li>Improved exception reporting for an invalid dynamic lexer regular expression pattern range.</li>
+					<li>Improved high-DPI layout of the search overlay pane.</li>
+					<li>Improved printer view layout logic.</li>
+					<li>Improved the IOutliningManager.CollapseToDefinitions logic.</li>
+					<li>Improved the line commenter logic for determining the selection after a change.</li>
+					<li>Improved the token-caching mechanism.</li>
+					<li>Improved the logic for selection updates when text ranges are collapsed.</li>
+					<li>Improved the logic for selection updates as a result of text changes.</li>
+					<li>Improved the indentation guide display logic for scenarios with blank lines.</li>
+					<li>Improved the print dialog to support the Selection page range option.</li>
+					<li>Improved the copy/cut line logic when on the last view line.</li>
+					<li>Improved the line number margin to support bold/italic fonts.</li>
+					<li>Improved the scrolling experience when selecting in virtual space.</li>
+					<li>Improved outlining margin rendering.</li>
+					<li>Improved word wrap logic.</li>
+					<li>Updated the maximum document TabSize to 32.</li>
+					<li>Updated a quick info session to close when a pointer wheel is scrolled.</li>
+					<li>Updated a quick info session to close when its target SnapshotRange is changed to zero-length while the session is open.</li>
+					<li>Updated the scroll distance when clicking on a scrollbar track.</li>
+					<li>Updated clicks in various view locations to ensure the containing view is focused.</li>
+					<li>Updated clicks in the outlining margin to select the view line.</li>
+					<li>Updated how outlining nodes expand in response to text changes around them.</li>
+					<li>Updated the trigger logic for an auto-corrector.</li>
+					<li>Updated Esc key handling while incremental search mode is active to deactivate the mode, but not collapse the selection.</li>
+					<li>Updated the left/right selection adjustment edit actions to support virtual space without having to hold Alt when in Block selection mode.</li>
+					<li>Updated the EditorSnapshotChangingEventArgs/EditorSnapshotChangedEventArgs.TypedText properties to no longer require a single operation.  As a result, incremental search and parameter info can now function with block and multiple selections.</li>
+					<li>Updated text changes that retain selection to not scroll the editor view to the caret.</li>
+					<li>Updated clicks in a view to ensure the parent Form is activated.</li>
+					<li>Refactored how text offsets are mapped to view character indices and vice versa.</li>
+					<li>Refactored how text selection over a collapsed outlining node is handled.</li>
+					<li>Refactored how SyntaxEditor.DocumentTextChanged events are raised to ensure that they occur in snapshot version order.</li>
+					<li>Increased the maximum outlining node depth.</li>
+					<li>Fixed a bug in the handling of a SyntaxEditor.HighlightingStyleRegistry property change.</li>
+					<li>Fixed a bug where multiple sequences of right-to-left ranges of text in a view line might not render correctly.</li>
+					<li>Fixed a bug where an exception could be thrown in a certain scenario when programmatically collapsing outlining nodes.</li>
+					<li>Fixed a bug where surrogate pair characters may not render properly.</li>
+					<li>Fixed a bug where dragging and dropping text over a view splitter was allowed.</li>
+					<li>Fixed a bug where clicking in the number margin for the view's last visible line would scroll the view.</li>
+					<li>Fixed a bug where deleting a zero-length selection at the end of a line could also delete a collapsed outlining node on the next line.</li>
+					<li>Fixed a bug where typing at the start of an outlining node may not shift offsets properly.</li>
+					<li>Fixed a bug where certain edits around collapsed outlining nodes could lead to an invalid state.</li>
+					<li>Fixed a bug where the mouse cursor may not be correct after opening the search overlay pane.</li>
+					<li>Fixed a bug where the selection may be incorrect following certain block-based text changes.</li>
+					<li>Fixed a bug where the IME composition window might appear in the wrong location.</li>
+					<li>Fixed a bug where the IME composition helper could throw an exception in a certain scenario where a SyntaxEditor was disposed.</li>
+					<li>Fixed a bug where the drag/drop caret could show in multiple editor views.</li>
+					<li>Fixed a bug where the line number margin might not measure correctly.</li>
+					<li>Fixed a bug where incremental search could be deactivated by an auto-correct.</li>
+					<li>Fixed a bug where word-based selection around a collapsed outlining node could expand the node.</li>
+					<li>Fixed a bug where resizing a view could lead to some adornments rendering in the wrong location.</li>
+					<li>Fixed a bug with the rendering of an open collapsed outlining node at the end of a document.</li>
+					<li>Fixed a bug with how the view line maximum width cache is updated.</li>
+					<li>Fixed a bug with unused regions within a collapsed region.</li>
+					<li>Fixed a bug with collapsed region quick info indentation.</li>
+					<li>Fixed a bug in the hit-testing logic.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Added optional extensions to load binary assembly reflection data with Roslyn, which wasn't available in prior WinForms versions.</li>
+					<li>Added C# extern alias support via the new IProjectAssemblyReference.Aliases collection.</li>
+					<li>Improved probing logic for system assembly XML DocComment files.</li>
+					<li>Improved enumeration of IBinaryAssemblyReferenceCollection to use thread locking.</li>
+					<li>Improved handling of FileNotFoundException when loading binary assemblies.</li>
+					<li>Updated the IntelliPrompt completion list's filters to support key gestures.</li>
+					<li>Updated the resolver to better handle a certain lambda expression scenario.</li>
+					<li>Fixed a bug where an outer type's members could incorrectly appear in the IntelliPrompt completion list in a certain scenario.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Updated the IntelliPrompt completion list's filters to support key gestures.</li>
+					<li>Fixed a bug in the resolver related to packages and modules.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Updated MarkupLabel's font-family style attribute to support several generic font family names.</li>
+					<li>Updated ScrollBar to ensure that its thumb mouse capture is released if the control becomes disabled.</li>
+					<li>Updated CanvasControl's text rendering logic to ensure fallback fonts don't increase line height.</li>
+				</ul>
+				<h4>All</h4>
+				<ul>
+					<li>Validated .NET 5 compatibility.</li>
+					<li>Added NuGet packages for .NET Core 3.1 variations of the assemblies.</li>
+					<li>Realigned API namespaces for clarity and consistency with other platforms.  Please see the Conversion documentation topic for details on porting your code to the new namespace references.</li>
+				</ul>
+
+				<p>
+					<!-- Older version toggle -->
+					<a id="toggle-link" href="#toggle-link" onclick="var els = document.getElementsByClassName('section-content'); for (var i = 0; i < els.length; i++) els[i].classList.remove('d-none'); this.classList.add('d-none');">See release history for older versions</a>
+				</p>
+
+			</div>
+		</div>
+
+		<div class="section-content d-none bg-silver">
+			<div class="container">
+
+				<h2>v2020.1</h2>
+
+				<h3>1/6/2021 - Version 20.1.0404</h3>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Fixed a bug where a completion list that was filtered to zero items could throw an exception.</li>
+				</ul>
+
+				<h3>11/18/2020 - Version 20.1.0403</h3>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added syntax highlighting to collapsed region quick info tips created by the CollapsedRegionQuickInfoProvider language service.</li>
+					<li>Added the CollapsedRegionQuickInfoProvider.IsSyntaxHighlightingEnabled property and added a parameter to the GetContent method.</li>
+					<li>Added the IPrintSettings.AreCollapsedOutliningNodesAllowed property that can be set to true to allow collapsed outlining nodes in a printer view.</li>
+					<li>Added the IPrintSettings.AreIndentationGuidesVisible property that can be set to true to allow indentation guides in a printer view.</li>
+					<li>Added the IPrintSettings.AreSquiggleLinesVisible property that can be set to true to allow squiggle lines in a printer view.</li>
+					<li>Added the SyntaxEditor.LineNumberMarginMinWidth property that sets the line number margin's minimum width.</li>
+					<li>Added the SyntaxEditor.IndicatorMarginWidth and SelectionMarginWidth properties that set the associated margin widths.</li>
+					<li>Added the SyntaxEditor.UseInvertedCaret property that can be set to true to have the caret invert its background, similar to classic code editors.</li>
+					<li>Improved the sample Markdown syntax language with better syntax highlighting.</li>
+					<li>Updated the TextExporterFactory.CreateRtf method to initialize the font family and size on the created IRtfTextExporter if they are specified in the Plain Text highlighting style.</li>
+					<li>Updated line modification marks to have a slightly smaller width.</li>
+					<li>Updated AutoCaseCorrector to merge its text change into the previous text change, similar to how Visual Studio does.</li>
+					<li>Updated the Shift+MouseWheel input scrolling logic.</li>
+					<li>Updated the editor to support default font bold/italic settings.</li>
+					<li>Updated CollectionTagger's indexer to look for matches using value equality instead of reference equality.</li>
+					<li>Updated SyntaxEditor to remove its views and clear out its document reference when the control is disposed.</li>
+					<li>Fixed a bug where setting the SyntaxEditor.BackColor or ForeColor properties didn't repaint the control properly.</li>
+					<li>Fixed a bug where highlighted backgrounds for single line terminator characters didn't render.</li>
+					<li>Fixed a bug where a memory leak could occur when using IME support.</li>
+					<li>Fixed a bug where setting an alternate e.DragEventArgs.Effect in a SyntaxEditor.PasteDragDrop event handler for PasteDragDropAction.DragOver didn't change the resolved effect.</li>
+					<li>Fixed a bug where copying a block selection with zero-length didn't work.</li>
+					<li>Fixed a bug where auto-correctors incorrectly ran when deleting text at the end of a line.</li>
+					<li>Fixed a bug where printer views didn't support custom adornment managers.</li>
+					<li>Fixed a bug where printer views didn't restore the original Graphics clip after rendering.</li>
+					<li>Fixed a bug where SyntaxEditor wasn't able to render to metafiles.</li>
+					<li>Fixed a bug where the ScrollBars didn't disable when no scrolling was possible.</li>
+					<li>Fixed a bug with caret movement in a certain scenario.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Fixed a bug where the C# grammar didn't always handle invalid object creation expressions correctly.</li>
+					<li>Fixed a bug where the VB parser didn't perform well when there were many line terminators in a row.</li>
+				</ul>
+				<h5>Web Languages Add-on</h5>
+				<ul>
+					<li>Improved the JSON syntax highlighting with a new classification type and related highlighting style for property names.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Fixed a bug where packages and modules whose names began with an underscore were not included in IntelliPrompt.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Improved CanvasControl's rendering of dotted and dashed lines.</li>
+					<li>Improved CanvasControl's rendering of text layout lines to match the padding of other platforms.</li>
+					<li>Fixed a bug where an exception could be thrown when CanvasControl rendered very long text lines.</li>
+				</ul>
+
+
+				<h3>8/26/2020 - Version 20.1.0402</h3>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Improved the rendering of images and glyphs in high DPI.</li>
+					<li>Added the TabStripRenderer.CanAutoScaleImages property, which defaults to true and determines if tab images are auto-scaled in high-DPI.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Updated the CollectionTagger.Clear method to accurately report the changed text range in the TagsChanged event when there are fewer than 100 tags being removed.  Otherwise, the entire snapshot range is returned as before.</li>
+					<li>Updated the virtual CodeSnippetSelectionSession.OnCompletionSessionInitializing method to perform sorting and be called after items have been added to the session, so that completion items and/or sorting can be customized prior to opening.</li>
+					<li>Updated touch taps over a collapsed outlining node to select the node's text range.</li>
+					<li>Added a setter for the SyntaxEditor.BorderColor property.</li>
+					<li>Added a ThreadedParseRequestDispatcher constructor overload that allows for altering the thread priority.</li>
+					<li>Improved the caret and selection moving speed on long lines.</li>
+					<li>Improved the completion list and NavigableSymbolSelector rendering in high DPI scenarios.</li>
+					<li>Adjusted the order of logic that executes when the SyntaxEditor.Document property is set.</li>
+					<li>Fixed a bug where the caret didn't track properly on extremely long lines.</li>
+					<li>Fixed a bug where collapsed region adornments may flicker when a SyntaxEditor with word wrap enabled would resize.</li>
+					<li>Fixed a bug where a collapsed region adornment that was word wrapped to the start of another view line would show a duplicate expander box in the outlining margin.</li>
+					<li>Fixed a bug where a collapsed region adornment that was word wrapped to the start of another view line would show its quick info in the wrong location.</li>
+					<li>Fixed a bug where caret movement didn't work properly around a collapsed region adornment at the end of a document.</li>
+					<li>Fixed a bug where the current line highlight bounds included any intra-line adornments.</li>
+					<li>Fixed a bug where a code snippet without any SnippetTypes specified should have been allowed anywhere.</li>
+					<li>Fixed a bug where using the mouse to commit a code snippet selection session might not focus the view afterward.</li>
+					<li>Fixed a bug where font fallback didn't always work properly for some fonts on systems with certain cultures.</li>
+					<li>Fixed a bug where the selection in a non-active view of the current document didn't always update properly.</li>
+					<li>Fixed a bug where IntelliPrompt popups in a split view might not show in the correct location.</li>
+					<li>Updated the Language Designer application.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Fixed a bug where the resolver wasn't properly resolving interpolated string expressions.</li>
+					<li>Fixed a bug where C# event accessor declarations didn't support lambda expression bodies.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Improved the WinUICore framework to call its MouseDown events with HandledMouseEventArgs.</li>
+					<li>Improved the rendering of OwnerDrawMenuItem images and glyphs in high DPI.</li>
+					<li>Added the OwnerDrawMenuItem.CanAutoScaleImage property, which defaults to true and determines if images are auto-scaled in high-DPI.</li>
+				</ul>
+
+
+				<h3>4/16/2020 - Version 20.1.0401</h3>
+				<h4>Bars</h4>
+				<ul>
+					<li>Added several VisualStudio2002BarRenderer color properties to support customization of toolbar shadows and separators.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added a new background that renders the search range when the search overlay pane is in Selection scope mode.</li>
+					<li>Improved search overlay pane logic related to the selection scope range.</li>
+					<li>Added the IsTextDataBindingEnabled property, which can be set to true to allow data binding to the SyntaxEditor.Text property.</li>
+					<li>Updated the SyntaxEditor.BackColor and ForeColor properties to support overriding the plain text style.</li>
+					<li>Updated IntelliPrompt code snippets to convert tabs to spaces when ITextDocument.AutoConvertTabsToSpaces is set to true.</li>
+					<li>Updated logic so that when changing the SyntaxEditor.IsVirtualSpaceAtLineEndEnabled property to false, a virtual selection will be moved to document offsets.</li>
+					<li>Updated several static members on HtmlContentProvider to be methods that take a IHighlightingStyleRegistry parameter, thereby allowing the content provider to do highlighting style lookups in the same registry used by a target view.</li>
+					<li>Updated the search overlay pane when opened to not auto-search for tabs that may surround a zero-length selection.</li>
+					<li>Updated the search views to allow Ctrl+Enter to execute a Find All search operation when the Find textbox has focus and IsFindAllButtonVisible is true.</li>
+					<li>Updated mouse wheel scrolling to still work when the related scrollbar is hidden.  It is recommended to set SyntaxEditor.CanScrollPastDocumentEnd to false when hiding the vertical scrollbar.</li>
+					<li>Updated the SyntaxEditor.PasteDragDrop event to fire for drops within the same control, so that the accepted operation can be forced to Copy if desired.</li>
+					<li>Updated the 'Adornments - Squiggles Intro' QuickStart to show a more realistic scenario of tracking developer-specified tagged ranges.</li>
+					<li>Added the SyntaxEditor.Renderer property, which can be set to a SyntaxEditorRenderer object that supports custom ScrollBar and splitter rendering.</li>
+					<li>Fixed a bug where right-to-left editing wasn't working properly for some languages.</li>
+					<li>Fixed a bug where collapsible region highlights didn't render in the correct vertical location in a certain scenario.</li>
+					<li>Fixed a bug where a SyntaxEditor in single-line mode didn't have the proper default padding.</li>
+					<li>Fixed a bug where word-wrapped lines might not arrange properly in a certain scenario with multiple sequential SyntaxEditor size changes.</li>
+					<li>Fixed a bug in the language service sorting logic.</li>
+					<li>Fixed a bug where semi-transparent images might not render properly when using TextViewDrawContext.DrawImage.</li>
+					<li>Fixed several language services that were previously allowed to function on inactive views.</li>
+					<li>Fixed a bug introduced in the previous build where opening an IntelliPrompt quick info session could throw an exception in a certain scenario.</li>
+					<li>Fixed a bug where the caret wouldn't flip to white when a dark editor background was used.</li>
+					<li>Fixed a bug where a tagger that derived from TaggerBase didn't clear its Document property value when the attached document's syntax language was changed.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Improved the C# and VB context factories for improved IntelliPrompt parameter info.</li>
+					<li>Fixed a bug where certain generic method constraints could prevent the method from showing in IntelliPrompt.</li>
+					<li>Fixed a bug where a syntax error could occur when using a C# null-coalescing operator in a certain scenario.</li>
+
+				</ul>
+				<h5>Web Languages Add-on</h5>
+				<ul>
+					<li>Fixed a bug where the XML parser could throw an exception in a scenario where a syntax error occurred in header or footer text.</li>
+				</ul>
+				<h4>All</h4>
+				<ul>
+					<li>Added 'Open Product Documentation' and 'Open VS Sample Project' menu items to the sample project's 'Navigate To' menu.</li>
+					<li>Improved the product installer.</li>
+				</ul>
+
+
+				<h3>11/13/2019 - Version 20.1.0400</h3>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Improved the selected tabbed MDI container to not repaint its contents when its parent Form is activated or deactivated.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<h5>Cross-Platform Design</h5>
+				<ul>
+					<li>The WinForms SyntaxEditor has been rewritten to support a cross-platform API across the WPF, UWP, and WinForms platforms.  This allows SyntaxEditor features for the three platforms to be kept in sync moving forward.</li>
+				</ul>
+				<h5>Scrolling and Zooming</h5>
+				<ul>
+					<li>Added smooth inertia-based touch scrolling.</li>
+					<li>Added support for Shift+MouseWheel to scroll editor views horizontally.</li>
+					<li>Added the IEditorViewScroller.ScrollTo method that scrolls the view to a certain view line, which can easily be displayed to the top, center, or bottom of the view via options in the supplied TextViewScrollState struct.</li>
+					<li>Added the IEditorViewScroller.ScrollByPixels and ScrollHorizontallyByPixels methods, allowing for diagonal and horizontal scrolling by pixels respectively.</li>
+					<li>When resizing a view that is scrolled to the right, the horizontal scroll amount can adjust to ensure that there isn't too much empty space on the text area's right side.</li>
+					<li>The view now remembers maximum line widths better, which prevents horizontal scrollbar maximum changing as much when scrolling vertically through lines that have very different widths.</li>
+					<li>Mouse wheel scrolling now supports page-based scrolling if the related operating system option is chosen.</li>
+					<li>ScrollBar acceleration features added where the vertical scrollbar accelerates its scrolling speed the longer you hold the up or down button..</li>
+					<li>Updated the NavigableSymbolSelector control to scroll the target offset to the middle of the view if scrolling is required when a symbol is selected.</li>
+				</ul>
+				<h5>Carets and Selection</h5>
+				<ul>
+					<li>Multiple selections, each with their own caret, are now supported as long as the new SyntaxEditor.AreMultipleSelectionRangesEnabled property is true.  A new selection can be added by holding the Ctrl key when clicking in the text area or clicking on the selection or line number margins.</li>
+					<li>Properties on the IEditorView.Selection object continue to operate on the primary selection range.  A new Ranges property has been added to the IEditorView.Selection object that allows for enumeration of all selection ranges.</li>
+					<li>Multiple selections can be set with the new IEditorView.Selection.SelectRanges method, or a new selection can be added with the AddRange method.</li>
+					<li>Most edit actions have been refactored to fully support multiple selections.  For instance, pressing Shift+Right Arrow will extend all of the selections by one character.</li>
+					<li>Copying text from multiple selections unions the selected text, joining each range's text with a line terminator.</li>
+					<li>Pasting multi-line text into a view with the same number of selections as text lines being pasted will replace each selection with a related line from the pasted text.</li>
+					<li>The IEditorView.DeleteSelectedText and ReplaceSelectedText methods have been refactored to support applying to multiple selections when the EditorViewTextChangeOptions.CanApplyToMultipleSelections flag is set.</li>
+					<li>Selection grippers will show for the primary selection when touch input is used.</li>
+					<li>Carets now support movement at both the start and end of word wrapped lines.</li>
+					<li>Rendering of virtual space selections is improved.</li>
+					<li>Block selections can be made in virtual space at the end of lines, even without line end virtual space being enabled.  This prevents the caret from snapping to an offset when making a block selection, which can sometimes be problematic.</li>
+					<li>Added the ITextChange.PostSelectionPositionRanges property that indicates the exact selection ranges for the source view after the text change is applied.</li>
+					<li>Added the EditorViewSelectionEventArgs.PreviousSelectionRanges property that contains a snapshot of all selection ranges prior to the selection change.</li>
+					<li>Added collapse selection left and collapse selection right edit actions.</li>
+				</ul>
+				<h5>Searching</h5>
+				<ul>
+					<li>A new search overlay pane displays over the upper-right of the active editor view when Ctrl+F (find mode) or Ctrl+H (replace mode) are pressed in a multi-line editor.  Related edit actions added.</li>
+					<li>A toggle mode button on the search overlay pane switches between find and replace modes, and all common search options are supported via toggle buttons and other controls.</li>
+					<li>The search overlay pane can be closed by clicking the X button or by pressing Esc.</li>
+					<li>Ctrl+F3 will open the search overlay pane without focusing it, and will search forward for the currently-selected text.  Ctrl+Shift+F3 will do the same but will search backwards.  Related edit actions added.</li>
+					<li>F3 will search for the next match of the previously-used search options.  Shift+F3 will search for the previous match of the previously-used search options.  Related edit actions added.</li>
+					<li>If the SyntaxEditor.IsSearchResultHighlightingEnabled property is true, the search results will be highlighted while the search overlay pane is open.  Closing the search overlay pane, clears the search result highlights.</li>
+					<li>The new SyntaxEditor.OverlayPaneOpened and OverlayPaneClosed events fire when the search overlay pane is opened or closed.</li>
+				</ul>
+				<h5>Splitting</h5>
+				<ul>
+					<li>Updated the scrollbar splitter button with a larger appearance.</li>
+					<li>Drag a view splitter to the bottom of the view to remove the split and keep the top view.</li>
+				</ul>
+				<h5>Margins</h5>
+				<ul>
+					<li>Added the ITextViewLineNumberProvider language service with a DefaultTextViewLineNumberProvider implementation that allows for complete customization of how line numbers are rendered in the line number margin.  Added the IEditorDocument.LineNumberOrigin property that sets the line number for the first line in the document, and defaults to one.</li>
+					<li>Added the ruler margin, which is displayed via the SyntaxEditor.IsRulerMarginVisible property.</li>
+					<li>Added outlining margin highlights when moving a pointer over nodes in the margin.</li>
+					<li>Updated line modification marks with improved logic that better tracks unsaved, saves, and reverted changes.</li>
+				</ul>
+				<h5>Indicators</h5>
+				<ul>
+					<li>Updated the IIndicatorTag interface to use the fast new rendering mechanism for drawing glyphs instead of making UI elements.</li>
+					<li>Improved the rendering of built-in indicator glyphs.</li>
+				</ul>
+				<h5>Delimiters</h5>
+				<ul>
+					<li>Added the SyntaxEditor.IsDelimiterAutoCompleteEnabled property to determine if syntax languages support delimiter auto-completion.  Delimiter auto-completion can be implemented by registering an IDelimiterAutoCompleter language service.  The built-in DelimiterAutoCompleter class implements common delimiter auto-completion functionality.</li>
+					<li>Added the SyntaxEditor.IsDelimiterHighlightingEnabled property to determine if multi-threaded delimiter highlighting is enabled.  IStructureMatcher and DelimiterHighlightTagger provider services are required on the syntax language to support this feature.</li>
+				</ul>
+				<h5>Input and Editing</h5>
+				<ul>
+					<li>Added the PerformTyping, PerformInsertTyping, and PerformOverwriteTyping methods to the IEditorViewTextChangeActions interface that simulate typing.</li>
+					<li>Added the IEditorViewTextChangeActions.FormatDocument and FormatSelection methods, which call the related edit commands.</li>
+					<li>Improved the open line above and open line below edit actions to use the current language's indent provider for caret positioning.</li>
+					<li>Added support for triple-clicks to select an entire view line.  Dragging the pointer on the final click will extend the selection by view line.</li>
+				</ul>
+				<h5>IntelliPrompt</h5>
+				<ul>
+					<li>IntelliPrompt UI reworked across all platforms.</li>
+					<li>The Metro Light and Metro Dark common image sets have been added as options in place of the existing Classic common image set.</li>
+					<li>Added a completion list feature that highlights the matched text in completion items as you type.</li>
+					<li>Added a completion list option that filters out items that don't match the typed text, thereby shrinking the list of visible items.</li>
+					<li>Added various completion list item matchers and match options that allow for special item matching logic to be injected.  Numerous built-in item matchers are available such as starts-with, acronym, shorthand, etc.</li>
+					<li>Added completion filter UI such as buttons and tabs.</li>
+					<li>Updated all language add-on IntelliPrompt quick info and parameter info tips to use the current editor background and syntax highlighting colors.</li>
+				</ul>
+				<h5>Text Rendering</h5>
+				<ul>
+					<li>Text rendering now properly handles cultural editing concepts like complex glyphs, bi-directional text, etc.</li>
+				</ul>
+				<h5>Miscellaneous</h5>
+				<ul>
+					<li>The SyntaxEditor.IsDefaultContextMenuEnabled property determines if the default context menu is enabled.  The default context menu is initialized and passed into the new SyntaxEditor.MenuRequested when a menu is requested for display.  Handle the MenuRequested event to update the menu's items before it is opened.</li>
+					<li>Added the SyntaxEditor.IsWordWrapEnabled property for easy binding in menu items.</li>
+					<li>Language features are now implemented via services registered on syntax languages.</li>
+					<li>The TypeMemberDropDownList control in the .NET Languages Add-on changed to a new NavigableSymbolSelector control that can work for many languages.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Updated the C# parser and resolver to support C# 7.3 syntax.</li>
+					<li>Updated the VB parser and resolver to support VB 15.8 syntax.</li>
+					<li>Added IntelliPrompt completion list toggle button filters for the various kinds of items displayed in the list.</li>
+					<li>The IntelliPrompt completion filter UI (toggle buttons and tabs) only shows based on the available items in the unfiltered list.  For instance, if there are no types in the list, no 'Types' toggle button filter is visible.</li>
+				</ul>
+				<h5>Web Languages Add-on</h5>
+				<ul>
+					<li>Added the JavaScript language.</li>
+					<li>Added the JSON language.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Added the add-on, which wasn't available in prior WinForms versions.</li>
+				</ul>
+				<h4>All</h4>
+				<ul>
+					<li>Updated all assemblies to require .NET 4.0 or later.</li>
+					<li>Removed AllowPartiallyTrustedCallersAttribute from assemblies.</li>
+					<li>Changed default font to be MS Segoe 9pt.</li>
+					<li>Implemented a new Visual Studio sample project.</li>
+					<li>Switched all product source projects to use the new SDK style of .csproj files.</li>
+					<li>Created a new product installer experience.</li>
+					<li>Fixed a bug where multiple versions of the WinForms Controls installed on a system could prevent the VS designer functionality from working properly.</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="section-content d-none">
+			<div class="container">
+
+				<h2>v2018.1</h2>
+
+				<h3>1/10/2019 - Version 18.1.0342</h3>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Fixed a bug introduced in a previous build where when splitting a view, removing the split, and splitting again, the scrollbars might not render properly.</li>
+				</ul>
+
+				<h3>12/13/2018 - Version 18.1.0341</h3>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Improved the rendering of several button glyphs.</li>
+					<li>Made several rendering adjustments to help in high DPI scenarios.</li>
+					<li>Updated the dragging of a tool window in the MDI area to support drag-to-float.</li>
+					<li>Fixed a bug introduced in the previous build where nested dock containers might not resize properly with the splitter.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Updated the logic for interacting with system DataObjects.</li>
+					<li>Fixed a bug where \s in regular expression patterns should have also allowed line terminators.</li>
+					<li>Fixed a bug introduced in the previous build where print view margins were too large.</li>
+					<li>Fixed bugs with printer view layouts when a DPI-aware app is in high DPI.</li>
+				</ul>
+				<h5>Web Languages Add-on</h5>
+				<ul>
+					<li>Fixed a bug where the XML lexer wasn't properly recognizing all allowed Unicode characters for tag/attribute names.</li>
+				</ul>
+
+				<h3>5/24/2018 - Version 18.1.0340</h3>
+				<h4>Bars</h4>
+				<ul>
+					<li>Added full support for right-to-left display of bar controls, useful in certain cultures.</li>
+					<li>Fixed a bug where a layout deserialization could run into problems if a referenced commmand wasn't located in a certain scenario.</li>
+					<li>Fixed a bug where clicking a popup button link in a context menu would close the menu.</li>
+				</ul>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Added full support for right-to-left display of docking and MDI controls, useful in certain cultures.</li>
+					<li>Updated system drags over unselected tabs to only select after a brief delay.</li>
+					<li>Updated auto-hide tab renderers to better handle non-square images.</li>
+					<li>Updated a single floating tool window title bar click to ensure focus moved within the tool window.</li>
+					<li>Updated the mechanism used to draw rubber band hints to help prevent rendering errors.</li>
+					<li>Updated WindowActivated events to be raised at the very end of layout loads.</li>
+					<li>Fixed a bug where loading the layout of already-open tabbed MDI documents might not restore container sizes properly.</li>
+					<li>Fixed a bug where dragging a maximized floating document window was dragging with the maximized bounds instead of restored bounds.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Changed the default font to Consolas.</li>
+					<li>Updated the SyntaxEditor.IndicatorMarginWidth, LineNumberMarginWidth, SelectionMarginWidth, and UserMarginWidth properties to account for high DPI scenarios.</li>
+					<li>Updated the SemanticParserService.HasPendingRequest and PendingRequestCount members to account for the document currently being parsed as well.</li>
+					<li>Updated IntelliPrompt parameter info to close when the editor loses focus.</li>
+					<li>Added a handler for when the Courier New font isn't available on a system.</li>
+					<li>Updated the WinUICore ModifierKeys enumeration to be simpler and more like other platforms.</li>
+					<li>Fixed a bug in the semantic parser service that could always wait the full delay time when calling WaitForParse in a certain scenario.</li>
+					<li>Fixed a bug in the HTML exporting logic when dealing with surrogate pairs.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Added virtual CreateLexicalParser methods to the CSharpSyntaxLanguage and VBSyntaxLanguage, so that the lexical parser for each language can be adjusted if needed.</li>
+					<li>Updated the quick info tip display for VB optional parameters to render an Optional keyword.</li>
+					<li>Fixed a bug where a VB type without access modifier specified didn't default to Friend access.</li>
+					<li>Fixed a bug where a VB argument that wasn't being specified was being reported as a syntax error.</li>
+					<li>Fixed a bug in resolving by-ref parameter types.</li>
+					<li>Fixed a bug in the exception resolver logic.</li>
+				</ul>
+				<h4>All</h4>
+				<ul>
+					<li>Updated all controls and elements to support numerous WinUICore measure/arrange infrastructure improvements.</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="section-content d-none bg-silver">
+			<div class="container">
+
+				<h2>v2016.1</h2>
+
+				<h3>5/27/2016 - Version 16.1.0330</h3>
+				<h4>Bars</h4>
+				<ul>
+					<li>Added the BarManager.KeyboardShortcutsEnabled property that can be set to false to disable all keyboard shortcuts from being recognized.</li>
+				</ul>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Added the DockManager.DocumentWindowsCanFloat property, which when set to true, allows tabbed documents to be floated via a tab context menu item.</li>
+					<li>Added the DockManager.DocumentLayoutData property and SaveDocumentLayoutToFile/LoadDocumentLayoutFromFile methods, which can be used to save/load the layout of already-open tabbed MDI documents.</li>
+					<li>Added the DockManager.ShowNextWindowNavForm method that allows for programmatic display of the next window navigation form.</li>
+					<li>Added the DockManager.NextWindowNavigationActive property that returns whether the next window navigation form is currently visible.</li>
+					<li>Added the DockManager.NextWindowNavigationActiveChanged event that fires when the NextWindowNavigationActive property changes.</li>
+					<li>Updated layout load code to perform a final arrange after the layout has been loaded in case more adjustments are needed due to space constraints.</li>
+					<li>Updated screen rendering procedures such as splitter drags to take device DPI into account.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Improved the rendering speed of span indicator wave lines.</li>
+					<li>Updated the IntelliPrompt member list to scroll a virtual selection to the middle of the list in certain scenarios.</li>
+					<li>Improved Document.GetSubstringAsHtml logic to ensure that tab characters inject enough space characters to properly reach the next tab stop.</li>
+					<li>Added a default ForeColor property to the quick info and parameter info classes.</li>
+					<li>Updated member list description tips to use the designated quick info BackColor and ForeColor.</li>
+					<li>Added support for double-weight wave lines.</li>
+					<li>Made the SyntaxEditor.GetDefaultContextMenu method virtual so it can be customized as needed.</li>
+					<li>Fixed a bug in the tabify and untabify selected lines logic.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Updated C# parser to support C# 5.0 syntax.</li>
+					<li>Improved the VB resolver to support imports of types.</li>
+					<li>Fixed a bug where C# optional parameters didn't always show up correctly in quick info.</li>
+					<li>Updated the assembly resolver logic to ignore .resources assembly requests.</li>
+				</ul>
+				<h5>Web Languages Add-on</h5>
+				<ul>
+					<li>Fixed a bug where text formatting couldn't programmatically execute on read-only XML documents.</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="section-content d-none">
+			<div class="container">
+
+				<h2>v2014.1</h2>
+
+				<h3>6/12/2015 - Version 14.1.0323</h3>
+				<h4>Bars</h4>
+				<ul>
+					<li>Fixed a bug with the z-order of popups that could occur after clicking a root-level button while a menu was open.</li>
+				</ul>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Updated the tool window layout serializer logic.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added the PasteDragDropEventArgs.DropSelectionRange property, which can be set for external drops to alter the range of text that will be replaced.</li>
+					<li>Improved the HTML and RTF export logic for extended ASCII and Unicode characters.</li>
+					<li>Updated the CSS language definition to support syntax highlighting of media queries.</li>
+					<li>Updated the IntelliPrompt member list to recalculate its bounds when the Show method is called while it is already visible.</li>
+					<li>Updated logic to prevent issues when a SyntaxEditor is disposed but automatic outlining is executed by parse completion within a worker thread.</li>
+					<li>Fixed a bug introduced in a previous build related to the z-order of the Insert Snippet popups.</li>
+					<li>Fixed a bug where the find/replace form's replace buttons were enabled for read-only documents.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Fixed a bug introduced in a previous build where documentation data might not load properly for referenced assemblies in a certain scenario.</li>
+				</ul>
+				<h5>Web Languages Add-on</h5>
+				<ul>
+					<li>Updated the XML member list's default allowed characters.</li>
+					<li>Fixed a bug where the context wasn't being properly determined when the caret was immediately before an identifier or entity.</li>
+				</ul>
+
+				<h3>12/20/2014 - Version 14.1.0322</h3>
+				<h4>Bars</h4>
+				<ul>
+					<li>Fixed a bug where the character casing command wouldn't deserialize properly from a macro.</li>
+					<li>Fixed a bug introduced in a past build where BarCommand.Text properties wouldn't localize.</li>
+				</ul>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Improved tab drag starts to ensure that the mouse is still over the tab after it is selected, which helps in scenarios where a layout update moves the tab upon selection.</li>
+					<li>Improved the logic when ending initialization.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added the None option to the CaretStyle enumeration, enabling a hidden caret scenario.</li>
+					<li>Improved how tab stops align after non-whitespace characters with variable-width fonts.</li>
+					<li>Fixed a bug in the incremental outlining node update logic.</li>
+					<li>Fixed a bug introduced in a previous build when changing outlining modes where the indicators might not reappear.</li>
+				</ul>
+
+				<h3>9/10/2014 - Version 14.1.0321</h3>
+				<h4>Bars</h4>
+				<ul>
+					<li>Fixed a bug where popups might start appearing behind the main Form.</li>
+				</ul>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Added an AssemblyInfo.ImageProviderFunc method that allows the images used for dock guides to be replaced with custom ones.</li>
+					<li>Fixed a bug where context menus weren't pulling the correct theme when the Metro Light theme was active.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Enhanced Shift+Tab such that when the selection is collapsed and there is no whitespace before the caret, whitespace after the caret will be outdented.</li>
+					<li>Added a free JSON dynamic language to the samples.</li>
+					<li>Improved caret/selection movement around and delete/backspace of multi-byte characters.</li>
+					<li>Updated clicks on member list description tips to not abort the member list.</li>
+					<li>Updated the vertical scrollbar to remain enabled when ScrollPastDocumentEnd is true and all display lines fit in the view.</li>
+					<li>Fixed a bug where multi-byte characters didn't always render correctly.</li>
+					<li>Fixed a bug where span indicators that changed fonts and were removed by a text change could cause an exception in a certain scenario.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Improved the VB lexer to better handle argument attributes.</li>
+				</ul>
+
+				<h3>3/13/2014 - Version 14.1.0320</h3>
+				<h4>Bars</h4>
+				<ul>
+					<li>Added a new Metro Light theme and related bar renderer.</li>
+					<li>Updated samples to show off the new theme.</li>
+				</ul>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Added a new Metro Light theme and related dock, tool window, and document window renderers.</li>
+					<li>Updated auto-hidden tool window flyouts to close if their tab is clicked and DockManager.AutoHideShowOnMouseHover is false.</li>
+					<li>Updated samples to show off the new theme.</li>
+					<li>Updated all themes to now always render a border around tool windows.</li>
+				</ul>
+				<h4>Navigation</h4>
+				<ul>
+					<li>Added a new Metro Light theme and related navigation bar renderer.</li>
+					<li>Updated samples to show off the new theme.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Updated the renderer to make a flat-style split view gripper.</li>
+					<li>Updated member lists to close on mouse clicks within the editor.</li>
+					<li>Updated printouts to always include a selection margin spacer between line numbers and document text.</li>
+					<li>Fixed a bug where zero-length block selections might not render if a background color is set in a highlighting style.</li>
+					<li>Fixed a bug that could trigger an exception when semantic parsing was still executing after the editor was disposed.</li>
+				</ul>
+				<h5>Web Languages Add-on</h5>
+				<ul>
+					<li>Fixed a bug where CDATA sections wouldn't indent properly when the document was formatted.</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="section-content d-none bg-silver">
+			<div class="container">
+
+				<h2>v2013.1</h2>
+
+				<h3>12/18/2013 - Version 13.1.0312</h3>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Updated the tooltip logic in dock container title bars.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added the ability to edit multiple lines of text at the same time when block selection is active.</li>
+					<li>Updated the document outlining mode changes to occur much faster.</li>
+					<li>Fixed a bug where an exception could occur in word wrap mode when an indicators were modified.</li>
+					<li>Updated the popup display logic to help with z-order issues in certain scenarios.</li>
+					<li>Updated the text rendering logic.</li>
+				</ul>
+
+				<h3>8/7/2013 - Version 13.1.0311</h3>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Updated TabStripTab to guard against a possible null reference exception in a certain scenario.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Fixed a bug where performing a single character delete in a word wrapped split view might scroll the other view.</li>
+					<li>Fixed a bug where certain text modifications didn't update the outlining node tree properly.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Updated the AssemblyCodeRepository to not increment assembly reference counts if an assembly being added to a project resolver is already loaded in that project resolver.</li>
+				</ul>
+				<h5>Web Languages Add-on</h5>
+				<ul>
+					<li>Added the XmlSchemaResolver.DefaultNamespacePrefixMappings property that allows default xmlns mappings to be defined.</li>
+					<li>Added the virtual XmlSchemaResolver.CreateValidationXmlReader method that can be overridden to customize the XmlReader used during XML validation.</li>
+					<li>Added the virtual XmlSchemaResolver.IsValidationExceptionAllowed method that can be overridden to prevent certain validation errors from being reported.</li>
+					<li>Updated validation errors to always sort.</li>
+					<li>Fixed a bug where identity constraint validation errors weren't properly reported.</li>
+				</ul>
+
+				<h3>4/19/2013 - Version 13.1.0310</h3>
+				<h4>Docking/MDI</h4>
+				<ul>
+					<li>Fixed a bug where an exception could be throw when dragging a tool window that contained a WPF control.</li>
+					<li>Fixed a bug where an exception could be throw when dragging a tool window within a WPF host Window.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Improved drag/drop so that the view only scrolls right when the drop cursor is at the right side of the view and there is a text character at that point.</li>
+					<li>Improved file load/save code to better handle errors that occur during the load/save.</li>
+					<li>Updated the IUndoableModification.Name property to have a setter for when custom names wish to be assigned.</li>
+					<li>Updated code that creates new views when double-clicking a splut button to prevent a scenario where a zero-height view was created.</li>
+					<li>Updated IntelliPrompt code snippet shortcuts to only be recognized via Tab key presses when the selection is collapsed.</li>
+					<li>Updated IntelliPrompt member lists to abort when focus moves elsewhere via Ctrl+Tab.</li>
+					<li>Updated how large amounts of text get built from GetText and GetSubstring calls.</li>
+					<li>Fixed a bug where performing a redo operation wouldn't set the document's modified state in a certain scenario.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Improved the AssemblyCodeRepository with more thread safety.</li>
+					<li>Improved the assembly load code to try and prevent locking.</li>
+					<li>Fixed a bug where escaped XML characters in documentation comments didn't show up properly within quick info.</li>
+				</ul>
+
+			</div>
+		</div>
+
+		<div class="section-content d-none">
+			<div class="container">
+
+				<h2>v2012.1</h2>
+
+				<h3>12/20/2012 - Version 12.1.0304</h3>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added the LexicalPatternGroup.IsComment property and support in dynamic language XML definitions.</li>
+					<li>Updated quick info so that it will not show if the ViewMouseHover event args' Cancel property is set to true.</li>
+					<li>Fixed a bug introduced in the previous release where some built-in dynamic lexer macros no longer functioned correctly.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Tweaked the VB auto-indent logic.</li>
+				</ul>
+
+				<h3>11/15/2012 - Version 12.1.0303</h3>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Rearchitected the regular expression engine to use the newer logic found in the WPF/Silverlight SyntaxEditor version.</li>
+					<li>Improved CharClass to fully support specification of Unicode categories, such as via \p{...} syntax in regular expressions.</li>
+					<li>Improved CharClass performance and built-in static CharClass instances to include appropriate Unicode categories.</li>
+					<li>Updated the Document.IndicatorRemoved event for line indicators to fire after the indicator has actually been removed from the collection.</li>
+					<li>Fixed a bug where an editor view may incorrectly scroll when losing focus.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Updated the VB resolver to properly support resolution of child namespaces from imported namespaces.</li>
+					<li>Updated the VB auto-indent code to better handle scenarios where lowercase keywords were typed.</li>
+					<li>Updated the VB parser and resolver to better handle for-each loops.</li>
+					<li>Updated the VB parser to better handle incomplete statements within methods and properties.</li>
+					<li>Fixed a bug where extension methods with EditorBrowseableState.Never attributes were showing up in parameter info.</li>
+				</ul>
+
+				<h3>7/20/2012 - Version 12.1.0302</h3>
+				<h4>Bars</h4>
+				<ul>
+					<li>Fixed a bug with mnemonic updating when using localized command text.</li>
+				</ul>
+				<h4>Navigation</h4>
+				<ul>
+					<li>Fixed a bug where removing a NavigationPane that was in the overflow area wouldn't reclaim its button's space.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Updated the RTF export to include backgrounds from highlighting styles where applicable.</li>
+					<li>Fixed a bug in the replace all code that was introduced in a previous build.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Improved the VB smart indent logic.</li>
+					<li>Updated line terminator handling when constructing contexts.</li>
+					<li>Updated the AssemblyCodeRepository assembly resolve code to help prevent recursions.</li>
+					<li>Fixed a bug where a class that implemented interfaces may incorrectly show interface members in a member list.</li>
+					<li>Fixed a bug where EditorBrowsableState.Never wasn't examined for fields.</li>
+					<li>Fixed a bug where VB extension methods might not be identified properly.</li>
+					<li>Fixed a bug where VB attributes weren't allowing an implicit line continuation after.</li>
+				</ul>
+
+				<h3>2/18/2012 - Version 12.1.0300</h3>
+				<h4>All</h4>
+				<ul>
+					<li>Combined all WinForms products into a single platform download that has unified documentation, samples, and licensing mechanisms.  See the documentation for breaking change notes.</li>
+					<li>Added support for client profile deployment, and updated samples to Visual Studio 2010 projects.</li>
+				</ul>
+
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

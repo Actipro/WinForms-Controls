@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<UseWindowsForms>true</UseWindowsForms>
+
+		<!-- IMPORTANT NOTE: The first listed framework for multi-target projects will determine the Visual Studio designer support -->
+		<!--
+		<TargetFrameworks>netcoreapp3.1;net50-windows;net40</TargetFrameworks>
+		-->
+		<TargetFrameworks>netcoreapp3.1;net40</TargetFrameworks>
+
+		<DefineConstants>CODE_ANALYSIS;WINFORMS;DESKTOP</DefineConstants>
+
+		<AssemblyName>SampleBrowser</AssemblyName>
+
+		<AssemblyVersion>21.1.0.0</AssemblyVersion>
+		<InformationalVersion>21.1.0.0</InformationalVersion>
+		<PackageVersion>21.1.0.0</PackageVersion>
+
+		<RootNamespace>ActiproSoftware</RootNamespace>
+
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+		<StartupObject>ActiproSoftware.SampleBrowser.Program</StartupObject>
+
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Resource Include="Images\**\*.*" />
+		<Resource Include="ProductSamples\**\*.xml" />
+		<Resource Include="ProductSamples\**\Images\*.*" />
+		<Resource Include="Resources\Images\**\*.*" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="ProductSamples\SyntaxEditorSamples\Languages\Definitions\**\*.langdef" />
+		<EmbeddedResource Include="ProductSamples\SyntaxEditorSamples\Languages\Snippets\**\*.snippet*" />
+		<EmbeddedResource Include="ProductSamples\SyntaxEditorSamples\Languages\Themes\**\*.vssettings" />
+		<EmbeddedResource Include="ProductSamples\SyntaxEditorSamples\Languages\XmlSchemas\**\*.html" />
+		<EmbeddedResource Include="ProductSamples\SyntaxEditorSamples\Languages\XmlSchemas\**\*.xml" />
+		<EmbeddedResource Include="ProductSamples\SyntaxEditorSamples\Languages\XmlSchemas\**\*.xsd" />
+		<EmbeddedResource Include="ProductSamples\SyntaxEditorSamples\Languages\XmlSchemas\**\*.xslt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ActiproSoftware.Controls.WinForms" Version="21.1.0" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet" Version="21.1.0" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript" Version="21.1.0" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python" Version="21.1.0" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML" Version="21.1.0" />
+	</ItemGroup>
+
+</Project>

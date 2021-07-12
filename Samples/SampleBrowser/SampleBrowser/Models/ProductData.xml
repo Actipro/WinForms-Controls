@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ProductData>
+
+  <ProductFamily Title="Introduction" Path="/SampleBrowser/Documents/Introduction.html">
+    <Items>
+      <Item Kind="Document" Category="Documents" Title="Release History" Path="/SampleBrowser/Documents/ReleaseHistory.html" />
+    </Items>
+  </ProductFamily>
+
+  <ProductFamily Title="SyntaxEditor" Description="The ultimate syntax-highlighting code editor control" Path="/ProductSamples/SyntaxEditorSamples/Documents/Overview.html">
+    <Items>
+      <Item Kind="InlineSample" Category="General Demos" Title="SDI Code Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/SdiCodeEditor/" />
+
+      <Item Kind="InlineSample" Category=".NET Languages Add-on Demos" Title="C# Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/DotNetAddonCSharpEditor/" />
+      <Item Kind="InlineSample" Category=".NET Languages Add-on Demos" Title="Visual Basic Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/DotNetAddonVBEditor/" />
+
+      <Item Kind="InlineSample" Category="Python Language Add-on Demos" Title="Python Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/PythonAddonPythonEditor/" />
+
+      <Item Kind="InlineSample" Category="Web Languages Add-on Demos" Title="JavaScript Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/WebAddonJavaScriptEditor/" />
+      <Item Kind="InlineSample" Category="Web Languages Add-on Demos" Title="HTML Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/WebAddonHtmlEditor/" />
+      <Item Kind="InlineSample" Category="Web Languages Add-on Demos" Title="XML Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/WebAddonXmlEditor/" />
+
+      <Item Kind="Document" Category="Getting Started QuickStarts" Title="Simple Language Series Notes" Path="/ProductSamples/SyntaxEditorSamples/Documents/GettingStartedSimpleLanguage.html" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="1 - Basic Language Definition" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted01/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="2 - Basic Parser" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted02/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="3a - Advanced Language Definition" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted03a/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="3b - Language Code Generation" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted03b/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="3c - Programmatic Lexer" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted03c/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="4a - LL(*) Parser" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted04a/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="4b - Tree Construction" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted04b/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="4c - Error Handling" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted04c/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="4d - Type-Specific AST Nodes" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted04d/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="5 - Syntax Error Display" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted05/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="6 - Code Outlining" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted06/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="7 - Line Commenter" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted07/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="8 - Context Factory" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted08/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="9 - IntelliPrompt QuickInfo" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted09/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="10 - IntelliPrompt Completion List" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted10/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="11 - IntelliPrompt Parameter Info" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted11/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="12 - Indent Provider" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted12/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="13 - Text Formatter" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted13/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="14 - Delimiter Highlighting" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted14/" />
+      <Item Kind="InlineSample" Category="Getting Started QuickStarts" Title="15 - Function Drop-Down" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GettingStarted15/" />
+
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Adornments - Alternating Rows" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsAlternatingRows/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Adornments - Color Preview" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsColorPreview/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Adornments - Highlight Word" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsHighlightWord/" />
+      <Item Kind="InlineSample" BlurbText="New!" Category="General QuickStarts" Title="Adornments - Highlight Range" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsHighlightRange/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Adornments - Squiggles Intro" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsSquigglesIntro/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Adornments - Watermark" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/AdornmentsWatermark/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Classification - Layered" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/ClassificationLayered/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Classification - Line Start" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/ClassificationLineStart/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Code Fragments" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CodeFragments/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Code Outlining - Token-Based" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CodeOutliningTokenBased/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Code Outlining - Range-Based" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CodeOutliningRangeBased/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Code Outlining - Collapsed Text" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CodeOutliningCollapsedText/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Collapsed Regions - Intro" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CollapsedRegionsIntro/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Collapsed Regions - Advanced" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CollapsedRegionsAdvanced/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Current Line Highlighting" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CurrentLineHighlighting/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Document Sharing" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DocumentSharing/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Document Swapping" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DocumentSwapping/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Edit Actions" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/EditActions/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Editor View Margins - Custom" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/EditorViewMarginsCustom/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Editor View Margins - Locations" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/EditorViewMarginsLocations/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Editor View Margins - Visibility" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/EditorViewMarginsVisibility/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Editor Views - Splitting" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/EditorViewsSplitting/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Exporting to HTML/RTF" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/Exporting/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Globalization" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/Globalization/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Go to Line" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GoToLine/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Highlighting Style Viewer" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/HighlightingStyleViewer/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Hit Testing" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/HitTesting/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Indicators - Bookmark" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IndicatorsBookmark/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Indicators - Custom" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IndicatorsCustom/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Indicators - Debugging" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IndicatorsDebugging/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Language Transitions" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/LanguageTransitions/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Line Commenting" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/LineCommenting/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Macro Recording" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/MacroRecording/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Multiple Selections / Carets" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/MultipleSelections/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Printer View Margins - Custom" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/PrinterViewMarginsCustom/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Printer View Margins - Locations" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/PrinterViewMarginsLocations/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Printing Options" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/PrintingOptions/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Read-Only Documents" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/ReadOnlyDocument/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Read-Only Regions" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/ReadOnlyRegions/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="ScrollBar Visibility" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/ScrollBarVisibility/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Search - Find Results" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/SearchFindResults/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Search - Result Highlighting" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/SearchResultHighlighting/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Single-Line Mode" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/SingleLineMode/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Snapshot Reading" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/SnapshotReading/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Snapshot Translation" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/SnapshotTranslation/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Snapshot Versioning" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/SnapshotVersioning/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Text Changes - Canceling" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/TextChangesCancelling/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Text Statistics" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/TextStatistics/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Undo/Redo" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/UndoRedo/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Unused Regions" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/UnusedRegions/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Whitespace Display" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/WhitespaceDisplay/" />
+      <Item Kind="InlineSample" Category="General QuickStarts" Title="Word Wrap" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/WordWrap/" />
+
+      <Item Kind="InlineSample" Category="IntelliPrompt QuickStarts" Title="Code Snippets" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IntelliPromptCodeSnippets/" />
+      <Item Kind="InlineSample" Category="IntelliPrompt QuickStarts" Title="Completion Custom Actions" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IntelliPromptCompletionCustomActions/" />
+      <Item Kind="InlineSample" Category="IntelliPrompt QuickStarts" Title="Completion Custom Item Matcher" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IntelliPromptCompletionCustomItemMatcher/" />
+      <Item Kind="InlineSample" Category="IntelliPrompt QuickStarts" Title="Completion Description Tips On-Demand" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IntelliPromptCompletionDescriptionTips/" />
+      <Item Kind="InlineSample" Category="IntelliPrompt QuickStarts" Title="Completion Filtering" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IntelliPromptCompletionFiltering/" />
+      <Item Kind="InlineSample" Category="IntelliPrompt QuickStarts" Title="Completion Match Options" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IntelliPromptCompletionMatchOptions/" />
+      <Item Kind="InlineSample" Category="IntelliPrompt QuickStarts" Title="Completion Tags" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IntelliPromptCompletionTags/" />
+      <Item Kind="InlineSample" Category="IntelliPrompt QuickStarts" Title="Parameter Info" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IntelliPromptParameterInfo/" />
+      <Item Kind="InlineSample" Category="IntelliPrompt QuickStarts" Title="Quick Info" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IntelliPromptQuickInfo/" />
+
+      <Item Kind="InlineSample" Category=".NET Languages Add-on QuickStarts" Title="C# Getting Started 01" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DotNetAddonCSharpGettingStarted01/" />
+      <Item Kind="InlineSample" Category=".NET Languages Add-on QuickStarts" Title="C# Getting Started 02" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DotNetAddonCSharpGettingStarted02/" />
+      <Item Kind="InlineSample" Category=".NET Languages Add-on QuickStarts" Title="Visual Basic Getting Started 01" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DotNetAddonVBGettingStarted01/" />
+      <Item Kind="InlineSample" Category=".NET Languages Add-on QuickStarts" Title="Visual Basic Getting Started 02" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DotNetAddonVBGettingStarted02/" />
+      <Item Kind="InlineSample" BlurbText="Updated!" Category=".NET Languages Add-on QuickStarts" Title="Completion Override" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DotNetAddonCompletionOverride/" />
+      <Item Kind="InlineSample" Category=".NET Languages Add-on QuickStarts" Title="Server Tags" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DotNetAddonServerTags/" />
+
+      <Item Kind="InlineSample" Category="Web Languages Add-on QuickStarts" Title="JavaScript Getting Started" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/WebAddonJavaScriptGettingStarted/" />
+      <Item Kind="InlineSample" Category="Web Languages Add-on QuickStarts" Title="JSON Getting Started" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/WebAddonJsonGettingStarted/" />
+      <Item Kind="InlineSample" Category="Web Languages Add-on QuickStarts" Title="XML Getting Started" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/WebAddonXmlGettingStarted/" />
+      <Item Kind="InlineSample" Category="Web Languages Add-on QuickStarts" Title="XML Text Formatter Options" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/WebAddonXmlTextFormatterOptions/" />
+    </Items>
+  </ProductFamily>
+
+  <ProductFamily Title="Bars" Description="A complete customizable docking toolbar and menu system" Path="/ProductSamples/BarsSamples/Documents/Overview.html">
+    <Items>
+      <Item Kind="DialogSample" Category="Demos" Title="Bars Features" Path="/ProductSamples/BarsSamples/Demo/Features/" Description="See a full implementation example of the menu and docking toolbar system." />
+      <Item Kind="DialogSample" Category="QuickStarts" Title="MDI Merging" Path="/ProductSamples/BarsSamples/QuickStart/MdiMerging/" Description="See how MDI documents can merge menu items into the main menu system." />
+    </Items>
+  </ProductFamily>
+
+  <ProductFamily ShortTitle="Docking" Title="Docking/MDI" Description="A docking tool window and multiple document interface solution" Path="/ProductSamples/DockingSamples/Documents/Overview.html">
+    <Items>
+      <Item Kind="DialogSample" Category="Demos" Title="Docking/MDI Features" Path="/ProductSamples/DockingSamples/Demo/DockingFeatures/" Description="See an example of docking windows and MDI (multiple document interface).  Docking windows can be tool or document windows." />
+      <Item Kind="InlineSample" Category="Demos" Title="TabStrip Features" Path="/ProductSamples/DockingSamples/Demo/TabStripFeatures/" Description="See the TabStrip control in action, showcasing its features." />
+    </Items>
+  </ProductFamily>
+
+  <ProductFamily Title="Navigation" Description="Outlook-like navigation bar control" Path="/ProductSamples/NavigationSamples/Documents/Overview.html">
+    <Items>
+      <Item Kind="InlineSample" Category="Demos" Title="NavigationBar Features" Path="/ProductSamples/NavigationSamples/Demo/Features/" Description="See the NavigationBar control in action, showcasing its features." />
+    </Items>
+  </ProductFamily>
+
+  <ProductFamily Title="Wizard" Description="Everything you need to quickly create wizard dialogs" Path="/ProductSamples/WizardSamples/Documents/Overview.html">
+    <Items>
+      <Item Kind="DialogSample" Category="Demos" Title="Wizard Features" Path="/ProductSamples/WizardSamples/Demo/Features/" Description="See the Wizard control in action, showcasing its features." />
+    </Items>
+  </ProductFamily>
+
+</ProductData>
