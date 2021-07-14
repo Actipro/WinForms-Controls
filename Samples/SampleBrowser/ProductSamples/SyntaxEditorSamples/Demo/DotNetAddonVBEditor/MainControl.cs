@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Security;
 using System.Text;
@@ -304,7 +305,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonVBE
 		/// </summary>
 		private void RefreshReferenceList() {
 			referencesListBox.Items.Clear();
-			foreach (var assemblyRef in projectAssembly.AssemblyReferences)
+			foreach (var assemblyRef in projectAssembly.AssemblyReferences.ToArray())
 				referencesListBox.Items.Add(assemblyRef.Assembly.Name);
 		}
 		
