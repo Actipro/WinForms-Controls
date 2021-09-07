@@ -9,6 +9,12 @@ WinForms Studio's documentation has frequent updates so this topic is the best p
 
 If you are looking for a list of recently-added major new features to WinForms Studio products, please see the Sample Browser's Release History pages instead.
 
+## Updates for v21.1.1
+
+- **SyntaxEditor:** Updated the [Word Wrap](syntaxeditor/user-interface/editor-view/word-wrap.md) topic with information on a new event and how to ensure the horizontal `ScrollBar` remains hidden when word wrap is enabled.
+
+- **SyntaxEditor:** Updated the [Drag and Drop](syntaxeditor/user-interface/input-output/drag-drop.md) topic with additional details about supported text formats and code samples.
+
 ## Updates for v21.1.0
 
 - **All:** Added the [Converting to 2021.1](conversion/converting-to-v21-1.md) topic with information on porting the API namespace changes we made in this version.  API namespaces across the product range were updated in this version for more clear organization and to align with the naming of other platforms.

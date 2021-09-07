@@ -59,6 +59,7 @@
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Current Line Highlighting" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CurrentLineHighlighting/" />
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Document Sharing" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DocumentSharing/" />
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Document Swapping" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DocumentSwapping/" />
+      <Item Kind="InlineSample" BlurbText="New!" Category="General QuickStarts" Title="Drag and Drop" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DragAndDrop/" />
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Edit Actions" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/EditActions/" />
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Editor View Margins - Custom" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/EditorViewMarginsCustom/" />
       <Item Kind="InlineSample" Category="General QuickStarts" Title="Editor View Margins - Locations" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/EditorViewMarginsLocations/" />

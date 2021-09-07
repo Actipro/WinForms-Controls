@@ -27,10 +27,44 @@ Until Visual Studio designer support stabilizes, new versions of Visual Studio w
 
 The following outlines the compatibility of Actipro WinForms Controls with versions of Visual Studio.
 
-| WinForms Controls Versions | Supported Visual Studio Versions |
-|-----|-----|
-| WinForms Controls v21.1.0 | Visual Studio 2019 v16.10 |
-| *All other versions* | *None* |
+<table>
+<thead>
+
+<tr>
+<th>WinForms Controls Versions</th>
+<th>Supported Visual Studio Versions</th>
+</tr>
+
+
+</thead>
+<tbody>
+
+<tr>
+<td>WinForms Controls v21.1</td>
+<td>
+
+- Visual Studio 2019 v16.10
+- Visual Studio 2019 v16.11
+- *Minor updates to v16 are expected to be supported and will be verified as they are released*
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+*All other versions*
+
+</td>
+<td>
+
+*None*
+
+</td>
+</tr>
+
+</tbody>
+</table>
 
 ### .NET Framework Designer Workaround
 
