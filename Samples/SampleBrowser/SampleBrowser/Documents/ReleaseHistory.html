@@ -13,8 +13,35 @@
 
 				<h2>v2021.1</h2>
 
-				<h3>7/12/2021 - Version 21.1.0</h3>
+				<h3>9/7/2021 - Version 21.1.1</h3>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Improved IntelliPrompt UI to reposition itself when the view's text area layout is updated, such as when scrolling.</li>
+					<li>Added the SyntaxEditor.WordWrapModeChanged event that is raised when the SyntaxEditor.WordWrapMode property is changed.</li>
+					<li>Added a Drag and Drop QuickStart to demonstrate multiple interaction models and features.</li>
+					<li>Updated the horizontal ScrollBar to remain visible in word wrap mode when the SyntaxEditor.HorizontalScrollBarVisibility property is Visible (the default), which matches Visual Studio behavior. Use the new WordWrapModeChanged event to alter the HorizontalScrollBarVisibility property as needed if you still wish the horizontal ScrollBar to be hidden when word wrapping.</li>
+					<li>Updated the IDataStore.GetText method to support String data format if UnicodeText and Text data formats are undefined.</li>
+					<li>Updated the IDataStore.SetText method to replace Html and Rtf data formats if already defined.</li>
+					<li>Fixed a bug introduced in the previous build where AutoCorrectorBase logic may not function correctly.</li>
+					<li>Fixed a bug where clicking right of the last character in the line could select a collapsed outlining node at the document start.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Improved the C# text formatter logic.</li>
+					<li>Fixed a bug where AssemblyRepositoryBase.LoadFrom tried to use reflection-only load in .NET Core.</li>
+					<li>Fixed a bug where the C# parser might not parse tuple types used as generic type parameters properly.</li>
+					<li>Fixed a bug where the VB parser might not parse character literals properly.</li>
+					<li>Fixed a bug where the resolver wasn't locking a merged type definition when enumerating its partial types.</li>
+					<li>Fixed a bug where the binary assembly loader might not load array types properly when used as generic type arguments.</li>
+					<li>Fixed a bug where the binary assembly serializer could throw an exception in a certain scenario.</li>
+					<li>Fixed a bug where FileBasedAssemblyRepository might not search the current location of an assembly when resolving documentation.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Fixed a bug where a UIControl or UIContainerControl in a certain scenario may not arrange itself properly when first loaded.</li>
+				</ul>
 
+				<h3>7/12/2021 - Version 21.1.0</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Added IBarRenderer.DrawCommandLinkInCustomizeList to support rendering BarCommandLink within a user-drawn ListBox.</li>

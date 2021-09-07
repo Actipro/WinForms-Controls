@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Security;
 using System.Text;
@@ -23,6 +24,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonCSh
 
 		private int documentNumber;
 		private bool hasPendingParseData;
+		private System.Threading.Timer refreshReferencesTimer;
 
 		// A project assembly (similar to a Visual Studio project) contains source files and assembly references for reflection
 		private IProjectAssembly projectAssembly;
@@ -83,10 +85,13 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonCSh
 		/// <param name="sender">The sender of the event.</param>
 		/// <param name="e">The <c>CollectionChangeEventArgs</c> that contains data related to this event.</param>
 		private void OnAssemblyReferencesChanged(object sender, Text.Utility.CollectionChangeEventArgs<IProjectAssemblyReference> e) {
-			if (this.InvokeRequired)
-				this.BeginInvoke((Action)(() => this.RefreshReferenceList()));
-			else
-				this.RefreshReferenceList();
+			// Assessmblies can be added/removed quickly, especially during initial discovery.
+			// Throttle UI refreshing until no "change" events have been received for a given time.
+			if (refreshReferencesTimer is null)
+				refreshReferencesTimer = new System.Threading.Timer(RefreshReferenceListCallback);
+
+			// Reset the timer each time a new event is raised (without auto-restart)
+			refreshReferencesTimer.Change(dueTime: 250, period: System.Threading.Timeout.Infinite);
 		}
 
 		/// <summary>
@@ -101,26 +106,12 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonCSh
 			dialog.Multiselect = false;
 			dialog.Filter = "Assemblies (*.dll)|*.dll|All files (*.*)|*.*";
 			if (dialog.ShowDialog() == DialogResult.OK) {
-				// Open a document
-				using (var stream = dialog.OpenFile()) {
-					// Read the file
-					var buffer = new byte[stream.Length];
-					stream.Read(buffer, 0, buffer.Length);
-
-					// Create an assembly
-					try {
-						var assembly = Assembly.ReflectionOnlyLoad(buffer);
-						if (assembly != null) {
-							// Add to references
-							projectAssembly.AssemblyReferences.Add(assembly);
-						}
-					}
-					catch (FileLoadException ex) {
-						MessageBox.Show("A file load exception occurred: " + ex.Message, "Error Loading Assembly", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-					}
-					catch (SecurityException) {
-						MessageBox.Show("Sorry but this application must be run in full trust for this to work.", "Error Loading Assembly", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-					}
+				try {
+					// Add to references
+					projectAssembly.AssemblyReferences.AddFrom(dialog.FileName);
+				}
+				catch (Exception ex) {
+					MessageBox.Show("An exception occurred: " + ex.Message, "Error Loading Assembly", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 				}
 			}
 		}
@@ -302,9 +293,14 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonCSh
 		/// <summary>
 		/// Refreshes the list.
 		/// </summary>
-		private void RefreshReferenceList() {
+		private void RefreshReferenceListCallback(object stateInfo) {
+			if (this.InvokeRequired) {
+				this.BeginInvoke((Action)(() => this.RefreshReferenceListCallback(stateInfo)));
+				return;
+			}
+
 			referencesListBox.Items.Clear();
-			foreach (var assemblyRef in projectAssembly.AssemblyReferences)
+			foreach (var assemblyRef in projectAssembly.AssemblyReferences.ToArray())
 				referencesListBox.Items.Add(assemblyRef.Assembly.Name);
 		}
 		

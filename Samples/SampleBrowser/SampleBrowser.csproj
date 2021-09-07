@@ -14,9 +14,9 @@
 
 		<AssemblyName>SampleBrowser</AssemblyName>
 
-		<AssemblyVersion>21.1.0.0</AssemblyVersion>
-		<InformationalVersion>21.1.0.0</InformationalVersion>
-		<PackageVersion>21.1.0.0</PackageVersion>
+		<AssemblyVersion>21.1.1.0</AssemblyVersion>
+		<InformationalVersion>21.1.1.0</InformationalVersion>
+		<PackageVersion>21.1.1.0</PackageVersion>
 
 		<RootNamespace>ActiproSoftware</RootNamespace>
 
@@ -45,11 +45,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ActiproSoftware.Controls.WinForms" Version="21.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet" Version="21.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript" Version="21.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python" Version="21.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML" Version="21.1.0" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms" Version="21.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet" Version="21.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript" Version="21.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python" Version="21.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML" Version="21.1.1" />
 	</ItemGroup>
 
 </Project>
