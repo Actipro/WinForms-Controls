@@ -30,6 +30,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.SingleLi
 			// Load a language from a language definition
 			xmlEditor.Document.Language = new XmlSyntaxLanguage();
 			cSharpEditor.Document.Language = SyntaxEditorHelper.LoadLanguageDefinitionFromResourceStream("CSharp.langdef");
+			formulaEditor.Document.Language = SyntaxEditorHelper.LoadLanguageDefinitionFromResourceStream("CustomFormula.langdef");
 
 			// For the HTML text box that uses the Web Languages Add-on, the following code is needed:
 

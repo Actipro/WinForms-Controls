@@ -5,7 +5,10 @@ order: 3
 ---
 # Clipboard Operations
 
-SyntaxEditor makes use the Windows clipboard as a temporary repository for data for cut/copy/paste operations.
+SyntaxEditor makes use of the Windows clipboard as a temporary repository for data for cut/copy/paste operations.
+
+> [!TIP]
+> **Clipboard** and **Drag and Drop** operations share many of the same concepts. Refer to the [Drag and Drop](drag-drop.md) topic for details specific to working with drag-and-drop.
 
 ## Cutting and Copying Text
 
@@ -21,6 +24,14 @@ This code demonstrates how to copy the currently selected text to the clipboard:
 editor.ActiveView.CopyToClipboard();
 ```
 
+## Cutting and Copying with HTML and RTF Export
+
+The text that is copied can also be copied to the clipboard with HTML and RTF exported highlighting.  Then, if you paste the text in an application such as Word, the text will appear highlighted.
+
+The [SyntaxEditor](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor).[CanCutCopyDragWithHtml](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.CanCutCopyDragWithHtml) property controls whether HTML exporting is performed whenever cutting or copying to the clipboard.
+
+The [SyntaxEditor](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor).[CanCutCopyDragWithRtf](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.CanCutCopyDragWithRtf) property controls whether RTF exporting is performed whenever cutting or copying to the clipboard.
+
 ## Pasting Text
 
 The [IEditorView](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IEditorView).[PasteFromClipboard](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IEditorView.PasteFromClipboard*) method allows text on the clipboard to be pasted into the document, thereby replacing any text that is currently selected within the view from which the method is called.
@@ -33,29 +44,34 @@ This code demonstrates how to paste text from the clipboard:
 editor.ActiveView.PasteFromClipboard();
 ```
 
-## Customizing Text to be Cut, Copied, or Dragged
+## Customizing Text to be Cut or Copied
 
-Sometimes it is useful to be able to customize the text, or objects, to be cut, copied, or dragged.  The [SyntaxEditor](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor).[CutCopyDrag](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.CutCopyDrag) event that fires before text is cut or copied to the clipboard, and also before a drag occurs.
+Sometimes it is useful to be able to customize the text, or objects, to be cut or copied.  The [SyntaxEditor](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor).[CutCopyDrag](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.CutCopyDrag) event that fires before text is cut or copied to the clipboard, and also before a drag occurs (see the [Drag and Drop](drag-drop.md) topic for additional details).
 
-In its event arguments, it passes the [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) that is to be copied as well as the type of operation that will be performed.  When the event fires, the [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) has already been initialized with `DataFormats.UnicodeText` and `DataFormats.Text` entries based on the current selection in the editor.  The [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) can be modified to customize what is sent to the clipboard or dragged.
+In its event arguments, it passes the [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) that is to be copied as well as the type of operation that will be performed.  When the event fires, the [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) has already been initialized with `DataFormats.UnicodeText` and `DataFormats.Text` entries based on the current selection in the editor.  The [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) can be modified to customize what is sent to the clipboard.
 
-## Tracking Clipboard Change Events
+> [!NOTE]
+> The [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) interface is used instead of `IDataObject`. [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) is designed to use many of the same method signatures that `IDataObject` does and provides a consistent API across our supported platforms.
 
-Since the [SyntaxEditor](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor).[CutCopyDrag](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.CutCopyDrag) event fires any time text is cut or copied from the control, it can also be used to maintain an external clipboard-setting history in your application.  This is useful for maintaining a clipboard ring for your application.
+## Customizing Text to be Pasted
 
-## Customizing Text to be Pasted or Dropped
-
-Just like the [SyntaxEditor](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor).[CutCopyDrag](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.CutCopyDrag) event, an event is provided to allow for customization of text that is to be pasted or dropped onto the editor.  The [PasteDragDrop](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.PasteDragDrop) event fires in several situations:
+Just like the [SyntaxEditor](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor).[CutCopyDrag](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.CutCopyDrag) event, an event is provided to allow for customization of text that is to be pasted or dropped onto the editor (see the [Drag and Drop](drag-drop.md) topic for additional details).  The [PasteDragDrop](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.PasteDragDrop) event fires in several situations:
 
 - Paste operations
 - Paste completion
 - CanPaste checks
 - Drag enter
+- Drag over
 - Drag/drop
 
-This event passes the [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) that is to be pasted/dropped and the source of the event.  The [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) is similar to `IDataObject` (see note above) and provides access to any clipboard data (such as non-text formats) that was used to trigger the event.
+This event passes the [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) that is to be pasted and the source of the event.  The [IDataStore](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IDataStore) is similar to `IDataObject` (see note above) and provides access to any clipboard data (such as non-text formats) that was used to trigger the event.
 
 The [PasteDragDropEventArgs](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.PasteDragDropEventArgs).[Text](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.PasteDragDropEventArgs.Text) property can be set to the text to be inserted.  It also can be set to `null` to insert nothing.
 
-> [!NOTE]
-> For CanPaste checks and drag enter scenarios, the event arg's `Text` property can be set to any non-null value to indicate that the object can be pasted or dropped.
+> [!TIP]
+> 
+> For [CanPaste](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.PasteDragDropAction.CanPaste) actions, the [PasteDragDropEventArgs](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.PasteDragDropEventArgs).[Text](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.PasteDragDropEventArgs.Text) property can be set to any non-`null` value to indicate that an object can be pasted.  The actual value only has to be assigned for the [Paste](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.PasteDragDropAction.Paste) actions.
+
+## Tracking Clipboard Change Events
+
+Since the [SyntaxEditor](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor).[CutCopyDrag](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.CutCopyDrag) event fires any time text is cut or copied from the control, it can also be used to maintain an external clipboard-setting history in your application.  This is useful for maintaining a clipboard ring for your application.

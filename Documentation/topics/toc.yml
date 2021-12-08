@@ -739,6 +739,8 @@ items:
   items:
   - name: "Overview"
     href: conversion/index.md
+  - name: "Converting to v22.1"
+    href: conversion/converting-to-v22-1.md
   - name: "Converting to v21.1"
     href: conversion/converting-to-v21-1.md
   - name: "Converting to v20.1"

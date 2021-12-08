@@ -64,7 +64,9 @@
 			// editor
 			// 
 			this.editor.AllowDrop = true;
+			this.editor.AreIndentationGuidesVisible = true;
 			this.editor.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.editor.IsCurrentLineHighlightingEnabled = true;
 			this.editor.IsLineNumberMarginVisible = true;
 			this.editor.Location = new System.Drawing.Point(0, 319);
 			this.editor.Name = "editor";

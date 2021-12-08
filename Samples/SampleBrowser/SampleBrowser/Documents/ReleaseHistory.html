@@ -11,6 +11,98 @@
 		<div class="section-content">
 			<div class="container">
 
+				<h2>v2022.1</h2>
+
+				<h3>12/8/2021 - Version 22.1.0</h3>
+				<h4>Bars</h4>
+				<ul>
+					<li>Fixed a bug where programmatically changing focus between links hosted on different tool bars might not properly set focus on the new tool bar.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added an Editor Views - Synchronization QuickStart to demonstrate synchronizing the scroller and splitter of one editor instance with another.</li>
+					<li>Added support to customize drag/drop text when dragging within the same editor.</li>
+					<li>Added new non-generic interfaces ITaggerBase (implemented by ITagger&lt;T&gt;) and ITagAggregatorBase (implemented by ITagAggregator&lt;T&gt;) for a type-safe way of working with these types when the type of ITag is not relevant.</li>
+					<li>Added ITaggerBase.NotifyTagAggregatorAttached and ITaggerBase.NotifyTagAggregatorDetached which are called when an instance of TagAggregatorBase&lt;T&gt; attaches to or detaches from a tagger.</li>
+					<li>Added CanKeepCaretVisible property to ScrollDownAction and ScrollUpAction to control if the caret should optionally be moved to remain visible after scrolling. Corresponding overloads added to IEditorScrollViewer.ScrollDown and ScrollUp methods.</li>
+					<li>Added various IQuickInfoSession.Placement* properties that return values if the placement-oriented Open method was used to open the session.  Updated the IntelliPrompt Quick Info QuickStart to demonstrate repositioning the QuickInfoSession.PlacementRectangle property for these kinds of sessions as the view is scrolled.</li>
+					<li>Improved the vertical scrollbar behavior when dealing with collapsed regions.</li>
+					<li>Improved the positioning logic for IntelliPrompt popups.</li>
+					<li>Improved the logic for the EditorSnapshotChangedEventArgs.TypedText property to remove whitespace that might have been added to pad a typed character for proper virtual space positioning.</li>
+					<li>Updated drag-and-drop behavior to support customization through DragEventArgs.Effect.</li>
+					<li>Updated drag-and-drop to scroll horizontally when the drop caret is near the edges of the control.</li>
+					<li>Updated drag-and-drop to remove possible unnecessary scrolling following a drop.</li>
+					<li>Updated feedback when dragging to only show the 'Copy' or 'Move' indicator over valid drop locations.</li>
+					<li>Updated Single-Line Mode QuickStart to include a formula example with alternate style for nested parenthesis.</li>
+					<li>Updated TagAggregatorBase&lt;T&gt; so it no longer calls Dispose when detaching from taggers which implement IDisposable.  Taggers can use the new ITaggerBase.NotifyTagAggregatorDetached method to determine the most appropriate time to dispose of the tagger.</li>
+					<li>Updated IntelliPrompt to show drop shadows only when user preference for drop shadows is enabled.</li>
+					<li>Updated the SyntaxEditor.SuspendCaretBlinking and ResumeCaretBlinking methods to support caret display when focus is not in the editor.</li>
+					<li>Updated the IntelliPrompt repositioning logic to better handle when a session is closed due to being scrolled out of view.</li>
+					<li>Updated the MoveSelectedLinesDownAction logic to prevent unexpected results when at the document end.</li>
+					<li>Updated outlining logic to ensure that a collapsed outlining node expands if its end is removed and it becomes an open node.</li>
+					<li>Fixed an issue where automatic vertical scrolling caused by dragging near the edge of a view might reset the selected text.</li>
+					<li>Fixed an issue that prevented dropping text around block selections.</li>
+					<li>Fixed an issue where IntelliPrompt may not show within a bottom split view.</li>
+					<li>Fixed a bug where setting HighlightingStyle.BorderColor to null in styles with a border could trigger an exception when rendering.</li>
+					<li>Fixed a bug where a code snippet with an $end$ defined immediately after a field may not position the caret properly when Enter was pressed after editing the field.</li>
+					<li>Fixed a memory leak that might occur when closing IntelliPrompt popups.</li>
+					<li>Fixed a bug where IntelliPrompt popups and/or their drop shadows might appear behind the form hosting the editor control in certain situations.</li>
+					<li>Fixed a bug where an exception might be thrown when closing a form if IntelliPrompt sessions were open.</li>
+					<li>Fixed a bug where exported RTF and HTML didn't account for a customized plain text foreground.</li>
+					<li>Fixed a bug where calling IEditorView.InsertSurroundingText from witin a SyntaxEditor.DocumentTextChanged event handler could result in an incorrect final selection.</li>
+					<li>Fixed a bug where typing in a block selection after a collapsed outlining node could lead to an incorrect selection range.</li>
+					<li>Fixed a bug where a collapsed region without a related intra-text spacer at document end could throw an exception.</li>
+					<li>Fixed a bug where the selection wasn't always correct after an indent for a block selection that included virtual space.</li>
+					<li>Fixed a bug where a block selection that begins with no characters selected in the first line wouldn't copy the text properly.</li>
+					<li>Fixed a bug where pressing Enter with a block selection at the document end could incorrectly delete characters.</li>
+					<li>Fixed a bug where deleting a collapsed outlining node that had its quick info open could throw an exception.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Added a Go To Definition QuickStart to demonstrate using an IResolver to navigate to the source of a reference.</li>
+					<li>Updated the C# parser grammar to support C# 8.0 syntax.</li>
+					<li>Updated the C# outliner to create outlining nodes for code-level constructs such as block statements.  This feature can be disabled by setting the CSharpOutliner.CanOutlineCodeLevelConstructs property to false.</li>
+					<li>Updated the SourceFileLocation property to be populated on all ITypeMemberDefinition objects from source, and added it to IParameterDefinition and IVariableDefinition objects loaded from source.  This allows for Go To Definition functionality to be implemented for all kinds of resolved objects.</li>
+					<li>Updated the DocumentationProvider.ToString method to return the raw XML documentation comment text.</li>
+					<li>Updated CSharpContextFactory and VBContextFactory to better handle target expression resolution when positioned immediately after a significant token.</li>
+					<li>Fixed a bug where IntelliPrompt completion displayed incorrect results in VB array initializers.</li>
+				</ul>
+				<h5>Web Languages Add-on</h5>
+				<ul>
+					<li>Updated the JavaScript parser grammar to support ECMAScript 2021 (12th Edition) syntax.</li>
+					<li>Updated JsonSyntaxLanguage with a new constructor overload for whether the lexer supports JavaScript style comments, as in Microsoft's JSONC variant.</li>
+					<li>Updated the XML context factory to return an AST node for the target element, if the AST is in sync with the tokens that generated the target element.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Updated the parser grammar to support Python v3.9.5 syntax.</li>
+					<li>Updated the resolver to support namespace packages.</li>
+					<li>Removed support for Python v2.x syntax, which is well past end of life.</li>
+					<li>Fixed an issue where an aliased dotted import name might not resolve correctly.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Updated the ScrollBar context menu to be displayed on right click release instead of press.</li>
+				</ul>
+				<h4>All</h4>
+				<ul>
+					<li>Validated .NET 6 compatibility.</li>
+					<li>Added .NET 5 variations of the product assemblies to the NuGet feeds.</li>
+					<li>Added .NET Core 3.1 and .NET 5+ designer support for Visual Studio 2022 and updated the 'About...' designer action to open product-specific online documentation.</li>
+				</ul>
+
+
+				<p>
+					<!-- Older version toggle -->
+					<a id="toggle-link" href="#toggle-link" onclick="var els = document.getElementsByClassName('section-content'); for (var i = 0; i < els.length; i++) els[i].classList.remove('d-none'); this.classList.add('d-none');">See release history for older versions</a>
+				</p>
+
+			</div>
+		</div>
+
+		<div class="section-content d-none bg-silver">
+			<div class="container">
+				
 				<h2>v2021.1</h2>
 
 				<h3>9/7/2021 - Version 21.1.1</h3>
@@ -22,6 +114,7 @@
 					<li>Updated the horizontal ScrollBar to remain visible in word wrap mode when the SyntaxEditor.HorizontalScrollBarVisibility property is Visible (the default), which matches Visual Studio behavior. Use the new WordWrapModeChanged event to alter the HorizontalScrollBarVisibility property as needed if you still wish the horizontal ScrollBar to be hidden when word wrapping.</li>
 					<li>Updated the IDataStore.GetText method to support String data format if UnicodeText and Text data formats are undefined.</li>
 					<li>Updated the IDataStore.SetText method to replace Html and Rtf data formats if already defined.</li>
+					<li>Updated 'PasteDragDrop' event to be raised for read-only document so custom drop operations can be supported.</li>
 					<li>Fixed a bug introduced in the previous build where AutoCorrectorBase logic may not function correctly.</li>
 					<li>Fixed a bug where clicking right of the last character in the line could select a collapsed outlining node at the document start.</li>
 				</ul>
@@ -40,6 +133,7 @@
 				<ul>
 					<li>Fixed a bug where a UIControl or UIContainerControl in a certain scenario may not arrange itself properly when first loaded.</li>
 				</ul>
+
 
 				<h3>7/12/2021 - Version 21.1.0</h3>
 				<h4>Bars</h4>
@@ -157,16 +251,11 @@
 					<li>Added NuGet packages for .NET Core 3.1 variations of the assemblies.</li>
 					<li>Realigned API namespaces for clarity and consistency with other platforms.  Please see the Conversion documentation topic for details on porting your code to the new namespace references.</li>
 				</ul>
-
-				<p>
-					<!-- Older version toggle -->
-					<a id="toggle-link" href="#toggle-link" onclick="var els = document.getElementsByClassName('section-content'); for (var i = 0; i < els.length; i++) els[i].classList.remove('d-none'); this.classList.add('d-none');">See release history for older versions</a>
-				</p>
-
+				
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 				<h2>v2020.1</h2>
@@ -449,7 +538,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none">
+		<div class="section-content d-none bg-silver">
 			<div class="container">
 
 				<h2>v2018.1</h2>
@@ -526,7 +615,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 				<h2>v2016.1</h2>
@@ -572,7 +661,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none">
+		<div class="section-content d-none bg-silver">
 			<div class="container">
 
 				<h2>v2014.1</h2>
@@ -684,7 +773,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 				<h2>v2013.1</h2>
@@ -753,7 +842,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none">
+		<div class="section-content d-none bg-silver">
 			<div class="container">
 
 				<h2>v2012.1</h2>

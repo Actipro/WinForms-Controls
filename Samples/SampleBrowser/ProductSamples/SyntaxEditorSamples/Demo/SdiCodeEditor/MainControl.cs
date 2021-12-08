@@ -178,6 +178,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 					// Web Languages Add-on JSON language
 					this.LoadLanguage(new ActiproSoftware.Text.Languages.JavaScript.Implementation.JsonSyntaxLanguage());
 					break;
+				case "JSON with Comments (in Web Languages Add-on)":
+					// Web Languages Add-on JSON language
+					this.LoadLanguage(new ActiproSoftware.Text.Languages.JavaScript.Implementation.JsonSyntaxLanguage(areCommentsSupported: true));
+					break;
 				case "Lua":
 					this.LoadLanguageDefinitionFromFile("Lua.langdef");
 					break;
@@ -202,13 +206,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 				case "Python":
 					this.LoadLanguageDefinitionFromFile("Python.langdef");
 					break;
-				case "Python v2.x (in Python Language Add-on)":
+				case "Python (in Python Language Add-on)":
 					// Python Language Add-on Python language
-					this.LoadLanguage(new ActiproSoftware.Text.Languages.Python.Implementation.PythonSyntaxLanguage(ActiproSoftware.Text.Languages.Python.PythonVersion.Version2));
-					break;
-				case "Python v3.x (in Python Language Add-on)":
-					// Python Language Add-on Python language
-					this.LoadLanguage(new ActiproSoftware.Text.Languages.Python.Implementation.PythonSyntaxLanguage(ActiproSoftware.Text.Languages.Python.PythonVersion.Version3));
+					this.LoadLanguage(new ActiproSoftware.Text.Languages.Python.Implementation.PythonSyntaxLanguage());
 					break;
 				case "RTF":
 					this.LoadLanguageDefinitionFromFile("Rtf.langdef");

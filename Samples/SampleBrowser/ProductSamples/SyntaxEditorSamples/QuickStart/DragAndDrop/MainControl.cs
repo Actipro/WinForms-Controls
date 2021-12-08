@@ -79,8 +79,8 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
 				UpdateEditorFromView();
 
 				// Enable/disable dependent controls
-				overrideDragLabel.Enabled = overrideDragTextBox.Enabled = overrideDragCheckBox.Checked;
-				overrideDropLabel.Enabled = overrideDropTextBox.Enabled = overrideDropCheckBox.Checked;
+				overrideDragTextBox.Enabled = overrideDragCheckBox.Checked;
+				overrideDropTextBox.Enabled = overrideDropCheckBox.Checked;
 			}
 		}
 
@@ -216,61 +216,86 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
 			// NOTE: This event can be used to monitor drag operations and optionally override the text that is used
 			Debug.WriteLine($"OnEditorPasteDragDrop; Action={e.Action}; Text={e.Text}; IDataObject={e.DataStore.ToDataObject()?.GetType().Name}");
 
-			if (e.Action == PasteDragDropAction.DragEnter ||
-				e.Action == PasteDragDropAction.DragDrop) {
-				if (overrideDropCheckBox.Checked) {
-					// Override the dropped text with custom text
-					e.Text = overrideDropTextBox.Text;
+			if (e.Action == PasteDragDropAction.DragDrop && cancelDropCheckBox.Checked) {
+				// Cancel by coercing the effect
+				e.DragEventArgs.Effect = DragDropEffects.None;
+				MessageBox.Show("Drop Canceled");
+				return;
+			}
+
+			if (overrideDropCheckBox.Checked) {
+				// Override the dropped text with custom text
+				e.Text = overrideDropTextBox.Text;
+
+				// Make sure the effect indicates that copy is allowed (since text may not have been available when effects were initialized)
+				if ((e.DragEventArgs.Effect == DragDropEffects.None) &&
+					(e.DragEventArgs.AllowedEffect.HasFlag(DragDropEffects.Copy))) {
+					e.DragEventArgs.Effect = DragDropEffects.Copy;
 				}
-				else if (e.Text == null) {
+			}
+			else if (e.Text == null) {
 
-					// NOTE: The PasteDragDropEventArgs.Text property is initialized to the text automatically extracted
-					//		 from the drag source. If the property is NULL, that indicates the text could not be determined.
-					//		 If this value remains NULL after this event is handled, SyntaxEditor will not allow the drag.
-					//		 Custom drag sources can be analyzed here and their representative text assigned to the
-					//		 PasteDragDropEventArgs.Text property to allow the drop.
+				// NOTE: The PasteDragDropEventArgs.Text property is initialized to the text automatically extracted
+				//		 from the drag source. If the property is NULL, that indicates the text could not be determined.
+				//		 Custom drag sources can be analyzed here and their representative text assigned to the
+				//		 PasteDragDropEventArgs.Text property to control the dropped text.
 
-					if (e.DataStore.GetDataPresent(typeof(TextSnippet).FullName)) {
-						//
-						// Custom TextSnippet Object
-						//
-						var textSnippet = e.DataStore.GetData(typeof(TextSnippet).FullName) as TextSnippet;
-						e.Text = textSnippet.Snippet;
-					}
-					else if (e.DataStore.GetDataPresent(DataFormats.FileDrop)) {
-						//
-						// FileDrop
-						//
-						var allFiles = e.DataStore.GetData(DataFormats.FileDrop) as string[];
-						if (allFiles != null && allFiles.Length == 1) {
-							string filePath = allFiles[0];
-							if (!string.IsNullOrWhiteSpace(filePath)) {
-								if (e.Action == PasteDragDropAction.DragDrop) {
-									try {
+				if (e.DataStore.GetDataPresent(typeof(TextSnippet).FullName)) {
+					//
+					// Custom TextSnippet Object
+					//
+					var textSnippet = e.DataStore.GetData(typeof(TextSnippet).FullName) as TextSnippet;
+					e.Text = textSnippet.Snippet;
+					e.DragEventArgs.Effect = DragDropEffects.Copy;
+				}
+				else if (e.DataStore.GetDataPresent(DataFormats.FileDrop)) {
+					//
+					// FileDrop
+					//
+					var allFiles = e.DataStore.GetData(DataFormats.FileDrop) as string[];
+					if (allFiles != null && allFiles.Length == 1) {
+						string filePath = allFiles[0];
+						if (!string.IsNullOrWhiteSpace(filePath)) {
+							if (e.Action == PasteDragDropAction.DragDrop) {
+								try {
+									if (editor.Document.IsReadOnly) {
+										// Cancel the default drop behavior
+										e.DragEventArgs.Effect = DragDropEffects.None;
+
+										// Prompt to open the file to replace the current file
+										if (DialogResult.Yes == MessageBox.Show($"Do you want open the file '{Path.GetFileName(filePath)}'?", "Open File?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)) {
+											editor.Document.LoadFile(filePath);
+										}
+									}
+									else {
 										// Prompt to insert the context of the dropped file
-										if (DialogResult.Yes == MessageBox.Show($"Do you want to insert the contents of the file '{Path.GetFileName(filePath)}'?", "Insert File Contents?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+										if (DialogResult.Yes == MessageBox.Show($"Do you want to insert the contents of the file '{Path.GetFileName(filePath)}'?", "Insert File Contents?", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2)) {
+											// Indicate the text to be inserted
 											e.Text = File.ReadAllText(filePath);
-									}
-									catch (Exception ex) {
-										Debug.WriteLine(ex);
-										MessageBox.Show("Error processing file.  " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+											// The default effect for FileDrop is 'None', so assign an effect to allow the custom text to be inserted.
+											e.DragEventArgs.Effect = DragDropEffects.Copy;
+										}
 									}
 								}
-								else {
-									// Set the text to any non-NULL value so SyntaxEditor will accept the drag event
-									e.Text = "FileDrop";
+								catch (Exception ex) {
+									Debug.WriteLine(ex);
+									MessageBox.Show("Error processing file.  " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 								}
+							}
+							else {
+								// Customize the drag operation to indicate the 'Copy' effect will be used.
+								e.DragEventArgs.Effect = DragDropEffects.Copy;
 							}
 						}
 					}
-					else {
-						//
-						// Unknown Drag Source
-						//
-						IDataObject dataObject = e.DataStore.ToDataObject();
-						var customData = $"Optionally build custom text to be inserted for any data source; SourceType={dataObject?.GetType().Name}";
-						e.Text = customData;
-					}
+				}
+				else {
+					//
+					// Unknown Drag Source
+					//
+					IDataObject dataObject = e.DataStore.ToDataObject();
+					var customData = $"Optionally build custom text to be inserted for any data source; SourceType={dataObject?.GetType().Name}";
+					e.Text = customData;
 				}
 			}
 		}
@@ -293,6 +318,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
 			editor.CanCutCopyDragWithHtml = populateWithHtmlCheckBox.Checked;
 			editor.CanCutCopyDragWithRtf = populateWithRtfCheckBox.Checked;
 			editor.IsDragDropTextReselectEnabled = shouldReselectTextAfterDropCheckBox.Checked;
+			editor.Document.IsReadOnly = isDocumentReadOnlyCheckBox.Checked;
 		}
 
 		/// <summary>
@@ -304,6 +330,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
 			populateWithHtmlCheckBox.Checked = editor.CanCutCopyDragWithHtml;
 			populateWithRtfCheckBox.Checked = editor.CanCutCopyDragWithRtf;
 			shouldReselectTextAfterDropCheckBox.Checked = editor.IsDragDropTextReselectEnabled;
+			isDocumentReadOnlyCheckBox.Checked = editor.Document.IsReadOnly;
 		}
 
 	}
