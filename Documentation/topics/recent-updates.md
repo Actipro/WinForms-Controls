@@ -9,6 +9,18 @@ WinForms Studio's documentation has frequent updates so this topic is the best p
 
 If you are looking for a list of recently-added major new features to WinForms Studio products, please see the Sample Browser's Release History pages instead.
 
+## Updates for v22.1.0
+
+- **All:** Added the [Converting to 2022.1](conversion/converting-to-v22-1.md) topic with information on changes we made in this version.
+
+- **All:** Updated the [Visual Studio Designer](visual-studio-designer.md) topic based on Visual Studio 2022.
+
+- **SyntaxEditor:** Updated the [Drag and Drop](syntaxeditor/user-interface/input-output/drag-drop.md) topic with additional details for customizing operations.
+
+- **SyntaxEditor Python Language Add-on:** Added the [Converting to v22.1](conversion/converting-to-v22-1.md) topic with information on API changes related to dropping support for the legacy Python v2.x syntax.
+
+- **SyntaxEditor Web Languages Add-on:** Updated the [JSON Getting Started](syntaxeditor/web-languages-addon/json/getting-started.md) topic with information on the new syntax language constructor overload that can provide optional comment support.
+
 ## Updates for v21.1.1
 
 - **SyntaxEditor:** Updated the [Word Wrap](syntaxeditor/user-interface/editor-view/word-wrap.md) topic with information on a new event and how to ensure the horizontal `ScrollBar` remains hidden when word wrap is enabled.

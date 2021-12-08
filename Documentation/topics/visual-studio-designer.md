@@ -19,7 +19,7 @@ Proper designer support for .NET Framework requires that controls have been inst
 To support Visual Studio design-time functionality with .NET Core and/or .NET 5+, controls must be referenced as NuGet packages.  See the [NuGet Packages and Feeds](nuget.md) topic for additional information on working with NuGet packages.
 
 > [!IMPORTANT]
-> WinForms designer support for .NET Core / .NET 5+ in Visual Studio 2019 is available *only as a preview*, and NuGet packages can only ship with support for a single version of the Visual Studio Design Tools SDK. Breaking changes to the SDK have been common with Visual Studio 2019, and **any upgrade to Visual Studio may break designer functionality**.
+> WinForms designer support for .NET Core / .NET 5+ in Visual Studio 2019/2022 is available *only as a preview*.  Our NuGet packages ship with support for multiple versions of the Visual Studio Design Tools SDK, and Visual Studio will attempt to use the version which most closely matches.  Breaking changes to the SDK are still common with new Visual Studio releases, and **any upgrade to Visual Studio may break designer functionality** until an update is available.
 
 Until Visual Studio designer support stabilizes, new versions of Visual Studio will likely require new versions of our controls.  With each new Visual Studio version that is incompatible with a previous version, we intend to publish updated NuGet packages to support the latest version of Visual Studio. *Only the latest version* of WinForms Controls will be updated to support the new releases of Visual Studio.
 
@@ -40,11 +40,23 @@ The following outlines the compatibility of Actipro WinForms Controls with versi
 <tbody>
 
 <tr>
+<td>WinForms Controls v22.1</td>
+<td>
+
+- Visual Studio 2022 v17.0
+- Visual Studio 2019 v16.11
+- Visual Studio 2019 v16.10
+- *Minor updates to v16 and v17 are expected to be supported and will be verified as they are released*
+
+</td>
+</tr>
+
+<tr>
 <td>WinForms Controls v21.1</td>
 <td>
 
-- Visual Studio 2019 v16.10
 - Visual Studio 2019 v16.11
+- Visual Studio 2019 v16.10
 - *Minor updates to v16 are expected to be supported and will be verified as they are released*
 
 </td>

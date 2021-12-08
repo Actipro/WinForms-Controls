@@ -5,7 +5,7 @@ order: 8
 ---
 # Image Source Providers
 
-Image source providers are classes that provide `ImageSource` objects on demand to IntelliPrompt sessions.  An example of their usage is providing image sources for completion list items.
+Image source providers are classes that provide `Image` objects on demand to IntelliPrompt sessions.  An example of their usage is providing image sources for completion list items.
 
 ## The IImageSourceProvider Interface
 
@@ -13,11 +13,11 @@ All image source providers implement the [IImageSourceProvider](xref:ActiproSoft
 
 ## The DirectImageSourceProvider Class
 
-The [DirectImageSourceProvider](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.Implementation.DirectImageSourceProvider) is the simplest way to provide image sources.  Its constructor takes an `ImageSource` instance and that is what is returned by the provider.
+The [DirectImageSourceProvider](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.Implementation.DirectImageSourceProvider) is the simplest way to provide image sources.  Its constructor takes an `Image` instance and that is what is returned by the provider.
 
 The downside to using this provider is that the image source must be loaded prior to creation of the provider.  If a large number of providers are needed (such as for a completion list), then it is better to use another provider or build a custom one.
 
-This code creates a [DirectImageSourceProvider](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.Implementation.DirectImageSourceProvider) using the `ImageSource` that is already loaded in a `source` variable:
+This code creates a [DirectImageSourceProvider](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.Implementation.DirectImageSourceProvider) using the `Image` that is already loaded in a `source` variable:
 
 ```csharp
 DirectImageSourceProvider provider = new DirectImageSourceProvider(source);
@@ -49,6 +49,6 @@ To change the image set that is currently in effect, set the [CommonImageSourceP
 
 It's easy to write your own custom image source provider if none of the implementations above work for your scenario.  Simply create a class that implements [IImageSourceProvider](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.IImageSourceProvider).
 
-The [GetImageSource](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.IImageSourceProvider.GetImageSource*) method that must be implemented as part of that interface returns an `ImageSource` object.  You could have it be pulled from a resource, database, or any other storage mechanism.
+The [GetImageSource](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.IImageSourceProvider.GetImageSource*) method that must be implemented as part of that interface returns an `Image` object.  You could have it be pulled from a resource, database, or any other storage mechanism.
 
 Since the method is called on-demand, the image source doesn't need to be loaded up front.

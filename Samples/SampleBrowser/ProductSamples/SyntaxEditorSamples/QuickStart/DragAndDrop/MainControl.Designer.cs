@@ -44,13 +44,12 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.dockContainerContainer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.DockContainerContainer();
             this.headerPanel = new System.Windows.Forms.Panel();
             this.headerTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.isDocumentReadOnlyCheckBox = new System.Windows.Forms.CheckBox();
+            this.cancelDropCheckBox = new System.Windows.Forms.CheckBox();
             this.customDragSourcePanel = new System.Windows.Forms.Panel();
             this.customDragSourceLabel = new System.Windows.Forms.Label();
             this.shouldReselectTextAfterDropCheckBox = new System.Windows.Forms.CheckBox();
             this.overrideDropCheckBox = new System.Windows.Forms.CheckBox();
-            this.overrideDropPanel = new System.Windows.Forms.Panel();
-            this.overrideDropLabel = new System.Windows.Forms.Label();
-            this.overrideDropTextBox = new System.Windows.Forms.TextBox();
             this.overrideDragCheckBox = new System.Windows.Forms.CheckBox();
             this.overrideLabel = new System.Windows.Forms.Label();
             this.populateWithRtfCheckBox = new System.Windows.Forms.CheckBox();
@@ -59,11 +58,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.allowDropCheckBox = new System.Windows.Forms.CheckBox();
             this.allowLabel = new System.Windows.Forms.Label();
             this.allowDragCheckBox = new System.Windows.Forms.CheckBox();
-            this.overrideDragPanel = new System.Windows.Forms.Panel();
-            this.overrideDragLabel = new System.Windows.Forms.Label();
-            this.overrideDragTextBox = new System.Windows.Forms.TextBox();
             this.stringDragSourcePanel = new System.Windows.Forms.Panel();
             this.stringDragSourceLabel = new System.Windows.Forms.Label();
+            this.overrideDragTextBox = new System.Windows.Forms.TextBox();
+            this.overrideDropTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
             this.richTextToolWindow.SuspendLayout();
             this.toolWindowContainer1.SuspendLayout();
@@ -73,8 +71,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.headerPanel.SuspendLayout();
             this.headerTableLayoutPanel.SuspendLayout();
             this.customDragSourcePanel.SuspendLayout();
-            this.overrideDropPanel.SuspendLayout();
-            this.overrideDragPanel.SuspendLayout();
             this.stringDragSourcePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -270,10 +266,13 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.headerTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.headerTableLayoutPanel.Controls.Add(this.overrideDropTextBox, 2, 3);
+            this.headerTableLayoutPanel.Controls.Add(this.overrideDragTextBox, 2, 2);
+            this.headerTableLayoutPanel.Controls.Add(this.isDocumentReadOnlyCheckBox, 2, 4);
+            this.headerTableLayoutPanel.Controls.Add(this.cancelDropCheckBox, 1, 4);
             this.headerTableLayoutPanel.Controls.Add(this.customDragSourcePanel, 3, 2);
             this.headerTableLayoutPanel.Controls.Add(this.shouldReselectTextAfterDropCheckBox, 0, 4);
             this.headerTableLayoutPanel.Controls.Add(this.overrideDropCheckBox, 1, 3);
-            this.headerTableLayoutPanel.Controls.Add(this.overrideDropPanel, 2, 3);
             this.headerTableLayoutPanel.Controls.Add(this.overrideDragCheckBox, 1, 2);
             this.headerTableLayoutPanel.Controls.Add(this.overrideLabel, 0, 2);
             this.headerTableLayoutPanel.Controls.Add(this.populateWithRtfCheckBox, 2, 1);
@@ -282,7 +281,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.headerTableLayoutPanel.Controls.Add(this.allowDropCheckBox, 2, 0);
             this.headerTableLayoutPanel.Controls.Add(this.allowLabel, 0, 0);
             this.headerTableLayoutPanel.Controls.Add(this.allowDragCheckBox, 1, 0);
-            this.headerTableLayoutPanel.Controls.Add(this.overrideDragPanel, 2, 2);
             this.headerTableLayoutPanel.Controls.Add(this.stringDragSourcePanel, 3, 0);
             this.headerTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -297,6 +295,27 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.headerTableLayoutPanel.Size = new System.Drawing.Size(582, 133);
             this.headerTableLayoutPanel.TabIndex = 0;
             // 
+            // isDocumentReadOnlyCheckBox
+            // 
+            this.isDocumentReadOnlyCheckBox.AutoSize = true;
+            this.isDocumentReadOnlyCheckBox.Location = new System.Drawing.Point(257, 111);
+            this.isDocumentReadOnlyCheckBox.Name = "isDocumentReadOnlyCheckBox";
+            this.isDocumentReadOnlyCheckBox.Size = new System.Drawing.Size(138, 19);
+            this.isDocumentReadOnlyCheckBox.TabIndex = 14;
+            this.isDocumentReadOnlyCheckBox.Text = "Read-only document";
+            this.isDocumentReadOnlyCheckBox.UseVisualStyleBackColor = true;
+            this.isDocumentReadOnlyCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckBoxCheckedChanged);
+            // 
+            // cancelDropCheckBox
+            // 
+            this.cancelDropCheckBox.AutoSize = true;
+            this.cancelDropCheckBox.Location = new System.Drawing.Point(161, 111);
+            this.cancelDropCheckBox.Name = "cancelDropCheckBox";
+            this.cancelDropCheckBox.Size = new System.Drawing.Size(90, 19);
+            this.cancelDropCheckBox.TabIndex = 13;
+            this.cancelDropCheckBox.Text = "Cancel drop";
+            this.cancelDropCheckBox.UseVisualStyleBackColor = true;
+            // 
             // customDragSourcePanel
             // 
             this.customDragSourcePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -304,12 +323,12 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.customDragSourcePanel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.customDragSourcePanel.Controls.Add(this.customDragSourceLabel);
-            this.customDragSourcePanel.Location = new System.Drawing.Point(469, 53);
+            this.customDragSourcePanel.Location = new System.Drawing.Point(401, 53);
             this.customDragSourcePanel.Name = "customDragSourcePanel";
             this.customDragSourcePanel.Padding = new System.Windows.Forms.Padding(1);
             this.headerTableLayoutPanel.SetRowSpan(this.customDragSourcePanel, 2);
-            this.customDragSourcePanel.Size = new System.Drawing.Size(110, 52);
-            this.customDragSourcePanel.TabIndex = 14;
+            this.customDragSourcePanel.Size = new System.Drawing.Size(178, 52);
+            this.customDragSourcePanel.TabIndex = 16;
             // 
             // customDragSourceLabel
             // 
@@ -317,7 +336,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.customDragSourceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customDragSourceLabel.Location = new System.Drawing.Point(1, 1);
             this.customDragSourceLabel.Name = "customDragSourceLabel";
-            this.customDragSourceLabel.Size = new System.Drawing.Size(108, 50);
+            this.customDragSourceLabel.Size = new System.Drawing.Size(176, 50);
             this.customDragSourceLabel.TabIndex = 1;
             this.customDragSourceLabel.Text = "Drag from Here for Object Data";
             this.customDragSourceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -325,11 +344,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             // shouldReselectTextAfterDropCheckBox
             // 
             this.shouldReselectTextAfterDropCheckBox.AutoSize = true;
-            this.headerTableLayoutPanel.SetColumnSpan(this.shouldReselectTextAfterDropCheckBox, 3);
             this.shouldReselectTextAfterDropCheckBox.Location = new System.Drawing.Point(3, 111);
             this.shouldReselectTextAfterDropCheckBox.Name = "shouldReselectTextAfterDropCheckBox";
             this.shouldReselectTextAfterDropCheckBox.Size = new System.Drawing.Size(152, 19);
-            this.shouldReselectTextAfterDropCheckBox.TabIndex = 11;
+            this.shouldReselectTextAfterDropCheckBox.TabIndex = 12;
             this.shouldReselectTextAfterDropCheckBox.Text = "Re-select text after drop";
             this.shouldReselectTextAfterDropCheckBox.UseVisualStyleBackColor = true;
             this.shouldReselectTextAfterDropCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckBoxCheckedChanged);
@@ -337,7 +355,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             // overrideDropCheckBox
             // 
             this.overrideDropCheckBox.AutoSize = true;
-            this.overrideDropCheckBox.Location = new System.Drawing.Point(156, 82);
+            this.overrideDropCheckBox.Location = new System.Drawing.Point(161, 82);
             this.overrideDropCheckBox.Name = "overrideDropCheckBox";
             this.overrideDropCheckBox.Size = new System.Drawing.Size(52, 19);
             this.overrideDropCheckBox.TabIndex = 10;
@@ -345,46 +363,13 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.overrideDropCheckBox.UseVisualStyleBackColor = true;
             this.overrideDropCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckBoxCheckedChanged);
             // 
-            // overrideDropPanel
-            // 
-            this.overrideDropPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.overrideDropPanel.Controls.Add(this.overrideDropLabel);
-            this.overrideDropPanel.Controls.Add(this.overrideDropTextBox);
-            this.overrideDropPanel.Location = new System.Drawing.Point(220, 82);
-            this.overrideDropPanel.Name = "overrideDropPanel";
-            this.overrideDropPanel.Size = new System.Drawing.Size(243, 23);
-            this.overrideDropPanel.TabIndex = 9;
-            // 
-            // overrideDropLabel
-            // 
-            this.overrideDropLabel.AutoSize = true;
-            this.overrideDropLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.overrideDropLabel.Enabled = false;
-            this.overrideDropLabel.Location = new System.Drawing.Point(117, 0);
-            this.overrideDropLabel.Name = "overrideDropLabel";
-            this.overrideDropLabel.Size = new System.Drawing.Size(126, 15);
-            this.overrideDropLabel.TabIndex = 1;
-            this.overrideDropLabel.Text = "(from outside sources)";
-            // 
-            // overrideDropTextBox
-            // 
-            this.overrideDropTextBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.overrideDropTextBox.Enabled = false;
-            this.overrideDropTextBox.Location = new System.Drawing.Point(0, 0);
-            this.overrideDropTextBox.Name = "overrideDropTextBox";
-            this.overrideDropTextBox.Size = new System.Drawing.Size(117, 23);
-            this.overrideDropTextBox.TabIndex = 0;
-            this.overrideDropTextBox.Text = "Custom Drop Text";
-            // 
             // overrideDragCheckBox
             // 
             this.overrideDragCheckBox.AutoSize = true;
-            this.overrideDragCheckBox.Location = new System.Drawing.Point(156, 53);
+            this.overrideDragCheckBox.Location = new System.Drawing.Point(161, 53);
             this.overrideDragCheckBox.Name = "overrideDragCheckBox";
             this.overrideDragCheckBox.Size = new System.Drawing.Size(51, 19);
-            this.overrideDragCheckBox.TabIndex = 7;
+            this.overrideDragCheckBox.TabIndex = 8;
             this.overrideDragCheckBox.Text = "Drag";
             this.overrideDragCheckBox.UseVisualStyleBackColor = true;
             this.overrideDragCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckBoxCheckedChanged);
@@ -395,18 +380,18 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.overrideLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.overrideLabel.Location = new System.Drawing.Point(3, 50);
             this.overrideLabel.Name = "overrideLabel";
-            this.overrideLabel.Size = new System.Drawing.Size(147, 29);
-            this.overrideLabel.TabIndex = 6;
+            this.overrideLabel.Size = new System.Drawing.Size(152, 29);
+            this.overrideLabel.TabIndex = 7;
             this.overrideLabel.Text = "Override with custom text:";
             this.overrideLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // populateWithRtfCheckBox
             // 
             this.populateWithRtfCheckBox.AutoSize = true;
-            this.populateWithRtfCheckBox.Location = new System.Drawing.Point(220, 28);
+            this.populateWithRtfCheckBox.Location = new System.Drawing.Point(257, 28);
             this.populateWithRtfCheckBox.Name = "populateWithRtfCheckBox";
             this.populateWithRtfCheckBox.Size = new System.Drawing.Size(44, 19);
-            this.populateWithRtfCheckBox.TabIndex = 5;
+            this.populateWithRtfCheckBox.TabIndex = 6;
             this.populateWithRtfCheckBox.Text = "RTF";
             this.populateWithRtfCheckBox.UseVisualStyleBackColor = true;
             this.populateWithRtfCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckBoxCheckedChanged);
@@ -414,10 +399,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             // populateWithHtmlCheckBox
             // 
             this.populateWithHtmlCheckBox.AutoSize = true;
-            this.populateWithHtmlCheckBox.Location = new System.Drawing.Point(156, 28);
+            this.populateWithHtmlCheckBox.Location = new System.Drawing.Point(161, 28);
             this.populateWithHtmlCheckBox.Name = "populateWithHtmlCheckBox";
             this.populateWithHtmlCheckBox.Size = new System.Drawing.Size(58, 19);
-            this.populateWithHtmlCheckBox.TabIndex = 4;
+            this.populateWithHtmlCheckBox.TabIndex = 5;
             this.populateWithHtmlCheckBox.Text = "HTML";
             this.populateWithHtmlCheckBox.UseVisualStyleBackColor = true;
             this.populateWithHtmlCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckBoxCheckedChanged);
@@ -428,18 +413,18 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.populateWithLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.populateWithLabel.Location = new System.Drawing.Point(3, 25);
             this.populateWithLabel.Name = "populateWithLabel";
-            this.populateWithLabel.Size = new System.Drawing.Size(147, 25);
-            this.populateWithLabel.TabIndex = 3;
+            this.populateWithLabel.Size = new System.Drawing.Size(152, 25);
+            this.populateWithLabel.TabIndex = 4;
             this.populateWithLabel.Text = "Populate drag with:";
             this.populateWithLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // allowDropCheckBox
             // 
             this.allowDropCheckBox.AutoSize = true;
-            this.allowDropCheckBox.Location = new System.Drawing.Point(220, 3);
+            this.allowDropCheckBox.Location = new System.Drawing.Point(257, 3);
             this.allowDropCheckBox.Name = "allowDropCheckBox";
             this.allowDropCheckBox.Size = new System.Drawing.Size(52, 19);
-            this.allowDropCheckBox.TabIndex = 2;
+            this.allowDropCheckBox.TabIndex = 3;
             this.allowDropCheckBox.Text = "Drop";
             this.allowDropCheckBox.UseVisualStyleBackColor = true;
             this.allowDropCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckBoxCheckedChanged);
@@ -450,54 +435,21 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.allowLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.allowLabel.Location = new System.Drawing.Point(3, 0);
             this.allowLabel.Name = "allowLabel";
-            this.allowLabel.Size = new System.Drawing.Size(147, 25);
-            this.allowLabel.TabIndex = 0;
+            this.allowLabel.Size = new System.Drawing.Size(152, 25);
+            this.allowLabel.TabIndex = 1;
             this.allowLabel.Text = "Allow:";
             this.allowLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // allowDragCheckBox
             // 
             this.allowDragCheckBox.AutoSize = true;
-            this.allowDragCheckBox.Location = new System.Drawing.Point(156, 3);
+            this.allowDragCheckBox.Location = new System.Drawing.Point(161, 3);
             this.allowDragCheckBox.Name = "allowDragCheckBox";
             this.allowDragCheckBox.Size = new System.Drawing.Size(51, 19);
-            this.allowDragCheckBox.TabIndex = 1;
+            this.allowDragCheckBox.TabIndex = 2;
             this.allowDragCheckBox.Text = "Drag";
             this.allowDragCheckBox.UseVisualStyleBackColor = true;
             this.allowDragCheckBox.CheckedChanged += new System.EventHandler(this.OnCheckBoxCheckedChanged);
-            // 
-            // overrideDragPanel
-            // 
-            this.overrideDragPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.overrideDragPanel.Controls.Add(this.overrideDragLabel);
-            this.overrideDragPanel.Controls.Add(this.overrideDragTextBox);
-            this.overrideDragPanel.Location = new System.Drawing.Point(220, 53);
-            this.overrideDragPanel.Name = "overrideDragPanel";
-            this.overrideDragPanel.Size = new System.Drawing.Size(243, 23);
-            this.overrideDragPanel.TabIndex = 8;
-            // 
-            // overrideDragLabel
-            // 
-            this.overrideDragLabel.AutoSize = true;
-            this.overrideDragLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.overrideDragLabel.Enabled = false;
-            this.overrideDragLabel.Location = new System.Drawing.Point(117, 0);
-            this.overrideDragLabel.Name = "overrideDragLabel";
-            this.overrideDragLabel.Size = new System.Drawing.Size(111, 15);
-            this.overrideDragLabel.TabIndex = 1;
-            this.overrideDragLabel.Text = "(to outside sources)";
-            // 
-            // overrideDragTextBox
-            // 
-            this.overrideDragTextBox.Dock = System.Windows.Forms.DockStyle.Left;
-            this.overrideDragTextBox.Enabled = false;
-            this.overrideDragTextBox.Location = new System.Drawing.Point(0, 0);
-            this.overrideDragTextBox.Name = "overrideDragTextBox";
-            this.overrideDragTextBox.Size = new System.Drawing.Size(117, 23);
-            this.overrideDragTextBox.TabIndex = 0;
-            this.overrideDragTextBox.Text = "Custom Drag Text";
             // 
             // stringDragSourcePanel
             // 
@@ -506,12 +458,12 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             | System.Windows.Forms.AnchorStyles.Right)));
             this.stringDragSourcePanel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.stringDragSourcePanel.Controls.Add(this.stringDragSourceLabel);
-            this.stringDragSourcePanel.Location = new System.Drawing.Point(469, 3);
+            this.stringDragSourcePanel.Location = new System.Drawing.Point(401, 3);
             this.stringDragSourcePanel.Name = "stringDragSourcePanel";
             this.stringDragSourcePanel.Padding = new System.Windows.Forms.Padding(1);
             this.headerTableLayoutPanel.SetRowSpan(this.stringDragSourcePanel, 2);
-            this.stringDragSourcePanel.Size = new System.Drawing.Size(110, 44);
-            this.stringDragSourcePanel.TabIndex = 13;
+            this.stringDragSourcePanel.Size = new System.Drawing.Size(178, 44);
+            this.stringDragSourcePanel.TabIndex = 15;
             // 
             // stringDragSourceLabel
             // 
@@ -519,10 +471,30 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.stringDragSourceLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stringDragSourceLabel.Location = new System.Drawing.Point(1, 1);
             this.stringDragSourceLabel.Name = "stringDragSourceLabel";
-            this.stringDragSourceLabel.Size = new System.Drawing.Size(108, 42);
+            this.stringDragSourceLabel.Size = new System.Drawing.Size(176, 42);
             this.stringDragSourceLabel.TabIndex = 0;
             this.stringDragSourceLabel.Text = "Drag from Here for String Data";
             this.stringDragSourceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // overrideDragTextBox
+            // 
+            this.overrideDragTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.overrideDragTextBox.Enabled = false;
+            this.overrideDragTextBox.Location = new System.Drawing.Point(257, 53);
+            this.overrideDragTextBox.Name = "overrideDragTextBox";
+            this.overrideDragTextBox.Size = new System.Drawing.Size(117, 23);
+            this.overrideDragTextBox.TabIndex = 9;
+            this.overrideDragTextBox.Text = "Custom Drag Text";
+            // 
+            // overrideDropTextBox
+            // 
+            this.overrideDropTextBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.overrideDropTextBox.Enabled = false;
+            this.overrideDropTextBox.Location = new System.Drawing.Point(257, 82);
+            this.overrideDropTextBox.Name = "overrideDropTextBox";
+            this.overrideDropTextBox.Size = new System.Drawing.Size(117, 23);
+            this.overrideDropTextBox.TabIndex = 11;
+            this.overrideDropTextBox.Text = "Custom Drop Text";
             // 
             // MainControl
             // 
@@ -539,7 +511,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.Controls.Add(this.autoHideTabStripPanel1);
             this.Controls.Add(this.autoHideContainer1);
             this.Controls.Add(this.autoHideContainer2);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Name = "MainControl";
             this.Size = new System.Drawing.Size(800, 600);
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
@@ -553,10 +525,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
             this.headerTableLayoutPanel.ResumeLayout(false);
             this.headerTableLayoutPanel.PerformLayout();
             this.customDragSourcePanel.ResumeLayout(false);
-            this.overrideDropPanel.ResumeLayout(false);
-            this.overrideDropPanel.PerformLayout();
-            this.overrideDragPanel.ResumeLayout(false);
-            this.overrideDragPanel.PerformLayout();
             this.stringDragSourcePanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -590,13 +558,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
 		private System.Windows.Forms.CheckBox allowDropCheckBox;
 		private System.Windows.Forms.Label allowLabel;
 		private System.Windows.Forms.CheckBox allowDragCheckBox;
-		private System.Windows.Forms.Panel overrideDropPanel;
-		private System.Windows.Forms.Label overrideDropLabel;
-		private System.Windows.Forms.TextBox overrideDropTextBox;
 		private System.Windows.Forms.CheckBox overrideDragCheckBox;
-		private System.Windows.Forms.Panel overrideDragPanel;
-		private System.Windows.Forms.Label overrideDragLabel;
-		private System.Windows.Forms.TextBox overrideDragTextBox;
 		private System.Windows.Forms.CheckBox shouldReselectTextAfterDropCheckBox;
 		private System.Windows.Forms.CheckBox overrideDropCheckBox;
 		private System.Windows.Forms.Panel customDragSourcePanel;
@@ -604,5 +566,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
 		private System.Windows.Forms.Label customDragSourceLabel;
 		private System.Windows.Forms.Label stringDragSourceLabel;
 		private System.Windows.Forms.ListBox toolboxListBox;
+		private System.Windows.Forms.CheckBox cancelDropCheckBox;
+		private System.Windows.Forms.CheckBox isDocumentReadOnlyCheckBox;
+		private System.Windows.Forms.TextBox overrideDropTextBox;
+		private System.Windows.Forms.TextBox overrideDragTextBox;
 	}
 }

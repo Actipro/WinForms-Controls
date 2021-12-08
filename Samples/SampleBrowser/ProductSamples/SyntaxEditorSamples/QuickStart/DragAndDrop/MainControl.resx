@@ -156,7 +156,9 @@ namespace Actipro.DragAndDropQuickStart {
 		/// SyntaxEditor also provides an event model for beginning and ending
 		/// a drag-and-drop operation. Try dragging a file from Windows
 		/// Explorer and dropping it on the editor and an event handler will
-		/// prompt you to insert the contents of the file.
+		/// prompt you to insert the contents of the file. For read-only
+		/// documents where text cannot be inserted, you will be prompted to
+		/// open the file instead.
 		/// &lt;/summary&gt;
 		public void FileDrop() {
 			

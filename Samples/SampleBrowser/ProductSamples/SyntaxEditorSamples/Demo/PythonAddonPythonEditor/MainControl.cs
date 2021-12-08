@@ -43,9 +43,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			// Load the Web Languages Add-on Python language
 			var language = new PythonSyntaxLanguage();
 			codeEditor.Document.Language = language;
-
-			// Select the first version
-			versionToolStripComboBox.SelectedIndex = 0;
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -151,22 +148,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			}
 		}
 		
-		/// <summary>
-		/// Occurs when the selection changes.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnVersionToolStripComboBoxSelectedIndexChanged(object sender, EventArgs e) {
-			switch (versionToolStripComboBox.SelectedIndex) {
-				case 0:
-					codeEditor.Document.Language = new PythonSyntaxLanguage(PythonVersion.Version3);
-					break;
-				case 1:
-					codeEditor.Document.Language = new PythonSyntaxLanguage(PythonVersion.Version2);
-					break;
-			}
-		}
-
 		/// <summary>
 		/// Opens a file.
 		/// </summary>

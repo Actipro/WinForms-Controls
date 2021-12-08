@@ -40,9 +40,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.toolWindowContainer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindowContainer();
 			this.errorToolWindow = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow();
 			this.errorListView = new System.Windows.Forms.ListView();
-			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+			this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
 			this.toolWindowContainer2 = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindowContainer();
 			this.eventsToolWindow = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow();
 			this.eventsListBox = new System.Windows.Forms.ListBox();
@@ -191,8 +191,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.optionalAddonLanguagessoldSeparatelyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.cinNETLanguagesAddonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.vBinNETLanguagesAddonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.pythonV2xinPythonLanguageAddonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.pythonV3xinPythonLanguageAddonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pythoninPythonLanguageAddonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.javaScriptinWebLanguagesAddonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.jSONinWebLanguagesAddonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.xMLinWebLanguagesAddonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -234,6 +233,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.hasHorizontalSplitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
 			this.isDocumentReadonlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.jSONWithCommentsinWebLanguagesAddonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
 			this.astOutputToolWindow.SuspendLayout();
 			this.toolWindowContainer1.SuspendLayout();
@@ -252,9 +252,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.editor.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.editor.IsCurrentLineHighlightingEnabled = true;
 			this.editor.IsLineNumberMarginVisible = true;
-			this.editor.Location = new System.Drawing.Point(6, 76);
+			this.editor.Location = new System.Drawing.Point(6, 78);
 			this.editor.Name = "editor";
-			this.editor.Size = new System.Drawing.Size(582, 358);
+			this.editor.Size = new System.Drawing.Size(582, 356);
 			this.editor.TabIndex = 0;
 			this.editor.Text = resources.GetString("editor.Text");
 			this.editor.DocumentChanged += new System.EventHandler<ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.EditorDocumentChangedEventArgs>(this.OnSyntaxEditorDocumentChanged);
@@ -291,7 +291,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.autoHideContainer1.DockManager = this.dockManager;
 			this.autoHideContainer1.Location = new System.Drawing.Point(0, 0);
 			this.autoHideContainer1.Name = "autoHideContainer1";
-			this.autoHideContainer1.Size = new System.Drawing.Size(0, 0);
 			this.autoHideContainer1.TabIndex = 2;
 			// 
 			// autoHideTabStripPanel2
@@ -310,7 +309,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.autoHideContainer2.DockManager = this.dockManager;
 			this.autoHideContainer2.Location = new System.Drawing.Point(0, 0);
 			this.autoHideContainer2.Name = "autoHideContainer2";
-			this.autoHideContainer2.Size = new System.Drawing.Size(0, 0);
 			this.autoHideContainer2.TabIndex = 4;
 			// 
 			// autoHideTabStripPanel3
@@ -329,7 +327,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.autoHideContainer3.DockManager = this.dockManager;
 			this.autoHideContainer3.Location = new System.Drawing.Point(0, 0);
 			this.autoHideContainer3.Name = "autoHideContainer3";
-			this.autoHideContainer3.Size = new System.Drawing.Size(0, 0);
 			this.autoHideContainer3.TabIndex = 6;
 			// 
 			// autoHideTabStripPanel4
@@ -348,7 +345,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.autoHideContainer4.DockManager = this.dockManager;
 			this.autoHideContainer4.Location = new System.Drawing.Point(0, 0);
 			this.autoHideContainer4.Name = "autoHideContainer4";
-			this.autoHideContainer4.Size = new System.Drawing.Size(0, 0);
 			this.autoHideContainer4.TabIndex = 8;
 			// 
 			// astOutputToolWindow
@@ -366,7 +362,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// 
 			this.astOutputEditor.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.astOutputEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.astOutputEditor.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.astOutputEditor.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.astOutputEditor.Location = new System.Drawing.Point(0, 0);
 			this.astOutputEditor.Multiline = true;
 			this.astOutputEditor.Name = "astOutputEditor";
@@ -460,6 +456,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.eventsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.eventsListBox.FormattingEnabled = true;
 			this.eventsListBox.IntegralHeight = false;
+			this.eventsListBox.ItemHeight = 15;
 			this.eventsListBox.Location = new System.Drawing.Point(0, 0);
 			this.eventsListBox.Name = "eventsListBox";
 			this.eventsListBox.Size = new System.Drawing.Size(580, 89);
@@ -510,7 +507,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// newDocumentToolStripButton
 			// 
 			this.newDocumentToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.newDocumentToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconNew16;
+			this.newDocumentToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newDocumentToolStripButton.Image")));
 			this.newDocumentToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.newDocumentToolStripButton.Name = "newDocumentToolStripButton";
 			this.newDocumentToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -519,7 +516,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// openDocumentToolStripButton
 			// 
 			this.openDocumentToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.openDocumentToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconOpen16;
+			this.openDocumentToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openDocumentToolStripButton.Image")));
 			this.openDocumentToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.openDocumentToolStripButton.Name = "openDocumentToolStripButton";
 			this.openDocumentToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -528,7 +525,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// saveDocumentToolStripButton
 			// 
 			this.saveDocumentToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.saveDocumentToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconSave16;
+			this.saveDocumentToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveDocumentToolStripButton.Image")));
 			this.saveDocumentToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.saveDocumentToolStripButton.Name = "saveDocumentToolStripButton";
 			this.saveDocumentToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -543,7 +540,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// printToolStripButton
 			// 
 			this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.printToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconPrint16;
+			this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
 			this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.printToolStripButton.Name = "printToolStripButton";
 			this.printToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -552,7 +549,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// printPreviewToolStripButton
 			// 
 			this.printPreviewToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.printPreviewToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconPrintPreview16;
+			this.printPreviewToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printPreviewToolStripButton.Image")));
 			this.printPreviewToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.printPreviewToolStripButton.Name = "printPreviewToolStripButton";
 			this.printPreviewToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -566,7 +563,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// cutToolStripButton
 			// 
 			this.cutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.cutToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconCut16;
+			this.cutToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripButton.Image")));
 			this.cutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.cutToolStripButton.Name = "cutToolStripButton";
 			this.cutToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -575,7 +572,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// copyToolStripButton
 			// 
 			this.copyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.copyToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconCopy16;
+			this.copyToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripButton.Image")));
 			this.copyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.copyToolStripButton.Name = "copyToolStripButton";
 			this.copyToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -584,7 +581,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// pasteToolStripButton
 			// 
 			this.pasteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.pasteToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconPaste16;
+			this.pasteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripButton.Image")));
 			this.pasteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.pasteToolStripButton.Name = "pasteToolStripButton";
 			this.pasteToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -593,7 +590,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// deleteToolStripButton
 			// 
 			this.deleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.deleteToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconDelete16;
+			this.deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripButton.Image")));
 			this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.deleteToolStripButton.Name = "deleteToolStripButton";
 			this.deleteToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -607,7 +604,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// undoToolStripButton
 			// 
 			this.undoToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.undoToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconUndo16;
+			this.undoToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("undoToolStripButton.Image")));
 			this.undoToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.undoToolStripButton.Name = "undoToolStripButton";
 			this.undoToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -616,7 +613,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// redoToolStripButton
 			// 
 			this.redoToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.redoToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconRedo16;
+			this.redoToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("redoToolStripButton.Image")));
 			this.redoToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.redoToolStripButton.Name = "redoToolStripButton";
 			this.redoToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -630,7 +627,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// requestIntelliPromptCompletionSessionToolStripButton
 			// 
 			this.requestIntelliPromptCompletionSessionToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.requestIntelliPromptCompletionSessionToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconIntelliPromptCompletion16;
+			this.requestIntelliPromptCompletionSessionToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("requestIntelliPromptCompletionSessionToolStripButton.Image")));
 			this.requestIntelliPromptCompletionSessionToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.requestIntelliPromptCompletionSessionToolStripButton.Name = "requestIntelliPromptCompletionSessionToolStripButton";
 			this.requestIntelliPromptCompletionSessionToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -640,7 +637,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// requestIntelliPromptParameterInfoSessionToolStripButton
 			// 
 			this.requestIntelliPromptParameterInfoSessionToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.requestIntelliPromptParameterInfoSessionToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconIntelliPromptParameterInfo16;
+			this.requestIntelliPromptParameterInfoSessionToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("requestIntelliPromptParameterInfoSessionToolStripButton.Image")));
 			this.requestIntelliPromptParameterInfoSessionToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.requestIntelliPromptParameterInfoSessionToolStripButton.Name = "requestIntelliPromptParameterInfoSessionToolStripButton";
 			this.requestIntelliPromptParameterInfoSessionToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -650,7 +647,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// requestIntelliPromptQuickInfoSessionToolStripButton
 			// 
 			this.requestIntelliPromptQuickInfoSessionToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.requestIntelliPromptQuickInfoSessionToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconIntelliPromptQuickInfo16;
+			this.requestIntelliPromptQuickInfoSessionToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("requestIntelliPromptQuickInfoSessionToolStripButton.Image")));
 			this.requestIntelliPromptQuickInfoSessionToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.requestIntelliPromptQuickInfoSessionToolStripButton.Name = "requestIntelliPromptQuickInfoSessionToolStripButton";
 			this.requestIntelliPromptQuickInfoSessionToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -660,7 +657,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// requestIntelliPromptAutoCompleteToolStripButton
 			// 
 			this.requestIntelliPromptAutoCompleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.requestIntelliPromptAutoCompleteToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconIntelliPromptAutoComplete16;
+			this.requestIntelliPromptAutoCompleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("requestIntelliPromptAutoCompleteToolStripButton.Image")));
 			this.requestIntelliPromptAutoCompleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.requestIntelliPromptAutoCompleteToolStripButton.Name = "requestIntelliPromptAutoCompleteToolStripButton";
 			this.requestIntelliPromptAutoCompleteToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -670,7 +667,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// insertSnippetToolStripButton
 			// 
 			this.insertSnippetToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.insertSnippetToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconIntelliPromptCodeSnippetSelection16;
+			this.insertSnippetToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("insertSnippetToolStripButton.Image")));
 			this.insertSnippetToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.insertSnippetToolStripButton.Name = "insertSnippetToolStripButton";
 			this.insertSnippetToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -684,7 +681,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// commentLinesToolStripButton
 			// 
 			this.commentLinesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.commentLinesToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconCommentLines16;
+			this.commentLinesToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("commentLinesToolStripButton.Image")));
 			this.commentLinesToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.commentLinesToolStripButton.Name = "commentLinesToolStripButton";
 			this.commentLinesToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -694,7 +691,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// uncommentLinesToolStripButton
 			// 
 			this.uncommentLinesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.uncommentLinesToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconUncommentLines16;
+			this.uncommentLinesToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("uncommentLinesToolStripButton.Image")));
 			this.uncommentLinesToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.uncommentLinesToolStripButton.Name = "uncommentLinesToolStripButton";
 			this.uncommentLinesToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -709,7 +706,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// formatDocumentToolStripButton
 			// 
 			this.formatDocumentToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.formatDocumentToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconFormatDocument16;
+			this.formatDocumentToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("formatDocumentToolStripButton.Image")));
 			this.formatDocumentToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.formatDocumentToolStripButton.Name = "formatDocumentToolStripButton";
 			this.formatDocumentToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -719,7 +716,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// formatSelectionToolStripButton
 			// 
 			this.formatSelectionToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.formatSelectionToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconFormatSelection16;
+			this.formatSelectionToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("formatSelectionToolStripButton.Image")));
 			this.formatSelectionToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.formatSelectionToolStripButton.Name = "formatSelectionToolStripButton";
 			this.formatSelectionToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -735,7 +732,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// 
 			this.runMacroToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.runMacroToolStripButton.Enabled = false;
-			this.runMacroToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconMacroRecordingRun16;
+			this.runMacroToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("runMacroToolStripButton.Image")));
 			this.runMacroToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.runMacroToolStripButton.Name = "runMacroToolStripButton";
 			this.runMacroToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -744,7 +741,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// recordMacroToolStripButton
 			// 
 			this.recordMacroToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.recordMacroToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconMacroRecordingRecord16;
+			this.recordMacroToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("recordMacroToolStripButton.Image")));
 			this.recordMacroToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.recordMacroToolStripButton.Name = "recordMacroToolStripButton";
 			this.recordMacroToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -754,7 +751,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// 
 			this.pauseRecordingToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.pauseRecordingToolStripButton.Enabled = false;
-			this.pauseRecordingToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconMacroRecordingPause16;
+			this.pauseRecordingToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("pauseRecordingToolStripButton.Image")));
 			this.pauseRecordingToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.pauseRecordingToolStripButton.Name = "pauseRecordingToolStripButton";
 			this.pauseRecordingToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -764,7 +761,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// 
 			this.cancelMacroToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.cancelMacroToolStripButton.Enabled = false;
-			this.cancelMacroToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconMacroRecordingCancel16;
+			this.cancelMacroToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("cancelMacroToolStripButton.Image")));
 			this.cancelMacroToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.cancelMacroToolStripButton.Name = "cancelMacroToolStripButton";
 			this.cancelMacroToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -775,7 +772,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.symbolSelector.Dock = System.Windows.Forms.DockStyle.Top;
 			this.symbolSelector.Location = new System.Drawing.Point(6, 55);
 			this.symbolSelector.Name = "symbolSelector";
-			this.symbolSelector.Size = new System.Drawing.Size(582, 21);
+			this.symbolSelector.Size = new System.Drawing.Size(582, 23);
 			this.symbolSelector.SyntaxEditor = this.editor;
 			this.symbolSelector.TabIndex = 13;
 			this.symbolSelector.Text = "navigableSymbolSelector1";
@@ -1482,19 +1479,19 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.fontSize10ToolStripMenuItem.Checked = true;
 			this.fontSize10ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.fontSize10ToolStripMenuItem.Name = "fontSize10ToolStripMenuItem";
-			this.fontSize10ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.fontSize10ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
 			this.fontSize10ToolStripMenuItem.Text = "10";
 			// 
 			// fontSize14ToolStripMenuItem
 			// 
 			this.fontSize14ToolStripMenuItem.Name = "fontSize14ToolStripMenuItem";
-			this.fontSize14ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.fontSize14ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
 			this.fontSize14ToolStripMenuItem.Text = "14";
 			// 
 			// fontSize18ToolStripMenuItem
 			// 
 			this.fontSize18ToolStripMenuItem.Name = "fontSize18ToolStripMenuItem";
-			this.fontSize18ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.fontSize18ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
 			this.fontSize18ToolStripMenuItem.Text = "18";
 			// 
 			// outliningToolStripMenuItem
@@ -1563,10 +1560,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
             this.optionalAddonLanguagessoldSeparatelyToolStripMenuItem,
             this.cinNETLanguagesAddonToolStripMenuItem,
             this.vBinNETLanguagesAddonToolStripMenuItem,
-            this.pythonV2xinPythonLanguageAddonToolStripMenuItem,
-            this.pythonV3xinPythonLanguageAddonToolStripMenuItem,
+            this.pythoninPythonLanguageAddonToolStripMenuItem,
             this.javaScriptinWebLanguagesAddonToolStripMenuItem,
             this.jSONinWebLanguagesAddonToolStripMenuItem,
+            this.jSONWithCommentsinWebLanguagesAddonToolStripMenuItem,
             this.xMLinWebLanguagesAddonToolStripMenuItem,
             this.toolStripSeparator8,
             this.freeLanguageDefinitionsToolStripMenuItem,
@@ -1604,229 +1601,223 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// plainTextToolStripMenuItem
 			// 
 			this.plainTextToolStripMenuItem.Name = "plainTextToolStripMenuItem";
-			this.plainTextToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.plainTextToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.plainTextToolStripMenuItem.Text = "Plain text";
 			// 
 			// toolStripSeparator9
 			// 
 			this.toolStripSeparator9.Name = "toolStripSeparator9";
-			this.toolStripSeparator9.Size = new System.Drawing.Size(310, 6);
+			this.toolStripSeparator9.Size = new System.Drawing.Size(339, 6);
 			// 
 			// optionalAddonLanguagessoldSeparatelyToolStripMenuItem
 			// 
 			this.optionalAddonLanguagessoldSeparatelyToolStripMenuItem.Enabled = false;
 			this.optionalAddonLanguagessoldSeparatelyToolStripMenuItem.Name = "optionalAddonLanguagessoldSeparatelyToolStripMenuItem";
-			this.optionalAddonLanguagessoldSeparatelyToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.optionalAddonLanguagessoldSeparatelyToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.optionalAddonLanguagessoldSeparatelyToolStripMenuItem.Text = "Optional Add-on Languages (sold separately)";
 			// 
 			// cinNETLanguagesAddonToolStripMenuItem
 			// 
 			this.cinNETLanguagesAddonToolStripMenuItem.Name = "cinNETLanguagesAddonToolStripMenuItem";
-			this.cinNETLanguagesAddonToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.cinNETLanguagesAddonToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.cinNETLanguagesAddonToolStripMenuItem.Text = "C# (in .NET Languages Add-on)";
 			// 
 			// vBinNETLanguagesAddonToolStripMenuItem
 			// 
 			this.vBinNETLanguagesAddonToolStripMenuItem.Name = "vBinNETLanguagesAddonToolStripMenuItem";
-			this.vBinNETLanguagesAddonToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.vBinNETLanguagesAddonToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.vBinNETLanguagesAddonToolStripMenuItem.Text = "VB (in .NET Languages Add-on)";
 			// 
-			// pythonV2xinPythonLanguageAddonToolStripMenuItem
+			// pythoninPythonLanguageAddonToolStripMenuItem
 			// 
-			this.pythonV2xinPythonLanguageAddonToolStripMenuItem.Name = "pythonV2xinPythonLanguageAddonToolStripMenuItem";
-			this.pythonV2xinPythonLanguageAddonToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
-			this.pythonV2xinPythonLanguageAddonToolStripMenuItem.Text = "Python v2.x (in Python Language Add-on)";
-			// 
-			// pythonV3xinPythonLanguageAddonToolStripMenuItem
-			// 
-			this.pythonV3xinPythonLanguageAddonToolStripMenuItem.Name = "pythonV3xinPythonLanguageAddonToolStripMenuItem";
-			this.pythonV3xinPythonLanguageAddonToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
-			this.pythonV3xinPythonLanguageAddonToolStripMenuItem.Text = "Python v3.x (in Python Language Add-on)";
+			this.pythoninPythonLanguageAddonToolStripMenuItem.Name = "pythoninPythonLanguageAddonToolStripMenuItem";
+			this.pythoninPythonLanguageAddonToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
+			this.pythoninPythonLanguageAddonToolStripMenuItem.Text = "Python (in Python Language Add-on)";
 			// 
 			// javaScriptinWebLanguagesAddonToolStripMenuItem
 			// 
 			this.javaScriptinWebLanguagesAddonToolStripMenuItem.Name = "javaScriptinWebLanguagesAddonToolStripMenuItem";
-			this.javaScriptinWebLanguagesAddonToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.javaScriptinWebLanguagesAddonToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.javaScriptinWebLanguagesAddonToolStripMenuItem.Text = "JavaScript (in Web Languages Add-on)";
 			// 
 			// jSONinWebLanguagesAddonToolStripMenuItem
 			// 
 			this.jSONinWebLanguagesAddonToolStripMenuItem.Name = "jSONinWebLanguagesAddonToolStripMenuItem";
-			this.jSONinWebLanguagesAddonToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.jSONinWebLanguagesAddonToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.jSONinWebLanguagesAddonToolStripMenuItem.Text = "JSON (in Web Languages Add-on)";
 			// 
 			// xMLinWebLanguagesAddonToolStripMenuItem
 			// 
 			this.xMLinWebLanguagesAddonToolStripMenuItem.Name = "xMLinWebLanguagesAddonToolStripMenuItem";
-			this.xMLinWebLanguagesAddonToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.xMLinWebLanguagesAddonToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.xMLinWebLanguagesAddonToolStripMenuItem.Text = "XML (in Web Languages Add-on)";
 			// 
 			// toolStripSeparator8
 			// 
 			this.toolStripSeparator8.Name = "toolStripSeparator8";
-			this.toolStripSeparator8.Size = new System.Drawing.Size(310, 6);
+			this.toolStripSeparator8.Size = new System.Drawing.Size(339, 6);
 			// 
 			// freeLanguageDefinitionsToolStripMenuItem
 			// 
 			this.freeLanguageDefinitionsToolStripMenuItem.Enabled = false;
 			this.freeLanguageDefinitionsToolStripMenuItem.Name = "freeLanguageDefinitionsToolStripMenuItem";
-			this.freeLanguageDefinitionsToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.freeLanguageDefinitionsToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.freeLanguageDefinitionsToolStripMenuItem.Text = "Free Language Definitions";
 			// 
 			// customToolStripMenuItem
 			// 
 			this.customToolStripMenuItem.Name = "customToolStripMenuItem";
-			this.customToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.customToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.customToolStripMenuItem.Text = "Custom...";
 			// 
 			// assemblyToolStripMenuItem
 			// 
 			this.assemblyToolStripMenuItem.Name = "assemblyToolStripMenuItem";
-			this.assemblyToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.assemblyToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.assemblyToolStripMenuItem.Text = "Assembly";
 			// 
 			// batchFileToolStripMenuItem
 			// 
 			this.batchFileToolStripMenuItem.Name = "batchFileToolStripMenuItem";
-			this.batchFileToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.batchFileToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.batchFileToolStripMenuItem.Text = "Batch file";
 			// 
 			// cToolStripMenuItem
 			// 
 			this.cToolStripMenuItem.Name = "cToolStripMenuItem";
-			this.cToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.cToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.cToolStripMenuItem.Text = "C";
 			// 
 			// cToolStripMenuItem1
 			// 
 			this.cToolStripMenuItem1.Name = "cToolStripMenuItem1";
-			this.cToolStripMenuItem1.Size = new System.Drawing.Size(313, 22);
+			this.cToolStripMenuItem1.Size = new System.Drawing.Size(342, 22);
 			this.cToolStripMenuItem1.Text = "C#";
 			// 
 			// cToolStripMenuItem2
 			// 
 			this.cToolStripMenuItem2.Name = "cToolStripMenuItem2";
-			this.cToolStripMenuItem2.Size = new System.Drawing.Size(313, 22);
+			this.cToolStripMenuItem2.Size = new System.Drawing.Size(342, 22);
 			this.cToolStripMenuItem2.Text = "C++";
 			// 
 			// cSSToolStripMenuItem
 			// 
 			this.cSSToolStripMenuItem.Name = "cSSToolStripMenuItem";
-			this.cSSToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.cSSToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.cSSToolStripMenuItem.Text = "CSS";
 			// 
 			// hTMLToolStripMenuItem
 			// 
 			this.hTMLToolStripMenuItem.Name = "hTMLToolStripMenuItem";
-			this.hTMLToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.hTMLToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.hTMLToolStripMenuItem.Text = "HTML";
 			// 
 			// iNIFileToolStripMenuItem
 			// 
 			this.iNIFileToolStripMenuItem.Name = "iNIFileToolStripMenuItem";
-			this.iNIFileToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.iNIFileToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.iNIFileToolStripMenuItem.Text = "INI file";
 			// 
 			// javaToolStripMenuItem
 			// 
 			this.javaToolStripMenuItem.Name = "javaToolStripMenuItem";
-			this.javaToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.javaToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.javaToolStripMenuItem.Text = "Java";
 			// 
 			// javaScriptToolStripMenuItem
 			// 
 			this.javaScriptToolStripMenuItem.Name = "javaScriptToolStripMenuItem";
-			this.javaScriptToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.javaScriptToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.javaScriptToolStripMenuItem.Text = "JavaScript";
 			// 
 			// luaToolStripMenuItem
 			// 
 			this.luaToolStripMenuItem.Name = "luaToolStripMenuItem";
-			this.luaToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.luaToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.luaToolStripMenuItem.Text = "Lua";
 			// 
 			// markdownToolStripMenuItem
 			// 
 			this.markdownToolStripMenuItem.Name = "markdownToolStripMenuItem";
-			this.markdownToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.markdownToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.markdownToolStripMenuItem.Text = "Markdown";
 			// 
 			// mSILToolStripMenuItem
 			// 
 			this.mSILToolStripMenuItem.Name = "mSILToolStripMenuItem";
-			this.mSILToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.mSILToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.mSILToolStripMenuItem.Text = "MSIL";
 			// 
 			// pascalToolStripMenuItem
 			// 
 			this.pascalToolStripMenuItem.Name = "pascalToolStripMenuItem";
-			this.pascalToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.pascalToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.pascalToolStripMenuItem.Text = "Pascal";
 			// 
 			// perlToolStripMenuItem
 			// 
 			this.perlToolStripMenuItem.Name = "perlToolStripMenuItem";
-			this.perlToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.perlToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.perlToolStripMenuItem.Text = "Perl";
 			// 
 			// pHPToolStripMenuItem
 			// 
 			this.pHPToolStripMenuItem.Name = "pHPToolStripMenuItem";
-			this.pHPToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.pHPToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.pHPToolStripMenuItem.Text = "PHP";
 			// 
 			// powerShellToolStripMenuItem
 			// 
 			this.powerShellToolStripMenuItem.Name = "powerShellToolStripMenuItem";
-			this.powerShellToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.powerShellToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.powerShellToolStripMenuItem.Text = "PowerShell";
 			// 
 			// pythonToolStripMenuItem
 			// 
 			this.pythonToolStripMenuItem.Name = "pythonToolStripMenuItem";
-			this.pythonToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.pythonToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.pythonToolStripMenuItem.Text = "Python";
 			// 
 			// rTFToolStripMenuItem
 			// 
 			this.rTFToolStripMenuItem.Name = "rTFToolStripMenuItem";
-			this.rTFToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.rTFToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.rTFToolStripMenuItem.Text = "RTF";
 			// 
 			// rubyToolStripMenuItem
 			// 
 			this.rubyToolStripMenuItem.Name = "rubyToolStripMenuItem";
-			this.rubyToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.rubyToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.rubyToolStripMenuItem.Text = "Ruby";
 			// 
 			// sQLToolStripMenuItem
 			// 
 			this.sQLToolStripMenuItem.Name = "sQLToolStripMenuItem";
-			this.sQLToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.sQLToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.sQLToolStripMenuItem.Text = "SQL";
 			// 
 			// vBToolStripMenuItem
 			// 
 			this.vBToolStripMenuItem.Name = "vBToolStripMenuItem";
-			this.vBToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.vBToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.vBToolStripMenuItem.Text = "VB";
 			// 
 			// vBScriptToolStripMenuItem
 			// 
 			this.vBScriptToolStripMenuItem.Name = "vBScriptToolStripMenuItem";
-			this.vBScriptToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.vBScriptToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.vBScriptToolStripMenuItem.Text = "VBScript";
 			// 
 			// xAMLToolStripMenuItem
 			// 
 			this.xAMLToolStripMenuItem.Name = "xAMLToolStripMenuItem";
-			this.xAMLToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.xAMLToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.xAMLToolStripMenuItem.Text = "XAML";
 			// 
 			// xMLToolStripMenuItem
 			// 
 			this.xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-			this.xMLToolStripMenuItem.Size = new System.Drawing.Size(313, 22);
+			this.xMLToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
 			this.xMLToolStripMenuItem.Text = "XML";
 			// 
 			// toolsToolStripMenuItem
@@ -1905,6 +1896,12 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.isDocumentReadonlyToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
 			this.isDocumentReadonlyToolStripMenuItem.Text = "Is Document Read-only";
 			// 
+			// jSONWithCommentsinWebLanguagesAddonToolStripMenuItem
+			// 
+			this.jSONWithCommentsinWebLanguagesAddonToolStripMenuItem.Name = "jSONWithCommentsinWebLanguagesAddonToolStripMenuItem";
+			this.jSONWithCommentsinWebLanguagesAddonToolStripMenuItem.Size = new System.Drawing.Size(342, 22);
+			this.jSONWithCommentsinWebLanguagesAddonToolStripMenuItem.Text = "JSON with Comments (in Web Languages Add-on)";
+			// 
 			// MainControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1924,7 +1921,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			this.Controls.Add(this.mainToolStrip);
 			this.Controls.Add(this.statusStrip);
 			this.Controls.Add(this.menuStrip);
-			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.Name = "MainControl";
 			this.Size = new System.Drawing.Size(800, 600);
 			((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
@@ -2064,8 +2061,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 		private System.Windows.Forms.ToolStripMenuItem optionalAddonLanguagessoldSeparatelyToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem cinNETLanguagesAddonToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem vBinNETLanguagesAddonToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem pythonV2xinPythonLanguageAddonToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem pythonV3xinPythonLanguageAddonToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pythoninPythonLanguageAddonToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem javaScriptinWebLanguagesAddonToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem jSONinWebLanguagesAddonToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem xMLinWebLanguagesAddonToolStripMenuItem;
@@ -2155,5 +2151,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 		private System.Windows.Forms.ToolStripMenuItem fontSize10ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fontSize14ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fontSize18ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem jSONWithCommentsinWebLanguagesAddonToolStripMenuItem;
 	}
 }

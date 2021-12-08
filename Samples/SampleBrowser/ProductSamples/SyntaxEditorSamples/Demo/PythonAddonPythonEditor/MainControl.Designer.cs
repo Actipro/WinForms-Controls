@@ -40,13 +40,11 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			this.toolWindowContainer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindowContainer();
 			this.errorToolWindow = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow();
 			this.errorListView = new System.Windows.Forms.ListView();
-			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+			this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
 			this.toolWindowContainer2 = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindowContainer();
 			this.mainToolStrip = new System.Windows.Forms.ToolStrip();
-			this.versionToolStripComboBox = new System.Windows.Forms.ToolStripComboBox();
-			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.locateStandardLibraryToolStripButton = new System.Windows.Forms.ToolStripButton();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.newDocumentToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -68,9 +66,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			this.codeEditor.AllowDrop = true;
 			this.codeEditor.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.codeEditor.IsLineNumberMarginVisible = true;
-			this.codeEditor.Location = new System.Drawing.Point(6, 52);
+			this.codeEditor.Location = new System.Drawing.Point(6, 54);
 			this.codeEditor.Name = "codeEditor";
-			this.codeEditor.Size = new System.Drawing.Size(582, 404);
+			this.codeEditor.Size = new System.Drawing.Size(582, 402);
 			this.codeEditor.TabIndex = 0;
 			this.codeEditor.Text = resources.GetString("codeEditor.Text");
 			this.codeEditor.DocumentParseDataChanged += new System.EventHandler(this.OnCodeEditorDocumentParseDataChanged);
@@ -97,7 +95,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			this.autoHideContainer1.DockManager = this.dockManager;
 			this.autoHideContainer1.Location = new System.Drawing.Point(0, 0);
 			this.autoHideContainer1.Name = "autoHideContainer1";
-			this.autoHideContainer1.Size = new System.Drawing.Size(0, 0);
 			this.autoHideContainer1.TabIndex = 2;
 			// 
 			// autoHideTabStripPanel2
@@ -116,7 +113,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			this.autoHideContainer2.DockManager = this.dockManager;
 			this.autoHideContainer2.Location = new System.Drawing.Point(0, 0);
 			this.autoHideContainer2.Name = "autoHideContainer2";
-			this.autoHideContainer2.Size = new System.Drawing.Size(0, 0);
 			this.autoHideContainer2.TabIndex = 4;
 			// 
 			// autoHideTabStripPanel3
@@ -135,7 +131,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			this.autoHideContainer3.DockManager = this.dockManager;
 			this.autoHideContainer3.Location = new System.Drawing.Point(0, 0);
 			this.autoHideContainer3.Name = "autoHideContainer3";
-			this.autoHideContainer3.Size = new System.Drawing.Size(0, 0);
 			this.autoHideContainer3.TabIndex = 6;
 			// 
 			// autoHideTabStripPanel4
@@ -154,7 +149,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			this.autoHideContainer4.DockManager = this.dockManager;
 			this.autoHideContainer4.Location = new System.Drawing.Point(0, 0);
 			this.autoHideContainer4.Name = "autoHideContainer4";
-			this.autoHideContainer4.Size = new System.Drawing.Size(0, 0);
 			this.autoHideContainer4.TabIndex = 8;
 			// 
 			// astOutputToolWindow
@@ -172,7 +166,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			// 
 			this.astOutputEditor.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.astOutputEditor.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.astOutputEditor.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.astOutputEditor.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.astOutputEditor.Location = new System.Drawing.Point(0, 0);
 			this.astOutputEditor.Multiline = true;
 			this.astOutputEditor.Name = "astOutputEditor";
@@ -251,8 +245,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			// 
 			this.mainToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.mainToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.versionToolStripComboBox,
-            this.toolStripSeparator4,
             this.locateStandardLibraryToolStripButton,
             this.toolStripSeparator2,
             this.newDocumentToolStripButton,
@@ -266,21 +258,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			this.mainToolStrip.TabIndex = 11;
 			this.mainToolStrip.Text = "toolStrip1";
 			this.mainToolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.OnMainToolStripItemClicked);
-			// 
-			// versionToolStripComboBox
-			// 
-			this.versionToolStripComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.versionToolStripComboBox.Items.AddRange(new object[] {
-            "Python v3.x",
-            "Python v2.x"});
-			this.versionToolStripComboBox.Name = "versionToolStripComboBox";
-			this.versionToolStripComboBox.Size = new System.Drawing.Size(100, 25);
-			this.versionToolStripComboBox.SelectedIndexChanged += new System.EventHandler(this.OnVersionToolStripComboBoxSelectedIndexChanged);
-			// 
-			// toolStripSeparator4
-			// 
-			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
 			// 
 			// locateStandardLibraryToolStripButton
 			// 
@@ -296,7 +273,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			// 
 			// newDocumentToolStripButton
 			// 
-			this.newDocumentToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconNew16;
+			this.newDocumentToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newDocumentToolStripButton.Image")));
 			this.newDocumentToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.newDocumentToolStripButton.Name = "newDocumentToolStripButton";
 			this.newDocumentToolStripButton.Size = new System.Drawing.Size(110, 22);
@@ -304,7 +281,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			// 
 			// openDocumentToolStripButton
 			// 
-			this.openDocumentToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconOpen16;
+			this.openDocumentToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openDocumentToolStripButton.Image")));
 			this.openDocumentToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.openDocumentToolStripButton.Name = "openDocumentToolStripButton";
 			this.openDocumentToolStripButton.Size = new System.Drawing.Size(115, 22);
@@ -318,7 +295,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			// commentLinesToolStripButton
 			// 
 			this.commentLinesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.commentLinesToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconCommentLines16;
+			this.commentLinesToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("commentLinesToolStripButton.Image")));
 			this.commentLinesToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.commentLinesToolStripButton.Name = "commentLinesToolStripButton";
 			this.commentLinesToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -328,7 +305,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			// uncommentLinesToolStripButton
 			// 
 			this.uncommentLinesToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.uncommentLinesToolStripButton.Image = global::ActiproSoftware.SampleBrowser.Resources.IconUncommentLines16;
+			this.uncommentLinesToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("uncommentLinesToolStripButton.Image")));
 			this.uncommentLinesToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
 			this.uncommentLinesToolStripButton.Name = "uncommentLinesToolStripButton";
 			this.uncommentLinesToolStripButton.Size = new System.Drawing.Size(23, 22);
@@ -341,7 +318,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			this.symbolSelector.Dock = System.Windows.Forms.DockStyle.Top;
 			this.symbolSelector.Location = new System.Drawing.Point(6, 31);
 			this.symbolSelector.Name = "symbolSelector";
-			this.symbolSelector.Size = new System.Drawing.Size(582, 21);
+			this.symbolSelector.Size = new System.Drawing.Size(582, 23);
 			this.symbolSelector.SyntaxEditor = this.codeEditor;
 			this.symbolSelector.TabIndex = 14;
 			this.symbolSelector.Text = "navigableSymbolSelector1";
@@ -363,7 +340,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			this.Controls.Add(this.autoHideContainer1);
 			this.Controls.Add(this.autoHideContainer2);
 			this.Controls.Add(this.mainToolStrip);
-			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
 			this.Name = "MainControl";
 			this.Size = new System.Drawing.Size(800, 600);
 			((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
@@ -407,8 +384,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 		private System.Windows.Forms.ToolStripButton commentLinesToolStripButton;
 		private System.Windows.Forms.ToolStripButton uncommentLinesToolStripButton;
 		private UI.WinForms.Controls.SyntaxEditor.NavigableSymbolSelector symbolSelector;
-		private System.Windows.Forms.ToolStripComboBox versionToolStripComboBox;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
 		private System.Windows.Forms.ToolStripButton locateStandardLibraryToolStripButton;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 	}

@@ -6,7 +6,7 @@
 
 		<!-- IMPORTANT NOTE: The first listed framework for multi-target projects will determine the Visual Studio designer support -->
 		<!--
-		<TargetFrameworks>netcoreapp3.1;net50-windows;net40</TargetFrameworks>
+		<TargetFrameworks>netcoreapp3.1;net5.0-windows;net6.0-windows;net40</TargetFrameworks>
 		-->
 		<TargetFrameworks>netcoreapp3.1;net40</TargetFrameworks>
 
@@ -14,9 +14,9 @@
 
 		<AssemblyName>SampleBrowser</AssemblyName>
 
-		<AssemblyVersion>21.1.1.0</AssemblyVersion>
-		<InformationalVersion>21.1.1.0</InformationalVersion>
-		<PackageVersion>21.1.1.0</PackageVersion>
+		<AssemblyVersion>22.1.0.0</AssemblyVersion>
+		<InformationalVersion>22.1.0.0</InformationalVersion>
+		<PackageVersion>22.1.0.0</PackageVersion>
 
 		<RootNamespace>ActiproSoftware</RootNamespace>
 
@@ -45,11 +45,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ActiproSoftware.Controls.WinForms" Version="21.1.1" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet" Version="21.1.1" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript" Version="21.1.1" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python" Version="21.1.1" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML" Version="21.1.1" />
+		<None Include="ProductSamples\SyntaxEditorSamples\Languages\Projects\**\*.langproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ActiproSoftware.Controls.WinForms" Version="22.1.0" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet" Version="22.1.0" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript" Version="22.1.0" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python" Version="22.1.0" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML" Version="22.1.0" />
 	</ItemGroup>
 
 </Project>

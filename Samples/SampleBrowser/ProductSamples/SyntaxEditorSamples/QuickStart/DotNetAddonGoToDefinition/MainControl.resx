@@ -117,23 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="editor.Text" xml:space="preserve">
+  <data name="codeEditor.Text" xml:space="preserve">
     <value>using System;
 
-namespace HighlightingStyleRegistries {
-						
+namespace DotNetLanguagesAddon {
+
 	/// &lt;summary&gt;
-	/// This editor uses the ambient highlighting style registry,
-	/// although other custom registries could be used instead.
-	/// &lt;/summary&gt;
-	/// &lt;/summary&gt;
-	/// If you change style settings for a registry, they will only
-	/// affect SyntaxEditor instances that use that registry.
-	/// &lt;/summary&gt;
-	public class QuickStart {
-		
-	}
+	/// The .NET Languages Add-on includes a powerful resolver which can be
+	/// used to query contextual information at any position within a code
+	/// document. The same resolver that powers our IntelliPrompt features
+	/// can also be used to enable 'Go To Definition' functionality.
+	///	&lt;/summary&gt;
+	public class CSharpGoToDefinition {
+	
+		// Move the caret throughout the document and the resolver will
+		// output relevant data for that position.
+				
+		public CSharpGoToDefinition() {
+			
+			// Position the caret over 'this', 'DemoMethod' or 'DemoProperty'
+			// and click the 'Go To Definition' button to jump to either the
+			// relevant declaration.
+
+			this.DemoMethod(this.DemoProperty);
+		}
+				
+		public void DemoMethod(string name) {
+			
+			// Position the caret over the use of 'name' below and click
+			// the 'Go To Definition' button to jump to the declaration
+			// of the paremter.
+				
+			System.Diagnostics.Debug.WriteLine("The name is " + name);
+		}
+				
+		public string DemoProperty {
+			get {
+				return nameof(CSharpGoToDefinition) +
+					nameof(DemoMethod) +
+					nameof(DemoProperty);
+			}
+		}
+	}	
 }
+</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="goToDefinitionButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAHNJREFUOE+t
+        kLENgDAMBD0CI9BRsADKCOzECuwCezAGcwQX/91jkeCTrkF/loKlsm7HOO3X7Vb3xOc2/MjcdQSB8tsR
+        EdK2p/gTBo/6/sOvOJ1SlvomJjEqpJjEqJBiEqNCikmMCikmMSqkmMSokGKSgdkDv+GW6xBoBDUAAAAA
+        SUVORK5CYII=
 </value>
   </data>
 </root>
