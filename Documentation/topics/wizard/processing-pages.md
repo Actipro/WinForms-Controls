@@ -5,25 +5,25 @@ order: 9
 ---
 # Processing Pages
 
-On pages that perform intensive processing, you don't generally want the user to be able to press the **Next** and **Back** buttons while the processing is taking place.  The [Wizard](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard) control provides properties and events for handling these situations.
+On pages that perform intensive processing, you don't generally want the user to be able to press the **Next** and **Back** buttons while the processing is taking place.  The [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard) control provides properties and events for handling these situations.
 
-Each [WizardPage](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPage) object has properties that let you set the default enabled state of the buttons when the page is selected.
+Each [WizardPage](xref:@ActiproUIRoot.Controls.Wizard.WizardPage) object has properties that let you set the default enabled state of the buttons when the page is selected.
 
 These properties are:
 
-- [BackButtonEnabled](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPage.BackButtonEnabled)
+- [BackButtonEnabled](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.BackButtonEnabled)
 
-- [NextButtonEnabled](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPage.NextButtonEnabled)
+- [NextButtonEnabled](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.NextButtonEnabled)
 
-- [FinishButtonEnabled](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPage.FinishButtonEnabled)
+- [FinishButtonEnabled](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.FinishButtonEnabled)
 
-- [CancelButtonEnabled](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPage.CancelButtonEnabled)
+- [CancelButtonEnabled](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.CancelButtonEnabled)
 
-- [HelpButtonEnabled](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPage.HelpButtonEnabled)
+- [HelpButtonEnabled](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.HelpButtonEnabled)
 
 For a processing page, these should be set to `false`.
 
-The next step is to create a handler for the [SelectionChanged](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.SelectionChanged) event.  This event is raised after the selected page changes and the new page is visible.
+The next step is to create a handler for the [SelectionChanged](xref:@ActiproUIRoot.Controls.Wizard.Wizard.SelectionChanged) event.  This event is raised after the selected page changes and the new page is visible.
 
 In this event, check to see if the currently selected page is the processing page.  If so, route to a processing function.  After the call to this function, re-enable the buttons.
 

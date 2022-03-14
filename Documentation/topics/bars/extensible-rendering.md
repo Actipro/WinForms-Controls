@@ -11,9 +11,9 @@ This object model allows for three levels of rendering customization.  Choose wh
 
 - Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include all Visual Studio and Office styles.
 - Modify Properties on Built-In Renderers - Use the built-in renderers but modify the various properties on the renderers to easily create a customized appearance.
-- Create Custom Renderers - Implement the [IBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.IBarRenderer) or [IStatusBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.IStatusBarRenderer) interfaces or inherit our [BarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarRenderer) or [StatusBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarRenderer) classes to do all the measuring and drawing of the controls and their elements yourself.
+- Create Custom Renderers - Implement the [IBarRenderer](xref:@ActiproUIRoot.Controls.Bars.IBarRenderer) or [IStatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.IStatusBarRenderer) interfaces or inherit our [BarRenderer](xref:@ActiproUIRoot.Controls.Bars.BarRenderer) or [StatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.StatusBarRenderer) classes to do all the measuring and drawing of the controls and their elements yourself.
 
-These are some sample rendering styles that come with [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager) and [StatusBar](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBar):
+These are some sample rendering styles that come with [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) and [StatusBar](xref:@ActiproUIRoot.Controls.Bars.StatusBar):
 
 ![Screenshot](images/bar-controls-metro-light.png)![Screenshot](images/bar-controls-office-2007-blue.png)![Screenshot](images/bar-controls-office-2007-silver.png)![Screenshot](images/bar-controls-office-2007-black.png)![Screenshot](images/bar-controls-office-2003-blue.png)![Screenshot](images/bar-controls-office-2003-olive-green.png)![Screenshot](images/bar-controls-office-2003-silver.png)![Screenshot](images/bar-controls-office-2003-royale.png)![Screenshot](images/bar-controls-windows-classic.png)![Screenshot](images/bar-controls-visual-studio-2002.png)![Screenshot](images/bar-controls-visual-studio-2005.png)
 
@@ -23,16 +23,16 @@ Bars includes these built-in renderers, which support Metro Light, Office 2007/2
 
 | Renderer | Description |
 |-----|-----|
-| [MetroLightBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.MetroLightBarRenderer) | Capable of drawing Metro Light bar controls. |
-| [Office2003BarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.Office2003BarRenderer) | Capable of drawing all Office 2007 styles (Blue, Silver, Black), Office 2003 styles (Blue, Olive, Silver, Royale, and Windows Classic), as well as the Visual Studio 2005 style for bar controls.  To change to a different style, change the [BaseColorSchemeType](xref:ActiproSoftware.UI.WinForms.Controls.Bars.Office2003BarRenderer.BaseColorSchemeType). |
-| [Office2003StatusBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.Office2003StatusBarRenderer) | Capable of drawing all Office styles for statusbar controls. |
-| [VisualStudio2002BarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.VisualStudio2002BarRenderer) | Capable of drawing Visual Studio 2002 bar controls. |
-| [VisualStudio2002StatusBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.VisualStudio2002StatusBarRenderer) | Capable of drawing Visual Studio 2002 statusbar controls. |
-| [VisualStudio2005StatusBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.VisualStudio2005StatusBarRenderer) | Capable of drawing Visual Studio 2005 statusbar controls. |
+| [MetroLightBarRenderer](xref:@ActiproUIRoot.Controls.Bars.MetroLightBarRenderer) | Capable of drawing Metro Light bar controls. |
+| [Office2003BarRenderer](xref:@ActiproUIRoot.Controls.Bars.Office2003BarRenderer) | Capable of drawing all Office 2007 styles (Blue, Silver, Black), Office 2003 styles (Blue, Olive, Silver, Royale, and Windows Classic), as well as the Visual Studio 2005 style for bar controls.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Bars.Office2003BarRenderer.BaseColorSchemeType). |
+| [Office2003StatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.Office2003StatusBarRenderer) | Capable of drawing all Office styles for statusbar controls. |
+| [VisualStudio2002BarRenderer](xref:@ActiproUIRoot.Controls.Bars.VisualStudio2002BarRenderer) | Capable of drawing Visual Studio 2002 bar controls. |
+| [VisualStudio2002StatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.VisualStudio2002StatusBarRenderer) | Capable of drawing Visual Studio 2002 statusbar controls. |
+| [VisualStudio2005StatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.VisualStudio2005StatusBarRenderer) | Capable of drawing Visual Studio 2005 statusbar controls. |
 
 ## Color Tinting Color Schemes
 
-With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a tan or red color scheme and then use those color schemes with the [Office2003BarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.Office2003BarRenderer) class like this:
+With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a tan or red color scheme and then use those color schemes with the [Office2003BarRenderer](xref:@ActiproUIRoot.Controls.Bars.Office2003BarRenderer) class like this:
 
 ![Screenshot](images/bar-controls-custom-tan.png)![Screenshot](images/bar-controls-custom-red.png)
 
@@ -62,15 +62,15 @@ Select a base built-in renderer to use by following the steps above.  Then use t
 
 ## Create Custom Renderers
 
-For the most flexibility over what is measured and rendered, create a class that implements the [IBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.IBarRenderer) or [IStatusBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.IStatusBarRenderer) interfaces.  Alternatively, you can create a class that inherits our [BarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarRenderer) or [StatusBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarRenderer), or one of their descendants.  The renderer interface has methods that measure and draw the controls and their elements.
+For the most flexibility over what is measured and rendered, create a class that implements the [IBarRenderer](xref:@ActiproUIRoot.Controls.Bars.IBarRenderer) or [IStatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.IStatusBarRenderer) interfaces.  Alternatively, you can create a class that inherits our [BarRenderer](xref:@ActiproUIRoot.Controls.Bars.BarRenderer) or [StatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.StatusBarRenderer), or one of their descendants.  The renderer interface has methods that measure and draw the controls and their elements.
 
-After your custom renderer class has been created, assign it to the [Renderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.Renderer) property of each [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager), or the [Renderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBar.Renderer) property of each [StatusBar](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBar) that should use it for drawing.
+After your custom renderer class has been created, assign it to the [Renderer](xref:@ActiproUIRoot.Controls.Bars.BarManager.Renderer) property of each [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager), or the [Renderer](xref:@ActiproUIRoot.Controls.Bars.StatusBar.Renderer) property of each [StatusBar](xref:@ActiproUIRoot.Controls.Bars.StatusBar) that should use it for drawing.
 
 ## Customizing Individual Statusbar Panels
 
-Renderer settings affect the rendering of all the controls that use the renderer.  However there are other properties on each [StatusBarPanel](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarPanel) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific panel:
+Renderer settings affect the rendering of all the controls that use the renderer.  However there are other properties on each [StatusBarPanel](xref:@ActiproUIRoot.Controls.Bars.StatusBarPanel) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific panel:
 
 | Member | Description |
 |-----|-----|
-| [BackgroundFill](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarPanel.BackgroundFill) Property | Gets or sets the page-specific `BackgroundFill` for the panel. |
-| [Border](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarPanel.Border) Property | Gets or sets the page-specific `SimpleBorder` for the panel. |
+| [BackgroundFill](xref:@ActiproUIRoot.Controls.Bars.StatusBarPanel.BackgroundFill) Property | Gets or sets the page-specific `BackgroundFill` for the panel. |
+| [Border](xref:@ActiproUIRoot.Controls.Bars.StatusBarPanel.Border) Property | Gets or sets the page-specific `SimpleBorder` for the panel. |

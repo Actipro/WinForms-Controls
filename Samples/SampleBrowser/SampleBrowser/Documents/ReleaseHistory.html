@@ -11,9 +11,50 @@
 		<div class="section-content">
 			<div class="container">
 
-				<h2>v2022.1</h2>
+				<h2>Version 22.1</h2>
 
-				<h3>12/8/2021 - Version 22.1.0</h3>
+				<h3>3/14/2022 - v22.1.1</h3>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added new Column Guides feature with Column Guides QuickStart to demonstrate the functionality.</li>
+					<li>Added a new Compare Files QuickStart to demonstrate side-by-side file comparison.</li>
+					<li>Improved the logic for adding manual outlining nodes.</li>
+					<li>Improved HighlightingStyleRegistry.Import to match classification types by key and to ignore colors defined as '0x01000000'.</li>
+					<li>Improved NavigableSymbolSelector to update its ComboBox selections quicker for simple selection changes in the attached SyntaxEditor.</li>
+					<li>Improved DelimiterAutoCompleter to function in more scenarios.</li>
+					<li>Improved performance of StartsWithFragmentCompletionItemMatcher and updated RegexCompletionItemMatcherBase to generate capturing and non-capturing regular expression patterns for improved matching performance when captures are not necessary.</li>
+					<li>Updated the IntelliPrompt repositioning logic to ensure it remains horizontally within the text area.</li>
+					<li>Updated SyntaxEditor to ignore vertical mouse wheel scrolling when IsMultiLine is false (single-line mode).</li>
+					<li>Updated open IntelliPrompt completion sessions to refresh selection/filters if Items collection changes are detected.</li>
+					<li>Updated SquiggleTagQuickInfoProvider to show quick info for the last tagged range (highest in z-order) instead of the first, when there are overlapping ranges.</li>
+					<li>Fixed an issue where IntelliPrompt completion tab filters might not work properly in a certain scenario.</li>
+					<li>Fixed an issue where intra-line adornments with a bottom margin may not display properly on the last line of a document.</li>
+					<li>Fixed an issue where collapsed outlining nodes could get out of sync in a certain scenario.</li>
+					<li>Fixed an issue where syntax highlighting might not update properly after certain text changes.</li>
+					<li>Fixed an issue where typing an emoji could throw an exception.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Improved the VBTextFormatter logic.</li>
+					<li>Improved IntelliPrompt completion for VB With statements.</li>
+					<li>Improved IntelliPrompt completion after VB For statements.</li>
+					<li>Improved IntelliPrompt for variables defined within switch case blocks.</li>
+					<li>Fixed an issue where C# completion wasn't correct within a new object creation expression.</li>
+					<li>Fixed an issue where an invalid VB module declaration could lead to an exception in a certain scenario.</li>
+					<li>Fixed an issue where a VB With statement could lead to an exception in a certain scenario.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Fixed an issue where an import name might not resolve correctly, due to a change in the previous build.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Improved GDI rendering performance when working with fully transparent colors.</li>
+					<li>Fixed an issue with CanvasDrawContext that prevented brushes other than SolidBrush from rendering correctly.</li>
+				</ul>
+
+
+				<h3>12/8/2021 - v22.1.0</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Fixed a bug where programmatically changing focus between links hosted on different tool bars might not properly set focus on the new tool bar.</li>
@@ -103,9 +144,9 @@
 		<div class="section-content d-none bg-silver">
 			<div class="container">
 				
-				<h2>v2021.1</h2>
+				<h2>Version 21.1</h2>
 
-				<h3>9/7/2021 - Version 21.1.1</h3>
+				<h3>9/7/2021 - v21.1.1</h3>
 				<h4>SyntaxEditor</h4>
 				<ul>
 					<li>Improved IntelliPrompt UI to reposition itself when the view's text area layout is updated, such as when scrolling.</li>
@@ -135,7 +176,7 @@
 				</ul>
 
 
-				<h3>7/12/2021 - Version 21.1.0</h3>
+				<h3>7/12/2021 - v21.1.0</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Added IBarRenderer.DrawCommandLinkInCustomizeList to support rendering BarCommandLink within a user-drawn ListBox.</li>
@@ -258,15 +299,15 @@
 		<div class="section-content d-none">
 			<div class="container">
 
-				<h2>v2020.1</h2>
+				<h2>Version 20.1</h2>
 
-				<h3>1/6/2021 - Version 20.1.0404</h3>
+				<h3>1/6/2021 - v20.1.0404</h3>
 				<h4>SyntaxEditor</h4>
 				<ul>
 					<li>Fixed a bug where a completion list that was filtered to zero items could throw an exception.</li>
 				</ul>
 
-				<h3>11/18/2020 - Version 20.1.0403</h3>
+				<h3>11/18/2020 - v20.1.0403</h3>
 				<h4>SyntaxEditor</h4>
 				<ul>
 					<li>Added syntax highlighting to collapsed region quick info tips created by the CollapsedRegionQuickInfoProvider language service.</li>
@@ -318,7 +359,7 @@
 				</ul>
 
 
-				<h3>8/26/2020 - Version 20.1.0402</h3>
+				<h3>8/26/2020 - v20.1.0402</h3>
 				<h4>Docking/MDI</h4>
 				<ul>
 					<li>Improved the rendering of images and glyphs in high DPI.</li>
@@ -360,7 +401,7 @@
 				</ul>
 
 
-				<h3>4/16/2020 - Version 20.1.0401</h3>
+				<h3>4/16/2020 - v20.1.0401</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Added several VisualStudio2002BarRenderer color properties to support customization of toolbar shadows and separators.</li>
@@ -409,7 +450,7 @@
 				</ul>
 
 
-				<h3>11/13/2019 - Version 20.1.0400</h3>
+				<h3>11/13/2019 - v20.1.0400</h3>
 				<h4>Docking/MDI</h4>
 				<ul>
 					<li>Improved the selected tabbed MDI container to not repaint its contents when its parent Form is activated or deactivated.</li>
@@ -541,15 +582,15 @@
 		<div class="section-content d-none bg-silver">
 			<div class="container">
 
-				<h2>v2018.1</h2>
+				<h2>Version 18.1</h2>
 
-				<h3>1/10/2019 - Version 18.1.0342</h3>
+				<h3>1/10/2019 - v18.1.0342</h3>
 				<h4>SyntaxEditor</h4>
 				<ul>
 					<li>Fixed a bug introduced in a previous build where when splitting a view, removing the split, and splitting again, the scrollbars might not render properly.</li>
 				</ul>
 
-				<h3>12/13/2018 - Version 18.1.0341</h3>
+				<h3>12/13/2018 - v18.1.0341</h3>
 				<h4>Docking/MDI</h4>
 				<ul>
 					<li>Improved the rendering of several button glyphs.</li>
@@ -569,7 +610,7 @@
 					<li>Fixed a bug where the XML lexer wasn't properly recognizing all allowed Unicode characters for tag/attribute names.</li>
 				</ul>
 
-				<h3>5/24/2018 - Version 18.1.0340</h3>
+				<h3>5/24/2018 - v18.1.0340</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Added full support for right-to-left display of bar controls, useful in certain cultures.</li>
@@ -618,9 +659,9 @@
 		<div class="section-content d-none">
 			<div class="container">
 
-				<h2>v2016.1</h2>
+				<h2>Version 16.1</h2>
 
-				<h3>5/27/2016 - Version 16.1.0330</h3>
+				<h3>5/27/2016 - v16.1.0330</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Added the BarManager.KeyboardShortcutsEnabled property that can be set to false to disable all keyboard shortcuts from being recognized.</li>
@@ -664,9 +705,9 @@
 		<div class="section-content d-none bg-silver">
 			<div class="container">
 
-				<h2>v2014.1</h2>
+				<h2>Version 14.1</h2>
 
-				<h3>6/12/2015 - Version 14.1.0323</h3>
+				<h3>6/12/2015 - v14.1.0323</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Fixed a bug with the z-order of popups that could occur after clicking a root-level button while a menu was open.</li>
@@ -695,7 +736,7 @@
 					<li>Fixed a bug where the context wasn't being properly determined when the caret was immediately before an identifier or entity.</li>
 				</ul>
 
-				<h3>12/20/2014 - Version 14.1.0322</h3>
+				<h3>12/20/2014 - v14.1.0322</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Fixed a bug where the character casing command wouldn't deserialize properly from a macro.</li>
@@ -714,7 +755,7 @@
 					<li>Fixed a bug introduced in a previous build when changing outlining modes where the indicators might not reappear.</li>
 				</ul>
 
-				<h3>9/10/2014 - Version 14.1.0321</h3>
+				<h3>9/10/2014 - v14.1.0321</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Fixed a bug where popups might start appearing behind the main Form.</li>
@@ -739,7 +780,7 @@
 					<li>Improved the VB lexer to better handle argument attributes.</li>
 				</ul>
 
-				<h3>3/13/2014 - Version 14.1.0320</h3>
+				<h3>3/13/2014 - v14.1.0320</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Added a new Metro Light theme and related bar renderer.</li>
@@ -776,9 +817,9 @@
 		<div class="section-content d-none">
 			<div class="container">
 
-				<h2>v2013.1</h2>
+				<h2>Version 13.1</h2>
 
-				<h3>12/18/2013 - Version 13.1.0312</h3>
+				<h3>12/18/2013 - v13.1.0312</h3>
 				<h4>Docking/MDI</h4>
 				<ul>
 					<li>Updated the tooltip logic in dock container title bars.</li>
@@ -792,7 +833,7 @@
 					<li>Updated the text rendering logic.</li>
 				</ul>
 
-				<h3>8/7/2013 - Version 13.1.0311</h3>
+				<h3>8/7/2013 - v13.1.0311</h3>
 				<h4>Docking/MDI</h4>
 				<ul>
 					<li>Updated TabStripTab to guard against a possible null reference exception in a certain scenario.</li>
@@ -815,7 +856,7 @@
 					<li>Fixed a bug where identity constraint validation errors weren't properly reported.</li>
 				</ul>
 
-				<h3>4/19/2013 - Version 13.1.0310</h3>
+				<h3>4/19/2013 - v13.1.0310</h3>
 				<h4>Docking/MDI</h4>
 				<ul>
 					<li>Fixed a bug where an exception could be throw when dragging a tool window that contained a WPF control.</li>
@@ -845,9 +886,9 @@
 		<div class="section-content d-none bg-silver">
 			<div class="container">
 
-				<h2>v2012.1</h2>
+				<h2>Version 12.1</h2>
 
-				<h3>12/20/2012 - Version 12.1.0304</h3>
+				<h3>12/20/2012 - v12.1.0304</h3>
 				<h4>SyntaxEditor</h4>
 				<ul>
 					<li>Added the LexicalPatternGroup.IsComment property and support in dynamic language XML definitions.</li>
@@ -859,7 +900,7 @@
 					<li>Tweaked the VB auto-indent logic.</li>
 				</ul>
 
-				<h3>11/15/2012 - Version 12.1.0303</h3>
+				<h3>11/15/2012 - v12.1.0303</h3>
 				<h4>SyntaxEditor</h4>
 				<ul>
 					<li>Rearchitected the regular expression engine to use the newer logic found in the WPF/Silverlight SyntaxEditor version.</li>
@@ -877,7 +918,7 @@
 					<li>Fixed a bug where extension methods with EditorBrowseableState.Never attributes were showing up in parameter info.</li>
 				</ul>
 
-				<h3>7/20/2012 - Version 12.1.0302</h3>
+				<h3>7/20/2012 - v12.1.0302</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Fixed a bug with mnemonic updating when using localized command text.</li>
@@ -902,7 +943,7 @@
 					<li>Fixed a bug where VB attributes weren't allowing an implicit line continuation after.</li>
 				</ul>
 
-				<h3>2/18/2012 - Version 12.1.0300</h3>
+				<h3>2/18/2012 - v12.1.0300</h3>
 				<h4>All</h4>
 				<ul>
 					<li>Combined all WinForms products into a single platform download that has unified documentation, samples, and licensing mechanisms.  See the documentation for breaking change notes.</li>

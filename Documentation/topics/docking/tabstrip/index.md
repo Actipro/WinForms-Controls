@@ -5,13 +5,13 @@ order: 1
 ---
 # Overview
 
-[TabStrip](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabStrip) provides an alternative tab-based control to the `TabControl` that is included in .NET Framework, .NET Core, or .NET 5+. [TabStrip](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabStrip) has a more robust user interface in that it fully supports [customized rendering](extensible-rendering.md), [tab alignment](tab-alignments.md) on any side, special handling for [tab overflow](tab-overflow-styles.md), control over minimum/maximum tab sizes, interactive tooltip handling, drag/drop reordering of tabs, and more.
+[TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) provides an alternative tab-based control to the `TabControl` that is included in .NET Framework, .NET Core, or .NET 5+. [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) has a more robust user interface in that it fully supports [customized rendering](extensible-rendering.md), [tab alignment](tab-alignments.md) on any side, special handling for [tab overflow](tab-overflow-styles.md), control over minimum/maximum tab sizes, interactive tooltip handling, drag/drop reordering of tabs, and more.
 
 ![Screenshot](../images/tabstrip.gif)
 
 *The TabStrip control*
 
-The [TabStrip](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabStrip) control has full [Visual Studio designer support](designer-support.md).  As page buttons are clicked or pages selected in the designer's **Properties** window, the control updates to show the page and its contents.  The page acts as a container control and can be used to host any type of child control.
+The [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) control has full [Visual Studio designer support](designer-support.md).  As page buttons are clicked or pages selected in the designer's **Properties** window, the control updates to show the page and its contents.  The page acts as a container control and can be used to host any type of child control.
 
 ## Feature List
 

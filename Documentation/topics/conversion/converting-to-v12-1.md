@@ -15,7 +15,7 @@ A new unified WinForms products license key that you obtain when you are license
 
 A new WinForms Studio bundle is also now available for purchase that provides significant savings over purchasing all the WinForms control products separately.  Please note that the SyntaxEditor add-ons are not included in the WinForms Studio bundle.
 
-These major infrastructure updates align our product deployment, distribution, and licensing implementations with our WPF and Silverlight platform products and allows us to serve you better.
+These major infrastructure updates align our product deployment, distribution, and licensing implementations with our WPF and UWP platform products and allows us to serve you better.
 
 ## Unified Versioning Scheme
 
@@ -65,7 +65,7 @@ The old WinUICore assembly and all its contents have been merged into the new Sh
 
 ## Resource Access
 
-Access to string resources have been improved to use the implementation we have in our WPF and Silverlight products.  String resources used to be accessed via a call such as `AssemblyInfo.Instance.Resources.GetString(name)`.  Now they are accessed like `SR.GetString(name)`.
+Access to string resources have been improved to use the implementation we have in our WPF and UWP products.  String resources used to be accessed via a call such as `AssemblyInfo.Instance.Resources.GetString(name)`.  Now they are accessed like `SR.GetString(name)`.
 
 > [!NOTE]
 > Change all `AssemblyInfo.Instance.Resources.GetString` calls to `SR.GetString` instead.

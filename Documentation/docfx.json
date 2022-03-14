@@ -49,7 +49,7 @@
 					"**.png",
 					"**.gif",
 					"**.jpg"
-				],
+				]
 			}
 		],
 		"overwrite": [
@@ -68,10 +68,10 @@
 			"_appTitle": "Actipro WinForms Controls Docs",
 			"_docsCompanyHref": "https://www.actiprosoftware.com/products/controls/windowsforms",
 			"_docsCompanyName": "Actipro Software LLC",
-			"_docsCopyrightYears": "1999-2021",
+			"_docsCopyrightYears": "1999-2022",
 			"_docsProductHref": "https://www.actiprosoftware.com/products/controls/windowsforms",
 			"_docsProductName": "WinForms Controls",
-			"_docsProductVersion": "21.1",
+			"_docsProductVersion": "22.1",
 			"_disableContribution": true,
 			"_enableNewTab": true,
 			"_gitContribute": {
@@ -79,6 +79,16 @@
 				"branch": "develop",
 				"path": "Documentation/topics",
 				"apiSpecFolder": "Documentation/topics/apidoc"
+			},
+			"_conditionalFlags": "winforms",
+			"_replaceTokens": {
+				"PlatformAssemblySuffix": "WinForms",
+				"PlatformName": "WinForms",
+				"PlatformTitle": "Windows Forms"
+			},
+			"_rootNamespaceAliases": {
+				"ActiproUIRoot": "ActiproSoftware.UI.WinForms",
+				"WindowsUIRoot": "System.Windows"
 			}
 		},
 		"globalMetadataFiles": [],

@@ -42,7 +42,6 @@ This table shows the product assemblies that may be redistributed based on indiv
 <th>Redistributable Assemblies and Related NuGet Packages</th>
 </tr>
 
-
 </thead>
 <tbody>
 
@@ -159,7 +158,6 @@ This table shows a bundle that allows groups of Actipro control products to be l
 <th>Actipro Bundle</th>
 <th>Description</th>
 </tr>
-
 
 </thead>
 <tbody>

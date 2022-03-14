@@ -35,7 +35,6 @@ The following outlines the compatibility of Actipro WinForms Controls with versi
 <th>Supported Visual Studio Versions</th>
 </tr>
 
-
 </thead>
 <tbody>
 

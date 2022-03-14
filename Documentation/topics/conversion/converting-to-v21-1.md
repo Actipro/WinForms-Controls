@@ -47,7 +47,7 @@ The following API types and namespaces have been moved or renamed for clarity an
 
 ## StatusBarPanel.AutoSize Property Type Changed
 
-The [StatusBarPanel](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarPanel).[AutoSize](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarPanel.AutoSize) property has changed from type `System.Windows.Forms.StatusBarPanelAutoSize` (removed in .NET 5) to [StatusBarPanelAutoSize](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarPanelAutoSize) in the [ActiproSoftware.UI.WinForms.Controls.Bars](xref:ActiproSoftware.UI.WinForms.Controls.Bars) namespace (previously in the `ActiproSoftware.UIStudio.Bar` namespace).
+The [StatusBarPanel](xref:@ActiproUIRoot.Controls.Bars.StatusBarPanel).[AutoSize](xref:@ActiproUIRoot.Controls.Bars.StatusBarPanel.AutoSize) property has changed from type `System.Windows.Forms.StatusBarPanelAutoSize` (removed in .NET 5) to [StatusBarPanelAutoSize](xref:@ActiproUIRoot.Controls.Bars.StatusBarPanelAutoSize) in the [ActiproSoftware.UI.WinForms.Controls.Bars](xref:@ActiproUIRoot.Controls.Bars) namespace (previously in the `ActiproSoftware.UIStudio.Bar` namespace).
 
 > [!NOTE]
 > Replace all `System.Windows.Forms.StatusBarPanelAutoSize` enum values with `ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarPanelAutoSize` enum values of the same name.
@@ -57,12 +57,12 @@ The [StatusBarPanel](xref:ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarPan
 To better align with .NET Core, usage of `System.Windows.Forms.ContextMenu` was replaced with `System.Windows.Forms.ContextMenuStrip` for the following types:
 
 - `ActiproSoftware.UI.WinForms.Controls.ScrollBar` (previously of the `ActiproSoftware.WinUICore` namespace).
-- [SyntaxEditor](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor) and [SyntaxEditorMenuEventArgs](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditorMenuEventArgs) of the `ActiproSoftware.UI.WinForms.Controls.SyntaxEditor` namespace.
+- [SyntaxEditor](xref:@ActiproUIRoot.Controls.SyntaxEditor.SyntaxEditor) and [SyntaxEditorMenuEventArgs](xref:@ActiproUIRoot.Controls.SyntaxEditor.SyntaxEditorMenuEventArgs) of the `ActiproSoftware.UI.WinForms.Controls.SyntaxEditor` namespace.
 
 > [!NOTE]
 > 
-> - Update any overrides of [SyntaxEditor](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor).[CreateDefaultContextMenu](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.CreateDefaultContextMenu*) to return `System.Windows.Forms.ContextMenuStrip`.
-> - Update any references to [SyntaxEditorMenuEventArgs](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditorMenuEventArgs).[Menu](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditorMenuEventArgs.Menu) to work with `System.Windows.Forms.ContextMenuStrip`.
+> - Update any overrides of [SyntaxEditor](xref:@ActiproUIRoot.Controls.SyntaxEditor.SyntaxEditor).[CreateDefaultContextMenu](xref:@ActiproUIRoot.Controls.SyntaxEditor.SyntaxEditor.CreateDefaultContextMenu*) to return `System.Windows.Forms.ContextMenuStrip`.
+> - Update any references to [SyntaxEditorMenuEventArgs](xref:@ActiproUIRoot.Controls.SyntaxEditor.SyntaxEditorMenuEventArgs).[Menu](xref:@ActiproUIRoot.Controls.SyntaxEditor.SyntaxEditorMenuEventArgs.Menu) to work with `System.Windows.Forms.ContextMenuStrip`.
 
 ## .NET Core Changes
 
@@ -75,12 +75,12 @@ For users targeting .NET Core, the following changes were made only in our .NET 
 
 ## IBarRenderer.DrawCommandLinkInCustomizeList Method Added
 
-The [IBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.IBarRenderer) interface has a new [DrawCommandLinkInCustomizeList](xref:ActiproSoftware.UI.WinForms.Controls.Bars.IBarRenderer.DrawCommandLinkInCustomizeList*) method for rendering a [BarCommandLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink) in a ListBox control. This method is implemented by all built-in renderers, so only user-defined renderers that directly implement the [IBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.IBarRenderer) interface or derive from the abstract base class [BarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarRenderer) will need to implement the method.
+The [IBarRenderer](xref:@ActiproUIRoot.Controls.Bars.IBarRenderer) interface has a new [DrawCommandLinkInCustomizeList](xref:@ActiproUIRoot.Controls.Bars.IBarRenderer.DrawCommandLinkInCustomizeList*) method for rendering a [BarCommandLink](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink) in a ListBox control. This method is implemented by all built-in renderers, so only user-defined renderers that directly implement the [IBarRenderer](xref:@ActiproUIRoot.Controls.Bars.IBarRenderer) interface or derive from the abstract base class [BarRenderer](xref:@ActiproUIRoot.Controls.Bars.BarRenderer) will need to implement the method.
 
 > [!NOTE]
 > 
-> - Add `DrawCommandLinkInCustomizeList` method implementation to any classes which implement the [IBarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.IBarRenderer) interface.
-> - Add `DrawCommandLinkInCustomizeList` method implementation to any classes which derive from the [BarRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarRenderer) abstract class.
+> - Add `DrawCommandLinkInCustomizeList` method implementation to any classes which implement the [IBarRenderer](xref:@ActiproUIRoot.Controls.Bars.IBarRenderer) interface.
+> - Add `DrawCommandLinkInCustomizeList` method implementation to any classes which derive from the [BarRenderer](xref:@ActiproUIRoot.Controls.Bars.BarRenderer) abstract class.
 
 ## BarManager.PopupAnimation Removed
 

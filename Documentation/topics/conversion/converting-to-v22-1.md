@@ -11,7 +11,7 @@ All of the breaking changes are detailed or linked below.
 
 The [Drag and Drop](../syntaxeditor/user-interface/input-output/drag-drop.md) functionality has been enhanced to provide more control over the experience.
 
-Previously, any non-`null` value assigned to the [PasteDragDropEventArgs](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.PasteDragDropEventArgs).[Text](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.PasteDragDropEventArgs.Text) property within a handler for the [SyntaxEditor](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor).[PasteDragDrop](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor.PasteDragDrop) event would indicate that drag-and-drop was allowed, but this limited advanced scenarios such as drag-and-drop with custom objects or dropping onto read-only documents.  Going forward, the accepted operation assigned through [PasteDragDropEventArgs](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.PasteDragDropEventArgs).[DragEventArgs](xref:ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.PasteDragDropEventArgs.DragEventArgs) will be used to indicate `Copy`, `Move`, or `None` operations. Refer to the [Drag and Drop](../syntaxeditor/user-interface/input-output/drag-drop.md) topic for details on customizing drag operations.
+Previously, any non-`null` value assigned to the [PasteDragDropEventArgs](xref:@ActiproUIRoot.Controls.SyntaxEditor.PasteDragDropEventArgs).[Text](xref:@ActiproUIRoot.Controls.SyntaxEditor.PasteDragDropEventArgs.Text) property within a handler for the [SyntaxEditor](xref:@ActiproUIRoot.Controls.SyntaxEditor.SyntaxEditor).[PasteDragDrop](xref:@ActiproUIRoot.Controls.SyntaxEditor.SyntaxEditor.PasteDragDrop) event would indicate that drag-and-drop was allowed, but this limited advanced scenarios such as drag-and-drop with custom objects or dropping onto read-only documents.  Going forward, the accepted operation assigned through [PasteDragDropEventArgs](xref:@ActiproUIRoot.Controls.SyntaxEditor.PasteDragDropEventArgs).[DragEventArgs](xref:@ActiproUIRoot.Controls.SyntaxEditor.PasteDragDropEventArgs.DragEventArgs) will be used to indicate `Copy`, `Move`, or `None` operations. Refer to the [Drag and Drop](../syntaxeditor/user-interface/input-output/drag-drop.md) topic for details on customizing drag operations.
 
 ## SyntaxEditor Tagging Updates
 
@@ -35,3 +35,9 @@ Python v2.x has been officially end of life for some time now, so we removed sup
 ## SyntaxEditor .NET Languages Add-on Updates
 
 The [C#](../syntaxeditor/dotnet-languages-addon/csharp/index.md) parser grammar has been updated to support v8.0 syntax.
+
+## SyntaxEditor RegexCompletionItemMatcherBase Updates
+
+The [RegexCompletionItemMatcherBase](xref:@ActiproUIRoot.Controls.SyntaxEditor.IntelliPrompt.Implementation.RegexCompletionItemMatcherBase).[GetRegex](xref:@ActiproUIRoot.Controls.SyntaxEditor.IntelliPrompt.Implementation.RegexCompletionItemMatcherBase.GetRegex*) method added an additional argument in v22.1.1 to indicate if the regular expression should include capture groups. Previously, all regular expressions included the capture groups, and this could impact matching performance when capture groups were unnecessary.
+
+Any custom classes which derive from [RegexCompletionItemMatcherBase](xref:@ActiproUIRoot.Controls.SyntaxEditor.IntelliPrompt.Implementation.RegexCompletionItemMatcherBase) will need to add the additional argument and update the logic to only use capture groups (i.e., parenthesis) in the pattern when requested.

@@ -13,7 +13,7 @@ The **Next Window Navigation** dialog makes it easy to determine what window wil
 
 *The Next Window Navigation Dialog in action*
 
-The [NextWindowNavigationEnabled](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.NextWindowNavigationEnabled) property controls whether the feature is enabled or not.
+The [NextWindowNavigationEnabled](xref:@ActiproUIRoot.Controls.Docking.DockManager.NextWindowNavigationEnabled) property controls whether the feature is enabled or not.
 
 ## Activation Keys
 
@@ -28,7 +28,7 @@ Several keys may be used to display the dialog:
 
 ## Next Window Navigation Types
 
-There are several types of Next Window Navigation available.  The [NextWindowNavigationType](xref:ActiproSoftware.UI.WinForms.Controls.Docking.NextWindowNavigationType) enumeration contains the possible settings.  The value set to the [NextWindowNavigationType](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.NextWindowNavigationType) property controls which type is active.
+There are several types of Next Window Navigation available.  The [NextWindowNavigationType](xref:@ActiproUIRoot.Controls.Docking.NextWindowNavigationType) enumeration contains the possible settings.  The value set to the [NextWindowNavigationType](xref:@ActiproUIRoot.Controls.Docking.DockManager.NextWindowNavigationType) property controls which type is active.
 
 | Value | Description |
 |-----|-----|
@@ -49,6 +49,6 @@ Several keys are also valid while the **Next Window Navigation** dialog is displ
 
 ## Customizing the Selected Window's Descriptions
 
-When a window is selected, its [TitleBarText](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindow.TitleBarText) property (with nullable fallback to the [Text](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindow.Text) property) is displayed on the first line in the selection box.  By default, tool windows don't display any description lines.  By default, document windows display the file type ( [FileType](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DocumentWindow.FileType) property) as the first description line and the file name ( [FileName](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DocumentWindow.FileName) property) as the second description line.
+When a window is selected, its [TitleBarText](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.TitleBarText) property (with nullable fallback to the [Text](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.Text) property) is displayed on the first line in the selection box.  By default, tool windows don't display any description lines.  By default, document windows display the file type ( [FileType](xref:@ActiproUIRoot.Controls.Docking.DocumentWindow.FileType) property) as the first description line and the file name ( [FileName](xref:@ActiproUIRoot.Controls.Docking.DocumentWindow.FileName) property) as the second description line.
 
-The defaults can be customized.  By handling the [NextWindowNavigationSelectionChanged](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.NextWindowNavigationSelectionChanged) event, you can set the various properties of the event arguments to customize the text to display on the two description lines as well as the `StringTrimming` to use for each line.  The event is raised each time a [TabbedMdiWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindow) is selected in the **Next Window Navigation** dialog.
+The defaults can be customized.  By handling the [NextWindowNavigationSelectionChanged](xref:@ActiproUIRoot.Controls.Docking.DockManager.NextWindowNavigationSelectionChanged) event, you can set the various properties of the event arguments to customize the text to display on the two description lines as well as the `StringTrimming` to use for each line.  The event is raised each time a [TabbedMdiWindow](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow) is selected in the **Next Window Navigation** dialog.

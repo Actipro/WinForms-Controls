@@ -5,9 +5,9 @@ order: 5
 ---
 # Tool Windows
 
-Tool windows are container controls that can host child controls.  They are represented by the [ToolWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow) class.  They can be moved around and docked anywhere within the controls managed by a [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component.  They can even be torn off and moved to floating windows.
+Tool windows are container controls that can host child controls.  They are represented by the [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) class.  They can be moved around and docked anywhere within the controls managed by a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component.  They can even be torn off and moved to floating windows.
 
-Tool windows are available to the end-user when they are active, as indicated by their [Active](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindow.Active) property.  If they are not active, they are not located anywhere in the user interface.  The [Activate](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindow.Activate*) method can be called to make an inactive tool window active.  Likewise, the [Close](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindow.Close*) method can be called to close a tool window.
+Tool windows are available to the end-user when they are active, as indicated by their [Active](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.Active) property.  If they are not active, they are not located anywhere in the user interface.  The [Activate](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.Activate*) method can be called to make an inactive tool window active.  Likewise, the [Close](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.Close*) method can be called to close a tool window.
 
 The end-user may initiate a drag operation by grabbing the tool window title bar and dragging it.  Alternatively, if a tool window is "attached" to another tool window (where two or more tool windows share the same bounds but a `TabStrip` controls which tool window is displayed), the tab representing the tool window may be dragged to start a drag operation.
 
@@ -23,7 +23,7 @@ Tool windows can be programmatically created and destroyed.  By using the powerf
 
 ## Tool Window States
 
-Each tool window has a number of different states that it can be in.  The current state can be returned or set by using the [State](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow.State) property on the [ToolWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow) class.  The state value is specified using the [ToolWindowState](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindowState) enumeration and indicates the state of the tool window when it is active.
+Each tool window has a number of different states that it can be in.  The current state can be returned or set by using the [State](xref:@ActiproUIRoot.Controls.Docking.ToolWindow.State) property on the [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) class.  The state value is specified using the [ToolWindowState](xref:@ActiproUIRoot.Controls.Docking.ToolWindowState) enumeration and indicates the state of the tool window when it is active.
 
 | Value | Description |
 |-----|-----|
@@ -37,28 +37,28 @@ When a tool window is hidden, it stores layout data so that if re-activated, it 
 
 ## Tool Windows Collection
 
-The [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) maintains a [ToolWindows](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.ToolWindows) collection that contains all of the tool windows currently being managed by the manager.  After a tool window is disposed, it is removed from the collection.
+The [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) maintains a [ToolWindows](xref:@ActiproUIRoot.Controls.Docking.DockManager.ToolWindows) collection that contains all of the tool windows currently being managed by the manager.  After a tool window is disposed, it is removed from the collection.
 
 ## Tool Window Events
 
-There are several tool window-specific events that are raised on the [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component.  See the [Window Lifecycle](window-lifecycle.md) topic for more information on other general lifecycle events that occur for both tool and document windows.
+There are several tool window-specific events that are raised on the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component.  See the [Window Lifecycle](window-lifecycle.md) topic for more information on other general lifecycle events that occur for both tool and document windows.
 
 | Member | Description |
 |-----|-----|
-| [ToolWindowDragging](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.ToolWindowDragging) Event | Occurs before one or more tool windows are dragged by the user. |
-| [ToolWindowDragged](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.ToolWindowDragged) Event | Occurs after one or more tool windows are dragged by the user. |
-| [AutoHideToolWindowDisplaying](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.AutoHideToolWindowDisplaying) Event | Occurs before a tool window in auto-hide mode is displayed. |
-| [AutoHideToolWindowHiding](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.AutoHideToolWindowHiding) Event | Occurs before a tool window in auto-hide mode is hidden. |
+| [ToolWindowDragging](xref:@ActiproUIRoot.Controls.Docking.DockManager.ToolWindowDragging) Event | Occurs before one or more tool windows are dragged by the user. |
+| [ToolWindowDragged](xref:@ActiproUIRoot.Controls.Docking.DockManager.ToolWindowDragged) Event | Occurs after one or more tool windows are dragged by the user. |
+| [AutoHideToolWindowDisplaying](xref:@ActiproUIRoot.Controls.Docking.DockManager.AutoHideToolWindowDisplaying) Event | Occurs before a tool window in auto-hide mode is displayed. |
+| [AutoHideToolWindowHiding](xref:@ActiproUIRoot.Controls.Docking.DockManager.AutoHideToolWindowHiding) Event | Occurs before a tool window in auto-hide mode is hidden. |
 
-These events are also present on the [ToolWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow) control:
+These events are also present on the [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) control:
 
 | Member | Description |
 |-----|-----|
-| [StateChanged](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindow.StateChanged) Event | Occurs after the window's `State` property has changed. |
+| [StateChanged](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.StateChanged) Event | Occurs after the window's `State` property has changed. |
 
 ## Dock Guide Styles
 
-Dock guides are used to aid the end-user in selecting the drop location for a tool window that is being dragged.  The Dock controls support multiple styles of dock guides, which are specified using the [DockGuideStyle](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.DockGuideStyle) property.
+Dock guides are used to aid the end-user in selecting the drop location for a tool window that is being dragged.  The Dock controls support multiple styles of dock guides, which are specified using the [DockGuideStyle](xref:@ActiproUIRoot.Controls.Docking.DockManager.DockGuideStyle) property.
 
 | Value | Description |
 |-----|-----|
@@ -68,7 +68,7 @@ Dock guides are used to aid the end-user in selecting the drop location for a to
 
 ## Dock Hint Styles
 
-Dock hints are used to indicate the drop area when a tool window is being dragged.  The Dock controls support several styles of dock hints, which are specified using the [DockHintStyle](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.DockHintStyle) property.
+Dock hints are used to indicate the drop area when a tool window is being dragged.  The Dock controls support several styles of dock hints, which are specified using the [DockHintStyle](xref:@ActiproUIRoot.Controls.Docking.DockManager.DockHintStyle) property.
 
 | Value | Description |
 |-----|-----|

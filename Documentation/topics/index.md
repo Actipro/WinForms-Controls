@@ -21,7 +21,7 @@ This free add-on is included with SyntaxEditor:
 
 - [LL(*) Parser Framework](syntaxeditor/ll-parser-framework/index.md) - Easily build advanced parsers using EBNF-like notation
 
-These optional premium add-ons for advanced syntax language implementations are shipped and demoed with the WinForms controls, but are sold separately:
+These optional premium add-ons for advanced syntax language implementations are shipped and demoed with the @@PlatformName controls, but are sold separately:
 
 - [.NET Languages Add-on](syntaxeditor/dotnet-languages-addon/index.md) - Advanced C# and Visual Basic
 - [Python Language Add-on](syntaxeditor/python-language-addon/index.md) - Advanced Python

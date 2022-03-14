@@ -11,7 +11,7 @@ When magnetism is active, any undocked tool windows or standard MDI documents th
 
 ## Magnetism Configuration
 
-There are a couple of members on the on the [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component that configure how magnetism works:
+There are a couple of members on the on the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component that configure how magnetism works:
 
 <table>
 <thead>
@@ -21,21 +21,20 @@ There are a couple of members on the on the [DockManager](xref:ActiproSoftware.U
 <th>Description</th>
 </tr>
 
-
 </thead>
 <tbody>
 
 <tr>
 <td>
 
-[MagnetismGapDistance](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.MagnetismGapDistance) Property
+[MagnetismGapDistance](xref:@ActiproUIRoot.Controls.Docking.DockManager.MagnetismGapDistance) Property
 
 </td>
 <td>
 
 Gets or sets the distance between windows that are snapped together via magnetism.
 
-If this value is greater than `0`, there will be a gap between windows that are snapped together when magnetism is enabled by the [MagnetismSnapDistance](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.MagnetismSnapDistance) property.
+If this value is greater than `0`, there will be a gap between windows that are snapped together when magnetism is enabled by the [MagnetismSnapDistance](xref:@ActiproUIRoot.Controls.Docking.DockManager.MagnetismSnapDistance) property.
 
 </td>
 </tr>
@@ -43,7 +42,7 @@ If this value is greater than `0`, there will be a gap between windows that are 
 <tr>
 <td>
 
-[MagnetismSnapDistance](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.MagnetismSnapDistance) Property
+[MagnetismSnapDistance](xref:@ActiproUIRoot.Controls.Docking.DockManager.MagnetismSnapDistance) Property
 
 </td>
 <td>

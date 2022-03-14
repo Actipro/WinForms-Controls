@@ -7,13 +7,13 @@ order: 1
 
 The most important concept to understand with the bar controls is the concept of commands and command links.  Since the bar controls are fairly advanced, understanding this concept is key before using them.  Be sure to thoroughly read this topic before moving onto using the bar controls.
 
-A command is any object that inherits from [BarCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommand).  Commands represent a specific functionality of your application, such as creating a new document.  A command *does not* have a user interface.  Changes made to a command affect all the command links that reference it.
+A command is any object that inherits from [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand).  Commands represent a specific functionality of your application, such as creating a new document.  A command *does not* have a user interface.  Changes made to a command affect all the command links that reference it.
 
-A command link is any object that inherits from [BarCommandLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink).  A command link provides the user interface for a command.  So, each command link references a specific command.  One or more command links can be created for each command.  Changes made to command link properties only affect that particular command link instance.
+A command link is any object that inherits from [BarCommandLink](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink).  A command link provides the user interface for a command.  So, each command link references a specific command.  One or more command links can be created for each command.  Changes made to command link properties only affect that particular command link instance.
 
 ## Command Categories and Names
 
-Each command has a unique key, known in the bar controls as a "full name".  The full name can be returned via the [FullName](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommand.FullName) property on [BarCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommand).
+Each command has a unique key, known in the bar controls as a "full name".  The full name can be returned via the [FullName](xref:@ActiproUIRoot.Controls.Bars.BarCommand.FullName) property on [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand).
 
 The full name is a concatenation of a category and a command name, with a period ( `.`) in between.  This allows commands to easily be categorized and also for some names to be used more than once, in different categories.
 
@@ -35,14 +35,13 @@ This table illustrates each command and command link `Type`:
 <th>Description</th>
 </tr>
 
-
 </thead>
 <tbody>
 
 <tr>
 <td>
 
-[BarButtonCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand) ([BarButtonLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink))
+[BarButtonCommand](xref:@ActiproUIRoot.Controls.Bars.BarButtonCommand) ([BarButtonLink](xref:@ActiproUIRoot.Controls.Bars.BarButtonLink))
 
 </td>
 <td>
@@ -59,7 +58,7 @@ Represents a standard button (on a toolbar) or menu item (on a menu), that can b
 <tr>
 <td>
 
-[BarPopupButtonCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand) ([BarPopupButtonLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink))
+[BarPopupButtonCommand](xref:@ActiproUIRoot.Controls.Bars.BarPopupButtonCommand) ([BarPopupButtonLink](xref:@ActiproUIRoot.Controls.Bars.BarPopupButtonLink))
 
 </td>
 <td>
@@ -76,7 +75,7 @@ Represents a root menu item button (on a toolbar) or menu item (on a menu).  The
 <tr>
 <td>
 
-[BarSplitButtonCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarSplitButtonCommand) ([BarSplitButtonLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarSplitButtonLink))
+[BarSplitButtonCommand](xref:@ActiproUIRoot.Controls.Bars.BarSplitButtonCommand) ([BarSplitButtonLink](xref:@ActiproUIRoot.Controls.Bars.BarSplitButtonLink))
 
 </td>
 <td>
@@ -93,12 +92,12 @@ Represents a split button where one part acts like a normal button and the other
 <tr>
 <td>
 
-[BarExpanderButtonCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarExpanderButtonCommand) ([BarExpanderButtonLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarExpanderButtonLink))
+[BarExpanderButtonCommand](xref:@ActiproUIRoot.Controls.Bars.BarExpanderButtonCommand) ([BarExpanderButtonLink](xref:@ActiproUIRoot.Controls.Bars.BarExpanderButtonLink))
 
 </td>
 <td>
 
-Represents a button that has dynamically-generated child command links.  These can be a list of toolbars, windows open, or anything else.  When on a toolbar, the command link functionality is similar to a [BarPopupButtonLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink).  When on a menu, the command link is replaced by the child command links.
+Represents a button that has dynamically-generated child command links.  These can be a list of toolbars, windows open, or anything else.  When on a toolbar, the command link functionality is similar to a [BarPopupButtonLink](xref:@ActiproUIRoot.Controls.Bars.BarPopupButtonLink).  When on a menu, the command link is replaced by the child command links.
 
 ![Screenshot](../images/bar-expander-button-on-toolbar.gif)
 
@@ -110,7 +109,7 @@ Represents a button that has dynamically-generated child command links.  These c
 <tr>
 <td>
 
-[BarLabelCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelCommand) ([BarLabelLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelLink))
+[BarLabelCommand](xref:@ActiproUIRoot.Controls.Bars.BarLabelCommand) ([BarLabelLink](xref:@ActiproUIRoot.Controls.Bars.BarLabelLink))
 
 </td>
 <td>
@@ -127,7 +126,7 @@ Represents a static label that can display text and images.
 <tr>
 <td>
 
-[BarTextBoxCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarTextBoxCommand) ([BarTextBoxLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarTextBoxLink))
+[BarTextBoxCommand](xref:@ActiproUIRoot.Controls.Bars.BarTextBoxCommand) ([BarTextBoxLink](xref:@ActiproUIRoot.Controls.Bars.BarTextBoxLink))
 
 </td>
 <td>
@@ -144,7 +143,7 @@ Represents a textbox that accepts text input.
 <tr>
 <td>
 
-[BarComboBoxCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarComboBoxCommand) ([BarComboBoxLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarComboBoxLink))
+[BarComboBoxCommand](xref:@ActiproUIRoot.Controls.Bars.BarComboBoxCommand) ([BarComboBoxLink](xref:@ActiproUIRoot.Controls.Bars.BarComboBoxLink))
 
 </td>
 <td>
@@ -163,12 +162,12 @@ Represents a combobox that can display a drop-down list of pre-defined values.  
 
 ## Creating Command Links
 
-The easiest way to create a command link for a command is to call the [CreateCommandLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommand.CreateCommandLink*) method on the command.  A command link is returned that references the command and can be programmatically added to any bar control.
+The easiest way to create a command link for a command is to call the [CreateCommandLink](xref:@ActiproUIRoot.Controls.Bars.BarCommand.CreateCommandLink*) method on the command.  A command link is returned that references the command and can be programmatically added to any bar control.
 
 ## Cloning Command Links
 
-Command links can be cloned by using the [Clone](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink.Clone*) method.
+Command links can be cloned by using the [Clone](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.Clone*) method.
 
 ## Preventing Menus from Closing When a Link Is clicked
 
-When used on a menu, command links normally close the menu when they are clicked.  However in some cases it is useful to keep the menu open so that the link may be immediately clicked again.  For these scenarios, you can set the [StaysOpenOnClick](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommand.StaysOpenOnClick) property to `true` to keep a menu open when a link for the command is clicked.
+When used on a menu, command links normally close the menu when they are clicked.  However in some cases it is useful to keep the menu open so that the link may be immediately clicked again.  For these scenarios, you can set the [StaysOpenOnClick](xref:@ActiproUIRoot.Controls.Bars.BarCommand.StaysOpenOnClick) property to `true` to keep a menu open when a link for the command is clicked.

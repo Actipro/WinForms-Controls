@@ -48,7 +48,7 @@ Follow these steps to run the application:
 
 - Check out the repo.
 - Open the `Samples\SampleBrowser\SampleBrowser.sln` solution in Visual Studio.
-- Build and run the solution's application project, which currently targets .NET Framework 4.0.
+- Build and run the solution's application project.
 
 ### Browsing Documentation
 
@@ -60,7 +60,7 @@ The Markdown source code for the product documentation is contained within this 
 
 ## NuGet Packages
 
-[Packages for the Actipro WinForms Controls](https://www.nuget.org/packages?q=ActiproSoftware.Controls.WinForms) are published on nuget.org, all beginning with the `ActiproSoftware.Controls.WinForms` name prefix.
+[Packages for the Actipro WinForms Controls](https://www.nuget.org/packages?q=ActiproSoftware.Controls.WinForms) are published on nuget.org, all beginning with the `ActiproSoftware.Controls.WinForms` name prefix.  They contain .NET 5+, .NET Core 3.1, and .NET Framework 4.0+ variations of the product assemblies.
 
 ### All WinForms Controls Metapackage
 

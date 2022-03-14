@@ -19,18 +19,18 @@ The mouse can be hovered or clicked over an auto-hide tab to display its corresp
 
 ## Configuring Auto-Hide
 
-There are a number of properties on the [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component that configure the general behavior of auto-hide.
+There are a number of properties on the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component that configure the general behavior of auto-hide.
 
 | Member | Description |
 |-----|-----|
-| [AutoHideButtonAffectsSelectedTabOnly](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.AutoHideButtonAffectsSelectedTabOnly) Property | Gets or sets whether the pressing of the auto-hide button affects the selected tab only. |
-| [AutoHideHideSteps](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.AutoHideHideSteps) Property | Gets or sets the number of steps to use for animation when hiding auto-hide tool windows.  The higher the number of steps, the slower the tool window hides.  Setting this value to `1` forces the tool window to hide instantly. |
-| [AutoHideShowSteps](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.AutoHideShowSteps) Property | Gets or sets the number of steps to use for animation when showing auto-hide tool windows.  The higher the number of steps, the slower the tool window displays.  Setting this value to `1` forces the tool window to show instantly. |
-| [AutoHideShowOnMouseHover](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.AutoHideShowOnMouseHover) Property | Gets or sets whether to show auto-hidden tool windows when the mouse hovers over their tabs.  When this property is `false`, the user must click on a tab to display its related tool window.  Clicking on the tab again while the tool window is displayed will close the flyout. |
-| [HideAutoHideToolWindowsAfterStateChange](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.HideAutoHideToolWindowsAfterStateChange) Property | Gets or sets whether to hide auto-hide tool windows immediately after a state change. |
-| [HideUnfocusedAutoHideToolWindowsOnMouseLeave](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.HideUnfocusedAutoHideToolWindowsOnMouseLeave) Property | Gets or sets whether to hide unfocused auto-hide tool windows that are displayed when the mouse leaves them. |
-| [IgnoreAutoHideMouseClicks](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.IgnoreAutoHideMouseClicks) Property | Gets or sets whether to ignore mouse clicks that would hide a displayed auto-hide window. |
+| [AutoHideButtonAffectsSelectedTabOnly](xref:@ActiproUIRoot.Controls.Docking.DockManager.AutoHideButtonAffectsSelectedTabOnly) Property | Gets or sets whether the pressing of the auto-hide button affects the selected tab only. |
+| [AutoHideHideSteps](xref:@ActiproUIRoot.Controls.Docking.DockManager.AutoHideHideSteps) Property | Gets or sets the number of steps to use for animation when hiding auto-hide tool windows.  The higher the number of steps, the slower the tool window hides.  Setting this value to `1` forces the tool window to hide instantly. |
+| [AutoHideShowSteps](xref:@ActiproUIRoot.Controls.Docking.DockManager.AutoHideShowSteps) Property | Gets or sets the number of steps to use for animation when showing auto-hide tool windows.  The higher the number of steps, the slower the tool window displays.  Setting this value to `1` forces the tool window to show instantly. |
+| [AutoHideShowOnMouseHover](xref:@ActiproUIRoot.Controls.Docking.DockManager.AutoHideShowOnMouseHover) Property | Gets or sets whether to show auto-hidden tool windows when the mouse hovers over their tabs.  When this property is `false`, the user must click on a tab to display its related tool window.  Clicking on the tab again while the tool window is displayed will close the flyout. |
+| [HideAutoHideToolWindowsAfterStateChange](xref:@ActiproUIRoot.Controls.Docking.DockManager.HideAutoHideToolWindowsAfterStateChange) Property | Gets or sets whether to hide auto-hide tool windows immediately after a state change. |
+| [HideUnfocusedAutoHideToolWindowsOnMouseLeave](xref:@ActiproUIRoot.Controls.Docking.DockManager.HideUnfocusedAutoHideToolWindowsOnMouseLeave) Property | Gets or sets whether to hide unfocused auto-hide tool windows that are displayed when the mouse leaves them. |
+| [IgnoreAutoHideMouseClicks](xref:@ActiproUIRoot.Controls.Docking.DockManager.IgnoreAutoHideMouseClicks) Property | Gets or sets whether to ignore mouse clicks that would hide a displayed auto-hide window. |
 
 ## Instantly Auto-Hiding All Tool Windows
 
-An [AutoHideAllToolWindowsDockedInHost](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.AutoHideAllToolWindowsDockedInHost*) method is provided on the [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component that changes all the active tool windows docked in the host container control to be in auto-hide mode.  IDEs typically provide this option as an **Auto Hide All** menu item on a **Window** menu.
+An [AutoHideAllToolWindowsDockedInHost](xref:@ActiproUIRoot.Controls.Docking.DockManager.AutoHideAllToolWindowsDockedInHost*) method is provided on the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component that changes all the active tool windows docked in the host container control to be in auto-hide mode.  IDEs typically provide this option as an **Auto Hide All** menu item on a **Window** menu.

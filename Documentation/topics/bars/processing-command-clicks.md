@@ -11,9 +11,9 @@ There currently are two ways to handle and process command clicks.
 
 ## Handling the BarManager.CommandClick Event
 
-This method of processing command clicks is similar to a "dispatch" type of method.  Basically you handle the [CommandClick](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.CommandClick) event exposed by the [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager) and in it, use a large switch statement to forward command processing to other methods.  Or you can handle the processing directly in the event handler itself.
+This method of processing command clicks is similar to a "dispatch" type of method.  Basically you handle the [CommandClick](xref:@ActiproUIRoot.Controls.Bars.BarManager.CommandClick) event exposed by the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) and in it, use a large switch statement to forward command processing to other methods.  Or you can handle the processing directly in the event handler itself.
 
-The [CommandClick](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.CommandClick) event arguments indicate which [BarCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommand) should be processed.  They also will pass which [BarCommandLink](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink) was clicked if the click originated from the user interface.
+The [CommandClick](xref:@ActiproUIRoot.Controls.Bars.BarManager.CommandClick) event arguments indicate which [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand) should be processed.  They also will pass which [BarCommandLink](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink) was clicked if the click originated from the user interface.
 
 This sample demonstrates how to handle command clicks using this approach:
 
@@ -37,7 +37,7 @@ private void barManager_CommandClick(object sender, ActiproSoftware.UI.WinForms.
 
 ## Overriding Command Classes
 
-Another option, which is much more advanced, is to create a command class for each command.  For instance you could make a `FileNewCommand` that inherits [BarButtonCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand).  Then you would place all your code for `File.New` in the override of the [OnClick](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand.OnClick*) method.
+Another option, which is much more advanced, is to create a command class for each command.  For instance you could make a `FileNewCommand` that inherits [BarButtonCommand](xref:@ActiproUIRoot.Controls.Bars.BarButtonCommand).  Then you would place all your code for `File.New` in the override of the [OnClick](xref:@ActiproUIRoot.Controls.Bars.BarButtonCommand.OnClick*) method.
 
 This sample demonstrates how to handle command clicks using this approach:
 
