@@ -20,6 +20,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Printing
 		public MainControl() {
 			InitializeComponent();
 
+			// Configure a column guide
+			editor.ColumnGuides.Add(80);
+
 			// Set a syntax language
 			editor.Document.Language = new SimpleSyntaxLanguage();
 
@@ -31,6 +34,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Printing
 			whitespaceCheckBox.Checked = editor.PrintSettings.IsWhitespaceVisible;
 			highlightingCheckBox.Checked = editor.PrintSettings.IsSyntaxHighlightingEnabled;
 			collapsedNodesCheckBox.Checked = editor.PrintSettings.AreCollapsedOutliningNodesAllowed;
+			columnGuidesCheckBox.Checked = editor.PrintSettings.AreColumnGuidesVisible;
 			indentationGuidesCheckBox.Checked = editor.PrintSettings.AreIndentationGuidesVisible;
 			squiggleLinesCheckBox.Checked = editor.PrintSettings.AreSquiggleLinesVisible;
 			documentTitleTextBox.Text = editor.PrintSettings.DocumentTitle;
@@ -47,6 +51,15 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Printing
 		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
 		private void OnCollapsedNodesCheckBoxCheckedChanged(object sender, EventArgs e) {
 			editor.PrintSettings.AreCollapsedOutliningNodesAllowed = collapsedNodesCheckBox.Checked;
+		}
+
+		/// <summary>
+		/// Occurs when the checkbox is checked or unchecked.
+		/// </summary>
+		/// <param name="sender">The sender of the event.</param>
+		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
+		private void OnColumnGuidesCheckBoxCheckedChanged(object sender, EventArgs e) {
+			editor.PrintSettings.AreColumnGuidesVisible = columnGuidesCheckBox.Checked;
 		}
 
 		/// <summary>

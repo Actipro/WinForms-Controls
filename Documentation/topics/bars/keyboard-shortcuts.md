@@ -11,46 +11,46 @@ Another great feature of the bar controls is their handling of keyboard shortcut
 
 ## Keyboard Shortcut Basics
 
-Keyboard shortcuts are represented by the [BarKeyboardShortcut](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut) class, which has these important instance members:
+Keyboard shortcuts are represented by the [BarKeyboardShortcut](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut) class, which has these important instance members:
 
 | Member | Description |
 |-----|-----|
-| [ChordKey](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut.ChordKey) Property | Gets the `Keys` that starts the chord.  This property is set via the constructor. |
-| [Description](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut.Description) Property | Gets the user-friendly description of the shortcut (keys and mode). |
-| [Enabled](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut.Enabled) Property | Gets or sets whether the shortcut is enabled. |
-| [Key](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut.Key) Property | Gets the `Keys` that is the main shortcut key.  This property is set via the constructor. |
-| [Mode](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut.Mode) Property | Gets the mode in which the shortcut is valid.  This property is set via the constructor. |
-| [ToString](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut.ToString*) Method | Converts the object to a `String` that has a user-friendly key name (for a single key shortcut) or a user-friendly chord key sequence (for a chord shortcut). |
+| [ChordKey](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.ChordKey) Property | Gets the `Keys` that starts the chord.  This property is set via the constructor. |
+| [Description](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.Description) Property | Gets the user-friendly description of the shortcut (keys and mode). |
+| [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.Enabled) Property | Gets or sets whether the shortcut is enabled. |
+| [Key](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.Key) Property | Gets the `Keys` that is the main shortcut key.  This property is set via the constructor. |
+| [Mode](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.Mode) Property | Gets the mode in which the shortcut is valid.  This property is set via the constructor. |
+| [ToString](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.ToString*) Method | Converts the object to a `String` that has a user-friendly key name (for a single key shortcut) or a user-friendly chord key sequence (for a chord shortcut). |
 
-The static helper method [BarKeyboardShortcut](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut).[GetKeyString](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut.GetKeyString*) converts a `Keys` to a user-friendly description.
+The static helper method [BarKeyboardShortcut](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut).[GetKeyString](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.GetKeyString*) converts a `Keys` to a user-friendly description.
 
 ## Chords
 
 Chords are keyboard shortcuts that use a two-key sequence in order to be recognized.  This concept has been a popular feature in Visual Studio.  For instance, in Visual Studio, the key sequence `Ctrl+K, Ctrl+K` sets a bookmark and `Ctrl+K, Ctrl+L` clears all bookmarks.  Bars functions the same way as Visual Studio.
 
-If a keyboard shortcut should not be a chord, set its [ChordKey](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut.ChordKey) property to `Keys.None`.
+If a keyboard shortcut should not be a chord, set its [ChordKey](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.ChordKey) property to `Keys.None`.
 
 ## Modes
 
 Keyboard shortcuts can optionally be set up to work only in a certain application mode.  For more information on application modes, see the [Application Modes](application-modes.md) topic.
 
-Each [BarKeyboardShortcut](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut) has a [Mode](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut.Mode) property.  If that value is `null`, then the shortcut applies to the global mode.  If that value is populated, then the shortcut only applies to that specific mode.
+Each [BarKeyboardShortcut](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut) has a [Mode](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.Mode) property.  If that value is `null`, then the shortcut applies to the global mode.  If that value is populated, then the shortcut only applies to that specific mode.
 
 For example, if a `Text Editor` mode is currently set, any keyboard shortcuts defined for the `Text Editor` mode will be recognized.  If there is no keyboard shortcut defined in the mode for a key sequence that is pressed, a keyboard shortcut in the global mode is searched for.  If one is found, then that keyboard shortcut is used.
 
 ## Assigning Keyboard Shortcuts to a Command
 
-Each command supports zero or more keyboard shortcuts.  To add a keyboard shortcut to a command, simply add it to the command's [KeyboardShortcuts](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommand.KeyboardShortcuts) collection.
+Each command supports zero or more keyboard shortcuts.  To add a keyboard shortcut to a command, simply add it to the command's [KeyboardShortcuts](xref:@ActiproUIRoot.Controls.Bars.BarCommand.KeyboardShortcuts) collection.
 
-Only certain commands respond to keyboard shortcuts.  For instance, regular buttons and split buttons will raise the [CommandClick](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.CommandClick) event when their shortcuts are pressed.  Custom controls typically receive focus when their shortcuts are pressed.
+Only certain commands respond to keyboard shortcuts.  For instance, regular buttons and split buttons will raise the [CommandClick](xref:@ActiproUIRoot.Controls.Bars.BarManager.CommandClick) event when their shortcuts are pressed.  Custom controls typically receive focus when their shortcuts are pressed.
 
 ## Displaying Keyboard Shortcuts in Tooltips
 
-By default, keyboard shortcuts are displayed in tooltips.  Set the [KeyboardShortcutsVisibleInToolTips](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.KeyboardShortcutsVisibleInToolTips) property to `false` to disable this behavior.
+By default, keyboard shortcuts are displayed in tooltips.  Set the [KeyboardShortcutsVisibleInToolTips](xref:@ActiproUIRoot.Controls.Bars.BarManager.KeyboardShortcutsVisibleInToolTips) property to `false` to disable this behavior.
 
 ## The KeyTyped Event
 
-The [KeyTyped](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.KeyTyped) event is raised whenever a keyboard shortcut is recognized or, for a chord, is in the process of being recognized.  This is useful for programmatically cancelling a keyboard shortcut or for updating a status bar panel when a chord is not recognized or is waiting for the second shortcut of the chord.
+The [KeyTyped](xref:@ActiproUIRoot.Controls.Bars.BarManager.KeyTyped) event is raised whenever a keyboard shortcut is recognized or, for a chord, is in the process of being recognized.  This is useful for programmatically cancelling a keyboard shortcut or for updating a status bar panel when a chord is not recognized or is waiting for the second shortcut of the chord.
 
 This code demonstrates how to interpret the four situations that occur when the event is raised:
 
@@ -82,9 +82,9 @@ private void barManager_KeyTyped(object sender, ActiproSoftware.UI.WinForms.Cont
 
 ## Disabled Shortcuts
 
-Sometimes it is handy to be able to "disable" a shortcut.  This can be done by setting the [Enabled](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut.Enabled) property to `false`.  When a shortcut is disabled, it does not execute its associated [BarCommand](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarCommand).
+Sometimes it is handy to be able to "disable" a shortcut.  This can be done by setting the [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.Enabled) property to `false`.  When a shortcut is disabled, it does not execute its associated [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand).
 
-This is extremely useful for commands such as `Edit.Cut`.  For that command, you want the default system shortcut `Ctrl+X` to display for the command link when on a menu, but you don't really want the [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager) to intercept the `Ctrl+X` key since that would potentially block controls from being able to access cut functionality unless you specifically coded this for every `Control` on your form.  Therefore, disable the keyboard shortcut.  It can still be added to a command and will display in the user interface but will not be handled when the key sequence is pressed.
+This is extremely useful for commands such as `Edit.Cut`.  For that command, you want the default system shortcut `Ctrl+X` to display for the command link when on a menu, but you don't really want the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) to intercept the `Ctrl+X` key since that would potentially block controls from being able to access cut functionality unless you specifically coded this for every `Control` on your form.  Therefore, disable the keyboard shortcut.  It can still be added to a command and will display in the user interface but will not be handled when the key sequence is pressed.
 
 ## Protected Keys and Keyboard Shortcuts
 
@@ -92,4 +92,4 @@ You may wish to "protect" certain keys or keyboard shortcuts, which means that t
 
 In the above example, this means that `Ctrl+X` cannot be used as a single-key shortcut and also cannot be used as a chord start by any other command.  Also, `Ctrl+X` cannot be removed from the `Edit.Cut` command.
 
-Specific keys, such as `Esc`, can be temporarily protected by adding them to the [ProtectedKeys](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.ProtectedKeys) collection on the [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager).
+Specific keys, such as `Esc`, can be temporarily protected by adding them to the [ProtectedKeys](xref:@ActiproUIRoot.Controls.Bars.BarManager.ProtectedKeys) collection on the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).

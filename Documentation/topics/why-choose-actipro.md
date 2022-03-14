@@ -7,7 +7,7 @@ order: 2
 
 ## Experience
 
-Actipro Software has been developing Windows Forms components since .NET was first released, and has been working on commercial WPF control development since WPF was first introduced in 2006.  Actipro began development of Silverlight controls in 2009.
+Actipro Software has been developing Windows Forms components since .NET was first released, and has been working on commercial WPF control development since WPF was first introduced in 2006.
 
 ## Documentation, Samples, and Designer Support
 
@@ -32,7 +32,7 @@ Sure, other competitor companies may offer a couple more controls than we do, bu
 Every day we strive to please our customers. Are you used to waiting a week for a response from other vendors?  Not at Actipro. We always try to reply to customers within one business day, and are frequently told we provide top-notch support to our customers.
 
 > [!NOTE]
-> Organizations across the globe from over 80 countries own Actipro products
+> Organizations across the globe from over 100 countries own Actipro products
 
 ## Save Time and Money
 

@@ -56,6 +56,8 @@
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Code Outlining - Collapsed Text" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CodeOutliningCollapsedText/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Collapsed Regions - Intro" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CollapsedRegionsIntro/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Collapsed Regions - Advanced" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CollapsedRegionsAdvanced/" />
+			<Item Kind="InlineSample" BlurbText="New!" Category="General QuickStarts" Title="Column Guides" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/ColumnGuides/" />
+			<Item Kind="InlineSample" BlurbText="New!" Category="General QuickStarts" Title="Compare Files" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CompareFiles/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Current Line Highlighting" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CurrentLineHighlighting/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Document Sharing" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DocumentSharing/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Document Swapping" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DocumentSwapping/" />

@@ -5,7 +5,7 @@ order: 22
 ---
 # Designer Support
 
-The Dock controls provide design-time support, making it easy to configure the docking layout in the Visual Studio designer.  After you drop a [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component on a designer `Form` from the **Toolbox**, the first thing to do is set the [HostContainerControl](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.HostContainerControl).  This is the control that will act as the hosting container for the docking system.  This control may be a `Form` or any other type of container control.  Typically it is the parent `Form`.
+The Dock controls provide design-time support, making it easy to configure the docking layout in the Visual Studio designer.  After you drop a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component on a designer `Form` from the **Toolbox**, the first thing to do is set the [HostContainerControl](xref:@ActiproUIRoot.Controls.Docking.DockManager.HostContainerControl).  This is the control that will act as the hosting container for the docking system.  This control may be a `Form` or any other type of container control.  Typically it is the parent `Form`.
 
 Tool window layouts created in the designer are persisted to code.  When the application is run, the layout is restored just as it was designed in the designer.
 
@@ -32,13 +32,13 @@ A new tool window will be created and docked to the host container control and t
 
 To create a blank tool window:
 
-1. Select the [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component.
+1. Select the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component.
 1. Select the **Create Tool Window** action from the component's **Smart Tag** panel.
 
 A blank tool window will be created that is docked in the host container control.  The tool window is a container control, so other child controls such as textboxes can be added to it in the designer.
 
 > [!TIP]
-> The same **Create Tool Window** action is also available as a designer verb on the context menu of a [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component when working with .NET Core or .NET 5 and higher.
+> The same **Create Tool Window** action is also available as a designer verb on the context menu of a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component when working with .NET Core or .NET 5 and higher.
 
 ## Moving Tool Windows
 
@@ -67,7 +67,7 @@ Tool windows support an inactive state, docked state, and an auto-hide state in 
 
 To open to **Tool Windows** dialog:
 
-1. Select a [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component or [ToolWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow) control in the designer.
+1. Select a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component or [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) control in the designer.
 1. Select the **Tool Windows...** action from the **Smart Tag** panel to open the **Tool Windows** dialog.
 
 ![Screenshot](images/dock-controls-designer-tool-windows-dialog.png)
@@ -76,11 +76,11 @@ To open to **Tool Windows** dialog:
 
 > [!TIP]
 > 
-> Double-click a [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component to quickly open the **Tool Windows** dialog using the default designer action for the component.
+> Double-click a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component to quickly open the **Tool Windows** dialog using the default designer action for the component.
 > 
-> The same **Tool Windows...** action is also available as a designer verb on the context menu of a [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component or [ToolWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow) control when working with .NET Core or .NET 5 and higher.
+> The same **Tool Windows...** action is also available as a designer verb on the context menu of a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component or [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) control when working with .NET Core or .NET 5 and higher.
 
-The **Tool Windows** dialog lists all of the tool windows currently being managed by the [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component.
+The **Tool Windows** dialog lists all of the tool windows currently being managed by the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component.
 
 This table describes the buttons on the dialog:
 
@@ -95,4 +95,4 @@ This table describes the buttons on the dialog:
 
 ## Designing DocumentWindow and ToolWindow Instances
 
-Dock supports another method of designing document and tool windows.  The [DocumentWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DocumentWindow) and [ToolWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow) classes support instances being designed directly in the Visual Studio designer.  This means you can create a class in your project that inherits one of those classes.  Once saved, it can be opened just like you would open a `Form` or `UserControl`.  You can design it in the Visual Studio designer and then at run-time, use code to create instances of your class.  This is ideal for document windows where the same UI is replicated for each document that is opened.
+Dock supports another method of designing document and tool windows.  The [DocumentWindow](xref:@ActiproUIRoot.Controls.Docking.DocumentWindow) and [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) classes support instances being designed directly in the Visual Studio designer.  This means you can create a class in your project that inherits one of those classes.  Once saved, it can be opened just like you would open a `Form` or `UserControl`.  You can design it in the Visual Studio designer and then at run-time, use code to create instances of your class.  This is ideal for document windows where the same UI is replicated for each document that is opened.

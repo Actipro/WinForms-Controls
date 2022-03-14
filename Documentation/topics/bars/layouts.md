@@ -15,19 +15,19 @@ They don't save any command information (except for customized keyboard shortcut
 
 This means that the differential layout data will be very small, especially if no end user customizations have been made.
 
-To save a differential bar layout to a file programmatically, call the [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager).[SaveBarLayoutToFile](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.SaveBarLayoutToFile*) method and pass `false` for the `isComplete` parameter.
+To save a differential bar layout to a file programmatically, call the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).[SaveBarLayoutToFile](xref:@ActiproUIRoot.Controls.Bars.BarManager.SaveBarLayoutToFile*) method and pass `false` for the `isComplete` parameter.
 
 ```csharp
 barManager.SaveBarLayoutToFile(path, isComplete: false);
 ```
 
-To load a differential bar layout from a file programmatically, call the [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager).[LoadBarLayoutFromFile](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.LoadBarLayoutFromFile*) method.
+To load a differential bar layout from a file programmatically, call the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).[LoadBarLayoutFromFile](xref:@ActiproUIRoot.Controls.Bars.BarManager.LoadBarLayoutFromFile*) method.
 
 ```csharp
 barManager.LoadBarLayoutFromFile(path);
 ```
 
-To get or set a differential bar layout to the [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager) from an `XmlDocument`, use the [DifferentialBarLayoutData](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.DifferentialBarLayoutData) property.  This feature allows you to store the layout data in a database or other storage mechanism and not use files.
+To get or set a differential bar layout to the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) from an `XmlDocument`, use the [DifferentialBarLayoutData](xref:@ActiproUIRoot.Controls.Bars.BarManager.DifferentialBarLayoutData) property.  This feature allows you to store the layout data in a database or other storage mechanism and not use files.
 
 ## Complete Layouts
 
@@ -35,15 +35,15 @@ Complete layouts are useful for completely backing up a bar layout.  The complet
 
 Since this type of layout persists all of the information about commands, it is not recommended that you use this type to persist end user customizations to layouts.  Use differential layouts instead for that scenario.
 
-The Visual Studio designer's **Save Layout to File...** action on the [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager) saves a complete layout.  It is *highly* recommended that you periodically back up your designer bar layouts using this action.  In the unlikely event that the designer crashes and you save your form, but proper code serialization hasn't taken place, you could lose your entire command definition and bar layout.  By restoring a saved complete bar layout using the designer's **Load Layout from File...** action on the [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager), you can instantly be back in business.
+The Visual Studio designer's **Save Layout to File...** action on the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) saves a complete layout.  It is *highly* recommended that you periodically back up your designer bar layouts using this action.  In the unlikely event that the designer crashes and you save your form, but proper code serialization hasn't taken place, you could lose your entire command definition and bar layout.  By restoring a saved complete bar layout using the designer's **Load Layout from File...** action on the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager), you can instantly be back in business.
 
-To save a complete bar layout to a file programmatically, call the [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager).[SaveBarLayoutToFile](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.SaveBarLayoutToFile*) method and pass `true` for the `isComplete` parameter.
+To save a complete bar layout to a file programmatically, call the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).[SaveBarLayoutToFile](xref:@ActiproUIRoot.Controls.Bars.BarManager.SaveBarLayoutToFile*) method and pass `true` for the `isComplete` parameter.
 
 ```csharp
 barManager.SaveBarLayoutToFile(path, isComplete: true);
 ```
 
-To load a complete bar layout from a file programmatically, call the [BarManager](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager).[LoadBarLayoutFromFile](xref:ActiproSoftware.UI.WinForms.Controls.Bars.BarManager.LoadBarLayoutFromFile*) method.
+To load a complete bar layout from a file programmatically, call the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).[LoadBarLayoutFromFile](xref:@ActiproUIRoot.Controls.Bars.BarManager.LoadBarLayoutFromFile*) method.
 
 ```csharp
 barManager.LoadBarLayoutFromFile(path);

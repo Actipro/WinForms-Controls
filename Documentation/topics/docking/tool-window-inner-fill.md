@@ -7,7 +7,7 @@ order: 8
 
 The Dock controls can be placed in tool window inner-fill mode, which hides the client area of the host container control.  While in this mode, tool windows fill the entire interior of the host container control.
 
-Set the [DocumentMdiStyle](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.DocumentMdiStyle) property of the [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component to `ToolWindowInnerFill` to use this mode.  This can be changed at run-time.
+Set the [DocumentMdiStyle](xref:@ActiproUIRoot.Controls.Docking.DockManager.DocumentMdiStyle) property of the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component to `ToolWindowInnerFill` to use this mode.  This can be changed at run-time.
 
 ![Screenshot](images/dock-controls-tool-window-inner-fill.gif)
 

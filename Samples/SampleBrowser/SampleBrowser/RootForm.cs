@@ -199,7 +199,7 @@ namespace ActiproSoftware.SampleBrowser {
 
 			contentHeaderLabel.Text = familyInfo.Title;
 
-			this.UpdatePrimaryStatus("Copyright \u00A9 2002-2021 Actipro Software LLC");
+			this.UpdatePrimaryStatus("Copyright \u00A9 2002-2022 Actipro Software LLC");
 
 			if (familyInfo.Path.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
 				this.LoadBrowser(familyInfo.Path, familyInfo);

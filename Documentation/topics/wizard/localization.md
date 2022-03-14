@@ -9,7 +9,7 @@ The wizard contains all the support necessary to create multi-cultural, localize
 
 ## Preparing the Parent Form for Localization
 
-To enable localization, you must set two properties on the `Form` object that contains the [Wizard](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard) control.
+To enable localization, you must set two properties on the `Form` object that contains the [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard) control.
 
 - The `Localizable` property should be set to `true`.
 
@@ -19,52 +19,52 @@ Once those two properties have been set, you can change various properties on th
 
 ## Localizable Wizard Properties
 
-The following properties on the [Wizard](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard) control are localizable:
+The following properties on the [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard) control are localizable:
 
-- [BackButtonText](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.BackButtonText)
+- [BackButtonText](xref:@ActiproUIRoot.Controls.Wizard.Wizard.BackButtonText)
 
-- [BackButtonWidth](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.BackButtonWidth)
+- [BackButtonWidth](xref:@ActiproUIRoot.Controls.Wizard.Wizard.BackButtonWidth)
 
-- [CancelButtonText](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.CancelButtonText)
+- [CancelButtonText](xref:@ActiproUIRoot.Controls.Wizard.Wizard.CancelButtonText)
 
-- [CancelButtonWidth](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.CancelButtonWidth)
+- [CancelButtonWidth](xref:@ActiproUIRoot.Controls.Wizard.Wizard.CancelButtonWidth)
 
-- [FinishButtonText](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.FinishButtonText)
+- [FinishButtonText](xref:@ActiproUIRoot.Controls.Wizard.Wizard.FinishButtonText)
 
-- [FinishButtonWidth](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.FinishButtonWidth)
+- [FinishButtonWidth](xref:@ActiproUIRoot.Controls.Wizard.Wizard.FinishButtonWidth)
 
-- [Font](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.Font)
+- [Font](xref:@ActiproUIRoot.Controls.Wizard.Wizard.Font)
 
-- [HelpButtonText](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.HelpButtonText)
+- [HelpButtonText](xref:@ActiproUIRoot.Controls.Wizard.Wizard.HelpButtonText)
 
-- [HelpButtonWidth](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.HelpButtonWidth)
+- [HelpButtonWidth](xref:@ActiproUIRoot.Controls.Wizard.Wizard.HelpButtonWidth)
 
-- [NextButtonText](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.NextButtonText)
+- [NextButtonText](xref:@ActiproUIRoot.Controls.Wizard.Wizard.NextButtonText)
 
-- [NextButtonWidth](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.NextButtonWidth)
+- [NextButtonWidth](xref:@ActiproUIRoot.Controls.Wizard.Wizard.NextButtonWidth)
 
 The properties above enable you to set different fonts and text for each language.  Sometimes various text is drastically different size.  By setting the widths of the buttons for each language, you have total control over the size of the buttons.  The wizard automatically takes care of positioning the buttons appropriately.
 
 ## Localizable WizardPage Properties
 
-The following properties on the [WizardPage](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPage) control are localizable:
+The following properties on the [WizardPage](xref:@ActiproUIRoot.Controls.Wizard.WizardPage) control are localizable:
 
-- [PageCaption](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPage.PageCaption)
+- [PageCaption](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.PageCaption)
 
-- [PageDescription](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPage.PageDescription)
+- [PageDescription](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.PageDescription)
 
-- [PageTitleBarText](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPage.PageTitleBarText)
+- [PageTitleBarText](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.PageTitleBarText)
 
 ## Localizable WizardDialogForm Properties
 
-The following properties on the [WizardDialogForm](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardDialogForm) control are localizable:
+The following properties on the [WizardDialogForm](xref:@ActiproUIRoot.Controls.Wizard.WizardDialogForm) control are localizable:
 
-- [TitleBarText](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WizardDialogForm.TitleBarText)
+- [TitleBarText](xref:@ActiproUIRoot.Controls.Wizard.WizardDialogForm.TitleBarText)
 
 ## Localizable WindowsClassicWizardRenderer Properties
 
-The following properties on the [WindowsClassicWizardRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WindowsClassicWizardRenderer) class are localizable:
+The following properties on the [WindowsClassicWizardRenderer](xref:@ActiproUIRoot.Controls.Wizard.WindowsClassicWizardRenderer) class are localizable:
 
-- [WizardPageCaptionFont](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WindowsClassicWizardRenderer.WizardPageCaptionFont)
+- [WizardPageCaptionFont](xref:@ActiproUIRoot.Controls.Wizard.WindowsClassicWizardRenderer.WizardPageCaptionFont)
 
-- [WizardPageDescriptionFont](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.WindowsClassicWizardRenderer.WizardPageDescriptionFont)
+- [WizardPageDescriptionFont](xref:@ActiproUIRoot.Controls.Wizard.WindowsClassicWizardRenderer.WizardPageDescriptionFont)

@@ -5,7 +5,7 @@ order: 3
 ---
 # Tab Overflow Styles
 
-The [TabStrip](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabStrip) control has multiple ways to handle tabs that do not fit within the client area.  The three options for tab overflow are:
+The [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) control has multiple ways to handle tabs that do not fit within the client area.  The three options for tab overflow are:
 
 | Value | Description |
 |-----|-----|
@@ -29,4 +29,4 @@ The smooth scrolling feature actually slides the tabs using animation while the 
 
 ## Changing the Tab Overflow Style
 
-To change the overflow style of tabs in a [TabStrip](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabStrip), change the value of the [TabOverflowStyle](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabStrip.TabOverflowStyle) property.  It uses a [TabStripTabOverflowStyle](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabStripTabOverflowStyle) enumeration value.
+To change the overflow style of tabs in a [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip), change the value of the [TabOverflowStyle](xref:@ActiproUIRoot.Controls.Docking.TabStrip.TabOverflowStyle) property.  It uses a [TabStripTabOverflowStyle](xref:@ActiproUIRoot.Controls.Docking.TabStripTabOverflowStyle) enumeration value.

@@ -9,6 +9,10 @@ WinForms Studio's documentation has frequent updates so this topic is the best p
 
 If you are looking for a list of recently-added major new features to WinForms Studio products, please see the Sample Browser's Release History pages instead.
 
+## Updates for v22.1.1
+
+- **SyntaxEditor:** Added the [Column Guides](syntaxeditor/user-interface/editor-view/column-guides.md) topic with information on the new feature.
+
 ## Updates for v22.1.0
 
 - **All:** Added the [Converting to 2022.1](conversion/converting-to-v22-1.md) topic with information on changes we made in this version.

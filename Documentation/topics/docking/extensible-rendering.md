@@ -13,9 +13,9 @@ This object model allows for three levels of rendering customization.  Choose wh
 
 - Modify Properties on Built-In Renderers - Use the built-in renderers but modify the various properties on the renderers to easily create a customized appearance.
 
-- Create Custom Renderers - Implement the [IDockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.IDockRenderer) interface or inherit our [DockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockRenderer) class to do all the measuring and drawing of the controls and their elements yourself.
+- Create Custom Renderers - Implement the [IDockRenderer](xref:@ActiproUIRoot.Controls.Docking.IDockRenderer) interface or inherit our [DockRenderer](xref:@ActiproUIRoot.Controls.Docking.DockRenderer) class to do all the measuring and drawing of the controls and their elements yourself.
 
-These are some sample rendering styles that come with [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager):
+These are some sample rendering styles that come with [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager):
 
 ![Screenshot](images/dock-controls-visual-studio-2005-blue.gif)
 
@@ -39,13 +39,13 @@ These are some sample rendering styles that come with [DockManager](xref:Actipro
 
 ## DockManager Renderers
 
-The [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) component uses several renderers.  Each renderer is assigned to a property on the manager.
+The [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component uses several renderers.  Each renderer is assigned to a property on the manager.
 
 | Member | Description |
 |-----|-----|
-| [DockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.DockRenderer) Property | Gets or sets the [IDockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.IDockRenderer) used to render the dock controls. |
-| [TabbedMdiContainerTabStripRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.TabbedMdiContainerTabStripRenderer) Property | Gets or sets the [ITabStripRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ITabStripRenderer) to use for drawing the `TabStrip` controls in tabbed MDI containers. |
-| [ToolWindowContainerTabStripRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.ToolWindowContainerTabStripRenderer) Property | Gets or sets the [ITabStripRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ITabStripRenderer) to use for drawing the `TabStrip` controls in tool window containers. |
+| [DockRenderer](xref:@ActiproUIRoot.Controls.Docking.DockManager.DockRenderer) Property | Gets or sets the [IDockRenderer](xref:@ActiproUIRoot.Controls.Docking.IDockRenderer) used to render the dock controls. |
+| [TabbedMdiContainerTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.DockManager.TabbedMdiContainerTabStripRenderer) Property | Gets or sets the [ITabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.ITabStripRenderer) to use for drawing the `TabStrip` controls in tabbed MDI containers. |
+| [ToolWindowContainerTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.DockManager.ToolWindowContainerTabStripRenderer) Property | Gets or sets the [ITabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.ITabStripRenderer) to use for drawing the `TabStrip` controls in tool window containers. |
 
 ## Use Built-In Renderers As-Is
 
@@ -53,15 +53,15 @@ Dock includes these built-in renderers, which support Metro Light, Office 2007/2
 
 | Renderer | Description |
 |-----|-----|
-| [MetroLightDockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.MetroLightDockRenderer) | Capable of drawing Metro Light dock controls. |
-| [Office2003DockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer) | Capable of drawing all Office 2007 styles (Blue, Silver, Black) and Office 2003 styles (Blue, Olive, Silver, Royale, and Windows Classic).  To change to a different style, change the [BaseColorSchemeType](xref:ActiproSoftware.UI.WinForms.Controls.Navigation.Office2003NavigationBarRenderer.BaseColorSchemeType). |
-| [VisualStudio2002DockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2002DockRenderer) | Capable of drawing Visual Studio 2002 dock controls. |
-| [VisualStudio2005DockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005DockRenderer) | Capable of drawing Visual Studio 2005 dock controls. |
-| [VisualStudio2005Beta2DockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005Beta2DockRenderer) | Capable of drawing Visual Studio 2005 Beta 2 dock controls. |
+| [MetroLightDockRenderer](xref:@ActiproUIRoot.Controls.Docking.MetroLightDockRenderer) | Capable of drawing Metro Light dock controls. |
+| [Office2003DockRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003DockRenderer) | Capable of drawing all Office 2007 styles (Blue, Silver, Black) and Office 2003 styles (Blue, Olive, Silver, Royale, and Windows Classic).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer.BaseColorSchemeType). |
+| [VisualStudio2002DockRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2002DockRenderer) | Capable of drawing Visual Studio 2002 dock controls. |
+| [VisualStudio2005DockRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2005DockRenderer) | Capable of drawing Visual Studio 2005 dock controls. |
+| [VisualStudio2005Beta2DockRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2005Beta2DockRenderer) | Capable of drawing Visual Studio 2005 Beta 2 dock controls. |
 
 ## Color Tinting Color Schemes
 
-With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a tan or red color scheme and then use those color schemes with the [Office2003DockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer), [Office2003DocumentWindowTabStripRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer), and [Office2003ToolWindowTabStripRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer) classes like this:
+With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a tan or red color scheme and then use those color schemes with the [Office2003DockRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003DockRenderer), [Office2003DocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003DocumentWindowTabStripRenderer), and [Office2003ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003ToolWindowTabStripRenderer) classes like this:
 
 This code shows how to load a custom tan-tinted color scheme (displayed in the screenshot above) that is based on the built-in Windows XP blue theme:
 
@@ -91,14 +91,14 @@ Select a base built-in renderer to use by following the steps above.  Then use t
 
 ## Create Custom Renderers
 
-For the most flexibility over what is measured and rendered, create a class that implements the [IDockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.IDockRenderer) interface.  Alternatively, you can create a class that inherits our [DockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockRenderer) or one of its descendants.  The renderer interface has methods that measure and draw the controls and their elements.
+For the most flexibility over what is measured and rendered, create a class that implements the [IDockRenderer](xref:@ActiproUIRoot.Controls.Docking.IDockRenderer) interface.  Alternatively, you can create a class that inherits our [DockRenderer](xref:@ActiproUIRoot.Controls.Docking.DockRenderer) or one of its descendants.  The renderer interface has methods that measure and draw the controls and their elements.
 
-After your custom renderer class has been created, assign it to the [DockRenderer](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager.DockRenderer) property of each [DockManager](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DockManager) that should use it for drawing.
+After your custom renderer class has been created, assign it to the [DockRenderer](xref:@ActiproUIRoot.Controls.Docking.DockManager.DockRenderer) property of each [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) that should use it for drawing.
 
 ## Customizing Individual Windows
 
-Renderer settings affect the rendering of all the controls that use the renderer.  However there are other properties on each [TabbedMdiWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindow) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific window:
+Renderer settings affect the rendering of all the controls that use the renderer.  However there are other properties on each [TabbedMdiWindow](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific window:
 
 | Member | Description |
 |-----|-----|
-| [BackgroundFill](xref:ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindow.BackgroundFill) Property | Gets or sets the pane-specific `BackgroundFill` for the window. |
+| [BackgroundFill](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.BackgroundFill) Property | Gets or sets the pane-specific `BackgroundFill` for the window. |

@@ -5,9 +5,9 @@ order: 19
 ---
 # Using Forms as Child Controls
 
-Any object that inherits from the `Control` class may be used as a child control of a [ToolWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow) or [DocumentWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.DocumentWindow).
+Any object that inherits from the `Control` class may be used as a child control of a [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) or [DocumentWindow](xref:@ActiproUIRoot.Controls.Docking.DocumentWindow).
 
-This code shows how to add a control to a [ToolWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow) and make it the available area within the [ToolWindow](xref:ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow):
+This code shows how to add a control to a [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) and make it the available area within the [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow):
 
 ```csharp
 // Assume that toolWindow is already referencing a tool window

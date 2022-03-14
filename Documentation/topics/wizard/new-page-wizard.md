@@ -7,7 +7,7 @@ order: 6
 
 A **New Page Wizard** is provided to aid in creating new wizard pages.  To access the **New Page Wizard**:
 
-1. Right-click the [Wizard](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard) control in the Visual Studio designer to open its context menu, or select the control and show the **Smart Tag** panel.
+1. Right-click the [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard) control in the Visual Studio designer to open its context menu, or select the control and show the **Smart Tag** panel.
 1. Select the **New Page Wizard...** action from the context menu or **Smart Tag** panel.
 
 ![Screenshot](images/new-page-wizard.png)

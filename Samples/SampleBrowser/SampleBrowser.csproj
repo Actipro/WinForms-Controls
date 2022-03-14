@@ -14,9 +14,7 @@
 
 		<AssemblyName>SampleBrowser</AssemblyName>
 
-		<AssemblyVersion>22.1.0.0</AssemblyVersion>
-		<InformationalVersion>22.1.0.0</InformationalVersion>
-		<PackageVersion>22.1.0.0</PackageVersion>
+		<Version>22.1.1.0</Version>
 
 		<RootNamespace>ActiproSoftware</RootNamespace>
 
@@ -48,12 +46,16 @@
 		<None Include="ProductSamples\SyntaxEditorSamples\Languages\Projects\**\*.langproj" />
 	</ItemGroup>
 
+	<ItemGroup Label="Microsoft Logging" Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(DefineConstants), '^(.*;)*MS_LOGGING(;.*)*$'))">
+		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+	</ItemGroup>
+	
 	<ItemGroup>
-		<PackageReference Include="ActiproSoftware.Controls.WinForms" Version="22.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet" Version="22.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript" Version="22.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python" Version="22.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML" Version="22.1.0" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms" Version="22.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet" Version="22.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript" Version="22.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python" Version="22.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML" Version="22.1.1" />
 	</ItemGroup>
 
 </Project>

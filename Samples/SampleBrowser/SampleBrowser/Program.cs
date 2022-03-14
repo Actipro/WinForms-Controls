@@ -1,4 +1,11 @@
-﻿using Microsoft.Win32;
+﻿#if DEBUG && MS_LOGGING
+using ActiproSoftware.SampleBrowser.Logging;
+using Microsoft.Extensions.Logging;
+using LoggerFactory = ActiproSoftware.Products.Logging.LoggerFactory;
+#endif
+
+using ActiproSoftware.Products.Logging;
+using Microsoft.Win32;
 using System;
 using System.Globalization;
 using System.IO;
@@ -12,16 +19,26 @@ namespace ActiproSoftware.SampleBrowser {
 	static class Program {
 
 		private const string OnlineDocumentationUrl = "https://www.actiprosoftware.com/docs/controls/winforms/index";
-		
+
+		private static Logger logger;
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// NON-PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
 		static void Main() {
+			// Configure logging
+			#if DEBUG && MS_LOGGING
+			LoggerFactoryAdapter.Configure(builder => {
+				builder.AddFilter("ActiproSoftware", Microsoft.Extensions.Logging.LogLevel.Warning);
+				builder.AddDebugLogger();
+			});
+			#endif
+			logger = LoggerFactory.DefaultInstance.CreateLogger(typeof(Program));
 
 			InitializeSyntaxEditor();
 
@@ -37,10 +54,13 @@ namespace ActiproSoftware.SampleBrowser {
 		/// Performs various SyntaxEditor parser and add-on initializations.
 		/// </summary>
 		private static void InitializeSyntaxEditor() {
+			logger?.LogInformation("Configuring SyntaxEditor ...");
+
 			// If using SyntaxEditor with languages that support syntax/semantic parsing, use this line at
 			//   app startup to ensure that worker threads are used to perform the parsing
 			ActiproSoftware.Text.Parsing.AmbientParseRequestDispatcherProvider.Dispatcher =
 				new ActiproSoftware.Text.Parsing.Implementation.ThreadedParseRequestDispatcher();
+			logger?.LogDebug("AmbientParseRequestDispatcherProvider.Dispatcher = {0}", ActiproSoftware.Text.Parsing.AmbientParseRequestDispatcherProvider.Dispatcher?.GetType().FullName ?? "NULL");
 
 			// Create SyntaxEditor .NET Languages Add-on ambient assembly repository, which supports caching of 
 			//   reflection data and improves performance for the add-on...
@@ -49,13 +69,15 @@ namespace ActiproSoftware.SampleBrowser {
 				"Actipro Software"), "WinForms SampleBrowser Assembly Repository");
 			ActiproSoftware.Text.Languages.DotNet.Reflection.AmbientAssemblyRepositoryProvider.Repository =
 				new ActiproSoftware.Text.Languages.DotNet.Reflection.Implementation.FileBasedAssemblyRepository(appDataPath);
-			
+			logger?.LogDebug(".NET Reflection Repository Path = {0}", appDataPath);
+
 			// Create SyntaxEditor Python Languages Add-on ambient pacakge repository, which supports caching of 
 			//   reflection data... Be sure to replace the appDataPath with a proper path for your own application (if file access is allowed)
 			appDataPath = Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), 
 				"Actipro Software"), "WinForms SampleBrowser Python Package Repository");
 			ActiproSoftware.Text.Languages.Python.Reflection.AmbientPackageRepositoryProvider.Repository = 
 				new ActiproSoftware.Text.Languages.Python.Reflection.Implementation.FileBasedPackageRepository(appDataPath);
+			logger?.LogDebug("Python Package Repository Path = {0}", appDataPath);
 		}
 
 		/// <summary>
@@ -88,6 +110,7 @@ namespace ActiproSoftware.SampleBrowser {
 		public static void LaunchExternalBrowser(string url) {
 			if (string.IsNullOrWhiteSpace(url))
 				return;
+			logger?.LogDebug("Launch external browser :: {0}", url);
 			if ((url.StartsWith("http:", StringComparison.OrdinalIgnoreCase)) || (url.StartsWith("https:", StringComparison.OrdinalIgnoreCase)))
 				ShellExecute(url);
 		}
@@ -134,6 +157,7 @@ namespace ActiproSoftware.SampleBrowser {
 		/// </summary>
 		/// <param name="fileName">The file name to execute.</param>
 		public static System.Diagnostics.Process ShellExecute(string fileName) {
+			logger?.LogDebug("ShellExecute :: {0}", fileName);
 			return System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo {
 				FileName = fileName,
 				UseShellExecute = true

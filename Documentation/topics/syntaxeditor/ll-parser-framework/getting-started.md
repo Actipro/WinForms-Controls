@@ -13,10 +13,10 @@ The following list indicates the assemblies that are used with the LL(*) Parser 
 
 | Assembly | Required | Author | Licensed With | Description |
 |-----|-----|-----|-----|-----|
-| ActiproSoftware.Text.WinForms.dll | Yes | Actipro | SyntaxEditor | Core text/parsing framework for SyntaxEditor |
-| ActiproSoftware.Text.LLParser.WinForms.dll | Yes | Actipro | SyntaxEditor | LL parser framework implementation |
-| ActiproSoftware.Shared.WinForms.dll | No \* | Actipro | SyntaxEditor | Core framework for all Actipro WinForms controls |
-| ActiproSoftware.SyntaxEditor.WinForms.dll | No \* | Actipro | SyntaxEditor | SyntaxEditor for WinForms control |
+| ActiproSoftware.Text.@@PlatformAssemblySuffix.dll | Yes | Actipro | SyntaxEditor | Core text/parsing framework for SyntaxEditor |
+| ActiproSoftware.Text.LLParser.@@PlatformAssemblySuffix.dll | Yes | Actipro | SyntaxEditor | LL parser framework implementation |
+| ActiproSoftware.Shared.@@PlatformAssemblySuffix.dll | No \* | Actipro | SyntaxEditor | Core framework for all Actipro @@PlatformName controls |
+| ActiproSoftware.SyntaxEditor.@@PlatformAssemblySuffix.dll | No \* | Actipro | SyntaxEditor | SyntaxEditor for @@PlatformName control |
 
 *\* Not required however is used to integrate parsers made with the framework with a SyntaxEditor control.*
 

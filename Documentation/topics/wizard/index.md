@@ -9,7 +9,7 @@ Wizards are one of the best ways to simplify the user experience of applications
 
 From a design perspective, wizards are similar to property sheets in that they hold a collection of pages that are displayed one at a time.  However instead of using tabstrips to navigate through pages, **Next** and **Back** buttons are used.  Wizards contain a number of pages, each page representing a step in the wizard.  The problem is that Windows Forms provides no easy way to design wizards, that is, until now.
 
-Actipro Software's [Wizard](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard) control provides a powerful framework for developing wizards that follow the Wizard97 specifications.
+Actipro Software's [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard) control provides a powerful framework for developing wizards that follow the Wizard97 specifications.
 
 ![Screenshot](images/interior-page.png)
 
@@ -32,13 +32,13 @@ At run-time, the wizard automatically manages stepping through the wizard pages 
   - Templates for configuration of blank interior, exterior, and welcome pages.
   - Templates for customer information pages.
   - Templates for radio button selection pages.
-- Manage and reorder the pages by editing the [Wizard](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard).[Pages](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard.Pages) collection in the Visual Studio **Properties** window.
+- Manage and reorder the pages by editing the [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard).[Pages](xref:@ActiproUIRoot.Controls.Wizard.Wizard.Pages) collection in the Visual Studio **Properties** window.
 - Automatically handles wizard page step flow and manages button enabled states.
 - Two types of page sequencing.
 - Programmatically override the flow of the wizard page steps and button enable states.
 - Perform validation before pages are changed and cancel page switching if data entry on a page is not complete.
 - Disable or hide buttons while performing processing tasks.
-- Inherit from the `WizardDialogForm` which provides a `Form` with a built-in [Wizard](xref:ActiproSoftware.UI.WinForms.Controls.Wizard.Wizard) control.
+- Inherit from the `WizardDialogForm` which provides a `Form` with a built-in [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard) control.
 - Resizes with parent `Form`.
 - Sets the accept and cancel buttons on the container `Form` to wizard buttons.
 - Powerful localization support including the ability to set different fonts, text, button widths, etc. for each language.
