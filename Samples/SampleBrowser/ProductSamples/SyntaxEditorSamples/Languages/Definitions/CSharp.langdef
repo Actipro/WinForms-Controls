@@ -434,6 +434,7 @@ Actipro Syntax Language Definition (.langdef)
 	</LanguageDefinition.Lexer>
 	<!-- Example text -->
 	<LanguageDefinition.ExampleText><![CDATA[using System;
+using System.Diagnostics;
 
 public class Foo {
 
@@ -441,10 +442,10 @@ public class Foo {
 	/// This is a <c>XML</c> documentation comment.
 	/// </summary>
 	public static void Main(string[] args) {
-		Console.WriteLine("Hello, World!");
-		Console.WriteLine("You entered the following {0} command line arguments:", args.Length);
+		Debug.WriteLine("Hello, World!");
+		Debug.WriteLine("You entered the following {0} command line arguments:", args.Length);
 		for (int i = 0; i < args.Length; i++)
-			Console.WriteLine("{0}", args[i]); 
+			Debug.WriteLine("{0}", args[i]); 
 	
 	}
 }

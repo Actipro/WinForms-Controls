@@ -49,7 +49,7 @@
             this.contentPanel.Location = new System.Drawing.Point(10, 10);
             this.contentPanel.Name = "contentPanel";
             this.contentPanel.Size = new System.Drawing.Size(780, 580);
-            this.contentPanel.TabIndex = 1;
+            this.contentPanel.TabIndex = 0;
             // 
             // codeEditor
             // 
@@ -58,11 +58,15 @@
             this.codeEditor.IsLineNumberMarginVisible = true;
             this.codeEditor.Location = new System.Drawing.Point(0, 38);
             this.codeEditor.Name = "codeEditor";
+            this.codeEditor.OverrideCursor = null;
             this.codeEditor.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.codeEditor.PrintSettings.AreColumnGuidesVisible = false;
             this.codeEditor.Size = new System.Drawing.Size(780, 332);
-            this.codeEditor.TabIndex = 1;
+            this.codeEditor.TabIndex = 0;
             this.codeEditor.Text = resources.GetString("codeEditor.Text");
             this.codeEditor.ViewSelectionChanged += new System.EventHandler<ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.EditorViewSelectionEventArgs>(this.OnSyntaxEditorViewSelectionChanged);
+            this.codeEditor.MouseLeave += new System.EventHandler(this.OnSyntaxEditorMouseLeave);
+            this.codeEditor.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnSyntaxEditorMouseMove);
             // 
             // bottomSpacerPanel
             // 
@@ -70,7 +74,7 @@
             this.bottomSpacerPanel.Location = new System.Drawing.Point(0, 370);
             this.bottomSpacerPanel.Name = "bottomSpacerPanel";
             this.bottomSpacerPanel.Size = new System.Drawing.Size(780, 10);
-            this.bottomSpacerPanel.TabIndex = 4;
+            this.bottomSpacerPanel.TabIndex = 1;
             // 
             // resultsTextBox
             // 
@@ -79,7 +83,7 @@
             this.resultsTextBox.Multiline = true;
             this.resultsTextBox.Name = "resultsTextBox";
             this.resultsTextBox.Size = new System.Drawing.Size(780, 200);
-            this.resultsTextBox.TabIndex = 5;
+            this.resultsTextBox.TabIndex = 2;
             // 
             // topSpacerPanel
             // 
@@ -87,7 +91,7 @@
             this.topSpacerPanel.Location = new System.Drawing.Point(0, 28);
             this.topSpacerPanel.Name = "topSpacerPanel";
             this.topSpacerPanel.Size = new System.Drawing.Size(780, 10);
-            this.topSpacerPanel.TabIndex = 6;
+            this.topSpacerPanel.TabIndex = 4;
             // 
             // flowLayoutPanel1
             // 
@@ -97,7 +101,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(780, 28);
-            this.flowLayoutPanel1.TabIndex = 7;
+            this.flowLayoutPanel1.TabIndex = 3;
             // 
             // goToDefinitionButton
             // 
@@ -125,6 +129,7 @@
             this.selectDefinitionCheckBox.TabIndex = 1;
             this.selectDefinitionCheckBox.Text = "Select Definition on Navigate";
             this.selectDefinitionCheckBox.UseVisualStyleBackColor = true;
+            this.selectDefinitionCheckBox.CheckedChanged += new System.EventHandler(this.OnSelectDefinitionCheckBoxCheckedChanged);
             // 
             // MainControl
             // 
