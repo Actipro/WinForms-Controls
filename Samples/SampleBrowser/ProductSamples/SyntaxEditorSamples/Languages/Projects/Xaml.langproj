@@ -177,7 +177,7 @@ Actipro Syntax Language Project (.langproj)
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:editor="http://schemas.actiprosoftware.com/winfx/xaml/syntaxeditor"
-	Icon="/Resources/Images/ActiproIcon.ico"
+	Icon="/Images/Icons/Actipro.ico"
     Title="Actipro SyntaxEditor"
 	>
 

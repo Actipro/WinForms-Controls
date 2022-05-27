@@ -146,7 +146,7 @@ namespace DotNetLanguagesAddon {
 			
 			// Position the caret over the use of 'name' below and click
 			// the 'Go To Definition' button to jump to the declaration
-			// of the paremter.
+			// of the parameter.
 				
 			System.Diagnostics.Debug.WriteLine("The name is " + name);
 		}

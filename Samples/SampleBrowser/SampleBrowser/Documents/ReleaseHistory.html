@@ -13,6 +13,42 @@
 
 				<h2>Version 22.1</h2>
 
+				<h3>5/26/2022 - v22.1.2</h3>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Refactored the built-in indicator glyphs' appearances, dark theme coloring, and z-order.</li>
+					<li>Added SyntaxEditor.OverrideCursor property which can be used to force a specific cursor to be used.</li>
+					<li>Updated IntelliPrompt completion item sorting logic.</li>
+					<li>Updated the sample CSS syntax language lexer.</li>
+					<li>Updated the .NET Go to Definition QuickStart to support Ctrl+Click navigation and visual tagging of recognized tokens under the mouse.</li>
+					<li>Fixed an issue with the PHP syntax language's lexer not handling string escapes correctly.</li>
+					<li>Fixed an issue where clicking on the trailing end of a multi-byte character could allow subsequent typing to split the character.</li>
+					<li>Fixed an issue where the first character's position in a word wrapped view line could incorrectly be identified as a virtual character.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Improved IntelliPrompt completion for VB With statements.</li>
+					<li>Improved the VBTextFormatter logic related to Case Else clauses.</li>
+					<li>Updated the resolver to avoid a possible deadlock scenario.</li>
+					<li>Fixed an issue where a VB With statement could lead to an exception in a certain scenario.</li>
+					<li>Fixed an issue where C# document documentation comments could get out of sync with related code objects.</li>
+					<li>Fixed an issue with how the resolver handled type parameters that had nested self-referencing constraints.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Fixed an issue where a complex assignment statement didn't create a tuple AST node properly.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Improved the text rendering framework's font fallback logic.</li>
+				</ul>
+				<h4>All</h4>
+				<ul>
+					<li>Improved the product installer.</li>
+					<li>Changed the product installer to install shortcuts and samples to folders accessible by all users.</li>
+				</ul>
+
+
 				<h3>3/14/2022 - v22.1.1</h3>
 				<h4>SyntaxEditor</h4>
 				<ul>
