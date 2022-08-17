@@ -13,6 +13,46 @@
 
 				<h2>Version 22.1</h2>
 
+				<h3>8/17/2022 - v22.1.3</h3>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added the EditorCommands.AddNextOccurrenceToSelection edit action (bound to Ctrl+D by default), and the related IEditorViewSelection.AddNextOccurrence method.  This new feature adds the next occurrence of the currently-selected text to the selection, or selects the current word if there is no selection.</li>
+					<li>Refactored the IntelliPrompt completion session's Shorthand item matcher algorithm, resulting in a significant performance improvement, especially when used with the CanFilterUnmatchedItems option.</li>
+					<li>Improved word-wrapped view lines to indent under their primary view line.</li>
+					<li>Improved vertical scrollbar handling logic.</li>
+					<li>Improved word selection logic.</li>
+					<li>Improved selection update logic when the RetainSelection option is used.</li>
+					<li>Improved typing performance while the IntelliPrompt completion list is displayed.</li>
+					<li>Updated non-editable code snippet fields to not be highlighted in the template session.</li>
+					<li>Updated the CollapsedRegionManager.GetVisibleOffset method logic.</li>
+					<li>Fixed an issue where calling the SyntaxEditor.Dispose method twice could throw an exception.</li>
+					<li>Fixed an issue where code outlining nodes created with AutomaticOutliningUpdateTrigger.TextChanged may not update correctly when making a large number of text changes.</li>
+					<li>Fixed an issue where CodeSnippetSerializer didn't save the Literal tag's Editable attribute with the correct name.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Improved name resolution logic when there are type and namespace name conflicts.</li>
+					<li>Improved IntelliPrompt completion for VB With statements.</li>
+					<li>Updated BinaryAssemblyLoader to handle TypeLoadException when querying exported types.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Fixed an issue where an IVariableDefinition might not have its declaring module or text range properties set in a certain scenario.</li>
+				</ul>
+				<h5>Web Languages Add-on</h5>
+				<ul>
+					<li>Refactored the XML text formatter with improved logic.</li>
+				</ul>
+				<h4>Wizard</h4>
+				<ul>
+					<li>Improved handling of WizardPage layout for interior pages to avoid potential issue of the page covering the header region.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Updated how CanvasControl handles rendering transparent colors.</li>
+				</ul>
+
+
 				<h3>5/26/2022 - v22.1.2</h3>
 				<h4>SyntaxEditor</h4>
 				<ul>
@@ -24,6 +64,7 @@
 					<li>Fixed an issue with the PHP syntax language's lexer not handling string escapes correctly.</li>
 					<li>Fixed an issue where clicking on the trailing end of a multi-byte character could allow subsequent typing to split the character.</li>
 					<li>Fixed an issue where the first character's position in a word wrapped view line could incorrectly be identified as a virtual character.</li>
+					<li>Fixed an issue where cached collapsed region information wasn't invalidated early enough in a certain document editing scenario.</li>
 				</ul>
 				<h5>.NET Languages Add-on</h5>
 				<ul>
