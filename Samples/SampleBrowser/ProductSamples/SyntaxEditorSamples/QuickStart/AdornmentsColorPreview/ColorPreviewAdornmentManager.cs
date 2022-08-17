@@ -38,7 +38,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Adornmen
 		/// <param name="context">The <see cref="TextViewDrawContext"/> to use for rendering.</param>
 		/// <param name="adornment">The <see cref="IAdornment"/> to draw.</param>
 		private void OnDrawAdornment(TextViewDrawContext context, IAdornment adornment) {
-			var bounds = new Rectangle(adornment.Location.X, adornment.Location.Y + adornment.Size.Height - 2, adornment.Size.Width, 2);
+			var bounds = new Rectangle(adornment.Location.X - context.View.ScrollState.HorizontalAmount, adornment.Location.Y + adornment.Size.Height - 2, adornment.Size.Width, 2);
 			bounds.Offset(context.TextAreaBounds.Location);
 
 			var color = (Color)adornment.Tag;
