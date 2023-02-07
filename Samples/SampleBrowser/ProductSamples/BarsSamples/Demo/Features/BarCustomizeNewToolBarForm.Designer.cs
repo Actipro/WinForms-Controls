@@ -70,14 +70,14 @@
 			// BarCustomizeNewToolBarForm
 			// 
 			this.AcceptButton = this.okButton;
-			this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(96f, 96f);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.CancelButton = this.cancelButton;
 			this.ClientSize = new System.Drawing.Size(284, 82);
 			this.Controls.Add(this.keyTextBox);
 			this.Controls.Add(this.toolBarNameLabel);
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.okButton);
-			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;

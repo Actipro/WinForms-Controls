@@ -78,7 +78,7 @@ ul {
 	background-image: linear-gradient(45deg, #007acc 0%, #419cea 100%);
 	border-bottom: 1px solid #cfd0d0;
 	color: #ffffff;
-	padding: 1em 50px;
+	padding: 1em 3.65em;
 	vertical-align: middle;
 }
 
@@ -96,7 +96,7 @@ ul {
 	border: 0 solid #eceeef;
 	border-width: 1px 0;
 	color: #131314;
-	padding: 1.5em 50px;
+	padding: 1.5em 3.65em;
 }
 
 .section-content.bg-silver {
@@ -123,7 +123,7 @@ ul {
 .container {
 	margin-right: auto;
 	margin-left: auto;
-	max-width: 1140px;
+	max-width: 83em;
 }
 
 .container::after {

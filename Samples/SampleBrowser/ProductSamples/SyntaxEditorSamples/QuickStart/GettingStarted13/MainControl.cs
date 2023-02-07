@@ -4,6 +4,7 @@ using ActiproSoftware.Text.Languages.DotNet;
 using ActiproSoftware.Text.Languages.DotNet.Reflection;
 using ActiproSoftware.Text.Parsing;
 using ActiproSoftware.Text.Parsing.LLParser;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
 		/// </summary>
 		public MainControl() {
 			InitializeComponent();
+
+			// Finalize initialization
+			DpiHelper.RescaleListViewColumns(errorListView, DpiHelper.DefaultDeviceDpi, DpiHelper.GetSystemDeviceDpi());
 
 			// Load the custom Simple language defined in this sample
 			editor.Document.Language = new SimpleSyntaxLanguage();
@@ -148,7 +152,29 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
 				}
 			}
 		}
-		
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					mainToolStrip,
+					errorListView
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+			// Resize the width of ListView columns
+			DpiHelper.RescaleListViewColumns(errorListView, deviceDpiOld, deviceDpiNew);
+		}
+
 	}
 
 }

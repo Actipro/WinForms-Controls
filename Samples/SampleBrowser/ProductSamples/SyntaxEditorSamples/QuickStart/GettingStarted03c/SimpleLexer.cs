@@ -9,7 +9,7 @@ using ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingStart
 namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingStarted03c {
 
 	/// <summary>
-	/// Represents a programmatic mergable <c>Simple</c> lexer (lexical analyzer) implementation.
+	/// Represents a programmatic mergeable <c>Simple</c> lexer (lexical analyzer) implementation.
 	/// </summary>
 	public class SimpleLexer : MergableLexerBase {
 

@@ -418,8 +418,8 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.WebAddonXmlEdi
 			// 
 			// MainControl
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.Controls.Add(this.toolWindowContainer2);
 			this.Controls.Add(this.autoHideContainer3);
 			this.Controls.Add(this.autoHideContainer4);
@@ -431,7 +431,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.WebAddonXmlEdi
 			this.Controls.Add(this.autoHideContainer1);
 			this.Controls.Add(this.autoHideContainer2);
 			this.Controls.Add(this.mainToolStrip);
-			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Name = "MainControl";
 			this.Size = new System.Drawing.Size(800, 600);
 			((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();

@@ -1,7 +1,9 @@
-﻿using ActiproSoftware.Text;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.Text;
 using ActiproSoftware.Text.Lexing;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Primitives;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Text;
 using System.Windows.Forms;
@@ -143,5 +145,25 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.HitTesti
 
 			resultsTextBox.Text = text.ToString();
 		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					resultsTextBox
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
 }

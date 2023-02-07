@@ -53,7 +53,7 @@ Dock includes these built-in renderers, which support Metro Light, Office 2007/2
 
 | Renderer | Description |
 |-----|-----|
-| [MetroLightDockRenderer](xref:@ActiproUIRoot.Controls.Docking.MetroLightDockRenderer) | Capable of drawing Metro Light dock controls. |
+| [MetroDockRenderer](xref:@ActiproUIRoot.Controls.Docking.MetroDockRenderer) | Capable of drawing Metro styles (Light and Dark) for dock controls.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.MetroDockRenderer.BaseColorSchemeType). |
 | [Office2003DockRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003DockRenderer) | Capable of drawing all Office 2007 styles (Blue, Silver, Black) and Office 2003 styles (Blue, Olive, Silver, Royale, and Windows Classic).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer.BaseColorSchemeType). |
 | [VisualStudio2002DockRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2002DockRenderer) | Capable of drawing Visual Studio 2002 dock controls. |
 | [VisualStudio2005DockRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2005DockRenderer) | Capable of drawing Visual Studio 2005 dock controls. |

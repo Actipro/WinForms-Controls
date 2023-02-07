@@ -7,6 +7,9 @@ using System.Windows.Forms;
 using ActiproSoftware.UI.WinForms.Drawing;
 using ActiproSoftware.UI.WinForms.Controls;
 using ActiproSoftware.UI.WinForms.Controls.Docking;
+using ActiproSoftware.SampleBrowser.Controls;
+using ActiproSoftware.UI.WinForms.Controls.Extensions;
+using System.Linq;
 
 namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 
@@ -18,7 +21,9 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		private int documentWindowIndex = 1;
 		private int toolWindowIndex		= 1;
 
-		private bool ignoreModifiedDocumentClose = false;
+		private bool showDarkThemeDisclaimer		= true;
+		private bool ignoreModifiedDocumentClose	= false;
+		private bool ignoreTextChangedEvent			= false;
 
 		/// <summary>
 		/// Creates an instance of the <c>DockForm</c> class.
@@ -204,9 +209,8 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="e">Event arguments.</param>
 		private void dockManager_WindowClosing(object sender, ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowClosingEventArgs e) {
 			// If a document is being closed and it has been modified...
-			if ((!ignoreModifiedDocumentClose) && (e.TabbedMdiWindow.DockObjectType == DockObjectType.DocumentWindow) && (((DocumentWindow)e.TabbedMdiWindow).Modified)) {
-				if (MessageBox.Show(this, String.Format("The document '{0}' has been modified.  Would you like to close it without saving?", e.TabbedMdiWindow.Key),
-					"Close Modified Document", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+			if ((!ignoreModifiedDocumentClose) && (e.TabbedMdiWindow is DocumentWindow documentWindow)) {
+				if (!HandleDocumentClosing(documentWindow))
 					e.Cancel = true;
 			}
 
@@ -272,7 +276,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 
 				// Remove the tool window from the properties drop-down
 				toolWindowPropertyGridComboBox.Items.Remove(toolWindow);
-				if (toolWindowPropertyGridComboBox.SelectedIndex == -1)
+				if ((toolWindowPropertyGridComboBox.SelectedIndex == -1) && (toolWindowPropertyGridComboBox.Items.Count > 0))
 					toolWindowPropertyGridComboBox.SelectedIndex = 0;
 			}
 		}
@@ -344,6 +348,24 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		}
 
 		/// <summary>
+		/// Occurs when the panel is resized.
+		/// </summary>
+		/// <param name="sender">Sender of the event.</param>
+		/// <param name="e">Event arguments.</param>
+		private void dockManagerPropertyGridPanel_Resize(object sender, EventArgs e) {
+			dockManagerPropertyGrid.SuspendLayout();
+
+			// Reset the Anchor that is only used to keep designer layout consistent
+			dockManagerPropertyGrid.Anchor = AnchorStyles.None;
+
+			// Set the size/location of the PropertyGrid to be 1px bigger than the containing panel so the PropertyGrid border is not visible
+			dockManagerPropertyGrid.Location = new Point(-1, -1);
+			dockManagerPropertyGrid.Size = new Size(dockManagerPropertyGridPanel.Width + 2, dockManagerPropertyGridPanel.Height + 2);
+
+			dockManagerPropertyGrid.ResumeLayout();
+		}
+
+		/// <summary>
 		/// Occurs when the menu item is clicked.
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
@@ -384,7 +406,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 			pasteToolStripMenuItem.Enabled = this.IsTextDocumentSelected();
 			deleteToolStripMenuItem.Enabled = this.IsTextDocumentSelected();
 			undoToolStripMenuItem.Enabled = this.IsTextDocumentSelected();
-			redoToolStripMenuItem.Enabled = this.IsTextDocumentSelected();		
+			redoToolStripMenuItem.Enabled = this.IsTextDocumentSelected();
 		}
 
 		/// <summary>
@@ -394,7 +416,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="e">Event arguments.</param>
 		private void editPasteMenuItem_Click(object sender, System.EventArgs e) {
 			if (this.IsTextDocumentSelected())
-				((RichTextBox)dockManager.SelectedDocument.Controls[0]).Paste();			
+				((RichTextBox)dockManager.SelectedDocument.Controls[0]).Paste();
 		}
 
 		/// <summary>
@@ -404,7 +426,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="e">Event arguments.</param>
 		private void editRedoMenuItem_Click(object sender, System.EventArgs e) {
 			if (this.IsTextDocumentSelected())
-				((RichTextBox)dockManager.SelectedDocument.Controls[0]).Redo();			
+				((RichTextBox)dockManager.SelectedDocument.Controls[0]).Redo();
 		}
 
 		/// <summary>
@@ -414,7 +436,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="e">Event arguments.</param>
 		private void editUndoMenuItem_Click(object sender, System.EventArgs e) {
 			if (this.IsTextDocumentSelected())
-				((RichTextBox)dockManager.SelectedDocument.Controls[0]).Undo();			
+				((RichTextBox)dockManager.SelectedDocument.Controls[0]).Undo();
 		}
 
 		/// <summary>
@@ -423,7 +445,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void fileActivateAllInactiveToolWindowsMenuItem_Click(object sender, System.EventArgs e) {
-			dockManager.ActivateAllInactiveToolWindows();		
+			dockManager.ActivateAllInactiveToolWindows();
 		}
 
 		/// <summary>
@@ -432,7 +454,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void fileCloseAllToolWindowsMenuItem_Click(object sender, System.EventArgs e) {
-			dockManager.CloseAllActiveToolWindows(false);		
+			dockManager.CloseAllActiveToolWindows(false);
 		}
 
 		/// <summary>
@@ -610,16 +632,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 			if (!this.IsTextDocumentSelected())
 				return;
 
-			// Show the dialog
-			saveFileDialog.Filter = "All Documents (*.*)|*.*";
-			saveFileDialog.FileName = dockManager.SelectedDocument.Key;
-			if (saveFileDialog.ShowDialog(this) != DialogResult.OK)
-				return;
-		
-			// Write out the document
-			StreamWriter writer = File.CreateText(saveFileDialog.FileName);
-			writer.Write(((RichTextBox)dockManager.SelectedDocument.Controls[0]).Text);
-			writer.Close();
+			PromptSaveDocument((DocumentWindow)dockManager.SelectedDocument);
 		}
 
 		/// <summary>
@@ -713,14 +726,31 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		}
 
 		/// <summary>
+		/// Occurs when the panel is resized.
+		/// </summary>
+		/// <param name="sender">Sender of the event.</param>
+		/// <param name="e">Event arguments.</param>
+		private void toolWindowPropertyGridPanel_Resize(object sender, EventArgs e) {
+			toolWindowPropertyGrid.SuspendLayout();
+
+			// Reset the Anchor that is only used to keep designer layout consistent
+			toolWindowPropertyGrid.Anchor = AnchorStyles.None;
+
+			// Set the size/location of the PropertyGrid to be 1px bigger than the containing panel so the PropertyGrid border is not visible
+			toolWindowPropertyGrid.Location = new Point(-1, -1);
+			toolWindowPropertyGrid.Size = new Size(toolWindowPropertyGridPanel.Width + 2, toolWindowPropertyGridPanel.Height + 2);
+
+			toolWindowPropertyGrid.ResumeLayout();
+		}
+
+		/// <summary>
 		/// Occurs when the menu item is displayed.
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void viewDockGuideStyleMenuItem_Popup(object sender, System.EventArgs e) {
 			dockGuideStyleNoneToolStripMenuItem.Checked = (dockManager.DockGuideStyle == DockGuideStyle.None);
-			dockGuideStyleSunkenToolStripMenuItem.Checked = (dockManager.DockGuideStyle == DockGuideStyle.Sunken);
-			dockGuideStyleRaisedToolStripMenuItem.Checked = (dockManager.DockGuideStyle == DockGuideStyle.Raised);
+			dockGuideStyleModernToolStripMenuItem.Checked = (dockManager.DockGuideStyle == DockGuideStyle.Modern);
 		}
 
 		/// <summary>
@@ -737,17 +767,8 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void viewDockGuideStyleRaisedMenuItem_Click(object sender, System.EventArgs e) {
-			dockManager.DockGuideStyle = DockGuideStyle.Raised;
-		}
-
-		/// <summary>
-		/// Occurs when the menu item is clicked.
-		/// </summary>
-		/// <param name="sender">Sender of the event.</param>
-		/// <param name="e">Event arguments.</param>
-		private void viewDockGuideStyleSunkenMenuItem_Click(object sender, System.EventArgs e) {
-			dockManager.DockGuideStyle = DockGuideStyle.Sunken;
+		private void viewDockGuideStyleModernMenuItem_Click(object sender, System.EventArgs e) {
+			dockManager.DockGuideStyle = DockGuideStyle.Modern;
 		}
 
 		/// <summary>
@@ -757,7 +778,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="e">Event arguments.</param>
 		private void viewDockHintStyleMenuItem_Popup(object sender, System.EventArgs e) {
 			dockHintStyleRubberBandHatchedToolStripMenuItem.Checked = (dockManager.DockHintStyle == DockHintStyle.RubberBandHatched);
-			dockHintStyleTranslucentToolStripMenuItem.Checked = (dockManager.DockHintStyle == DockHintStyle.Translucent);		
+			dockHintStyleTranslucentToolStripMenuItem.Checked = (dockManager.DockHintStyle == DockHintStyle.Translucent);
 		}
 
 		/// <summary>
@@ -886,11 +907,26 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void viewRendererMenuItem_Popup(object sender, System.EventArgs e) {
-			rendererMetroLightToolStripMenuItem.Checked = (dockManager.DockRenderer.GetType() == typeof(MetroLightDockRenderer));
-			rendererOffice2003ToolStripMenuItem.Checked = (dockManager.DockRenderer.GetType() == typeof(Office2003DockRenderer));
-			rendererVisualStudio2005ToolStripMenuItem.Checked = (dockManager.DockRenderer.GetType() == typeof(VisualStudio2005DockRenderer));
-			rendererVisualStudio2005Beta2ToolStripMenuItem.Checked = (dockManager.DockRenderer.GetType() == typeof(VisualStudio2005Beta2DockRenderer));
-			rendererVisualStudio2002ToolStripMenuItem.Checked = (dockManager.DockRenderer.GetType() == typeof(VisualStudio2002DockRenderer));
+			var dockRenderer = dockManager.DockRenderer;
+			rendererMetroDarkToolStripMenuItem.Checked = ((dockRenderer.GetType() == typeof(MetroDockRenderer)) && (dockRenderer.ColorScheme.BaseColorSchemeType == WindowsColorSchemeType.MetroDark));
+			rendererMetroLightToolStripMenuItem.Checked = ((dockRenderer.GetType() == typeof(MetroDockRenderer)) && (dockRenderer.ColorScheme.BaseColorSchemeType == WindowsColorSchemeType.MetroLight)); ;
+			rendererOffice2003ToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(Office2003DockRenderer));
+			rendererVisualStudio2005ToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(VisualStudio2005DockRenderer));
+			rendererVisualStudio2005Beta2ToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(VisualStudio2005Beta2DockRenderer));
+			rendererVisualStudio2002ToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(VisualStudio2002DockRenderer));
+		}
+
+		/// <summary>
+		/// Occurs when the menu item is clicked.
+		/// </summary>
+		/// <param name="sender">Sender of the event.</param>
+		/// <param name="e">Event arguments.</param>
+		private void viewRendererMetroDarkToolStripMenuItem_Click(object sender, EventArgs e) {
+			var colorSchemeType = WindowsColorSchemeType.MetroDark;
+			dockManager.DockRenderer = new MetroDockRenderer(colorSchemeType);
+			dockManager.TabbedMdiContainerTabStripRenderer = new MetroDocumentWindowTabStripRenderer(colorSchemeType);
+			dockManager.ToolWindowContainerTabStripRenderer = new MetroToolWindowTabStripRenderer(colorSchemeType);
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -899,11 +935,11 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void viewRendererMetroLightMenuItem_Click(object sender, System.EventArgs e) {
-			dockManager.DockRenderer = new MetroLightDockRenderer();
-			dockManager.TabbedMdiContainerTabStripRenderer = new MetroLightDocumentWindowTabStripRenderer();
-			dockManager.ToolWindowContainerTabStripRenderer = new MetroLightToolWindowTabStripRenderer();
-			this.UpdateChildControlBorderStyles();
-			dockManagerPropertyGridComboBox_SelectedIndexChanged(dockManagerPropertyGridComboBox, EventArgs.Empty);
+			var colorSchemeType = WindowsColorSchemeType.MetroLight;
+			dockManager.DockRenderer = new MetroDockRenderer(colorSchemeType);
+			dockManager.TabbedMdiContainerTabStripRenderer = new MetroDocumentWindowTabStripRenderer(colorSchemeType);
+			dockManager.ToolWindowContainerTabStripRenderer = new MetroToolWindowTabStripRenderer(colorSchemeType);
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -915,8 +951,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 			dockManager.DockRenderer = new Office2003DockRenderer();
 			dockManager.TabbedMdiContainerTabStripRenderer = new Office2003DocumentWindowTabStripRenderer();
 			dockManager.ToolWindowContainerTabStripRenderer = new Office2003ToolWindowTabStripRenderer();
-			this.UpdateChildControlBorderStyles();
-			dockManagerPropertyGridComboBox_SelectedIndexChanged(dockManagerPropertyGridComboBox, EventArgs.Empty);
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -928,8 +963,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 			dockManager.DockRenderer = new Office2003VisualStudio2005Beta2DockRenderer();
 			dockManager.TabbedMdiContainerTabStripRenderer = new Office2003DocumentWindowTabStripRenderer();
 			dockManager.ToolWindowContainerTabStripRenderer = new Office2003VisualStudio2005Beta2ToolWindowTabStripRenderer();
-			this.UpdateChildControlBorderStyles();
-			dockManagerPropertyGridComboBox_SelectedIndexChanged(dockManagerPropertyGridComboBox, EventArgs.Empty);
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -941,8 +975,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 			dockManager.DockRenderer = new VisualStudio2002DockRenderer();
 			dockManager.TabbedMdiContainerTabStripRenderer = new VisualStudio2002DocumentWindowTabStripRenderer();
 			dockManager.ToolWindowContainerTabStripRenderer = new VisualStudio2002ToolWindowTabStripRenderer();
-			this.UpdateChildControlBorderStyles();
-			dockManagerPropertyGridComboBox_SelectedIndexChanged(dockManagerPropertyGridComboBox, EventArgs.Empty);
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -954,8 +987,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 			dockManager.DockRenderer = new VisualStudio2005Beta2DockRenderer();
 			dockManager.TabbedMdiContainerTabStripRenderer = new VisualStudio2005DocumentWindowTabStripRenderer();
 			dockManager.ToolWindowContainerTabStripRenderer = new VisualStudio2005Beta2ToolWindowTabStripRenderer();
-			this.UpdateChildControlBorderStyles();
-			dockManagerPropertyGridComboBox_SelectedIndexChanged(dockManagerPropertyGridComboBox, EventArgs.Empty);
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -967,8 +999,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 			dockManager.DockRenderer = new VisualStudio2005DockRenderer();
 			dockManager.TabbedMdiContainerTabStripRenderer = new VisualStudio2005DocumentWindowTabStripRenderer();
 			dockManager.ToolWindowContainerTabStripRenderer = new VisualStudio2005ToolWindowTabStripRenderer();
-			this.UpdateChildControlBorderStyles();
-			dockManagerPropertyGridComboBox_SelectedIndexChanged(dockManagerPropertyGridComboBox, EventArgs.Empty);
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -1351,6 +1382,9 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void textBox_TextChanged(object sender, System.EventArgs e) {
+			if (ignoreTextChangedEvent)
+				return;
+
 			DocumentWindow documentWindow = ((RichTextBox)sender).Parent as DocumentWindow;
 			if (documentWindow != null)
 				documentWindow.Modified = ((RichTextBox)sender).Modified;
@@ -1433,11 +1467,36 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 			}
 
 			if (readOnly) {
-				// Load a read-only context image 
-				documentWindow.ContextImage = ActiproSoftware.Products.Docking.AssemblyInfo.Instance.GetImage(ActiproSoftware.Products.Docking.ImageResource.ContextReadOnly);
+				// Load a read-only context image
+				documentWindow.ContextImage = ActiproSoftware.Products.Docking.AssemblyInfo.Instance.GetImage(
+					ActiproSoftware.Products.Docking.ImageResource.ContextReadOnly,
+					DpiHelper.GetDpiScale(this));
 			}
 
 			return documentWindow;
+		}
+
+		/// <summary>
+		/// Handles the closing of a document.
+		/// </summary>
+		/// <param name="documentWindow">The document to examine.</param>
+		/// <returns><c>true</c> if the document should be allowed to close; otherwise <c>false</c> to cancel closing the document.</returns>
+		private bool HandleDocumentClosing(DocumentWindow documentWindow) {
+			if (documentWindow.Modified) {
+				var response = MessageBox.Show(this, string.Format("Do you want to save changes to '{0}'?", documentWindow.Key),
+					"Document Modified", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+				switch (response) {
+					case DialogResult.Yes:
+						if (!PromptSaveDocument(documentWindow))
+							return false;
+						break;
+					case DialogResult.Cancel:
+						return false;
+				};
+			}
+
+			// Indicate OK to close document
+			return true;
 		}
 
 		/// <summary>
@@ -1449,6 +1508,56 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		private bool IsTextDocumentSelected() {
 			return ((dockManager.SelectedDocument != null) && (dockManager.SelectedDocument is DocumentWindow) && 
 				(dockManager.SelectedDocument.Controls.Count == 1) && (dockManager.SelectedDocument.Controls[0] is RichTextBox));
+		}
+
+		/// <summary>
+		/// Invoked when the current renderer configuration is changed.
+		/// </summary>
+		private void OnRendererChanged() {
+			// Changing themes can cause RichTextBox controls to report a TextChanged event
+			ignoreTextChangedEvent = true;
+			try {
+				this.UpdateChildControlBorderStyles();
+				dockManagerPropertyGridComboBox_SelectedIndexChanged(dockManagerPropertyGridComboBox, EventArgs.Empty);
+
+				// Get the new color scheme
+				var colorScheme = dockManager.DockRendererResolved.ResolvedColorScheme();
+
+				// Update child controls to match the renderer's color scheme
+				ThemeHelper.ApplyComponentColors(this, colorScheme, recurseChildren: true);
+
+				// Explicitly set specific control themes
+				markupLabelPanel.BackColor = markupLabel.BackColor = colorScheme.GetKnownColor(KnownColor.Window);
+
+				// Show disclaimer about dark color schemes
+				if (showDarkThemeDisclaimer && colorScheme.Intent.IsDarkColorScheme()) {
+					showDarkThemeDisclaimer = false;
+					ThemeHelper.ShowDarkThemeDisclaimer();
+				}
+			}
+			finally {
+				ignoreTextChangedEvent = false;
+			}
+		}
+
+		/// <summary>
+		/// Prompts the user to save a document.
+		/// </summary>
+		/// <param name="document">The document to be saved.</param>
+		/// <returns><c>true</c> if the document was saved; otherwise <c>false</c> if the user canceled the operation.</returns>
+		private bool PromptSaveDocument(DocumentWindow document) {
+			// Show the dialog
+			saveFileDialog.Filter = "All Documents (*.*)|*.*";
+			saveFileDialog.FileName = document.Key;
+			if (saveFileDialog.ShowDialog(this) != DialogResult.OK)
+				return false;
+
+			// Write out the document
+			StreamWriter writer = File.CreateText(saveFileDialog.FileName);
+			writer.Write(((RichTextBox)document.Controls[0]).Text);
+			writer.Close();
+
+			return true;
 		}
 
 		/// <summary>
@@ -1487,7 +1596,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// </summary>
 		/// <param name="e">Event arguments.</param>
 		protected override void OnClosing(CancelEventArgs e) {
-			// Call the base method
+			// Call the base method 
 			base.OnClosing(e);
 
 			if (!e.Cancel) {
@@ -1497,13 +1606,10 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 					DocumentWindow documentWindow = dockManager.DocumentWindows[0];
 					documentWindow.Activate();
 
-					// If a document is being closed and it has been modified...
-					if (documentWindow.Modified) {
-						if (MessageBox.Show(this, String.Format("The document '{0}' has been modified.  Would you like to close it without saving?", documentWindow.Key),
-							"Close Modified Document", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No) {
-							e.Cancel = true;
-							break;
-						}
+					// Make sure the document can be closed
+					if (!HandleDocumentClosing(documentWindow)) {
+						e.Cancel = true;
+						break;
 					}
 
 					// Close the document window
@@ -1514,5 +1620,26 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 			}
 		}
 
+		/// <summary>
+		/// Occurs when the DPI of the device where the form is displayed changes.
+		/// </summary>
+		/// <param name="e">An <see cref="DpiChangedEventArgs" /> that contains the event data.</param>
+		protected override void OnDpiChanged(DpiChangedEventArgs e) {
+			base.OnDpiChanged(e);
+
+			// Re-assign read-only context images based on the new DPI
+			foreach (var documentWindow in dockManager.DocumentWindows.OfType<DocumentWindow>()) {
+				if (documentWindow.ContextImage != null) {
+					documentWindow.ContextImage = ActiproSoftware.Products.Docking.AssemblyInfo.Instance.GetImage(
+						ActiproSoftware.Products.Docking.ImageResource.ContextReadOnly,
+						DpiHelper.GetDpiScale(e.DeviceDpiNew));
+				}
+			}
+
+			// Perform layout to invalidate dock controls
+			this.PerformLayout();
+		}
+
 	}
+
 }

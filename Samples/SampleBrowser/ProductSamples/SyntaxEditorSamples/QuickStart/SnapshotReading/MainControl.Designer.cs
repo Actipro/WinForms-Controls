@@ -78,6 +78,8 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             this.editor.IsLineNumberMarginVisible = true;
             this.editor.Location = new System.Drawing.Point(6, 6);
             this.editor.Name = "editor";
+            this.editor.OverrideCursor = null;
+            this.editor.PrintSettings.AreColumnGuidesVisible = false;
             this.editor.Size = new System.Drawing.Size(582, 450);
             this.editor.TabIndex = 0;
             this.editor.Text = resources.GetString("editor.Text");
@@ -244,9 +246,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToNextDocumentationCommentLinkLabel.AutoSize = true;
             this.goToNextDocumentationCommentLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToNextDocumentationCommentLinkLabel.Location = new System.Drawing.Point(10, 330);
+            this.goToNextDocumentationCommentLinkLabel.Location = new System.Drawing.Point(10, 290);
             this.goToNextDocumentationCommentLinkLabel.Name = "goToNextDocumentationCommentLinkLabel";
-            this.goToNextDocumentationCommentLinkLabel.Size = new System.Drawing.Size(144, 15);
+            this.goToNextDocumentationCommentLinkLabel.Size = new System.Drawing.Size(123, 13);
             this.goToNextDocumentationCommentLinkLabel.TabIndex = 20;
             this.goToNextDocumentationCommentLinkLabel.TabStop = true;
             this.goToNextDocumentationCommentLinkLabel.Text = "documentation comment";
@@ -256,9 +258,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToNextThirdTokenLinkLabel.AutoSize = true;
             this.goToNextThirdTokenLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToNextThirdTokenLinkLabel.Location = new System.Drawing.Point(10, 315);
+            this.goToNextThirdTokenLinkLabel.Location = new System.Drawing.Point(10, 277);
             this.goToNextThirdTokenLinkLabel.Name = "goToNextThirdTokenLinkLabel";
-            this.goToNextThirdTokenLinkLabel.Size = new System.Drawing.Size(65, 15);
+            this.goToNextThirdTokenLinkLabel.Size = new System.Drawing.Size(57, 13);
             this.goToNextThirdTokenLinkLabel.TabIndex = 19;
             this.goToNextThirdTokenLinkLabel.TabStop = true;
             this.goToNextThirdTokenLinkLabel.Text = "third token";
@@ -268,9 +270,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToNextTokenLinkLabel.AutoSize = true;
             this.goToNextTokenLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToNextTokenLinkLabel.Location = new System.Drawing.Point(10, 300);
+            this.goToNextTokenLinkLabel.Location = new System.Drawing.Point(10, 264);
             this.goToNextTokenLinkLabel.Name = "goToNextTokenLinkLabel";
-            this.goToNextTokenLinkLabel.Size = new System.Drawing.Size(37, 15);
+            this.goToNextTokenLinkLabel.Size = new System.Drawing.Size(34, 13);
             this.goToNextTokenLinkLabel.TabIndex = 18;
             this.goToNextTokenLinkLabel.TabStop = true;
             this.goToNextTokenLinkLabel.Text = "token";
@@ -280,9 +282,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToNextLineStartLinkLabel.AutoSize = true;
             this.goToNextLineStartLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToNextLineStartLinkLabel.Location = new System.Drawing.Point(10, 285);
+            this.goToNextLineStartLinkLabel.Location = new System.Drawing.Point(10, 251);
             this.goToNextLineStartLinkLabel.Name = "goToNextLineStartLinkLabel";
-            this.goToNextLineStartLinkLabel.Size = new System.Drawing.Size(52, 15);
+            this.goToNextLineStartLinkLabel.Size = new System.Drawing.Size(46, 13);
             this.goToNextLineStartLinkLabel.TabIndex = 17;
             this.goToNextLineStartLinkLabel.TabStop = true;
             this.goToNextLineStartLinkLabel.Text = "line start";
@@ -292,9 +294,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToNextWordStartLinkLabel.AutoSize = true;
             this.goToNextWordStartLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToNextWordStartLinkLabel.Location = new System.Drawing.Point(10, 270);
+            this.goToNextWordStartLinkLabel.Location = new System.Drawing.Point(10, 238);
             this.goToNextWordStartLinkLabel.Name = "goToNextWordStartLinkLabel";
-            this.goToNextWordStartLinkLabel.Size = new System.Drawing.Size(60, 15);
+            this.goToNextWordStartLinkLabel.Size = new System.Drawing.Size(53, 13);
             this.goToNextWordStartLinkLabel.TabIndex = 16;
             this.goToNextWordStartLinkLabel.TabStop = true;
             this.goToNextWordStartLinkLabel.Text = "word start";
@@ -304,9 +306,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToNextCharacterLinkLabel.AutoSize = true;
             this.goToNextCharacterLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToNextCharacterLinkLabel.Location = new System.Drawing.Point(10, 255);
+            this.goToNextCharacterLinkLabel.Location = new System.Drawing.Point(10, 225);
             this.goToNextCharacterLinkLabel.Name = "goToNextCharacterLinkLabel";
-            this.goToNextCharacterLinkLabel.Size = new System.Drawing.Size(56, 15);
+            this.goToNextCharacterLinkLabel.Size = new System.Drawing.Size(52, 13);
             this.goToNextCharacterLinkLabel.TabIndex = 15;
             this.goToNextCharacterLinkLabel.TabStop = true;
             this.goToNextCharacterLinkLabel.Text = "character";
@@ -316,10 +318,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToNextLabel.AutoSize = true;
             this.goToNextLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToNextLabel.Location = new System.Drawing.Point(10, 230);
+            this.goToNextLabel.Location = new System.Drawing.Point(10, 202);
             this.goToNextLabel.Name = "goToNextLabel";
             this.goToNextLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.goToNextLabel.Size = new System.Drawing.Size(71, 25);
+            this.goToNextLabel.Size = new System.Drawing.Size(65, 23);
             this.goToNextLabel.TabIndex = 14;
             this.goToNextLabel.Text = "Go to next...";
             // 
@@ -327,9 +329,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToCurrentWordEndLinkLabel.AutoSize = true;
             this.goToCurrentWordEndLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToCurrentWordEndLinkLabel.Location = new System.Drawing.Point(10, 215);
+            this.goToCurrentWordEndLinkLabel.Location = new System.Drawing.Point(10, 189);
             this.goToCurrentWordEndLinkLabel.Name = "goToCurrentWordEndLinkLabel";
-            this.goToCurrentWordEndLinkLabel.Size = new System.Drawing.Size(57, 15);
+            this.goToCurrentWordEndLinkLabel.Size = new System.Drawing.Size(51, 13);
             this.goToCurrentWordEndLinkLabel.TabIndex = 13;
             this.goToCurrentWordEndLinkLabel.TabStop = true;
             this.goToCurrentWordEndLinkLabel.Text = "word end";
@@ -339,9 +341,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToCurrentWordStartLinkLabel.AutoSize = true;
             this.goToCurrentWordStartLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToCurrentWordStartLinkLabel.Location = new System.Drawing.Point(10, 200);
+            this.goToCurrentWordStartLinkLabel.Location = new System.Drawing.Point(10, 176);
             this.goToCurrentWordStartLinkLabel.Name = "goToCurrentWordStartLinkLabel";
-            this.goToCurrentWordStartLinkLabel.Size = new System.Drawing.Size(60, 15);
+            this.goToCurrentWordStartLinkLabel.Size = new System.Drawing.Size(53, 13);
             this.goToCurrentWordStartLinkLabel.TabIndex = 12;
             this.goToCurrentWordStartLinkLabel.TabStop = true;
             this.goToCurrentWordStartLinkLabel.Text = "word start";
@@ -351,9 +353,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToCurrentLineEndLinkLabel.AutoSize = true;
             this.goToCurrentLineEndLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToCurrentLineEndLinkLabel.Location = new System.Drawing.Point(10, 185);
+            this.goToCurrentLineEndLinkLabel.Location = new System.Drawing.Point(10, 163);
             this.goToCurrentLineEndLinkLabel.Name = "goToCurrentLineEndLinkLabel";
-            this.goToCurrentLineEndLinkLabel.Size = new System.Drawing.Size(49, 15);
+            this.goToCurrentLineEndLinkLabel.Size = new System.Drawing.Size(44, 13);
             this.goToCurrentLineEndLinkLabel.TabIndex = 11;
             this.goToCurrentLineEndLinkLabel.TabStop = true;
             this.goToCurrentLineEndLinkLabel.Text = "line end";
@@ -363,9 +365,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToCurrentLineStartLinkLabel.AutoSize = true;
             this.goToCurrentLineStartLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToCurrentLineStartLinkLabel.Location = new System.Drawing.Point(10, 170);
+            this.goToCurrentLineStartLinkLabel.Location = new System.Drawing.Point(10, 150);
             this.goToCurrentLineStartLinkLabel.Name = "goToCurrentLineStartLinkLabel";
-            this.goToCurrentLineStartLinkLabel.Size = new System.Drawing.Size(52, 15);
+            this.goToCurrentLineStartLinkLabel.Size = new System.Drawing.Size(46, 13);
             this.goToCurrentLineStartLinkLabel.TabIndex = 10;
             this.goToCurrentLineStartLinkLabel.TabStop = true;
             this.goToCurrentLineStartLinkLabel.Text = "line start";
@@ -375,9 +377,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToSnapshotEndLinkLabel.AutoSize = true;
             this.goToSnapshotEndLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToSnapshotEndLinkLabel.Location = new System.Drawing.Point(10, 155);
+            this.goToSnapshotEndLinkLabel.Location = new System.Drawing.Point(10, 137);
             this.goToSnapshotEndLinkLabel.Name = "goToSnapshotEndLinkLabel";
-            this.goToSnapshotEndLinkLabel.Size = new System.Drawing.Size(85, 15);
+            this.goToSnapshotEndLinkLabel.Size = new System.Drawing.Size(75, 13);
             this.goToSnapshotEndLinkLabel.TabIndex = 9;
             this.goToSnapshotEndLinkLabel.TabStop = true;
             this.goToSnapshotEndLinkLabel.Text = "document end";
@@ -387,9 +389,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToSnapshotStartLinkLabel.AutoSize = true;
             this.goToSnapshotStartLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToSnapshotStartLinkLabel.Location = new System.Drawing.Point(10, 140);
+            this.goToSnapshotStartLinkLabel.Location = new System.Drawing.Point(10, 124);
             this.goToSnapshotStartLinkLabel.Name = "goToSnapshotStartLinkLabel";
-            this.goToSnapshotStartLinkLabel.Size = new System.Drawing.Size(88, 15);
+            this.goToSnapshotStartLinkLabel.Size = new System.Drawing.Size(77, 13);
             this.goToSnapshotStartLinkLabel.TabIndex = 8;
             this.goToSnapshotStartLinkLabel.TabStop = true;
             this.goToSnapshotStartLinkLabel.Text = "document start";
@@ -399,10 +401,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToCurrentLabel.AutoSize = true;
             this.goToCurrentLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToCurrentLabel.Location = new System.Drawing.Point(10, 115);
+            this.goToCurrentLabel.Location = new System.Drawing.Point(10, 101);
             this.goToCurrentLabel.Name = "goToCurrentLabel";
             this.goToCurrentLabel.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.goToCurrentLabel.Size = new System.Drawing.Size(86, 25);
+            this.goToCurrentLabel.Size = new System.Drawing.Size(78, 23);
             this.goToCurrentLabel.TabIndex = 7;
             this.goToCurrentLabel.Text = "Go to current...";
             // 
@@ -410,9 +412,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToPreviousDocumentationCommentLinkLabel.AutoSize = true;
             this.goToPreviousDocumentationCommentLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToPreviousDocumentationCommentLinkLabel.Location = new System.Drawing.Point(10, 100);
+            this.goToPreviousDocumentationCommentLinkLabel.Location = new System.Drawing.Point(10, 88);
             this.goToPreviousDocumentationCommentLinkLabel.Name = "goToPreviousDocumentationCommentLinkLabel";
-            this.goToPreviousDocumentationCommentLinkLabel.Size = new System.Drawing.Size(144, 15);
+            this.goToPreviousDocumentationCommentLinkLabel.Size = new System.Drawing.Size(123, 13);
             this.goToPreviousDocumentationCommentLinkLabel.TabIndex = 6;
             this.goToPreviousDocumentationCommentLinkLabel.TabStop = true;
             this.goToPreviousDocumentationCommentLinkLabel.Text = "documentation comment";
@@ -422,9 +424,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToPreviousThirdTokenLinkLabel.AutoSize = true;
             this.goToPreviousThirdTokenLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToPreviousThirdTokenLinkLabel.Location = new System.Drawing.Point(10, 85);
+            this.goToPreviousThirdTokenLinkLabel.Location = new System.Drawing.Point(10, 75);
             this.goToPreviousThirdTokenLinkLabel.Name = "goToPreviousThirdTokenLinkLabel";
-            this.goToPreviousThirdTokenLinkLabel.Size = new System.Drawing.Size(65, 15);
+            this.goToPreviousThirdTokenLinkLabel.Size = new System.Drawing.Size(57, 13);
             this.goToPreviousThirdTokenLinkLabel.TabIndex = 5;
             this.goToPreviousThirdTokenLinkLabel.TabStop = true;
             this.goToPreviousThirdTokenLinkLabel.Text = "third token";
@@ -434,9 +436,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToPreviousTokenLinkLabel.AutoSize = true;
             this.goToPreviousTokenLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToPreviousTokenLinkLabel.Location = new System.Drawing.Point(10, 70);
+            this.goToPreviousTokenLinkLabel.Location = new System.Drawing.Point(10, 62);
             this.goToPreviousTokenLinkLabel.Name = "goToPreviousTokenLinkLabel";
-            this.goToPreviousTokenLinkLabel.Size = new System.Drawing.Size(37, 15);
+            this.goToPreviousTokenLinkLabel.Size = new System.Drawing.Size(34, 13);
             this.goToPreviousTokenLinkLabel.TabIndex = 4;
             this.goToPreviousTokenLinkLabel.TabStop = true;
             this.goToPreviousTokenLinkLabel.Text = "token";
@@ -446,9 +448,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToPreviousLineEndLinkLabel.AutoSize = true;
             this.goToPreviousLineEndLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToPreviousLineEndLinkLabel.Location = new System.Drawing.Point(10, 55);
+            this.goToPreviousLineEndLinkLabel.Location = new System.Drawing.Point(10, 49);
             this.goToPreviousLineEndLinkLabel.Name = "goToPreviousLineEndLinkLabel";
-            this.goToPreviousLineEndLinkLabel.Size = new System.Drawing.Size(49, 15);
+            this.goToPreviousLineEndLinkLabel.Size = new System.Drawing.Size(44, 13);
             this.goToPreviousLineEndLinkLabel.TabIndex = 3;
             this.goToPreviousLineEndLinkLabel.TabStop = true;
             this.goToPreviousLineEndLinkLabel.Text = "line end";
@@ -458,9 +460,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToPreviousWordStartLinkLabel.AutoSize = true;
             this.goToPreviousWordStartLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToPreviousWordStartLinkLabel.Location = new System.Drawing.Point(10, 40);
+            this.goToPreviousWordStartLinkLabel.Location = new System.Drawing.Point(10, 36);
             this.goToPreviousWordStartLinkLabel.Name = "goToPreviousWordStartLinkLabel";
-            this.goToPreviousWordStartLinkLabel.Size = new System.Drawing.Size(60, 15);
+            this.goToPreviousWordStartLinkLabel.Size = new System.Drawing.Size(53, 13);
             this.goToPreviousWordStartLinkLabel.TabIndex = 2;
             this.goToPreviousWordStartLinkLabel.TabStop = true;
             this.goToPreviousWordStartLinkLabel.Text = "word start";
@@ -470,9 +472,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             this.goToPreviousCharacterLinkLabel.AutoSize = true;
             this.goToPreviousCharacterLinkLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.goToPreviousCharacterLinkLabel.Location = new System.Drawing.Point(10, 25);
+            this.goToPreviousCharacterLinkLabel.Location = new System.Drawing.Point(10, 23);
             this.goToPreviousCharacterLinkLabel.Name = "goToPreviousCharacterLinkLabel";
-            this.goToPreviousCharacterLinkLabel.Size = new System.Drawing.Size(56, 15);
+            this.goToPreviousCharacterLinkLabel.Size = new System.Drawing.Size(52, 13);
             this.goToPreviousCharacterLinkLabel.TabIndex = 1;
             this.goToPreviousCharacterLinkLabel.TabStop = true;
             this.goToPreviousCharacterLinkLabel.Text = "character";
@@ -484,7 +486,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             this.goToPreviousLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.goToPreviousLabel.Location = new System.Drawing.Point(10, 10);
             this.goToPreviousLabel.Name = "goToPreviousLabel";
-            this.goToPreviousLabel.Size = new System.Drawing.Size(93, 15);
+            this.goToPreviousLabel.Size = new System.Drawing.Size(85, 13);
             this.goToPreviousLabel.TabIndex = 0;
             this.goToPreviousLabel.Text = "Go to previous...";
             // 
@@ -500,8 +502,8 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             // 
             // MainControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.editor);
             this.Controls.Add(this.toolWindowContainer1);
             this.Controls.Add(this.toolWindowContainer2);
@@ -513,7 +515,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
             this.Controls.Add(this.autoHideTabStripPanel1);
             this.Controls.Add(this.autoHideContainer1);
             this.Controls.Add(this.autoHideContainer2);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MainControl";
             this.Size = new System.Drawing.Size(800, 600);
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();

@@ -1,9 +1,11 @@
 ﻿using ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CompareFiles.DifferenceEngine;
 using ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CompareFiles.DifferenceEngine.Implementation;
+using ActiproSoftware.SampleBrowser;
 using ActiproSoftware.Text;
 using ActiproSoftware.Text.Tagging;
 using ActiproSoftware.Text.Tagging.Implementation;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -400,6 +402,21 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CompareF
 				// Re-compare with new setting
 				Compare();
 			}
+		}
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					ignoreWhiteSpaceCheckBox
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
 		}
 
 	}

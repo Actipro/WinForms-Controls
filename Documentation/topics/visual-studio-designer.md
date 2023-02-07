@@ -39,13 +39,23 @@ The following outlines the compatibility of Actipro WinForms Controls with versi
 <tbody>
 
 <tr>
+<td>WinForms Controls v23.1</td>
+<td>
+
+- Visual Studio 2022 v17.0-17.4
+- Visual Studio 2019 v16.10-16.11
+- *Minor updates to v16 and v17 are expected to be supported and will be verified as they are released*
+
+</td>
+</tr>
+
+<tr>
 <td>WinForms Controls v22.1</td>
 <td>
 
-- Visual Studio 2022 v17.0
-- Visual Studio 2019 v16.11
-- Visual Studio 2019 v16.10
-- *Minor updates to v16 and v17 are expected to be supported and will be verified as they are released*
+- Visual Studio 2022 v17.0-v17.4
+- Visual Studio 2019 v16.10-v16.11
+- *Minor updates to v16 and v17 are expected to be supported, but are no longer verified on older control releases*
 
 </td>
 </tr>
@@ -54,9 +64,8 @@ The following outlines the compatibility of Actipro WinForms Controls with versi
 <td>WinForms Controls v21.1</td>
 <td>
 
-- Visual Studio 2019 v16.11
-- Visual Studio 2019 v16.10
-- *Minor updates to v16 are expected to be supported and will be verified as they are released*
+- Visual Studio 2019 v16.10-v16.11
+- *Minor updates to v16 are expected to be supported, but are no longer verified on older control releases*
 
 </td>
 </tr>
@@ -95,7 +104,7 @@ The `TargetFrameworks` property of a project configuration file is used to defin
 In the following example, the .NET Framework designer capabilities will be used since the first target of `net462` is based on .NET Framework:
 
 ```xml
-<TargetFrameworks>net462;net471;netcoreapp3.1;net50-windows</TargetFrameworks>
+<TargetFrameworks>net462;net471;netcoreapp3.1;net60-windows</TargetFrameworks>
 ```
 
 > [!IMPORTANT]

@@ -9,11 +9,11 @@ Tool windows are container controls that can host child controls.  They are repr
 
 Tool windows are available to the end-user when they are active, as indicated by their [Active](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.Active) property.  If they are not active, they are not located anywhere in the user interface.  The [Activate](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.Activate*) method can be called to make an inactive tool window active.  Likewise, the [Close](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.Close*) method can be called to close a tool window.
 
-The end-user may initiate a drag operation by grabbing the tool window title bar and dragging it.  Alternatively, if a tool window is "attached" to another tool window (where two or more tool windows share the same bounds but a `TabStrip` controls which tool window is displayed), the tab representing the tool window may be dragged to start a drag operation.
+The end-user may initiate a drag operation by grabbing the tool window title bar and dragging it.  Alternatively, if a tool window is "attached" to another tool window (where two or more tool windows share the same bounds, but a `TabStrip` controls which tool window is displayed), the tab representing the tool window may be dragged to start a drag operation.
 
 During a drag operation, dock guides appear indicating where the tool window may be docked.  By moving the mouse over the dock guides, a drop-target appears indicating where the tool window will reside if the mouse button is released.
 
-![Screenshot](images/dock-controls-dock-guides.gif)
+![Screenshot](images/dock-controls-dock-guides.png)
 
 *Tool window dock guides displayed during a tool window drag operation*
 
@@ -58,13 +58,12 @@ These events are also present on the [ToolWindow](xref:@ActiproUIRoot.Controls.D
 
 ## Dock Guide Styles
 
-Dock guides are used to aid the end-user in selecting the drop location for a tool window that is being dragged.  The Dock controls support multiple styles of dock guides, which are specified using the [DockGuideStyle](xref:@ActiproUIRoot.Controls.Docking.DockManager.DockGuideStyle) property.
+Dock guides are used to aid the end-user in selecting the drop location for a tool window that is being dragged.  The Dock controls define the following styles of dock guides, which are specified using the [DockGuideStyle](xref:@ActiproUIRoot.Controls.Docking.DockManager.DockGuideStyle) property.
 
 | Value | Description |
 |-----|-----|
 | `None` | No dock guides are used. |
-| `Sunken` | Dock guides are used with a sunken appearance. |
-| `Raised` | Dock guides are used with a raised appearance. |
+| `Modern` | Dock guides are used with a modern appearance that supports color schemes. |
 
 ## Dock Hint Styles
 
@@ -73,5 +72,4 @@ Dock hints are used to indicate the drop area when a tool window is being dragge
 | Value | Description |
 |-----|-----|
 | `RubberBandHatched` | A hatched rubber band displays the bounds of the target dock operation. |
-| `RubberBandSolid` | A solid rubber band displays the bounds of the target dock operation. |
 | `Translucent` | A semi-transparent area displays the bounds of the target dock operation. |

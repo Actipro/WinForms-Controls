@@ -24,59 +24,38 @@
 		/// </summary>
 		private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainControl));
-            this.contentPanel = new System.Windows.Forms.Panel();
             this.editor = new ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor();
-            this.headerPanel = new System.Windows.Forms.Panel();
             this.resetColumnGuidesButton = new System.Windows.Forms.Button();
             this.toggleColumnGuideButton = new System.Windows.Forms.Button();
             this.areColumnGuidesVisibleCheckBox = new System.Windows.Forms.CheckBox();
-            this.contentPanel.SuspendLayout();
-            this.headerPanel.SuspendLayout();
+            this.contentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.headerFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.contentTableLayoutPanel.SuspendLayout();
+            this.headerFlowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // contentPanel
-            // 
-            this.contentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.contentPanel.Controls.Add(this.editor);
-            this.contentPanel.Controls.Add(this.headerPanel);
-            this.contentPanel.Location = new System.Drawing.Point(10, 10);
-            this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(780, 580);
-            this.contentPanel.TabIndex = 1;
             // 
             // editor
             // 
             this.editor.AllowDrop = true;
             this.editor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editor.IsOutliningMarginVisible = false;
-            this.editor.Location = new System.Drawing.Point(0, 31);
+            this.editor.Location = new System.Drawing.Point(13, 54);
             this.editor.Name = "editor";
+            this.editor.OverrideCursor = null;
             this.editor.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
             this.editor.PrintSettings.AreColumnGuidesVisible = false;
-            this.editor.Size = new System.Drawing.Size(780, 549);
+            this.editor.Size = new System.Drawing.Size(774, 533);
             this.editor.TabIndex = 1;
             this.editor.Text = resources.GetString("editor.Text");
-            // 
-            // headerPanel
-            // 
-            this.headerPanel.Controls.Add(this.resetColumnGuidesButton);
-            this.headerPanel.Controls.Add(this.toggleColumnGuideButton);
-            this.headerPanel.Controls.Add(this.areColumnGuidesVisibleCheckBox);
-            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerPanel.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.headerPanel.Size = new System.Drawing.Size(780, 31);
-            this.headerPanel.TabIndex = 3;
             // 
             // resetColumnGuidesButton
             // 
             this.resetColumnGuidesButton.AutoSize = true;
-            this.resetColumnGuidesButton.Location = new System.Drawing.Point(428, 3);
+            this.resetColumnGuidesButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.resetColumnGuidesButton.Location = new System.Drawing.Point(379, 3);
             this.resetColumnGuidesButton.Name = "resetColumnGuidesButton";
-            this.resetColumnGuidesButton.Size = new System.Drawing.Size(130, 25);
+            this.resetColumnGuidesButton.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.resetColumnGuidesButton.Size = new System.Drawing.Size(139, 29);
             this.resetColumnGuidesButton.TabIndex = 2;
             this.resetColumnGuidesButton.Text = "Reset Column Guides";
             this.resetColumnGuidesButton.UseVisualStyleBackColor = true;
@@ -85,9 +64,11 @@
             // toggleColumnGuideButton
             // 
             this.toggleColumnGuideButton.AutoSize = true;
-            this.toggleColumnGuideButton.Location = new System.Drawing.Point(200, 3);
+            this.toggleColumnGuideButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.toggleColumnGuideButton.Location = new System.Drawing.Point(154, 3);
             this.toggleColumnGuideButton.Name = "toggleColumnGuideButton";
-            this.toggleColumnGuideButton.Size = new System.Drawing.Size(222, 25);
+            this.toggleColumnGuideButton.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.toggleColumnGuideButton.Size = new System.Drawing.Size(219, 29);
             this.toggleColumnGuideButton.TabIndex = 1;
             this.toggleColumnGuideButton.Text = "Toggle Column Guide at Caret Position";
             this.toggleColumnGuideButton.UseVisualStyleBackColor = true;
@@ -96,36 +77,65 @@
             // areColumnGuidesVisibleCheckBox
             // 
             this.areColumnGuidesVisibleCheckBox.AutoSize = true;
-            this.areColumnGuidesVisibleCheckBox.Location = new System.Drawing.Point(0, 7);
+            this.areColumnGuidesVisibleCheckBox.Location = new System.Drawing.Point(3, 3);
             this.areColumnGuidesVisibleCheckBox.Name = "areColumnGuidesVisibleCheckBox";
-            this.areColumnGuidesVisibleCheckBox.Size = new System.Drawing.Size(162, 19);
+            this.areColumnGuidesVisibleCheckBox.Padding = new System.Windows.Forms.Padding(0, 7, 0, 0);
+            this.areColumnGuidesVisibleCheckBox.Size = new System.Drawing.Size(145, 24);
             this.areColumnGuidesVisibleCheckBox.TabIndex = 0;
             this.areColumnGuidesVisibleCheckBox.Text = "Are column guides visible";
             this.areColumnGuidesVisibleCheckBox.UseVisualStyleBackColor = true;
             this.areColumnGuidesVisibleCheckBox.CheckedChanged += new System.EventHandler(this.OnAreColumnGuidesVisibleCheckBoxCheckedChanged);
             // 
+            // contentTableLayoutPanel
+            // 
+            this.contentTableLayoutPanel.ColumnCount = 1;
+            this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.contentTableLayoutPanel.Controls.Add(this.headerFlowLayoutPanel, 0, 0);
+            this.contentTableLayoutPanel.Controls.Add(this.editor, 0, 1);
+            this.contentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.contentTableLayoutPanel.Name = "contentTableLayoutPanel";
+            this.contentTableLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.contentTableLayoutPanel.RowCount = 2;
+            this.contentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.contentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.contentTableLayoutPanel.Size = new System.Drawing.Size(800, 600);
+            this.contentTableLayoutPanel.TabIndex = 2;
+            // 
+            // headerFlowLayoutPanel
+            // 
+            this.headerFlowLayoutPanel.AutoSize = true;
+            this.headerFlowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.headerFlowLayoutPanel.Controls.Add(this.areColumnGuidesVisibleCheckBox);
+            this.headerFlowLayoutPanel.Controls.Add(this.toggleColumnGuideButton);
+            this.headerFlowLayoutPanel.Controls.Add(this.resetColumnGuidesButton);
+            this.headerFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headerFlowLayoutPanel.Location = new System.Drawing.Point(13, 13);
+            this.headerFlowLayoutPanel.Name = "headerFlowLayoutPanel";
+            this.headerFlowLayoutPanel.Size = new System.Drawing.Size(774, 35);
+            this.headerFlowLayoutPanel.TabIndex = 3;
+            // 
             // MainControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.contentPanel);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.contentTableLayoutPanel);
             this.Name = "MainControl";
             this.Size = new System.Drawing.Size(800, 600);
-            this.contentPanel.ResumeLayout(false);
-            this.headerPanel.ResumeLayout(false);
-            this.headerPanel.PerformLayout();
+            this.contentTableLayoutPanel.ResumeLayout(false);
+            this.contentTableLayoutPanel.PerformLayout();
+            this.headerFlowLayoutPanel.ResumeLayout(false);
+            this.headerFlowLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Panel contentPanel;
 		private UI.WinForms.Controls.SyntaxEditor.SyntaxEditor editor;
-		private System.Windows.Forms.Panel headerPanel;
 		private System.Windows.Forms.CheckBox areColumnGuidesVisibleCheckBox;
 		private System.Windows.Forms.Button toggleColumnGuideButton;
 		private System.Windows.Forms.Button resetColumnGuidesButton;
+		private System.Windows.Forms.TableLayoutPanel contentTableLayoutPanel;
+		private System.Windows.Forms.FlowLayoutPanel headerFlowLayoutPanel;
 	}
 }

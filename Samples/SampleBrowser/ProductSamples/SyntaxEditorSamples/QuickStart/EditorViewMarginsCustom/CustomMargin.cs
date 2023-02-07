@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using ActiproSoftware.Text.Utility;
+using ActiproSoftware.UI.WinForms.Controls.Extensions;
 using ActiproSoftware.UI.WinForms.Controls.Rendering;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Implementation;
@@ -16,9 +17,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorVi
 	/// </summary>
 	public class CustomMargin : EditorViewMarginBase {
 		
-		private readonly int MinWidth = 36;
-		private readonly Padding Padding = new Padding(4, 0, 2, 0);
-
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// OBJECT
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -39,7 +37,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorVi
 			view.TextAreaLayout += OnViewTextAreaLayout;
 		}
 
-
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// NON-PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -53,7 +50,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorVi
 		/// <param name="italic">Returns whether to use italic.</param>
 		private void GetFontData(out string fontFamilyName, out float fontSize, out bool bold, out bool italic) {
 			fontFamilyName = "Consolas";
-			fontSize = 10;
+			fontSize = View.DefaultFontSize;
 			bold = false;
 			italic = false;
 		}
@@ -83,6 +80,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorVi
 			bool bold, italic;
 			this.GetFontData(out fontFamilyName, out fontSize, out bold, out italic);
 			var fontStyle = FontStyle.Regular | (italic ? FontStyle.Italic : FontStyle.Regular) | (bold ? FontStyle.Bold : FontStyle.Regular);
+			fontSize = this.AutoScaleFontSize(fontSize);
 
 			// Measure the text
 			int lineTextWidth;
@@ -98,6 +96,12 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorVi
 
 			return marginWidth;
 		}
+
+		/// <summary>
+		/// Gets the minimum width of the margin based on the current DPI.
+		/// </summary>
+		/// <value>The width, in pixels.</value>
+		private int MinWidth => this.ScaleLogicalValue(36);
 
 		/// <summary>
 		/// Occurs when the view's margins are destroyed.
@@ -135,6 +139,11 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorVi
 
 		}
 
+		/// <summary>
+		/// Gets the padding to be applied to the margin based on the current DPI.
+		/// </summary>
+		/// <value>A <see cref="System.Windows.Forms.Padding"/>.</value>
+		private Padding Padding => this.ScaleLogicalValue(new Padding(4, 0, 2, 0));
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PUBLIC PROCEDURES
@@ -209,10 +218,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorVi
 			if (this.Visibility == UI.WinForms.Controls.Visibility.Collapsed)
 				return new Size(0, 0);
 
-			var dpiScale = g.DpiX / 96.0f;
-
 			var width = MeasureWidth(g);
-			return new Size((int)(width * dpiScale), availableSize.Height);
+
+			return new Size(width, availableSize.Height);
 		}
 
 	}

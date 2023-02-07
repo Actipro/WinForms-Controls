@@ -5,6 +5,7 @@ using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Implementation;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Margins;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Primitives;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Drawing;
 
@@ -69,11 +70,11 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorVi
 					break;
 			}
 
-			using (var layout = context.Canvas.CreateTextLayout("Margin placement: " + this.Placement, bounds.Width - 20, "Segoe UI", 8, SystemColors.ControlText)) {
+			using (var layout = context.Canvas.CreateTextLayout("Margin placement: " + this.Placement, bounds.Width - (20 * context.DpiScale), "Segoe UI", 8, SystemColors.ControlText)) {
 				layout.TextWrapping = TextLayoutWrapping.Wrap;
 				
-				var x = bounds.X + 10;
-				var y = bounds.Y + 3;
+				var x = bounds.X + (int)Math.Round(10 * context.DpiScale, MidpointRounding.AwayFromZero);
+				var y = bounds.Y + (int)Math.Round(3 * context.DpiScale, MidpointRounding.AwayFromZero);
 				foreach (var layoutLine in layout.Lines) {
 					context.DrawText(new Point(x, y), layoutLine);
 					y += layoutLine.Height;
@@ -91,19 +92,19 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorVi
 			if (this.Visibility == Visibility.Collapsed)
 				return new Size(0, 0);
 
-			var dpiScale = g.DpiX / 96.0f;
+			var scaleFactor = DpiHelper.GetDpiScale(View.SyntaxEditor);
 
 			switch (this.Placement) {
 				case EditorViewMarginPlacement.FixedBottom:
 				case EditorViewMarginPlacement.FixedTop:
 				case EditorViewMarginPlacement.ScrollableBottom:
 				case EditorViewMarginPlacement.ScrollableTop:
-					return new Size(availableSize.Width, (int)(20 * dpiScale));
+					return new Size(availableSize.Width, DpiHelper.ScaleInt32(20, scaleFactor));
 				case EditorViewMarginPlacement.ScrollableLeft:
 				case EditorViewMarginPlacement.ScrollableRight:
-					return new Size((int)(100 * dpiScale), availableSize.Height);
+					return new Size(DpiHelper.ScaleInt32(100, scaleFactor), availableSize.Height);
 				default:
-					return new Size((int)(80 * dpiScale), availableSize.Height);
+					return new Size(DpiHelper.ScaleInt32(80, scaleFactor), availableSize.Height);
 			}
 		}
 

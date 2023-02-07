@@ -1,6 +1,8 @@
 ﻿using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
+using ActiproSoftware.SampleBrowser;
 using ActiproSoftware.Text.Languages.Xml;
 using ActiproSoftware.Text.Languages.Xml.Implementation;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -25,7 +27,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.SingleLi
 
 			// Finalize component initialization
 			xmlEditor.Font = xmlEditorLabel.Font;
-			ResizeControls();
 
 			// Load a language from a language definition
 			xmlEditor.Document.Language = new XmlSyntaxLanguage();
@@ -56,27 +57,27 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.SingleLi
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// NON-PUBLIC PROCEDURES
+		// PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		/// <summary>
-		/// Occurs when the control is resized.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnContentPanelResize(object sender, EventArgs e) {
-			ResizeControls();
-		}
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
 
-		/// <summary>
-		/// Resizes controls on the form based on current conditions.
-		/// </summary>
-		private void ResizeControls() {
-			// Adjust label maximimum width to allow for proper word-wrapping when auto-sized and docked
-			foreach (var label in contentPanel.Controls.OfType<Label>()) {
-				label.MaximumSize = new System.Drawing.Size(contentPanel.Width, 0);
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					cSharpEditorLabel,
+					formulaEditorLabel,
+					headerLabel,
+					xmlEditorLabel,
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
 			}
+
 		}
 
 	}
+
 }

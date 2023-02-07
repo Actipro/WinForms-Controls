@@ -286,4 +286,16 @@
   <data name="IconGoToDefinition16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IconGoToDefinition16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconRichTextDocument16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconRichTextDocument16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconTextDocument16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconTextDocument16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconWrench16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconWrench16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="IconOutput16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconOutput16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

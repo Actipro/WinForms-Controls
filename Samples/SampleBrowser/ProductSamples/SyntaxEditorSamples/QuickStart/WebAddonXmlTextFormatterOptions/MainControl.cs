@@ -1,6 +1,8 @@
-﻿using ActiproSoftware.Text;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.Text;
 using ActiproSoftware.Text.Languages.Xml;
 using ActiproSoftware.Text.Languages.Xml.Implementation;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -97,5 +99,43 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.WebAddon
 				formatter.TagWrapLength = 0;
 		}
 
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					attributeSpacingModeComboBox,
+					attributeSpacingModeLabel,
+					elementSpacingModeComboBox,
+					elementSpacingModeLabel,
+					formatDocumentButton,
+					formatSelectionButton,              
+					tagWrapLengthLabel,
+					tagWrapLengthTextBox,
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+			if (!Program.IsControlSizeScalingHandledByRuntime) {
+				// Manually scale sizes
+				var manualSizeControl = new Control[] {
+					attributeSpacingModeComboBox,
+					elementSpacingModeComboBox,
+					tagWrapLengthTextBox,
+				};
+				foreach (var control in manualSizeControl)
+					control.Size = DpiHelper.RescaleSize(control.Size, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
+
 }

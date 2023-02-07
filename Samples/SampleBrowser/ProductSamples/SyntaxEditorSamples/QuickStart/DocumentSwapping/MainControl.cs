@@ -1,8 +1,10 @@
 ﻿using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
+using ActiproSoftware.SampleBrowser;
 using ActiproSoftware.Text.Implementation;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.Implementation;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -69,5 +71,39 @@ Try typing in some of the documents and then switching to others and switching b
 			// Swap in the document that corresponds to the current index
 			editor.Document = editorDocuments[documentComboBox.SelectedIndex];
 		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					documentComboBox,
+					documentLabel
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+			if (!Program.IsControlSizeScalingHandledByRuntime) {
+				// Manually scale sizes
+				var manualSizeControl = new Control[] {
+					documentComboBox,
+				};
+				foreach (var control in manualSizeControl)
+					control.Size = DpiHelper.RescaleSize(control.Size, deviceDpiOld, deviceDpiNew);
+
+				// Correct auto-scale, auto-size issue by sizing the document panel to match the combobox
+				documentPanel.Size = documentComboBox.Size;
+			}
+
+		}
+
 	}
+
 }

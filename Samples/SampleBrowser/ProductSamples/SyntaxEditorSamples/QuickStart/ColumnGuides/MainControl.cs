@@ -1,6 +1,8 @@
-﻿using ActiproSoftware.UI.WinForms.Controls.Rendering;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.UI.WinForms.Controls.Rendering;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Implementation;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Drawing;
 using System.Linq;
@@ -117,6 +119,27 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.ColumnGu
 			else {
 				// Remove existing column guide
 				editor.ColumnGuides.Remove(columnGuide);
+			}
+
+		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					areColumnGuidesVisibleCheckBox,
+					resetColumnGuidesButton,
+					toggleColumnGuideButton
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
 			}
 
 		}

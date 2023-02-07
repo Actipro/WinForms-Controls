@@ -24,9 +24,9 @@
 		/// </summary>
 		private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            ActiproSoftware.UI.WinForms.Controls.Docking.MetroLightDockRenderer metroLightDockRenderer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroLightDockRenderer();
-            ActiproSoftware.UI.WinForms.Controls.Docking.MetroLightDocumentWindowTabStripRenderer metroLightDocumentWindowTabStripRenderer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroLightDocumentWindowTabStripRenderer();
-            ActiproSoftware.UI.WinForms.Controls.Docking.MetroLightToolWindowTabStripRenderer metroLightToolWindowTabStripRenderer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroLightToolWindowTabStripRenderer();
+            ActiproSoftware.UI.WinForms.Controls.Docking.MetroDockRenderer metroDockRenderer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroDockRenderer();
+            ActiproSoftware.UI.WinForms.Controls.Docking.MetroDocumentWindowTabStripRenderer metroDocumentWindowTabStripRenderer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroDocumentWindowTabStripRenderer();
+            ActiproSoftware.UI.WinForms.Controls.Docking.MetroToolWindowTabStripRenderer metroToolWindowTabStripRenderer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroToolWindowTabStripRenderer();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dockManager = new ActiproSoftware.UI.WinForms.Controls.Docking.DockManager(this.components);
             this.imageList = new System.Windows.Forms.ImageList(this.components);
@@ -35,12 +35,14 @@
             this.eventsToolWindow = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow();
             this.toolWindowPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.toolWindowPropertiesToolWindow = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow();
+            this.toolWindowPropertyGridPanel = new System.Windows.Forms.Panel();
             this.toolWindowPropertyGridComboBox = new System.Windows.Forms.ComboBox();
             this.dockManagerPropertiesToolWindow = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow();
             this.dockManagerPropertyGridPanel = new System.Windows.Forms.Panel();
             this.dockManagerPropertyGrid = new System.Windows.Forms.PropertyGrid();
             this.dockManagerPropertyGridComboBox = new System.Windows.Forms.ComboBox();
             this.markupLabelToolWindow = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow();
+            this.markupLabelPanel = new System.Windows.Forms.Panel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.toolWindowContainer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindowContainer();
@@ -97,6 +99,7 @@
             this.viewToolWindowBarToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.rendererToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererMetroLightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rendererMetroDarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererVisualStudio2005ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererVisualStudio2005Beta2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererVisualStudio2002ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,8 +107,7 @@
             this.office2003RoundedVisualStudio2005Beta2TabsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockGuideStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockGuideStyleNoneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dockGuideStyleSunkenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dockGuideStyleRaisedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dockGuideStyleModernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockHintStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockHintStyleRubberBandHatchedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockHintStyleTranslucentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -161,31 +163,31 @@
             this.aboutWinFormsStudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolWindowPropertyGridPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
             this.eventsToolWindow.SuspendLayout();
             this.toolWindowPropertiesToolWindow.SuspendLayout();
+            this.toolWindowPropertyGridPanel.SuspendLayout();
             this.dockManagerPropertiesToolWindow.SuspendLayout();
             this.dockManagerPropertyGridPanel.SuspendLayout();
             this.markupLabelToolWindow.SuspendLayout();
+            this.markupLabelPanel.SuspendLayout();
             this.toolWindowContainer3.SuspendLayout();
             this.dockContainerContainer1.SuspendLayout();
             this.toolWindowContainer2.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.toolWindowPropertyGridPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // dockManager
             // 
-            this.dockManager.DockRenderer = metroLightDockRenderer1;
+            this.dockManager.DockRenderer = metroDockRenderer1;
             this.dockManager.DocumentMdiStyle = ActiproSoftware.UI.WinForms.Controls.Docking.DocumentMdiStyle.Tabbed;
             this.dockManager.DocumentWindowsCanFloat = true;
             this.dockManager.HostContainerControl = this;
             this.dockManager.ImageList = this.imageList;
-            this.dockManager.TabbedMdiContainerTabStripRenderer = metroLightDocumentWindowTabStripRenderer1;
-            this.dockManager.ToolWindowContainerTabStripRenderer = metroLightToolWindowTabStripRenderer1;
+            this.dockManager.TabbedMdiContainerTabStripRenderer = metroDocumentWindowTabStripRenderer1;
+            this.dockManager.ToolWindowContainerTabStripRenderer = metroToolWindowTabStripRenderer1;
             this.dockManager.ActiveFilesContextMenu += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowContextMenuEventHandler(this.dockManager_ActiveFilesContextMenu);
             this.dockManager.AutoHideToolWindowDisplaying += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_AutoHideToolWindowDisplaying);
             this.dockManager.AutoHideToolWindowHiding += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_AutoHideToolWindowHiding);
@@ -211,43 +213,41 @@
             // 
             // imageList
             // 
-            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "");
-            this.imageList.Images.SetKeyName(1, "");
-            this.imageList.Images.SetKeyName(2, "");
-            this.imageList.Images.SetKeyName(3, "");
-            this.imageList.Images.SetKeyName(4, "");
+            this.imageList.Images.SetKeyName(0, "Wrench16.png");
+            this.imageList.Images.SetKeyName(1, "Output16.png");
+            this.imageList.Images.SetKeyName(2, "Notes16.png");
+            this.imageList.Images.SetKeyName(3, "TextDocument16.png");
+            this.imageList.Images.SetKeyName(4, "Picture16.png");
             // 
             // eventsListBox
             // 
-            this.eventsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.eventsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.eventsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eventsListBox.IntegralHeight = false;
-            this.eventsListBox.ItemHeight = 15;
-            this.eventsListBox.Location = new System.Drawing.Point(-1, -1);
+            this.eventsListBox.Location = new System.Drawing.Point(0, 0);
             this.eventsListBox.Name = "eventsListBox";
-            this.eventsListBox.Size = new System.Drawing.Size(604, 177);
+            this.eventsListBox.Size = new System.Drawing.Size(602, 175);
             this.eventsListBox.TabIndex = 3;
             // 
             // markupLabel
             // 
+            this.markupLabel.ActiveLinkColor = System.Drawing.Color.Red;
             this.markupLabel.BackColor = System.Drawing.SystemColors.Window;
             this.markupLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.markupLabel.Location = new System.Drawing.Point(0, 0);
+            this.markupLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.markupLabel.LinkColor = System.Drawing.Color.Blue;
+            this.markupLabel.Location = new System.Drawing.Point(5, 5);
             this.markupLabel.MaxWidth = 2147483647;
             this.markupLabel.Name = "markupLabel";
-            this.markupLabel.Size = new System.Drawing.Size(192, 98);
+            this.markupLabel.Size = new System.Drawing.Size(182, 109);
             this.markupLabel.TabIndex = 7;
             this.markupLabel.Text = resources.GetString("markupLabel.Text");
             this.markupLabel.LinkClick += new ActiproSoftware.UI.WinForms.Controls.MarkupLabel.MarkupLabelLinkClickEventHandler(this.markupLabel_LinkClick);
             // 
             // eventsToolWindow
             // 
-            this.eventsToolWindow.BackgroundFill = new ActiproSoftware.UI.WinForms.Drawing.SolidColorBackgroundFill(System.Drawing.SystemColors.Window);
             this.eventsToolWindow.Controls.Add(this.eventsListBox);
             this.eventsToolWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eventsToolWindow.DockedSize = new System.Drawing.Size(200, 198);
@@ -268,9 +268,9 @@
             this.toolWindowPropertyGrid.HelpVisible = false;
             this.toolWindowPropertyGrid.LineColor = System.Drawing.SystemColors.ScrollBar;
             this.toolWindowPropertyGrid.Location = new System.Drawing.Point(-1, -1);
-			this.toolWindowPropertyGrid.MinimumSize = new System.Drawing.Size(10, 10);
-			this.toolWindowPropertyGrid.Name = "toolWindowPropertyGrid";
-            this.toolWindowPropertyGrid.Size = new System.Drawing.Size(194, 340);
+            this.toolWindowPropertyGrid.MinimumSize = new System.Drawing.Size(10, 10);
+            this.toolWindowPropertyGrid.Name = "toolWindowPropertyGrid";
+            this.toolWindowPropertyGrid.Size = new System.Drawing.Size(194, 322);
             this.toolWindowPropertyGrid.TabIndex = 1;
             this.toolWindowPropertyGrid.ToolbarVisible = false;
             // 
@@ -279,16 +279,26 @@
             this.toolWindowPropertiesToolWindow.Controls.Add(this.toolWindowPropertyGridPanel);
             this.toolWindowPropertiesToolWindow.Controls.Add(this.toolWindowPropertyGridComboBox);
             this.toolWindowPropertiesToolWindow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolWindowPropertiesToolWindow.DockedSize = new System.Drawing.Size(194, 404);
+            this.toolWindowPropertiesToolWindow.DockedSize = new System.Drawing.Size(194, 383);
             this.toolWindowPropertiesToolWindow.DockManager = this.dockManager;
             this.toolWindowPropertiesToolWindow.ImageIndex = 0;
             this.toolWindowPropertiesToolWindow.Key = "Tool Window Properties";
             this.toolWindowPropertiesToolWindow.Location = new System.Drawing.Point(0, 0);
             this.toolWindowPropertiesToolWindow.Name = "toolWindowPropertiesToolWindow";
-            this.toolWindowPropertiesToolWindow.Size = new System.Drawing.Size(192, 361);
+            this.toolWindowPropertiesToolWindow.Size = new System.Drawing.Size(192, 341);
             this.toolWindowPropertiesToolWindow.TabIndex = 0;
             this.toolWindowPropertiesToolWindow.Text = "TW Properties";
             this.toolWindowPropertiesToolWindow.TitleBarText = "Tool Window Properties";
+            // 
+            // toolWindowPropertyGridPanel
+            // 
+            this.toolWindowPropertyGridPanel.Controls.Add(this.toolWindowPropertyGrid);
+            this.toolWindowPropertyGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolWindowPropertyGridPanel.Location = new System.Drawing.Point(0, 21);
+            this.toolWindowPropertyGridPanel.Name = "toolWindowPropertyGridPanel";
+            this.toolWindowPropertyGridPanel.Size = new System.Drawing.Size(192, 320);
+            this.toolWindowPropertyGridPanel.TabIndex = 1;
+            this.toolWindowPropertyGridPanel.Resize += new System.EventHandler(this.toolWindowPropertyGridPanel_Resize);
             // 
             // toolWindowPropertyGridComboBox
             // 
@@ -297,7 +307,7 @@
             this.toolWindowPropertyGridComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.toolWindowPropertyGridComboBox.Location = new System.Drawing.Point(0, 0);
             this.toolWindowPropertyGridComboBox.Name = "toolWindowPropertyGridComboBox";
-            this.toolWindowPropertyGridComboBox.Size = new System.Drawing.Size(192, 23);
+            this.toolWindowPropertyGridComboBox.Size = new System.Drawing.Size(192, 21);
             this.toolWindowPropertyGridComboBox.TabIndex = 0;
             this.toolWindowPropertyGridComboBox.SelectedIndexChanged += new System.EventHandler(this.toolWindowPropertyGridComboBox_SelectedIndexChanged);
             // 
@@ -306,13 +316,13 @@
             this.dockManagerPropertiesToolWindow.Controls.Add(this.dockManagerPropertyGridPanel);
             this.dockManagerPropertiesToolWindow.Controls.Add(this.dockManagerPropertyGridComboBox);
             this.dockManagerPropertiesToolWindow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dockManagerPropertiesToolWindow.DockedSize = new System.Drawing.Size(194, 404);
+            this.dockManagerPropertiesToolWindow.DockedSize = new System.Drawing.Size(194, 383);
             this.dockManagerPropertiesToolWindow.DockManager = this.dockManager;
             this.dockManagerPropertiesToolWindow.ImageIndex = 0;
             this.dockManagerPropertiesToolWindow.Key = "DockManager Properties";
             this.dockManagerPropertiesToolWindow.Location = new System.Drawing.Point(0, 0);
             this.dockManagerPropertiesToolWindow.Name = "dockManagerPropertiesToolWindow";
-            this.dockManagerPropertiesToolWindow.Size = new System.Drawing.Size(192, 361);
+            this.dockManagerPropertiesToolWindow.Size = new System.Drawing.Size(192, 341);
             this.dockManagerPropertiesToolWindow.TabIndex = 0;
             this.dockManagerPropertiesToolWindow.Text = "Mgr Properties";
             this.dockManagerPropertiesToolWindow.TitleBarText = "DockManager Properties";
@@ -321,10 +331,11 @@
             // 
             this.dockManagerPropertyGridPanel.Controls.Add(this.dockManagerPropertyGrid);
             this.dockManagerPropertyGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dockManagerPropertyGridPanel.Location = new System.Drawing.Point(0, 23);
+            this.dockManagerPropertyGridPanel.Location = new System.Drawing.Point(0, 21);
             this.dockManagerPropertyGridPanel.Name = "dockManagerPropertyGridPanel";
-            this.dockManagerPropertyGridPanel.Size = new System.Drawing.Size(192, 338);
+            this.dockManagerPropertyGridPanel.Size = new System.Drawing.Size(192, 320);
             this.dockManagerPropertyGridPanel.TabIndex = 2;
+            this.dockManagerPropertyGridPanel.Resize += new System.EventHandler(this.dockManagerPropertyGridPanel_Resize);
             // 
             // dockManagerPropertyGrid
             // 
@@ -334,10 +345,10 @@
             this.dockManagerPropertyGrid.HelpVisible = false;
             this.dockManagerPropertyGrid.LineColor = System.Drawing.SystemColors.ScrollBar;
             this.dockManagerPropertyGrid.Location = new System.Drawing.Point(-1, -1);
-			this.dockManagerPropertyGrid.MinimumSize = new System.Drawing.Size(10, 10);
-			this.dockManagerPropertyGrid.Name = "dockManagerPropertyGrid";
+            this.dockManagerPropertyGrid.MinimumSize = new System.Drawing.Size(10, 10);
+            this.dockManagerPropertyGrid.Name = "dockManagerPropertyGrid";
             this.dockManagerPropertyGrid.SelectedObject = this.dockManager;
-            this.dockManagerPropertyGrid.Size = new System.Drawing.Size(194, 340);
+            this.dockManagerPropertyGrid.Size = new System.Drawing.Size(194, 322);
             this.dockManagerPropertyGrid.TabIndex = 2;
             this.dockManagerPropertyGrid.ToolbarVisible = false;
             // 
@@ -353,31 +364,42 @@
             "TabbedMdiContainer TabStrip Renderer"});
             this.dockManagerPropertyGridComboBox.Location = new System.Drawing.Point(0, 0);
             this.dockManagerPropertyGridComboBox.Name = "dockManagerPropertyGridComboBox";
-            this.dockManagerPropertyGridComboBox.Size = new System.Drawing.Size(192, 23);
+            this.dockManagerPropertyGridComboBox.Size = new System.Drawing.Size(192, 21);
             this.dockManagerPropertyGridComboBox.TabIndex = 3;
             this.dockManagerPropertyGridComboBox.SelectedIndexChanged += new System.EventHandler(this.dockManagerPropertyGridComboBox_SelectedIndexChanged);
             // 
             // markupLabelToolWindow
             // 
             this.markupLabelToolWindow.AutoHideSize = new System.Drawing.Size(172, 200);
-            this.markupLabelToolWindow.Controls.Add(this.markupLabel);
+            this.markupLabelToolWindow.Controls.Add(this.markupLabelPanel);
             this.markupLabelToolWindow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.markupLabelToolWindow.DockedSize = new System.Drawing.Size(194, 121);
+            this.markupLabelToolWindow.DockedSize = new System.Drawing.Size(194, 142);
             this.markupLabelToolWindow.DockManager = this.dockManager;
             this.markupLabelToolWindow.ImageIndex = 2;
             this.markupLabelToolWindow.Key = "Welcome to WinForms Studio";
             this.markupLabelToolWindow.Location = new System.Drawing.Point(1, 22);
             this.markupLabelToolWindow.Name = "markupLabelToolWindow";
-            this.markupLabelToolWindow.Size = new System.Drawing.Size(192, 98);
+            this.markupLabelToolWindow.Size = new System.Drawing.Size(192, 119);
             this.markupLabelToolWindow.TabIndex = 0;
             this.markupLabelToolWindow.Text = "Welcome to WinForms Studio";
+            // 
+            // markupLabelPanel
+            // 
+            this.markupLabelPanel.BackColor = System.Drawing.SystemColors.Window;
+            this.markupLabelPanel.Controls.Add(this.markupLabel);
+            this.markupLabelPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.markupLabelPanel.Location = new System.Drawing.Point(0, 0);
+            this.markupLabelPanel.Name = "markupLabelPanel";
+            this.markupLabelPanel.Padding = new System.Windows.Forms.Padding(5);
+            this.markupLabelPanel.Size = new System.Drawing.Size(192, 119);
+            this.markupLabelPanel.TabIndex = 8;
             // 
             // toolWindowContainer1
             // 
             this.toolWindowContainer1.DockManager = this.dockManager;
-            this.toolWindowContainer1.Location = new System.Drawing.Point(0, 127);
+            this.toolWindowContainer1.Location = new System.Drawing.Point(0, 148);
             this.toolWindowContainer1.Name = "toolWindowContainer1";
-            this.toolWindowContainer1.Size = new System.Drawing.Size(194, 404);
+            this.toolWindowContainer1.Size = new System.Drawing.Size(194, 383);
             this.toolWindowContainer1.TabIndex = 48;
             toolWindowContainer1.Controls.Add(toolWindowPropertiesToolWindow);
             toolWindowContainer1.Controls.Add(dockManagerPropertiesToolWindow);
@@ -388,7 +410,7 @@
             this.toolWindowContainer3.DockManager = this.dockManager;
             this.toolWindowContainer3.Location = new System.Drawing.Point(0, 0);
             this.toolWindowContainer3.Name = "toolWindowContainer3";
-            this.toolWindowContainer3.Size = new System.Drawing.Size(194, 121);
+            this.toolWindowContainer3.Size = new System.Drawing.Size(194, 142);
             this.toolWindowContainer3.TabIndex = 49;
             // 
             // dockContainerContainer1
@@ -856,6 +878,7 @@
             // 
             this.rendererToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rendererMetroLightToolStripMenuItem,
+            this.rendererMetroDarkToolStripMenuItem,
             this.rendererVisualStudio2005ToolStripMenuItem,
             this.rendererVisualStudio2005Beta2ToolStripMenuItem,
             this.rendererVisualStudio2002ToolStripMenuItem,
@@ -872,6 +895,13 @@
             this.rendererMetroLightToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
             this.rendererMetroLightToolStripMenuItem.Text = "Metro Light";
             this.rendererMetroLightToolStripMenuItem.Click += new System.EventHandler(this.viewRendererMetroLightMenuItem_Click);
+            // 
+            // rendererMetroDarkToolStripMenuItem
+            // 
+            this.rendererMetroDarkToolStripMenuItem.Name = "rendererMetroDarkToolStripMenuItem";
+            this.rendererMetroDarkToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
+            this.rendererMetroDarkToolStripMenuItem.Text = "Metro Dark";
+            this.rendererMetroDarkToolStripMenuItem.Click += new System.EventHandler(this.viewRendererMetroDarkToolStripMenuItem_Click);
             // 
             // rendererVisualStudio2005ToolStripMenuItem
             // 
@@ -912,8 +942,7 @@
             // 
             this.dockGuideStyleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dockGuideStyleNoneToolStripMenuItem,
-            this.dockGuideStyleSunkenToolStripMenuItem,
-            this.dockGuideStyleRaisedToolStripMenuItem});
+            this.dockGuideStyleModernToolStripMenuItem});
             this.dockGuideStyleToolStripMenuItem.Name = "dockGuideStyleToolStripMenuItem";
             this.dockGuideStyleToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.dockGuideStyleToolStripMenuItem.Text = "Dock Guide Style";
@@ -922,23 +951,16 @@
             // dockGuideStyleNoneToolStripMenuItem
             // 
             this.dockGuideStyleNoneToolStripMenuItem.Name = "dockGuideStyleNoneToolStripMenuItem";
-            this.dockGuideStyleNoneToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.dockGuideStyleNoneToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.dockGuideStyleNoneToolStripMenuItem.Text = "None";
             this.dockGuideStyleNoneToolStripMenuItem.Click += new System.EventHandler(this.viewDockGuideStyleNoneMenuItem_Click);
             // 
-            // dockGuideStyleSunkenToolStripMenuItem
+            // dockGuideStyleModernToolStripMenuItem
             // 
-            this.dockGuideStyleSunkenToolStripMenuItem.Name = "dockGuideStyleSunkenToolStripMenuItem";
-            this.dockGuideStyleSunkenToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.dockGuideStyleSunkenToolStripMenuItem.Text = "Sunken";
-            this.dockGuideStyleSunkenToolStripMenuItem.Click += new System.EventHandler(this.viewDockGuideStyleSunkenMenuItem_Click);
-            // 
-            // dockGuideStyleRaisedToolStripMenuItem
-            // 
-            this.dockGuideStyleRaisedToolStripMenuItem.Name = "dockGuideStyleRaisedToolStripMenuItem";
-            this.dockGuideStyleRaisedToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-            this.dockGuideStyleRaisedToolStripMenuItem.Text = "Raised";
-            this.dockGuideStyleRaisedToolStripMenuItem.Click += new System.EventHandler(this.viewDockGuideStyleRaisedMenuItem_Click);
+            this.dockGuideStyleModernToolStripMenuItem.Name = "dockGuideStyleModernToolStripMenuItem";
+            this.dockGuideStyleModernToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.dockGuideStyleModernToolStripMenuItem.Text = "Modern";
+            this.dockGuideStyleModernToolStripMenuItem.Click += new System.EventHandler(this.viewDockGuideStyleModernMenuItem_Click);
             // 
             // dockHintStyleToolStripMenuItem
             // 
@@ -1373,18 +1395,10 @@
             this.statusLabel.Text = "Ready";
             this.statusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // toolWindowPropertyGridPanel
-            // 
-            this.toolWindowPropertyGridPanel.Controls.Add(this.toolWindowPropertyGrid);
-            this.toolWindowPropertyGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolWindowPropertyGridPanel.Location = new System.Drawing.Point(0, 23);
-            this.toolWindowPropertyGridPanel.Name = "toolWindowPropertyGridPanel";
-            this.toolWindowPropertyGridPanel.Size = new System.Drawing.Size(192, 338);
-            this.toolWindowPropertyGridPanel.TabIndex = 1;
-            // 
             // MainForm
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(816, 614);
             this.Controls.Add(this.toolWindowContainer2);
             this.Controls.Add(this.autoHideContainer1);
@@ -1399,7 +1413,6 @@
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.statusStrip1);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
@@ -1408,9 +1421,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
             this.eventsToolWindow.ResumeLayout(false);
             this.toolWindowPropertiesToolWindow.ResumeLayout(false);
+            this.toolWindowPropertyGridPanel.ResumeLayout(false);
             this.dockManagerPropertiesToolWindow.ResumeLayout(false);
             this.dockManagerPropertyGridPanel.ResumeLayout(false);
             this.markupLabelToolWindow.ResumeLayout(false);
+            this.markupLabelPanel.ResumeLayout(false);
             this.toolWindowContainer3.ResumeLayout(false);
             this.dockContainerContainer1.ResumeLayout(false);
             this.toolWindowContainer2.ResumeLayout(false);
@@ -1420,7 +1435,6 @@
             this.menuStrip.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.toolWindowPropertyGridPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1542,8 +1556,7 @@
 		private System.Windows.Forms.ToolStripMenuItem nextWindowNavigationTypeToolWindowToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem nextWindowNavigationTypeDocumentWindowToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem dockGuideStyleNoneToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem dockGuideStyleSunkenToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem dockGuideStyleRaisedToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem dockGuideStyleModernToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem dockHintStyleRubberBandHatchedToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem dockHintStyleTranslucentToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem splitterExtent3PixelsToolStripMenuItem;
@@ -1562,5 +1575,7 @@
 		private System.Windows.Forms.ToolStripStatusLabel statusLabel;
 		private System.Windows.Forms.Panel dockManagerPropertyGridPanel;
 		private System.Windows.Forms.Panel toolWindowPropertyGridPanel;
-	}
+		private System.Windows.Forms.ToolStripMenuItem rendererMetroDarkToolStripMenuItem;
+        private System.Windows.Forms.Panel markupLabelPanel;
+    }
 }

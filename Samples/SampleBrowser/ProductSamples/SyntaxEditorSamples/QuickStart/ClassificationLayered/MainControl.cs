@@ -1,5 +1,7 @@
-﻿using ActiproSoftware.Text;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.Text;
 using ActiproSoftware.Text.Tagging.Implementation;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Windows.Forms;
 
@@ -55,5 +57,26 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Classifi
 			if ((editor != null) && (editor.Document.Properties.TryGetValue(typeof(CustomClassificationTagger), out tagger)))
 				tagger.HighlightIdentifiers = identifierCheckBox.Checked;
 		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					commentsCheckBox,
+					identifierCheckBox
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.UI.WinForms.Drawing;
+using System;
 using System.Windows.Forms;
 
 namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.AdornmentsHighlightRange {
@@ -73,6 +75,26 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Adornmen
 
 			// Try to get the tagger that was created for the active document
 			return editor.Document.Properties.TryGetValue(typeof(HighlightRangeTagger), out tagger);
+		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					highlightSelectionButton,
+					clearButton
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
 		}
 
 	}

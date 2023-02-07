@@ -10,6 +10,9 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
+using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
+using ActiproSoftware.UI.WinForms.Controls;
+using ActiproSoftware.UI.WinForms.Drawing;
 
 namespace ActiproSoftware.SampleBrowser {
 
@@ -45,6 +48,25 @@ namespace ActiproSoftware.SampleBrowser {
 			Application.ApplicationExit += OnApplicationApplicationExit;
 
 			Application.EnableVisualStyles();
+
+			#if NETCOREAPP
+			// DpiAwareness in WinForms is a mixed experience but one that is improving with newer releases of .NET, especially
+			// beginning with .NET 6.  While Actipro WinForms controls support per-monitor DPI awareness (PerMonitorV2), the
+			// Sample Browser itself is not optimized for per-monitor DPI since the project must run consistently across multiple
+			// .NET targets where each framework can exhibit slightly different behavior with automatic scaling of controls.
+			//
+			// "HighDpiMode.SystemAware" will scale controls based on the DPI of the primary monitor and is a highly consistent
+			// experience when all monitors have the same DPI, but the operating system will perform bitmap scaling of the UI,
+			// as appropriate, when displayed on a monitor whose DPI does not match the system DPI.
+			//
+			// The Sample Browser project can be changed to "HighDpiMode.PerMonitorV2" to evaluate the individual controls,
+			// but some scaling issues may be present with the environment that hosts the controls for demonstration.
+			//
+			// NOTE: This method call is for .NET Core or .NET 5+ only.  To change DpiAwareness for .NET Framework, change the
+			// "DpiAwareness" in "app.config".
+			Application.SetHighDpiMode(HighDpiMode.SystemAware);
+			#endif
+
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new RootForm());
 
@@ -71,7 +93,7 @@ namespace ActiproSoftware.SampleBrowser {
 				new ActiproSoftware.Text.Languages.DotNet.Reflection.Implementation.FileBasedAssemblyRepository(appDataPath);
 			logger?.LogDebug(".NET Reflection Repository Path = {0}", appDataPath);
 
-			// Create SyntaxEditor Python Languages Add-on ambient pacakge repository, which supports caching of 
+			// Create SyntaxEditor Python Languages Add-on ambient package repository, which supports caching of 
 			//   reflection data... Be sure to replace the appDataPath with a proper path for your own application (if file access is allowed)
 			appDataPath = Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), 
 				"Actipro Software"), "WinForms SampleBrowser Python Package Repository");
@@ -102,6 +124,51 @@ namespace ActiproSoftware.SampleBrowser {
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <summary>
+		/// Gets if the current .NET run-time automatically handles the scaling of most control fonts.
+		/// </summary>
+		/// <value>
+		/// <c>true</c> if the .NET run-time automatically handles the scaling of most control fonts;
+		/// otherwise, <c>false</c> if manual scaling of some control fonts is necessary.
+		/// </value>
+		/// <remarks>For use with per-monitor DPI awareness.</remarks>
+		/// <seealso cref="ActiproSoftware.UI.WinForms.Drawing.DpiHelper.RescaleFont(System.Drawing.Font, System.Drawing.SizeF, System.Drawing.SizeF)"/>
+		public static bool IsControlFontScalingHandledByRuntime {
+			get {
+				// Most controls inherit the font of their parent, but some controls will often
+				// define a different font. For instance, a "header label" might use a larger
+				// font than normal or apply bold style.
+				//
+				// .NET Framework 4.8 and .NET Core consistently scale the fonts of controls
+				// which define their own fonts, but .NET Framework 4.7.2 (and presumably
+				// earlier versions) do not scale those fonts and manually scaling the font
+				// is required for a consistent appearance at different DPI levels.
+				#if NET48_OR_GREATER || NETCOREAPP
+				return true;
+				#else
+				return false;
+				#endif
+			}
+		}
+
+		/// <summary>
+		/// Gets if the current .NET run-time automatically handles the scaling of most control sizes.
+		/// </summary>
+		/// <value>
+		/// <c>true</c> if the .NET run-time automatically handles the scaling of most control sizes;
+		/// otherwise, <c>false</c> if manual scaling of some control sizes is necessary.
+		/// </value>
+		/// <remarks>For use with per-monitor DPI awareness.</remarks>
+		/// <seealso cref="ActiproSoftware.UI.WinForms.Drawing.DpiHelper.RescaleSize(System.Drawing.Size, int, int)"/>
+		public static bool IsControlSizeScalingHandledByRuntime {
+			// .NET 6 started consistently scaling the size of controls with changes in DPI
+			#if NET6_0_OR_GREATER
+			get => true;
+			#else
+			get => false;
+			#endif
+		}
 
 		/// <summary>
 		/// Launches the default browser and navigates to the specified URL.

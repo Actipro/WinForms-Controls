@@ -1,4 +1,6 @@
-﻿using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Windows.Forms;
 
@@ -46,5 +48,24 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CurrentL
 			editor.IsCurrentLineHighlightingEnabled = isHighlightingEnabledCheckBox.Checked;
 		}
 
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					isHighlightingEnabledCheckBox
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+		}
+
 	}
+
 }

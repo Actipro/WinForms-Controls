@@ -2,6 +2,8 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingStarted15;
+using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.UI.WinForms.Drawing;
 
 namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.PrintingOptions {
 
@@ -158,5 +160,46 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Printing
 			editor.PrintSettings.IsWordWrapGlyphMarginVisible = wordWrapCheckBox.Checked;
 		}
 
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					collapsedNodesCheckBox,
+					columnGuidesCheckBox,
+					documentTitleCheckBox,
+					documentTitleLabel,
+					documentTitleTextBox,
+					highlightingCheckBox,
+					indentationGuidesCheckBox,
+					lineNumberCheckBox,
+					pageNumbersCheckBox,
+					showPrintPreviewDialogButton,
+					squiggleLinesCheckBox,
+					wordWrapCheckBox,
+					whitespaceCheckBox,
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+			if (!Program.IsControlSizeScalingHandledByRuntime) {
+				// Manually scale sizes
+				var manualSizeControl = new Control[] {
+					documentTitleTextBox,
+				};
+				foreach (var control in manualSizeControl)
+					control.Size = DpiHelper.RescaleSize(control.Size, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
+
 }

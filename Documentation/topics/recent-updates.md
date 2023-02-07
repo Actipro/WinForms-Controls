@@ -9,6 +9,14 @@ WinForms Studio's documentation has frequent updates so this topic is the best p
 
 If you are looking for a list of recently-added major new features to WinForms Studio products, please see the Sample Browser's Release History pages instead.
 
+## Updates for v23.1.0
+
+- **SyntaxEditor:** Updated the [Word Wrap](syntaxeditor/user-interface/editor-view/word-wrap.md) topic with information on configuring the wrapped line indent amount.
+
+- **All:** Added the [Converting to 2023.1](conversion/converting-to-v23-1.md) topic with information on changes we made in this version.
+
+- **All:** Added the [DPI Awareness](dpi-awareness.md) topic with information on support for system and per-monitor DPI awareness.
+
 ## Updates for v22.1.1
 
 - **SyntaxEditor:** Added the [Column Guides](syntaxeditor/user-interface/editor-view/column-guides.md) topic with information on the new feature.

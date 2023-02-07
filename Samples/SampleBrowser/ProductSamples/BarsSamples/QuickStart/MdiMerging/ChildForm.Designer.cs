@@ -52,14 +52,14 @@
 			// 
 			// ChildForm
 			// 
-			this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
 			this.ClientSize = new System.Drawing.Size(384, 278);
 			this.Controls.Add(this.textBox);
 			this.Controls.Add(this.toolBar);
-			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "ChildForm";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Document";
 			this.ResumeLayout(false);
 			this.PerformLayout();

@@ -10,6 +10,7 @@ using ActiproSoftware.Text.Lexing;
 using ActiproSoftware.Text.Tagging.Implementation;
 using ActiproSoftware.UI.WinForms;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.ComponentModel;
 using System.Text;
@@ -228,6 +229,27 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DotNetAd
 				text.AppendLine("Resolution not available");
 
 			resultsTextBox.Text = text.ToString();
+		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					goToDefinitionButton,
+					selectDefinitionCheckBox,
+					resultsTextBox
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
 		}
 
 	}

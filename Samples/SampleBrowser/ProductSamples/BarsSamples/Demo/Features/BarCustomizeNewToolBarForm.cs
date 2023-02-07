@@ -4,6 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Windows.Forms;
 using ActiproSoftware.Products.Bars;
+using ActiproSoftware.UI.WinForms.Controls;
 using ActiproSoftware.UI.WinForms.Controls.Bars;
 
 namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
@@ -11,7 +12,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 	/// <summary>
 	/// Provides a <see cref="Form"/> for entering data about a new toolbar.
 	/// </summary>
-	internal partial class BarCustomizeNewToolBarForm : System.Windows.Forms.Form {
+	internal partial class BarCustomizeNewToolBarForm : DpiAwareForm {
 
 		private BarManager	barManager;
 		private string		existingToolbarName;
@@ -90,7 +91,10 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
+		/// <inheritdoc/>
+		protected override bool IsDpiAwareFormShowBehaviorEnabled => true;
+
 		/// <summary>
 		/// Gets or sets the toolbar key entered by the user.
 		/// </summary>

@@ -23,83 +23,89 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainControl));
-			this.contentPanel = new System.Windows.Forms.Panel();
-			this.editor = new ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor();
-			this.headerPanel = new System.Windows.Forms.Panel();
-			this.isHighlightingEnabledCheckBox = new System.Windows.Forms.CheckBox();
-			this.contentPanel.SuspendLayout();
-			this.headerPanel.SuspendLayout();
-			this.SuspendLayout();
-			// 
-			// contentPanel
-			// 
-			this.contentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.contentPanel.Controls.Add(this.editor);
-			this.contentPanel.Controls.Add(this.headerPanel);
-			this.contentPanel.Location = new System.Drawing.Point(10, 10);
-			this.contentPanel.Name = "contentPanel";
-			this.contentPanel.Size = new System.Drawing.Size(780, 580);
-			this.contentPanel.TabIndex = 1;
-			// 
-			// editor
-			// 
-			this.editor.AllowDrop = true;
-			this.editor.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.editor.IsCurrentLineHighlightingEnabled = true;
-			this.editor.IsLineNumberMarginVisible = true;
-			this.editor.IsOutliningMarginVisible = false;
-			this.editor.Location = new System.Drawing.Point(0, 31);
-			this.editor.Name = "editor";
-			this.editor.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-			this.editor.Size = new System.Drawing.Size(780, 549);
-			this.editor.TabIndex = 1;
-			this.editor.Text = resources.GetString("editor.Text");
-			this.editor.WordWrapMode = ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.WordWrapMode.Word;
-			// 
-			// headerPanel
-			// 
-			this.headerPanel.Controls.Add(this.isHighlightingEnabledCheckBox);
-			this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.headerPanel.Location = new System.Drawing.Point(0, 0);
-			this.headerPanel.Name = "headerPanel";
-			this.headerPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-			this.headerPanel.Size = new System.Drawing.Size(780, 31);
-			this.headerPanel.TabIndex = 3;
-			// 
-			// isHighlightingEnabledCheckBox
-			// 
-			this.isHighlightingEnabledCheckBox.AutoSize = true;
-			this.isHighlightingEnabledCheckBox.Location = new System.Drawing.Point(0, 0);
-			this.isHighlightingEnabledCheckBox.Name = "isHighlightingEnabledCheckBox";
-			this.isHighlightingEnabledCheckBox.Size = new System.Drawing.Size(169, 19);
-			this.isHighlightingEnabledCheckBox.TabIndex = 0;
-			this.isHighlightingEnabledCheckBox.Text = "Is line highlighting enabled";
-			this.isHighlightingEnabledCheckBox.UseVisualStyleBackColor = true;
-			this.isHighlightingEnabledCheckBox.CheckedChanged += new System.EventHandler(this.OnIsHighlightingEnabledCheckBoxCheckedChanged);
-			// 
-			// MainControl
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.contentPanel);
-			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Name = "MainControl";
-			this.Size = new System.Drawing.Size(800, 600);
-			this.contentPanel.ResumeLayout(false);
-			this.headerPanel.ResumeLayout(false);
-			this.headerPanel.PerformLayout();
-			this.ResumeLayout(false);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainControl));
+            this.editor = new ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor();
+            this.isHighlightingEnabledCheckBox = new System.Windows.Forms.CheckBox();
+            this.contentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.headerFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.contentTableLayoutPanel.SuspendLayout();
+            this.headerFlowLayoutPanel.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // editor
+            // 
+            this.editor.AllowDrop = true;
+            this.editor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.editor.IsCurrentLineHighlightingEnabled = true;
+            this.editor.IsLineNumberMarginVisible = true;
+            this.editor.IsOutliningMarginVisible = false;
+            this.editor.Location = new System.Drawing.Point(13, 42);
+            this.editor.Name = "editor";
+            this.editor.OverrideCursor = null;
+            this.editor.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
+            this.editor.PrintSettings.AreColumnGuidesVisible = false;
+            this.editor.Size = new System.Drawing.Size(774, 545);
+            this.editor.TabIndex = 1;
+            this.editor.Text = resources.GetString("editor.Text");
+            this.editor.WordWrapMode = ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.WordWrapMode.Word;
+            // 
+            // isHighlightingEnabledCheckBox
+            // 
+            this.isHighlightingEnabledCheckBox.AutoSize = true;
+            this.isHighlightingEnabledCheckBox.Location = new System.Drawing.Point(3, 3);
+            this.isHighlightingEnabledCheckBox.Name = "isHighlightingEnabledCheckBox";
+            this.isHighlightingEnabledCheckBox.Size = new System.Drawing.Size(150, 17);
+            this.isHighlightingEnabledCheckBox.TabIndex = 0;
+            this.isHighlightingEnabledCheckBox.Text = "Is line highlighting enabled";
+            this.isHighlightingEnabledCheckBox.UseVisualStyleBackColor = true;
+            this.isHighlightingEnabledCheckBox.CheckedChanged += new System.EventHandler(this.OnIsHighlightingEnabledCheckBoxCheckedChanged);
+            // 
+            // contentTableLayoutPanel
+            // 
+            this.contentTableLayoutPanel.ColumnCount = 1;
+            this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.contentTableLayoutPanel.Controls.Add(this.headerFlowLayoutPanel, 0, 0);
+            this.contentTableLayoutPanel.Controls.Add(this.editor, 0, 1);
+            this.contentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.contentTableLayoutPanel.Name = "contentTableLayoutPanel";
+            this.contentTableLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.contentTableLayoutPanel.RowCount = 2;
+            this.contentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.contentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.contentTableLayoutPanel.Size = new System.Drawing.Size(800, 600);
+            this.contentTableLayoutPanel.TabIndex = 2;
+            // 
+            // headerFlowLayoutPanel
+            // 
+            this.headerFlowLayoutPanel.AutoSize = true;
+            this.headerFlowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.headerFlowLayoutPanel.Controls.Add(this.isHighlightingEnabledCheckBox);
+            this.headerFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headerFlowLayoutPanel.Location = new System.Drawing.Point(13, 13);
+            this.headerFlowLayoutPanel.Name = "headerFlowLayoutPanel";
+            this.headerFlowLayoutPanel.Size = new System.Drawing.Size(774, 23);
+            this.headerFlowLayoutPanel.TabIndex = 3;
+            // 
+            // MainControl
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.contentTableLayoutPanel);
+            this.Name = "MainControl";
+            this.Size = new System.Drawing.Size(800, 600);
+            this.contentTableLayoutPanel.ResumeLayout(false);
+            this.contentTableLayoutPanel.PerformLayout();
+            this.headerFlowLayoutPanel.ResumeLayout(false);
+            this.headerFlowLayoutPanel.PerformLayout();
+            this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Panel contentPanel;
 		private UI.WinForms.Controls.SyntaxEditor.SyntaxEditor editor;
-		private System.Windows.Forms.Panel headerPanel;
 		private System.Windows.Forms.CheckBox isHighlightingEnabledCheckBox;
+		private System.Windows.Forms.TableLayoutPanel contentTableLayoutPanel;
+		private System.Windows.Forms.FlowLayoutPanel headerFlowLayoutPanel;
 	}
 }

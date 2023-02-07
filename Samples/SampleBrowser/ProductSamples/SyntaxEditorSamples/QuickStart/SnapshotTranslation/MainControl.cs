@@ -1,4 +1,6 @@
-﻿using ActiproSoftware.Text;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.Text;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -21,9 +23,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
 		/// </summary>
 		public MainControl() {
 			InitializeComponent();
-
-			// Finalize component initialization
-			ResizeControls();
 
 			// Load a language from a language definition
 			topEditor.Document.Language = ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common.SyntaxEditorHelper.LoadLanguageDefinitionFromResourceStream("CSharp.langdef");
@@ -53,24 +52,30 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Snapshot
 			bottomEditor.Focus();
 		}
 
-		/// <summary>
-		/// Occurs when the control is resized.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnUpperPanelResize(object sender, EventArgs e) {
-			ResizeControls();
-		}
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		/// <summary>
-		/// Resizes controls on the form based on current conditions.
-		/// </summary>
-		private void ResizeControls() {
-			// Adjust label maximimum width to allow for proper word-wrapping when auto-sized and docked
-			foreach (var label in upperPanel.Controls.OfType<Label>()) {
-				label.MaximumSize = new System.Drawing.Size(upperPanel.Width, 0);
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					bottomEditorLabel,
+					heading1Label,
+					heading2Label,
+					heading3Label,
+					topEditorLabel,
+					updateSelectionButton,
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
 			}
+
 		}
 
 	}
+
 }

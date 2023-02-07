@@ -1,8 +1,10 @@
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using ActiproSoftware.UI.WinForms.Controls;
+using ActiproSoftware.UI.WinForms.Drawing;
 
 namespace ActiproSoftware.SampleBrowser {
 
@@ -59,6 +61,37 @@ namespace ActiproSoftware.SampleBrowser {
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PRIVATE PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <summary>
+		/// Hides the color picker popup.
+		/// </summary>
+		private void HidePopup() {
+			if (dropDown != null) {
+				dropDown.SelectedColorChanged -= new EventHandler(this.dropDown_SelectedColorChanged);
+				dropDown.Close();
+				dropDown = null;
+			}
+
+		}
+
+		/// <summary>
+		/// Shows the color picker popup.
+		/// </summary>
+		private void ShowPopup() {
+			HidePopup();
+
+			dropDown = new StandardColorPickerPopup();
+			dropDown.SelectedColorChanged += new EventHandler(this.dropDown_SelectedColorChanged);
+
+			// Show the dropdown
+			dropDown.DesktopLocation = this.PointToScreen(new Point(this.ClientRectangle.Left, this.ClientRectangle.Bottom));
+			DpiAwareFormShowBehavior.ApplyTo(dropDown);
+			dropDown.ShowPopup(owner: this, activate: true);
+		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -99,15 +132,7 @@ namespace ActiproSoftware.SampleBrowser {
 		/// </para>
 		/// </remarks>
 		protected override void OnClick(EventArgs e) {
-			// Create a dropdown
-			if (dropDown == null) {
-				dropDown = new StandardColorPickerPopup();
-				dropDown.SelectedColorChanged += new EventHandler(this.dropDown_SelectedColorChanged);
-			}
-
-			// Show the dropdown
-			dropDown.DesktopLocation = this.PointToScreen(new Point(this.ClientRectangle.Left, this.ClientRectangle.Bottom));
-			dropDown.ShowPopup(this, true);
+			ShowPopup();
 
 			// Call the base method
 			base.OnClick(e);
@@ -126,8 +151,7 @@ namespace ActiproSoftware.SampleBrowser {
 		/// </para>
 		/// </remarks>
 		protected virtual void OnColorChanged(EventArgs e) {
-			if (this.ColorChanged != null)
-				this.ColorChanged(this, e);
+			this.ColorChanged?.Invoke(this, e);
 		}
 
 		/// <summary>
@@ -149,6 +173,9 @@ namespace ActiproSoftware.SampleBrowser {
 			// Get the Graphics object
 			Graphics g = e.Graphics;
 
+			// Handle scaling
+			var scaleFactor = DpiHelper.GetDpiScale(this);
+
 			// Fill the background
 			g.FillRectangle(SystemBrushes.Window, this.ClientRectangle);
 
@@ -156,7 +183,11 @@ namespace ActiproSoftware.SampleBrowser {
 			ControlPaint.DrawBorder3D(g, this.ClientRectangle, Border3DStyle.Sunken);
 
 			// Set the glyph bounds
-			Rectangle bounds = new Rectangle(this.ClientRectangle.Right - 19, this.ClientRectangle.Top + 2, 17, this.ClientRectangle.Height - 4);
+			Rectangle bounds = new Rectangle(
+				this.ClientRectangle.Right - DpiHelper.ScaleInt32(19, scaleFactor),
+				this.ClientRectangle.Top + 2,
+				DpiHelper.ScaleInt32(17, scaleFactor),
+				this.ClientRectangle.Height - 4);
 
 			// If the button is pressed...
 			int offset = 0;
@@ -171,13 +202,31 @@ namespace ActiproSoftware.SampleBrowser {
 			}
 
 			// Draw the glyph
-			int x = bounds.Left + offset + 5;
+			int x = bounds.Left + offset + DpiHelper.ScaleInt32(5, scaleFactor);
 			int y = bounds.Top + offset + (int)((bounds.Height - 4) / 2);
-			var arrowPen = (this.Enabled ? SystemPens.ControlText : SystemPens.GrayText);
-			g.DrawLine(arrowPen, new Point(x, y), new Point(x + 6, y));
-			g.DrawLine(arrowPen, new Point(x + 1, y + 1), new Point(x + 5, y + 1));
-			g.DrawLine(arrowPen, new Point(x + 2, y + 2), new Point(x + 4, y + 2));
-			g.DrawLine(arrowPen, new Point(x + 3, y + 2), new Point(x + 3, y + 3));
+			var foregroundPen = (this.Enabled ? SystemPens.ControlText : SystemPens.GrayText);
+			var foregroundBrush = (this.Enabled ? SystemBrushes.ControlText : SystemBrushes.GrayText);
+			// M 0,0 L 6,0 L 3,3 Z
+			var geometry = new GraphicsPath(
+				new PointF[] {
+					new PointF(0.0f, 0.0f),
+					new PointF(6.0f, 0.0f),
+					new PointF(3.0f, 3.0f)
+				},
+				new byte[] {
+					(byte)PathPointType.Start,
+					(byte)PathPointType.Line,
+					(byte)(PathPointType.Line | PathPointType.CloseSubpath)
+				}
+			);
+			using (DrawingHelper.CreateTemporaryGraphicsState(g)) {
+				g.TranslateTransform(x, y);
+				g.ScaleTransform(scaleFactor.Width, scaleFactor.Height);
+
+				// While it should be redundant, both fill and draw are required to get the triangle to render corners correctly
+				g.FillPath(foregroundBrush, geometry);
+				g.DrawPath(foregroundPen, geometry);
+			}
 
 			// Draw highlight
 			if (this.Focused) {
@@ -194,7 +243,7 @@ namespace ActiproSoftware.SampleBrowser {
 
 			// Draw the color
 			g.FillRectangle(new SolidBrush(color), bounds);
-            g.DrawRectangle(arrowPen, bounds.Left, bounds.Top, bounds.Width - 1, bounds.Height - 1);				
+			g.DrawRectangle(foregroundPen, bounds.Left, bounds.Top, bounds.Width - 1, bounds.Height - 1);				
 
 			// Get the color name
 			string name = color.R + ", " + color.G + ", " + color.B;
@@ -204,10 +253,16 @@ namespace ActiproSoftware.SampleBrowser {
 				name = color.Name;
 
 			// Draw color name
-			StringFormat format = new StringFormat(StringFormat.GenericTypographic);
-			format.LineAlignment = StringAlignment.Center;
-            bounds = new Rectangle(bounds.Right + 4, this.ClientRectangle.Top, this.ClientRectangle.Width - bounds.Right - 20, this.ClientRectangle.Height);
-			g.DrawString(name, this.Font, (this.Enabled ? (this.Focused ? SystemBrushes.HighlightText : SystemBrushes.ControlText) : SystemBrushes.GrayText), bounds, format);
+			using (StringFormat format = new StringFormat(StringFormat.GenericTypographic)) {
+				format.LineAlignment = StringAlignment.Center;
+				bounds = new Rectangle(
+					bounds.Right + DpiHelper.ScaleInt32(4, scaleFactor),
+					this.ClientRectangle.Top,
+					this.ClientRectangle.Width - bounds.Right - DpiHelper.ScaleInt32(20, scaleFactor),
+					this.ClientRectangle.Height);
+				g.DrawString(name, Font, (this.Enabled ? (this.Focused ? SystemBrushes.HighlightText : SystemBrushes.ControlText) : SystemBrushes.GrayText), bounds, format);
+			}
+
 		}
 
 		/// <summary>
@@ -223,9 +278,13 @@ namespace ActiproSoftware.SampleBrowser {
 		/// </para>
 		/// </remarks>
 		protected override void OnResize(EventArgs e) {
+			// Handle scaling
+			var scaleFactor = DpiHelper.GetDpiScale(this);
+			var standardHeight = DpiHelper.ScaleInt32(21, scaleFactor);
+
 			// Ensure size
-			if (this.Height != 21) {
-				this.Height = 21;
+			if (this.Height != standardHeight) {
+				this.Height = standardHeight;
 				return;
 			}
 
@@ -234,4 +293,5 @@ namespace ActiproSoftware.SampleBrowser {
 		}
 
 	}
+
 }

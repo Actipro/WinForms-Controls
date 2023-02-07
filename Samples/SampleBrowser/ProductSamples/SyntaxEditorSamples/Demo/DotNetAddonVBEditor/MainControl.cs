@@ -5,9 +5,11 @@ using ActiproSoftware.Text.Languages.DotNet.Reflection;
 using ActiproSoftware.Text.Languages.VB.Implementation;
 using ActiproSoftware.Text.Parsing;
 using ActiproSoftware.Text.Parsing.LLParser;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -38,6 +40,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonVBE
 		/// </summary>
 		public MainControl() {
 			InitializeComponent();
+
+			// Finalize initialization
+			DpiHelper.RescaleListViewColumns(errorListView, DpiHelper.DefaultDeviceDpi, DpiHelper.GetSystemDeviceDpi());
 
 			// Set the AST output tab stop width
 			astOutputEditor.SetTabStopWidth(1);
@@ -85,7 +90,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonVBE
 		/// <param name="sender">The sender of the event.</param>
 		/// <param name="e">The <c>CollectionChangeEventArgs</c> that contains data related to this event.</param>
 		private void OnAssemblyReferencesChanged(object sender, Text.Utility.CollectionChangeEventArgs<IProjectAssemblyReference> e) {
-			// Assessmblies can be added/removed quickly, especially during initial discovery.
+			// Assemblies can be added/removed quickly, especially during initial discovery.
 			// Throttle UI refreshing until no "change" events have been received for a given time.
 			if (refreshReferencesTimer is null)
 				refreshReferencesTimer = new System.Threading.Timer(RefreshReferenceListCallback);
@@ -320,7 +325,43 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.DotNetAddonVBE
 			// Clear .NET Languages Add-on project assembly references when the sample unloads
 			projectAssembly.AssemblyReferences.Clear();
 		}
-		
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts				
+				var manualFontControls = new Control[] {
+					astOutputEditor,
+					errorListView,
+					mainToolStrip,
+					referencesListBox,
+					referencesToolStrip,
+					symbolSelector
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+
+				// Manually scale the buttons/images on the tool strip
+				mainToolStrip.SuspendLayout();
+				mainToolStrip.ImageScalingSize = DpiHelper.RescaleSize(mainToolStrip.ImageScalingSize, deviceDpiOld, deviceDpiNew);
+				var imageButtonSize = DpiHelper.ScaleSize(new Size(23, 22), DpiHelper.GetDpiScale(deviceDpiNew));
+				foreach (var toolStripItem in mainToolStrip.Items) {
+					if (toolStripItem is ToolStripButton toolStripButton) {
+						if (toolStripButton.DisplayStyle == ToolStripItemDisplayStyle.Image) {
+							toolStripButton.AutoSize = false;
+							toolStripButton.Size = imageButtonSize;
+						}
+					}
+				}
+				mainToolStrip.ResumeLayout();
+			}
+
+			DpiHelper.RescaleListViewColumns(errorListView, deviceDpiOld, deviceDpiNew);
+
+		}
+
 	}
 
 }

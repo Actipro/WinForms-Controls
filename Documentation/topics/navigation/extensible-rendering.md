@@ -25,7 +25,7 @@ Navigation includes the following built-in renderers:
 
 | Renderer | Description |
 |-----|-----|
-| [MetroLightNavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.MetroLightNavigationBarRenderer) | Capable of drawing in a Metro Light style. |
+| [MetroNavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.MetroNavigationBarRenderer) | Capable of drawing in a Metro style (Light and Dark).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer.BaseColorSchemeType). |
 | [Office2007NavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.Office2007NavigationBarRenderer) | Capable of drawing all Office 2007 styles (Blue, Silver, and Black).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer.BaseColorSchemeType). |
 | [Office2003NavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer) | Capable of drawing all Office 2003 styles (Blue, Olive, Silver, and Windows Classic).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer.BaseColorSchemeType). |
 

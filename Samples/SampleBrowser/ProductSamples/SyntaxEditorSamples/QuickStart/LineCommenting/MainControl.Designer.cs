@@ -24,59 +24,40 @@
 		/// </summary>
 		private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainControl));
-            this.contentPanel = new System.Windows.Forms.Panel();
             this.editor = new ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor();
-            this.headerPanel = new System.Windows.Forms.Panel();
             this.commentLinesButton = new System.Windows.Forms.Button();
             this.lineCommentersComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lineCommentersLabel = new System.Windows.Forms.Label();
             this.uncommentLinesButton = new System.Windows.Forms.Button();
-            this.contentPanel.SuspendLayout();
-            this.headerPanel.SuspendLayout();
+            this.contentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.headerCommandsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.lineCommentersComboBoxPanel = new System.Windows.Forms.Panel();
+            this.contentTableLayoutPanel.SuspendLayout();
+            this.headerCommandsFlowLayoutPanel.SuspendLayout();
+            this.lineCommentersComboBoxPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // contentPanel
-            // 
-            this.contentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.contentPanel.Controls.Add(this.editor);
-            this.contentPanel.Controls.Add(this.headerPanel);
-            this.contentPanel.Location = new System.Drawing.Point(10, 10);
-            this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(780, 580);
-            this.contentPanel.TabIndex = 1;
             // 
             // editor
             // 
             this.editor.AllowDrop = true;
+            this.contentTableLayoutPanel.SetColumnSpan(this.editor, 3);
             this.editor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editor.Location = new System.Drawing.Point(0, 34);
+            this.editor.Location = new System.Drawing.Point(13, 54);
             this.editor.Name = "editor";
-            this.editor.Size = new System.Drawing.Size(780, 546);
+            this.editor.OverrideCursor = null;
+            this.editor.PrintSettings.AreColumnGuidesVisible = false;
+            this.editor.Size = new System.Drawing.Size(774, 533);
             this.editor.TabIndex = 1;
             this.editor.Text = resources.GetString("editor.Text");
-            // 
-            // headerPanel
-            // 
-            this.headerPanel.Controls.Add(this.commentLinesButton);
-            this.headerPanel.Controls.Add(this.lineCommentersComboBox);
-            this.headerPanel.Controls.Add(this.label1);
-            this.headerPanel.Controls.Add(this.uncommentLinesButton);
-            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerPanel.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.headerPanel.Size = new System.Drawing.Size(780, 34);
-            this.headerPanel.TabIndex = 3;
             // 
             // commentLinesButton
             // 
             this.commentLinesButton.AutoSize = true;
-            this.commentLinesButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.commentLinesButton.Location = new System.Drawing.Point(565, 0);
+            this.commentLinesButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.commentLinesButton.Location = new System.Drawing.Point(3, 3);
             this.commentLinesButton.Name = "commentLinesButton";
-            this.commentLinesButton.Size = new System.Drawing.Size(101, 24);
+            this.commentLinesButton.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.commentLinesButton.Size = new System.Drawing.Size(109, 29);
             this.commentLinesButton.TabIndex = 2;
             this.commentLinesButton.Text = "Comment Lines";
             this.commentLinesButton.UseVisualStyleBackColor = true;
@@ -84,64 +65,111 @@
             // 
             // lineCommentersComboBox
             // 
-            this.lineCommentersComboBox.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lineCommentersComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lineCommentersComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.lineCommentersComboBox.FormattingEnabled = true;
             this.lineCommentersComboBox.Items.AddRange(new object[] {
             "// (per-line)",
             "/* */ (range)"});
-            this.lineCommentersComboBox.Location = new System.Drawing.Point(94, 0);
+            this.lineCommentersComboBox.Location = new System.Drawing.Point(0, 8);
             this.lineCommentersComboBox.Name = "lineCommentersComboBox";
-            this.lineCommentersComboBox.Size = new System.Drawing.Size(121, 23);
+            this.lineCommentersComboBox.Size = new System.Drawing.Size(437, 21);
             this.lineCommentersComboBox.TabIndex = 3;
             this.lineCommentersComboBox.SelectedValueChanged += new System.EventHandler(this.OnLineCommentersComboBoxSelectedValueChanged);
             // 
-            // label1
+            // lineCommentersLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
-            this.label1.Size = new System.Drawing.Size(94, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Line commenter";
+            this.lineCommentersLabel.AutoSize = true;
+            this.lineCommentersLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lineCommentersLabel.Location = new System.Drawing.Point(13, 10);
+            this.lineCommentersLabel.Name = "lineCommentersLabel";
+            this.lineCommentersLabel.Size = new System.Drawing.Size(82, 41);
+            this.lineCommentersLabel.TabIndex = 0;
+            this.lineCommentersLabel.Text = "Line commenter";
+            this.lineCommentersLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // uncommentLinesButton
             // 
             this.uncommentLinesButton.AutoSize = true;
-            this.uncommentLinesButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.uncommentLinesButton.Location = new System.Drawing.Point(666, 0);
+            this.uncommentLinesButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.uncommentLinesButton.Location = new System.Drawing.Point(118, 3);
             this.uncommentLinesButton.Name = "uncommentLinesButton";
-            this.uncommentLinesButton.Size = new System.Drawing.Size(114, 24);
+            this.uncommentLinesButton.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.uncommentLinesButton.Size = new System.Drawing.Size(122, 29);
             this.uncommentLinesButton.TabIndex = 4;
             this.uncommentLinesButton.Text = "Uncomment Lines";
             this.uncommentLinesButton.UseVisualStyleBackColor = true;
             this.uncommentLinesButton.Click += new System.EventHandler(this.OnUncommentLinesButtonClick);
             // 
+            // contentTableLayoutPanel
+            // 
+            this.contentTableLayoutPanel.ColumnCount = 3;
+            this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.contentTableLayoutPanel.Controls.Add(this.lineCommentersComboBoxPanel, 1, 0);
+            this.contentTableLayoutPanel.Controls.Add(this.headerCommandsFlowLayoutPanel, 2, 0);
+            this.contentTableLayoutPanel.Controls.Add(this.editor, 0, 1);
+            this.contentTableLayoutPanel.Controls.Add(this.lineCommentersLabel, 0, 0);
+            this.contentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.contentTableLayoutPanel.Name = "contentTableLayoutPanel";
+            this.contentTableLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.contentTableLayoutPanel.RowCount = 2;
+            this.contentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.contentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.contentTableLayoutPanel.Size = new System.Drawing.Size(800, 600);
+            this.contentTableLayoutPanel.TabIndex = 2;
+            // 
+            // headerCommandsFlowLayoutPanel
+            // 
+            this.headerCommandsFlowLayoutPanel.AutoSize = true;
+            this.headerCommandsFlowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.headerCommandsFlowLayoutPanel.Controls.Add(this.commentLinesButton);
+            this.headerCommandsFlowLayoutPanel.Controls.Add(this.uncommentLinesButton);
+            this.headerCommandsFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headerCommandsFlowLayoutPanel.Location = new System.Drawing.Point(544, 13);
+            this.headerCommandsFlowLayoutPanel.Name = "headerCommandsFlowLayoutPanel";
+            this.headerCommandsFlowLayoutPanel.Size = new System.Drawing.Size(243, 35);
+            this.headerCommandsFlowLayoutPanel.TabIndex = 3;
+            this.headerCommandsFlowLayoutPanel.WrapContents = false;
+            // 
+            // lineCommentersComboBoxPanel
+            // 
+            this.lineCommentersComboBoxPanel.AutoSize = true;
+            this.lineCommentersComboBoxPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.lineCommentersComboBoxPanel.Controls.Add(this.lineCommentersComboBox);
+            this.lineCommentersComboBoxPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lineCommentersComboBoxPanel.Location = new System.Drawing.Point(101, 13);
+            this.lineCommentersComboBoxPanel.Name = "lineCommentersComboBoxPanel";
+            this.lineCommentersComboBoxPanel.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
+            this.lineCommentersComboBoxPanel.Size = new System.Drawing.Size(437, 35);
+            this.lineCommentersComboBoxPanel.TabIndex = 3;
+            // 
             // MainControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.contentPanel);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.contentTableLayoutPanel);
             this.Name = "MainControl";
             this.Size = new System.Drawing.Size(800, 600);
-            this.contentPanel.ResumeLayout(false);
-            this.headerPanel.ResumeLayout(false);
-            this.headerPanel.PerformLayout();
+            this.contentTableLayoutPanel.ResumeLayout(false);
+            this.contentTableLayoutPanel.PerformLayout();
+            this.headerCommandsFlowLayoutPanel.ResumeLayout(false);
+            this.headerCommandsFlowLayoutPanel.PerformLayout();
+            this.lineCommentersComboBoxPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Panel contentPanel;
 		private UI.WinForms.Controls.SyntaxEditor.SyntaxEditor editor;
-		private System.Windows.Forms.Panel headerPanel;
 		private System.Windows.Forms.Button commentLinesButton;
-		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lineCommentersLabel;
 		private System.Windows.Forms.ComboBox lineCommentersComboBox;
 		private System.Windows.Forms.Button uncommentLinesButton;
+		private System.Windows.Forms.TableLayoutPanel contentTableLayoutPanel;
+		private System.Windows.Forms.FlowLayoutPanel headerCommandsFlowLayoutPanel;
+		private System.Windows.Forms.Panel lineCommentersComboBoxPanel;
 	}
 }
