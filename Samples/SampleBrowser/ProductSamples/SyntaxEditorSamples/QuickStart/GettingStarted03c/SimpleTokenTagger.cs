@@ -11,7 +11,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
 	/// Represents a token tagger for the <c>Simple</c> language.
 	/// </summary>
 	/// <remarks>
-	/// Languages with non-mergable <see cref="ILexer"/> implementations require a customized token
+	/// Languages with non-mergeable <see cref="ILexer"/> implementations require a customized token
 	/// tagger class that can return classification types for the tokens managed by the tagger.
 	/// The classifications made are then used by SyntaxEditor to drive syntax highlighting.
 	/// </remarks>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.UI.WinForms.Drawing;
+using System;
 using System.Windows.Forms;
 
 namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.ReadOnlyDocument {
@@ -32,5 +34,25 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.ReadOnly
 			editor.Document.IsReadOnly = isDocumentReadOnlyCheckBox.Checked;
 		}
 
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					isDocumentReadOnlyCheckBox
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
+
 }

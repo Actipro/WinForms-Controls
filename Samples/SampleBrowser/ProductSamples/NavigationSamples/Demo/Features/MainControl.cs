@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using ActiproSoftware.UI.WinForms.Drawing;
 using ActiproSoftware.UI.WinForms.Controls.Navigation;
+using ActiproSoftware.SampleBrowser.Controls;
 
 namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
 
@@ -132,8 +133,8 @@ namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
 				navigationBar.Renderer = customNavigationBarRenderer;
 			else {
 				WindowsColorSchemeType colorSchemeType = (WindowsColorSchemeType)Enum.Parse(typeof(WindowsColorSchemeType), rendererDropDownList.SelectedItem.ToString(), true);
-				if (rendererDropDownList.SelectedItem.ToString().StartsWith("MetroLight"))
-					navigationBar.Renderer = new MetroLightNavigationBarRenderer();
+				if (rendererDropDownList.SelectedItem.ToString().StartsWith("Metro"))
+					navigationBar.Renderer = new MetroNavigationBarRenderer(colorSchemeType);
 				else if (rendererDropDownList.SelectedItem.ToString().StartsWith("Office2007"))
 					navigationBar.Renderer = new Office2007NavigationBarRenderer(colorSchemeType);
 				else
@@ -145,17 +146,22 @@ namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
 			allFoldersNavigationBarPanel.Renderer = navigationBar.Renderer;
 			changeNavigationBarPanel.Renderer = navigationBar.Renderer;
 			eventsNavigationBarPanel.Renderer = navigationBar.Renderer;
-						
+
 			// Update form background and tabstrip renderer
-			if (navigationBar.Renderer is Office2003NavigationBarRenderer) {
-				WindowsColorSchemeType colorSchemeType = ((Office2003NavigationBarRenderer)navigationBar.Renderer).BaseColorSchemeType;
-				this.BackColor = WindowsColorScheme.GetColorScheme(colorSchemeType).FormBackGradientEnd;
-				tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(colorSchemeType);
+			var colorScheme = navigationBar.Renderer.ColorScheme;
+			if (navigationBar.Renderer is MetroNavigationBarRenderer) {
+				tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroToolWindowTabStripRenderer(colorScheme) {  AreImagesVisible = true };
+			}
+			else if (navigationBar.Renderer is Office2003NavigationBarRenderer) {
+				tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(colorScheme) { AreImagesVisible = true };
 			}
 			else {
-				this.BackColor = SystemColors.Control;
-				tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer();
+				tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer() { AreImagesVisible = true };
 			}
+			this.BackColor = colorScheme.FormBackGradientBegin;
+
+			// Customize key controls based on color scheme to render better in light/dark themes
+			ThemeHelper.ApplyComponentColors(this, colorScheme, recurseChildren: true);
 		}
 
 		/// <summary>

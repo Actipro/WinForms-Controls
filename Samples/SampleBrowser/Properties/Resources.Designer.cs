@@ -19,7 +19,7 @@ namespace ActiproSoftware.SampleBrowser {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -427,6 +427,16 @@ namespace ActiproSoftware.SampleBrowser {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap IconOutput16 {
+            get {
+                object obj = ResourceManager.GetObject("IconOutput16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap IconPaste16 {
             get {
                 object obj = ResourceManager.GetObject("IconPaste16", resourceCulture);
@@ -477,6 +487,16 @@ namespace ActiproSoftware.SampleBrowser {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap IconRichTextDocument16 {
+            get {
+                object obj = ResourceManager.GetObject("IconRichTextDocument16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap IconSave16 {
             get {
                 object obj = ResourceManager.GetObject("IconSave16", resourceCulture);
@@ -490,6 +510,16 @@ namespace ActiproSoftware.SampleBrowser {
         public static System.Drawing.Bitmap IconStop16 {
             get {
                 object obj = ResourceManager.GetObject("IconStop16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IconTextDocument16 {
+            get {
+                object obj = ResourceManager.GetObject("IconTextDocument16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -520,6 +550,16 @@ namespace ActiproSoftware.SampleBrowser {
         public static System.Drawing.Bitmap IconUndo16 {
             get {
                 object obj = ResourceManager.GetObject("IconUndo16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap IconWrench16 {
+            get {
+                object obj = ResourceManager.GetObject("IconWrench16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -568,14 +608,15 @@ namespace ActiproSoftware.SampleBrowser {
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;ProductData&gt;
         ///
-        ///  &lt;ProductFamily Title=&quot;Introduction&quot; Path=&quot;/SampleBrowser/Documents/Introduction.html&quot;&gt;
-        ///    &lt;Items&gt;
-        ///      &lt;Item Kind=&quot;Document&quot; Category=&quot;Documents&quot; Title=&quot;Release History&quot; Path=&quot;/SampleBrowser/Documents/ReleaseHistory.html&quot; /&gt;
-        ///    &lt;/Items&gt;
-        ///  &lt;/ProductFamily&gt;
+        ///	&lt;ProductFamily Title=&quot;Introduction&quot; Path=&quot;/SampleBrowser/Documents/Introduction.html&quot;&gt;
+        ///		&lt;Items&gt;
+        ///			&lt;Item Kind=&quot;Document&quot; Category=&quot;Documents&quot; Title=&quot;Release History&quot; Path=&quot;/SampleBrowser/Documents/ReleaseHistory.html&quot; /&gt;
+        ///		&lt;/Items&gt;
+        ///	&lt;/ProductFamily&gt;
         ///
-        ///  &lt;ProductFamily Title=&quot;SyntaxEditor&quot; Description=&quot;The ultimate syntax-highlighting code editor control&quot; Path=&quot;/ProductSamples/SyntaxEditorSamples/Documents/Overview.html&quot;&gt;
-        ///    &lt;Items&gt;        /// [rest of string was truncated]&quot;;.
+        ///	&lt;ProductFamily Title=&quot;SyntaxEditor&quot; Description=&quot;The ultimate syntax-highlighting code editor control&quot; Path=&quot;/ProductSamples/SyntaxEditorSamples/Documents/Overview.html&quot;&gt;
+        ///		&lt;Items&gt;
+        ///			&lt;Item Ki [rest of string was truncated]&quot;;.
         /// </summary>
         public static string ProductData {
             get {

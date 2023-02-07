@@ -5,23 +5,23 @@
 				{
 					"src": "../../Source/bin/Release",
 					"files": [
-						"net40/ActiproSoftware.Shared.WinForms.dll",
-						"net40/ActiproSoftware.Bars.WinForms.dll",
-						"net40/ActiproSoftware.Docking.WinForms.dll",
-						"net40/ActiproSoftware.Navigation.WinForms.dll",
-						"net40/ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll",
-						"net40/ActiproSoftware.SyntaxEditor.Addons.JavaScript.WinForms.dll",
-						"net40/ActiproSoftware.SyntaxEditor.Addons.Python.WinForms.dll",
-						"net40/ActiproSoftware.SyntaxEditor.Addons.Xml.WinForms.dll",
-						"net40/ActiproSoftware.SyntaxEditor.WinForms.dll",
-						"net40/ActiproSoftware.Text.Addons.DotNet.WinForms.dll",
-						"net40/ActiproSoftware.Text.Addons.DotNet.Roslyn.WinForms.dll",
-						"net40/ActiproSoftware.Text.Addons.JavaScript.WinForms.dll",
-						"net40/ActiproSoftware.Text.Addons.Python.WinForms.dll",
-						"net40/ActiproSoftware.Text.Addons.Xml.WinForms.dll",
-						"net40/ActiproSoftware.Text.LLParser.WinForms.dll",
-						"net40/ActiproSoftware.Text.WinForms.dll",
-						"net40/ActiproSoftware.Wizard.WinForms.dll"
+						"net462/ActiproSoftware.Shared.WinForms.dll",
+						"net462/ActiproSoftware.Bars.WinForms.dll",
+						"net462/ActiproSoftware.Docking.WinForms.dll",
+						"net462/ActiproSoftware.Navigation.WinForms.dll",
+						"net462/ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll",
+						"net462/ActiproSoftware.SyntaxEditor.Addons.JavaScript.WinForms.dll",
+						"net462/ActiproSoftware.SyntaxEditor.Addons.Python.WinForms.dll",
+						"net462/ActiproSoftware.SyntaxEditor.Addons.Xml.WinForms.dll",
+						"net462/ActiproSoftware.SyntaxEditor.WinForms.dll",
+						"net462/ActiproSoftware.Text.Addons.DotNet.WinForms.dll",
+						"net462/ActiproSoftware.Text.Addons.DotNet.Roslyn.WinForms.dll",
+						"net462/ActiproSoftware.Text.Addons.JavaScript.WinForms.dll",
+						"net462/ActiproSoftware.Text.Addons.Python.WinForms.dll",
+						"net462/ActiproSoftware.Text.Addons.Xml.WinForms.dll",
+						"net462/ActiproSoftware.Text.LLParser.WinForms.dll",
+						"net462/ActiproSoftware.Text.WinForms.dll",
+						"net462/ActiproSoftware.Wizard.WinForms.dll"
 						// "**.csproj"
 					]
 				}
@@ -68,10 +68,10 @@
 			"_appTitle": "Actipro WinForms Controls Docs",
 			"_docsCompanyHref": "https://www.actiprosoftware.com/products/controls/windowsforms",
 			"_docsCompanyName": "Actipro Software LLC",
-			"_docsCopyrightYears": "1999-2022",
+			"_docsCopyrightYears": "1999-2023",
 			"_docsProductHref": "https://www.actiprosoftware.com/products/controls/windowsforms",
 			"_docsProductName": "WinForms Controls",
-			"_docsProductVersion": "22.1",
+			"_docsProductVersion": "23.1",
 			"_disableContribution": true,
 			"_enableNewTab": true,
 			"_gitContribute": {

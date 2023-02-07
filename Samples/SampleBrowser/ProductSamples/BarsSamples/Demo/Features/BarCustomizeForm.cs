@@ -13,9 +13,9 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 	/// <summary>
 	/// Provides a <see cref="Form"/> for performing run-time bar customization.
 	/// </summary>
-	internal partial class BarCustomizeForm : System.Windows.Forms.Form {
+	internal partial class BarCustomizeForm : DpiAwareForm {
 
-		private BarManager barManager;
+		private readonly BarManager barManager;
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// INNER CLASSES
@@ -320,20 +320,18 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		/// <param name="e">An <c>EventArgs</c> that contains the event data.</param>
 		private void toolBarNewButton_Click(object sender, System.EventArgs e) {
 			// Show the form
-			BarCustomizeNewToolBarForm form = new BarCustomizeNewToolBarForm(barManager, "New Toolbar");
-			form.ShowDialog(this);
-			if (form.DialogResult == DialogResult.Cancel)
-				return;
+			using (var form = new BarCustomizeNewToolBarForm(barManager, "New Toolbar")) {
+				form.ShowDialog(this);
+				if (form.DialogResult == DialogResult.Cancel)
+					return;
 
-			// Add the toolbar
-			DockableToolBar toolBar = new DockableToolBar(form.ToolBarKey);
-			barManager.DockableToolBars.Add(toolBar);
-			toolBar.CreationStyle = DockableToolBarCreationStyle.Custom;
-			toolBar.DockTo(DockableToolBarPosition.Top, 1000, 0, true);
-			this.RebindToolBarListBox(-1);
-
-			// Dispose the form
-			form.Dispose();
+				// Add the toolbar
+				var toolBar = new DockableToolBar(form.ToolBarKey);
+				barManager.DockableToolBars.Add(toolBar);
+				toolBar.CreationStyle = DockableToolBarCreationStyle.Custom;
+				toolBar.DockTo(DockableToolBarPosition.Top, 1000, 0, true);
+				this.RebindToolBarListBox(-1);
+			}
 		}
 
 		/// <summary>
@@ -344,21 +342,19 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		private void toolBarRenameButton_Click(object sender, System.EventArgs e) {
 			// Get the selected index
 			int selectedIndex = toolBarListBox.SelectedIndex;
-			DockableToolBar toolBar = (DockableToolBar)toolBarListBox.SelectedItem;
+			var toolBar = (DockableToolBar)toolBarListBox.SelectedItem;
 
 			// Show the form
-			BarCustomizeNewToolBarForm form = new BarCustomizeNewToolBarForm(barManager, "Rename Toolbar");
-			form.ToolBarKey = toolBar.Key;
-			form.ShowDialog(this);
-			if (form.DialogResult == DialogResult.Cancel)
-				return;
+			using (var form = new BarCustomizeNewToolBarForm(barManager, "Rename Toolbar")) {
+				form.ToolBarKey = toolBar.Key;
+				form.ShowDialog(this);
+				if (form.DialogResult == DialogResult.Cancel)
+					return;
 
-			// Update the key
-			toolBar.Key = form.ToolBarKey;
-			this.RebindToolBarListBox(-1);
-
-			// Dispose the form
-			form.Dispose();
+				// Update the key
+				toolBar.Key = form.ToolBarKey;
+				this.RebindToolBarListBox(selectedIndex);
+			}
 		}
 
 		/// <summary>
@@ -566,6 +562,9 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override bool IsDpiAwareFormShowBehaviorEnabled => true;
 
 		/// <summary>
 		/// Raises the <c>Closing</c> event.

@@ -1,4 +1,6 @@
 ﻿using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
+using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -64,5 +66,38 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.ScrollBa
 			verticalScrollBarComboBox.SelectedItem = editor.VerticalScrollBarVisibility;
 		}
 
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					horizontalScrollBarComboBox,
+					horizontalScrollBarLabel,
+					verticalScrollBarComboBox,
+					verticalScrollBarLabel,
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+			if (!Program.IsControlSizeScalingHandledByRuntime) {
+				// Manually scale sizes
+				var manualSizeControl = new Control[] {
+					horizontalScrollBarComboBox,
+					verticalScrollBarComboBox,
+				};
+				foreach (var control in manualSizeControl)
+					control.Size = DpiHelper.RescaleSize(control.Size, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
+
 }

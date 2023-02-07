@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 using ActiproSoftware.UI.WinForms.Drawing;
@@ -9,13 +10,16 @@ namespace ActiproSoftware.SampleBrowser {
 	/// A <see cref="ListBox"/> that shows product samples.
 	/// </summary>
 	public class NavigationListBox : ListBox {
-		
-		private const int FamilyInfoHeight = 36;
-		private const int FamilyInfoTextIndent = 8;
-		private const int FamilySeparatorHeight = 16;
-		private const int ItemCategoryHeaderHeight = 24;
-		private const int ItemInfoHeight = 24;
-		private const int ItemInfoTextIndent = 30;
+
+		private SizeF scaleFactor;
+		private int borderThickness;
+		private int familyInfoHeight;
+		private int familyInfoTextIndent;
+		private int familySeparatorHeight;
+		private Size iconSize;
+		private int itemCategoryHeaderHeight;
+		private int itemInfoHeight;
+		private int itemInfoTextIndent;
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// OBJECT
@@ -25,6 +29,9 @@ namespace ActiproSoftware.SampleBrowser {
 		/// Initializes a new instance of the <c>NavigationListBox</c> class. 
 		/// </summary>
 		public NavigationListBox() {
+			// Initialize layout values at current DPI
+			ScaleLayoutValuesForDpi(DpiHelper.GetDpiScale(this.DeviceDpi));
+
 			// Set properties
 			this.DrawMode = DrawMode.OwnerDrawVariable;
 
@@ -33,9 +40,36 @@ namespace ActiproSoftware.SampleBrowser {
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// NON-PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <summary>
+		/// Refreshes configuration based on current DPI settings.
+		/// </summary>
+		private void ScaleLayoutValuesForDpi(SizeF scaleFactor) {
+			this.scaleFactor = scaleFactor;
+
+			borderThickness = 1; // Borders currently do not support scaling
+			familyInfoHeight = DpiHelper.ScaleInt32(36, scaleFactor);
+			familyInfoTextIndent = DpiHelper.ScaleInt32(8, scaleFactor);
+			familySeparatorHeight = DpiHelper.ScaleInt32(16, scaleFactor);
+			iconSize = DpiHelper.ScaleSize(new Size(16, 16), scaleFactor);
+			itemCategoryHeaderHeight = DpiHelper.ScaleInt32(24, scaleFactor);
+			itemInfoHeight = DpiHelper.ScaleInt32(24, scaleFactor);
+			itemInfoTextIndent = DpiHelper.ScaleInt32(30, scaleFactor);
+		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
+		protected override void OnDpiChangedAfterParent(EventArgs e) {
+			base.OnDpiChangedAfterParent(e);
+
+			// Items must be completely refreshed when DPI changes
+			this.RefreshItems();
+		}
+
 		/// <summary>
 		/// Raises the <c>DrawItem</c> event.
 		/// </summary>
@@ -44,6 +78,8 @@ namespace ActiproSoftware.SampleBrowser {
 			if ((e.Index < 0) || (e.Index >= this.Items.Count))
 				return;
 
+			var colorScheme = WindowsColorScheme.WindowsDefault;
+
 			var selected = ((e.State & DrawItemState.Selected) == DrawItemState.Selected);
 			
 			// Get the info
@@ -51,11 +87,15 @@ namespace ActiproSoftware.SampleBrowser {
 			var familyInfo = (itemInfo != null ? null : this.Items[e.Index] as ProductFamilyInfo);
 
 			// Determine bounds
-			var separatorHeaderBounds = (itemInfo != null ?
-				(itemInfo.IsCategoryHeaderRequired ? new Rectangle(e.Bounds.Left, e.Bounds.Top, e.Bounds.Width, ItemCategoryHeaderHeight) : Rectangle.Empty) :
-				(!familyInfo.IsIntroduction ? new Rectangle(e.Bounds.Left, e.Bounds.Top + FamilySeparatorHeight - 1, e.Bounds.Width, 1) : Rectangle.Empty)
-				);
-			var selectableItemHeight = (itemInfo != null ? ItemInfoHeight : FamilyInfoHeight);
+			var separatorHeaderBounds = (itemInfo != null)
+				? itemInfo.IsCategoryHeaderRequired 
+					? new Rectangle(e.Bounds.Left, e.Bounds.Top, e.Bounds.Width, itemCategoryHeaderHeight) 
+					: Rectangle.Empty
+				: !familyInfo.IsIntroduction
+					? new Rectangle(e.Bounds.Left, e.Bounds.Top + familySeparatorHeight - borderThickness, e.Bounds.Width, borderThickness) // Only allocate enough space for the border
+					: Rectangle.Empty
+				;
+			var selectableItemHeight = (itemInfo != null ? itemInfoHeight : familyInfoHeight);
 			var selectableBounds = new Rectangle(e.Bounds.Left, e.Bounds.Bottom - selectableItemHeight, e.Bounds.Width, selectableItemHeight);
 			Rectangle textBounds;
 			Size size;
@@ -63,19 +103,24 @@ namespace ActiproSoftware.SampleBrowser {
 			// Get a string format
 			using (var format = DrawingHelper.GetStringFormat(StringAlignment.Near, StringAlignment.Center, StringTrimming.EllipsisCharacter, false, false)) {
 				// Get the foreground text color
-				var textColor = UIColor.FromMix(SystemColors.WindowText, SystemColors.Window, 0.25f).ToColor();
+				var textColor = UIColor.FromMix(colorScheme.GetKnownColor(KnownColor.WindowText), colorScheme.GetKnownColor(KnownColor.Window), 0.25f).ToColor();
 
 				// If there is a separator header...
 				if (!separatorHeaderBounds.IsEmpty) {
+
 					// Fill the background
-					SolidColorBackgroundFill.Draw(e.Graphics, separatorHeaderBounds, UIColor.FromMix(SystemColors.Window, SystemColors.Control, 0.5f).ToColor());
-					SimpleBorder.Draw(e.Graphics, separatorHeaderBounds, SimpleBorderStyle.Solid, SystemColors.ControlLight, Sides.Top | Sides.Bottom);
+					SolidColorBackgroundFill.Draw(e.Graphics, separatorHeaderBounds, UIColor.FromMix(colorScheme.GetKnownColor(KnownColor.Window), colorScheme.GetKnownColor(KnownColor.Control), 0.5f).ToColor());
+					// Draw the separators
+					Debug.Assert(borderThickness == 1, "SimpleBorder.Draw only supports 1px borders");
+					SimpleBorder.Draw(e.Graphics, separatorHeaderBounds, SimpleBorderStyle.Solid, colorScheme.GetKnownColor(KnownColor.ControlLight), Sides.Top | Sides.Bottom);
 
 					// Draw the name
 					if (itemInfo != null) {
-						textBounds = new Rectangle(separatorHeaderBounds.Left + 8, separatorHeaderBounds.Top + 1, separatorHeaderBounds.Width - 16, separatorHeaderBounds.Height);
-						using (var font = new Font(this.Font.FontFamily, 8f)) {
-							DrawingHelper.DrawString(e.Graphics, itemInfo.Category.ToUpperInvariant(), font, SystemColors.GrayText, textBounds, format);
+						textBounds = new Rectangle(separatorHeaderBounds.Left + DpiHelper.ScaleInt32(8, scaleFactor), separatorHeaderBounds.Top + borderThickness, separatorHeaderBounds.Width - iconSize.Width, separatorHeaderBounds.Height);
+						// Determine the font size relative to the configured font
+						var fontSize = (float)Math.Floor(this.Font.Size * 0.9F); // 90% reduction in size since using all upper-case letters
+						using (var font = new Font(this.Font.FontFamily, fontSize)) {
+							DrawingHelper.DrawString(e.Graphics, itemInfo.Category.ToUpperInvariant(), font, colorScheme.GetKnownColor(KnownColor.GrayText), textBounds, format);
 						}
 					}
 				}
@@ -83,16 +128,19 @@ namespace ActiproSoftware.SampleBrowser {
 				// Fill the selectable background
 				if (selected) {
 					MultiColorLinearGradient.Draw(e.Graphics, selectableBounds, selectableBounds, 
-						WindowsColorScheme.WindowsDefault.BarButtonHotBackGradientBegin, WindowsColorScheme.WindowsDefault.BarButtonHotBackGradientMiddle,
-						WindowsColorScheme.WindowsDefault.BarButtonHotBackGradientEnd, 90);
-					SimpleBorder.Draw(e.Graphics, selectableBounds, SimpleBorderStyle.Solid, WindowsColorScheme.WindowsDefault.BarButtonHotBorder);
+						colorScheme.BarButtonHotBackGradientBegin,
+						colorScheme.BarButtonHotBackGradientMiddle,
+						colorScheme.BarButtonHotBackGradientEnd, 90);
+					Debug.Assert(borderThickness == 1, "SimpleBorder.Draw only supports 1px borders");
+					SimpleBorder.Draw(e.Graphics, selectableBounds, SimpleBorderStyle.Solid, colorScheme.BarButtonHotBorder);
 				}
 				else
-					SolidColorBackgroundFill.Draw(e.Graphics, selectableBounds, SystemColors.Window);
+					SolidColorBackgroundFill.Draw(e.Graphics, selectableBounds, colorScheme.GetKnownColor(KnownColor.Window));
 
 				// Draw icon
 				if (itemInfo != null) {
-					var iconBounds = new Rectangle(selectableBounds.Left + 10, selectableBounds.Top + (int)Math.Round((selectableBounds.Height - 16) / 2.0), 16, 16);
+					var iconLocation = new Point(selectableBounds.Left + DpiHelper.ScaleInt32(10, scaleFactor), selectableBounds.Top + (int)Math.Round((selectableBounds.Height - iconSize.Height) / 2.0));
+					var iconBounds = new Rectangle(iconLocation, iconSize);
 					switch (itemInfo.Kind) {
 						case ProductItemKind.DialogSample:
 							DrawingHelper.DrawImage(e.Graphics, Resources.ItemDemo16, iconBounds.Left, iconBounds.Top, iconBounds.Width, iconBounds.Height, 1.0f, RotateFlipType.RotateNoneFlipNone);
@@ -109,27 +157,37 @@ namespace ActiproSoftware.SampleBrowser {
 					}
 				}
 
+				int textPadding = DpiHelper.ScaleInt32(7, scaleFactor);
+
 				// Draw the blurb
-				var indent = (itemInfo != null ? ItemInfoTextIndent : FamilyInfoTextIndent);
-				textBounds = new Rectangle(selectableBounds.Left + indent, selectableBounds.Top + 1, Math.Max(5, selectableBounds.Width - indent - 7), selectableBounds.Height);
+				var indent = (itemInfo != null ? itemInfoTextIndent : familyInfoTextIndent);
+				textBounds = new Rectangle(selectableBounds.Left + indent,
+					selectableBounds.Top + borderThickness,
+					Math.Max(textPadding, selectableBounds.Width - indent - textPadding),
+					selectableBounds.Height);
 				if ((itemInfo != null) && (!string.IsNullOrEmpty(itemInfo.BlurbText))) {
 					size = DrawingHelper.MeasureString(e.Graphics, itemInfo.BlurbText, this.Font, format);
-					DrawingHelper.DrawString(e.Graphics, itemInfo.BlurbText, this.Font, Color.Red, textBounds, format);
-					textBounds.X += size.Width + 7;
+					DrawingHelper.DrawString(e.Graphics, itemInfo.BlurbText, this.Font, colorScheme.GetKnownColor(KnownColor.Red), textBounds, format);
+					textBounds.X += size.Width + textPadding;
 				}
 
 				// Draw the name
 				if (itemInfo != null)
 					DrawingHelper.DrawString(e.Graphics, itemInfo.Title, this.Font, textColor, textBounds, format);
 				else if (familyInfo != null) {
-					using (var font = new Font(this.Font.FontFamily, 14, FontStyle.Regular)) {
-						textBounds = new Rectangle(textBounds.Left, selectableBounds.Top, Math.Max(7, textBounds.Width - indent - 7), selectableBounds.Height);
+					// Determine the font size relative to the configured font
+					var fontSize = (float)Math.Round(this.Font.Size * 1.5F, MidpointRounding.AwayFromZero); // 50% bigger for heading
+					using (var font = new Font(this.Font.FontFamily, fontSize, FontStyle.Regular)) {
+						textBounds = new Rectangle(textBounds.Left,
+							selectableBounds.Top,
+							Math.Max(textPadding, textBounds.Width - indent - textPadding),
+							selectableBounds.Height);
 						DrawingHelper.DrawString(e.Graphics, familyInfo.Title, font, textColor, textBounds, format);
 					}
 				}
 			}
 		}
-		
+
 		/// <summary>
 		/// Raises the <c>MeasureItem</c> event.
 		/// </summary>
@@ -141,13 +199,24 @@ namespace ActiproSoftware.SampleBrowser {
 			// Get the info
 			var itemInfo = this.Items[e.Index] as ProductItemInfo;
 			if (itemInfo != null)
-				e.ItemHeight = (itemInfo.IsCategoryHeaderRequired ? ItemCategoryHeaderHeight : 0) + ItemInfoHeight;
+				e.ItemHeight = (itemInfo.IsCategoryHeaderRequired ? itemCategoryHeaderHeight : 0) + itemInfoHeight;
 			else {
 				var familyInfo = this.Items[e.Index] as ProductFamilyInfo;
-				e.ItemHeight = (!familyInfo.IsIntroduction ? FamilySeparatorHeight : 0) + FamilyInfoHeight;
+				e.ItemHeight = (!familyInfo.IsIntroduction ? familySeparatorHeight : 0) + familyInfoHeight;
 			}
 		}
 
+		/// <summary>
+		/// Updates "constants" used for layout.
+		/// </summary>
+		/// <param name="deviceDpiOld">The DPI value prior to the change.</param>
+		/// <param name="deviceDpiNew">The DPI value after the change.</param>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			// Update layout values based on new DPI
+			ScaleLayoutValuesForDpi(DpiHelper.GetDpiScale(deviceDpiNew));
+		}
 	}
 
 }

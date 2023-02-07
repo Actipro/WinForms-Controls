@@ -1,6 +1,8 @@
 ﻿using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
+using ActiproSoftware.SampleBrowser;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Implementation;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Windows.Forms;
 
@@ -36,7 +38,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.SearchRe
 		// NON-PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
 		/// <summary>
 		/// Occurs when the control becomes the active control on the form.
 		/// </summary>
@@ -67,5 +68,26 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.SearchRe
 			editor.ActiveView.HighlightedResultSearchOptions = options;
 		}
 
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					findWhatLabel,
+					findWhatTextBox
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
+
 }

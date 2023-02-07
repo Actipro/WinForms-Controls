@@ -7,6 +7,7 @@ using ActiproSoftware.Text;
 using ActiproSoftware.Text.Languages.CSharp.Implementation;
 using ActiproSoftware.Text.Languages.DotNet;
 using ActiproSoftware.Text.Languages.DotNet.Reflection;
+using ActiproSoftware.UI.WinForms.Drawing;
 
 namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CodeFragments {
 
@@ -79,6 +80,24 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CodeFrag
 			// Clear .NET Languages Add-on project assembly references when the sample unloads
 			projectAssembly.AssemblyReferences.Clear();
 		}
-		
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					headerLabel,
+					fragmentLabel,
+					footerLabel
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
+
 }

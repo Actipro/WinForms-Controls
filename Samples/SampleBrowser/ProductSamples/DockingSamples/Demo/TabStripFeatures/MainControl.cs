@@ -3,17 +3,18 @@ using System.Drawing;
 using System.Windows.Forms;
 using ActiproSoftware.UI.WinForms.Drawing;
 using ActiproSoftware.Products.Docking;
-using ActiproSoftware.UI.WinForms.Controls;
 using ActiproSoftware.UI.WinForms.Controls.Docking;
+using ActiproSoftware.SampleBrowser.Controls;
+using ActiproSoftware.UI.WinForms.Drawing.Xaml;
 
 namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 
 	/// <summary>
 	/// A sample to test the <c>TabStrip</c> control.
 	/// </summary>
-	public partial class MainControl : System.Windows.Forms.UserControl {
+	public partial class MainControl : UserControl {
 
-		private ITabStripRenderer	customTabStripRenderer;
+		private	readonly ITabStripRenderer customTabStripRenderer;
 
 		/// <summary>
 		/// Creates an instance of the <c>MainControl</c> class.
@@ -24,26 +25,21 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 			//
 			InitializeComponent();
 
+			// Make sure the options control is properly sized
+			ResizeOptionsControl();
+
 			// Store the current renderer from the designer as the custom renderer
 			customTabStripRenderer = tabStrip.Renderer;
-
-			propertiesTabStrip.Renderer = new Office2003ToolWindowTabStripRenderer();
-			if (propertiesTabStrip.Renderer is Office2003ToolWindowTabStripRenderer) {
-				WindowsColorSchemeType colorSchemeType = ((Office2003ToolWindowTabStripRenderer)propertiesTabStrip.Renderer).BaseColorSchemeType;
-				this.BackColor = WindowsColorScheme.GetColorScheme(colorSchemeType).FormBackGradientEnd;
-			}
-			else 
-				this.BackColor = SystemColors.Control;
 
 			// Select a renderer
 			rendererDropDownList.SelectedIndex = 0;
 
 			// Load a read-only context image for the second tab
-			tabStripInfoTabStripPage.ContextImage = AssemblyInfo.Instance.GetImage(ImageResource.ContextReadOnly);
+			tabStripInfoTabStripPage.ContextImage = AssemblyInfo.Instance.GetImage(ImageResource.ContextReadOnly, DpiHelper.GetDpiScale(this));
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// EVENT HANDLERS
+		// NON-PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 		/// <summary>
@@ -51,7 +47,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void linkLabel_LinkClicked(object sender, System.Windows.Forms.LinkLabelLinkClickedEventArgs e) {
+		private void OnLinkLabelLinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
 			SampleBrowser.Program.LaunchExternalBrowser(linkLabel.Text);
 		}
 
@@ -60,13 +56,19 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void rendererDropDownList_SelectedIndexChanged(object sender, System.EventArgs e) {
-            switch (rendererDropDownList.Text) {
+		private void OnRendererDropDownListSelectedIndexChanged(object sender, EventArgs e) {
+			switch (rendererDropDownList.Text) {
 				case "Metro Light Document Window":
-					tabStrip.Renderer = new MetroLightDocumentWindowTabStripRenderer();
+					tabStrip.Renderer = new MetroDocumentWindowTabStripRenderer(WindowsColorSchemeType.MetroLight);
 					break;
 				case "Metro Light Tool Window":
-					tabStrip.Renderer = new MetroLightToolWindowTabStripRenderer();
+					tabStrip.Renderer = new MetroToolWindowTabStripRenderer(WindowsColorSchemeType.MetroLight);
+					break;
+				case "Metro Dark Document Window":
+					tabStrip.Renderer = new MetroDocumentWindowTabStripRenderer(WindowsColorSchemeType.MetroDark);
+					break;
+				case "Metro Dark Tool Window":
+					tabStrip.Renderer = new MetroToolWindowTabStripRenderer(WindowsColorSchemeType.MetroDark);
 					break;
 				case "Visual Studio 2005 Document Window":
 					tabStrip.Renderer = new VisualStudio2005DocumentWindowTabStripRenderer();
@@ -97,6 +99,10 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 					break;
 			}
 			rendererPropertyGrid.SelectedObject = tabStrip.Renderer;
+
+			// Customize key controls based on color scheme to render better in light/dark themes
+			var colorScheme = tabStrip.Renderer.ColorScheme;
+			ThemeHelper.ApplyComponentColors(tabStrip, colorScheme, recurseChildren: true);
 		}
 
 		/// <summary>
@@ -104,7 +110,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void tabOverflowRadioButton_CheckedChanged(object sender, System.EventArgs e) {
+		private void OnTabOverflowRadioButtonCheckedChanged(object sender, EventArgs e) {
 			if (tabOverflowNoneRadioButton.Checked)
 				tabStrip.TabOverflowStyle = TabStripTabOverflowStyle.None;
 			else if (tabOverflowShrinkToFitRadioButton.Checked)
@@ -118,8 +124,8 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void tabStrip_Command(object sender, ActiproSoftware.UI.WinForms.Controls.Commands.CommandEventArgs e) {
-			eventsListBox.SelectedIndex = eventsListBox.Items.Add(String.Format("Command: Name={0}", e.Command.Name));
+		private void OnTabStripCommand(object sender, ActiproSoftware.UI.WinForms.Controls.Commands.CommandEventArgs e) {
+			eventsListBox.SelectedIndex = eventsListBox.Items.Add(string.Format("Command: Name={0}", e.Command.Name));
 
 			// If the options command is clicked
 			if (e.Command == TabStrip.CloseCommand) {
@@ -129,7 +135,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 			else if (e.Command == TabStrip.OptionsCommand) {
 				var menu = new ContextMenuStrip();
 				foreach (TabStripPage page in tabStrip.Pages) {
-					var menuItem = new ToolStripMenuItem(page.Text, page.GetImage(), new EventHandler(this.tabStripPageMenuItem_Click));
+					var menuItem = new ToolStripMenuItem(page.Text, page.GetImage(), new EventHandler(this.OnTabStripPageMenuItemClick));
 					menuItem.Checked = (tabStrip.SelectedPage == page);
 					menuItem.Tag = page;
 					menu.Items.Add(menuItem);
@@ -146,8 +152,8 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void tabStrip_Reselect(object sender, ActiproSoftware.UI.WinForms.Controls.Docking.TabStripPageEventArgs e) {
-			eventsListBox.SelectedIndex = eventsListBox.Items.Add(String.Format("Reselect: Index={0}; Text={1}",
+		private void OnTabStripReselect(object sender, TabStripPageEventArgs e) {
+			eventsListBox.SelectedIndex = eventsListBox.Items.Add(string.Format("Reselect: Index={0}; Text={1}",
 				tabStrip.SelectedIndex, e.TabStripPage.Text));
 		}
 
@@ -156,8 +162,8 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void tabStrip_SelectionChanged(object sender, ActiproSoftware.UI.WinForms.Controls.Docking.TabStripPageEventArgs e) {
-			eventsListBox.SelectedIndex = eventsListBox.Items.Add(String.Format("SelectionChanged: Index={0}; Text={1}",
+		private void OnTabStripSelectionChanged(object sender, TabStripPageEventArgs e) {
+			eventsListBox.SelectedIndex = eventsListBox.Items.Add(string.Format("SelectionChanged: Index={0}; Text={1}",
 				tabStrip.SelectedIndex, (e.TabStripPage != null ? e.TabStripPage.Text : "<null>")));
 		}
 
@@ -166,10 +172,10 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void tabStrip_SelectionChanging(object sender, ActiproSoftware.UI.WinForms.Controls.Docking.TabStripPageCancelEventArgs e) {
+		private void OnTabStripSelectionChanging(object sender, TabStripPageCancelEventArgs e) {
 			e.Cancel |= preventSelectionChangesCheckBox.Checked;
 
-			eventsListBox.SelectedIndex = eventsListBox.Items.Add(String.Format("SelectionChanging: Index={0}; Text={1}, Cancelled={2}",
+			eventsListBox.SelectedIndex = eventsListBox.Items.Add(string.Format("SelectionChanging: Index={0}; Text={1}, Cancelled={2}",
 				tabStrip.SelectedIndex, (tabStrip.SelectedPage != null ? tabStrip.SelectedPage.Text : "<null>"), e.Cancel));
 		}
 
@@ -178,8 +184,8 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void tabStrip_TabStripPageTabContextMenu(object sender, ActiproSoftware.UI.WinForms.Controls.Docking.TabStripPageContextMenuEventArgs e) {
-			eventsListBox.SelectedIndex = eventsListBox.Items.Add(String.Format("TabStripPageTabContextMenu: Index={0}; Text={1}", 
+		private void OnTabStripTabStripPageTabContextMenu(object sender, TabStripPageContextMenuEventArgs e) {
+			eventsListBox.SelectedIndex = eventsListBox.Items.Add(string.Format("TabStripPageTabContextMenu: Index={0}; Text={1}", 
 				tabStrip.SelectedIndex, e.TabStripPage.Text));
 		}
 
@@ -188,8 +194,8 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void tabStrip_TabStripPageTabDoubleClick(object sender, ActiproSoftware.UI.WinForms.Controls.Docking.TabStripPageEventArgs e) {
-			eventsListBox.SelectedIndex = eventsListBox.Items.Add(String.Format("TabStripPageTabDoubleClick: Index={0}; Text={1}",
+		private void OnTabStripTabStripPageTabDoubleClick(object sender, TabStripPageEventArgs e) {
+			eventsListBox.SelectedIndex = eventsListBox.Items.Add(string.Format("TabStripPageTabDoubleClick: Index={0}; Text={1}",
 				tabStrip.SelectedIndex, e.TabStripPage.Text));
 		}
 
@@ -198,8 +204,8 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void tabStrip_TabStripPageTabDragStart(object sender, ActiproSoftware.UI.WinForms.Controls.Docking.TabStripPageEventArgs e) {
-			eventsListBox.SelectedIndex = eventsListBox.Items.Add(String.Format("TabStripPageTabDragStart: Index={0}; Text={1}",
+		private void OnTabStripTabStripPageTabDragStart(object sender, TabStripPageEventArgs e) {
+			eventsListBox.SelectedIndex = eventsListBox.Items.Add(string.Format("TabStripPageTabDragStart: Index={0}; Text={1}",
 				tabStrip.SelectedIndex, e.TabStripPage.Text));
 		}
 
@@ -208,7 +214,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void tabStrip_TabStripPageTabToolTipDisplaying(object sender, ActiproSoftware.UI.WinForms.Controls.Docking.TabStripPageEventArgs e) {
+		private void OnTabStripTabStripPageTabToolTipDisplaying(object sender, TabStripPageEventArgs e) {
 			// eventsListBox.SelectedIndex = eventsListBox.Items.Add(String.Format("TabStripPageTabToolTipDisplaying: Index={0}; Text={1}; ToolTipText={2}",
 			//  	tabStrip.SelectedIndex, e.TabStripPage.Text, e.TabStripPage.ToolTipText));
 		}
@@ -218,8 +224,38 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
-		private void tabStripPageMenuItem_Click(object sender, System.EventArgs e) {
+		private void OnTabStripPageMenuItemClick(object sender, EventArgs e) {
 			tabStrip.SelectedPage = (TabStripPage)(((ToolStripItem)sender).Tag);
+		}
+
+		/// <summary>
+		/// Resizes the control used to display options for the sample.
+		/// </summary>
+		private void ResizeOptionsControl() {
+			// The options control is displayed within a SplitContainer having a fixed sized, so the splitter
+			// position is adjusted to define the size of the options control
+			var dpiScale = DpiHelper.GetDpiScale(DeviceDpi);
+			rightOuterSplitContainer.SplitterDistance = DpiHelper.ScaleInt32(100, dpiScale);
+		}
+
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <summary>
+		/// Provides constants for rescaling the control when a DPI change occurs.
+		/// </summary>
+		/// <param name="deviceDpiOld">The DPI value prior to the change.</param>
+		/// <param name="deviceDpiNew">The DPI value after the change.</param>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			// Re-assign read-only context image for the second tab based on the new DPI
+			tabStripInfoTabStripPage.ContextImage = AssemblyInfo.Instance.GetImage(ImageResource.ContextReadOnly, DpiHelper.GetDpiScale(deviceDpiNew));
+
+			// Make sure the options control is resized for the new DPI
+			ResizeOptionsControl();
 		}
 
 	}

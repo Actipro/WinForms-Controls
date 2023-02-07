@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="heading1Label.Text" xml:space="preserve">
+    <value>This QuickStart shows how immutable snapshots are created with each text change in a document. As you make text changes in the upper editor, the resulting snapshot is persisted in the Snapshots ListBox. Clicking on a particular snapshot in the list allows you to view its content in the lower editor.</value>
+  </data>
+  <data name="heading2Label.Text" xml:space="preserve">
+    <value>Note that normally you would not persist all snapshots like we do in this example. This sample just shows how you can continue to work with or parse a particular snapshot, even after it is no longer the most current one in the document.</value>
+  </data>
   <data name="topEditor.Text" xml:space="preserve">
     <value>using System;
 
@@ -128,11 +134,5 @@
 		}
 
 	}</value>
-  </data>
-  <data name="heading2Label.Text" xml:space="preserve">
-    <value>Note that normally you would not persist all snapshots like we do in this example. This sample just shows how you can continue to work with or parse a particular snapshot, even after it is no longer the most current one in the document.</value>
-  </data>
-  <data name="heading1Label.Text" xml:space="preserve">
-    <value>This QuickStart shows how immutable snapshots are created with each text change in a document. As you make text changes in the upper editor, the resulting snapshot is persisted in the Snapshots ListBox. Clicking on a particular snapshot in the list allows you to view its content in the lower editor.</value>
   </data>
 </root>

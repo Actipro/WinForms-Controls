@@ -9,6 +9,9 @@ namespace ActiproSoftware.ProductSamples.WizardSamples.Demo.Features {
 	/// </summary>
 	public class WindowsXPBackgroundFill : BackgroundFill {
 
+		public const int BottomLabelHeight = 73;
+		public const int SeparatorHeight = 2;
+
 		/// <summary>
 		/// Creates an exact duplicate of the <see cref="BackgroundFill"/> object.
 		/// </summary>
@@ -24,23 +27,31 @@ namespace ActiproSoftware.ProductSamples.WizardSamples.Demo.Features {
 		/// <param name="bounds">The bounds of the area to paint.</param>
 		/// <param name="brushBounds">The reference bounds for the brush.</param>
 		/// <param name="side">The side with which the background fill should be oriented.</param>
-		public override void Draw(Graphics g, Rectangle bounds, Rectangle brushBounds, Sides side) {
+		/// <param name="scaleFactor">The factor of the scale transform to be applied where <see cref="SizeF.Width"/> is applied to the x-axis, and <see cref="SizeF.Height"/> is applied to the y-axis.</param>
+		public override void DrawScaled(Graphics g, Rectangle bounds, Rectangle brushBounds, Sides side, SizeF scaleFactor) {
 			// Fill in the background
 			SolidColorBackgroundFill.Draw(g, brushBounds, Color.CornflowerBlue);
 
 			// Draw a gradient circle
-			EllipseGradient.Draw(g, new Rectangle(-100, -125, 300, 300), new Rectangle(-100, -125, 300, 300),
+			var circleBounds = DpiHelper.ScaleRectangle(new Rectangle(-100, -125, 300, 300), scaleFactor);
+			EllipseGradient.Draw(g, circleBounds, circleBounds,
 				Color.FromArgb(192, 224, 242), Color.CornflowerBlue, Color.CornflowerBlue);
 
 			// Draw a separator
-			Rectangle separatorBounds = new Rectangle(brushBounds.Left, brushBounds.Bottom - 75,
-				brushBounds.Width, 2);
+			var separatorBounds = new Rectangle(brushBounds.Left,
+				brushBounds.Bottom - DpiHelper.ScaleInt32((BottomLabelHeight + SeparatorHeight), scaleFactor),
+				brushBounds.Width,
+				DpiHelper.ScaleInt32(SeparatorHeight, scaleFactor));
 			TwoColorLinearGradient.Draw(g, separatorBounds, separatorBounds, Color.FromKnownColor(KnownColor.CornflowerBlue), 
 				Color.FromArgb(192, 224, 242), 0, TwoColorLinearGradientStyle.SigmaBellBump, 0.5f, 1);
 
 			// Fill in a rectangle
-			SolidColorBackgroundFill.Draw(g, new Rectangle(separatorBounds.Left, separatorBounds.Bottom, 
-				separatorBounds.Width, brushBounds.Height - separatorBounds.Bottom), Color.RoyalBlue);
+			SolidColorBackgroundFill.Draw(g,
+				new Rectangle(separatorBounds.Left,
+					separatorBounds.Bottom,
+					separatorBounds.Width,
+					brushBounds.Height - separatorBounds.Bottom
+				), Color.RoyalBlue);
 		}
 	}
 }

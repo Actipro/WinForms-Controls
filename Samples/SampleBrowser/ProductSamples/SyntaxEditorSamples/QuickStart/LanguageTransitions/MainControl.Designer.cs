@@ -27,8 +27,8 @@
             this.contentPanel = new System.Windows.Forms.Panel();
             this.tabStrip1 = new ActiproSoftware.UI.WinForms.Controls.Docking.TabStrip();
             this.aspTabStripPage = new ActiproSoftware.UI.WinForms.Controls.Docking.TabStripPage();
-            this.scriptTabStripPage = new ActiproSoftware.UI.WinForms.Controls.Docking.TabStripPage();
             this.directiveEditor = new ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor();
+            this.scriptTabStripPage = new ActiproSoftware.UI.WinForms.Controls.Docking.TabStripPage();
             this.tagEditor = new ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor();
             this.contentPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabStrip1)).BeginInit();
@@ -39,13 +39,12 @@
             // 
             // contentPanel
             // 
-            this.contentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.contentPanel.Controls.Add(this.tabStrip1);
-            this.contentPanel.Location = new System.Drawing.Point(10, 10);
+            this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentPanel.Location = new System.Drawing.Point(0, 0);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(780, 580);
+            this.contentPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.contentPanel.Size = new System.Drawing.Size(800, 600);
             this.contentPanel.TabIndex = 1;
             // 
             // tabStrip1
@@ -53,7 +52,7 @@
             this.tabStrip1.Controls.Add(this.aspTabStripPage);
             this.tabStrip1.Controls.Add(this.scriptTabStripPage);
             this.tabStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabStrip1.Location = new System.Drawing.Point(0, 0);
+            this.tabStrip1.Location = new System.Drawing.Point(10, 10);
             this.tabStrip1.Name = "tabStrip1";
             this.tabStrip1.Size = new System.Drawing.Size(780, 580);
             this.tabStrip1.TabIndex = 2;
@@ -64,22 +63,11 @@
             this.aspTabStripPage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.aspTabStripPage.Controls.Add(this.directiveEditor);
             this.aspTabStripPage.Key = "aspTabStripPage";
-            this.aspTabStripPage.Location = new System.Drawing.Point(1, 21);
+            this.aspTabStripPage.Location = new System.Drawing.Point(1, 20);
             this.aspTabStripPage.Name = "aspTabStripPage";
-            this.aspTabStripPage.Size = new System.Drawing.Size(778, 558);
+            this.aspTabStripPage.Size = new System.Drawing.Size(778, 559);
             this.aspTabStripPage.TabIndex = 0;
             this.aspTabStripPage.Text = "Language Transitions: <% %>";
-            // 
-            // scriptTabStripPage
-            // 
-            this.scriptTabStripPage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.scriptTabStripPage.Controls.Add(this.tagEditor);
-            this.scriptTabStripPage.Key = "scriptTabStripPage";
-            this.scriptTabStripPage.Location = new System.Drawing.Point(1, 21);
-            this.scriptTabStripPage.Name = "scriptTabStripPage";
-            this.scriptTabStripPage.Size = new System.Drawing.Size(778, 558);
-            this.scriptTabStripPage.TabIndex = 1;
-            this.scriptTabStripPage.Text = "Language Transitions: <script>";
             // 
             // directiveEditor
             // 
@@ -88,9 +76,22 @@
             this.directiveEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.directiveEditor.Location = new System.Drawing.Point(0, 0);
             this.directiveEditor.Name = "directiveEditor";
-            this.directiveEditor.Size = new System.Drawing.Size(778, 558);
+            this.directiveEditor.OverrideCursor = null;
+            this.directiveEditor.PrintSettings.AreColumnGuidesVisible = false;
+            this.directiveEditor.Size = new System.Drawing.Size(778, 559);
             this.directiveEditor.TabIndex = 2;
             this.directiveEditor.Text = resources.GetString("directiveEditor.Text");
+            // 
+            // scriptTabStripPage
+            // 
+            this.scriptTabStripPage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.scriptTabStripPage.Controls.Add(this.tagEditor);
+            this.scriptTabStripPage.Key = "scriptTabStripPage";
+            this.scriptTabStripPage.Location = new System.Drawing.Point(1, 20);
+            this.scriptTabStripPage.Name = "scriptTabStripPage";
+            this.scriptTabStripPage.Size = new System.Drawing.Size(778, 559);
+            this.scriptTabStripPage.TabIndex = 1;
+            this.scriptTabStripPage.Text = "Language Transitions: <script>";
             // 
             // tagEditor
             // 
@@ -99,16 +100,17 @@
             this.tagEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tagEditor.Location = new System.Drawing.Point(0, 0);
             this.tagEditor.Name = "tagEditor";
-            this.tagEditor.Size = new System.Drawing.Size(778, 558);
+            this.tagEditor.OverrideCursor = null;
+            this.tagEditor.PrintSettings.AreColumnGuidesVisible = false;
+            this.tagEditor.Size = new System.Drawing.Size(778, 559);
             this.tagEditor.TabIndex = 2;
             this.tagEditor.Text = resources.GetString("tagEditor.Text");
             // 
             // MainControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.contentPanel);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MainControl";
             this.Size = new System.Drawing.Size(800, 600);
             this.contentPanel.ResumeLayout(false);

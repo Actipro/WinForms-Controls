@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.UI.WinForms.Drawing;
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 
@@ -41,5 +43,26 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.PrinterV
 				MessageBox.Show($"Error executing command.  {ex.Message}", "Error Executing Command", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					showPrintPreviewDialogButton,
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
+
 }

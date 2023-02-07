@@ -1,6 +1,8 @@
-﻿using ActiproSoftware.UI.WinForms.Controls.Commands;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.UI.WinForms.Controls.Commands;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.EditActions;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Linq;
 using System.Text;
@@ -26,7 +28,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditActi
 			InitializeComponent();
 
 			// Finalize component initialization
-			ResizeControls();
 			BuildListView();
 		}
 
@@ -226,15 +227,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditActi
 		}
 
 		/// <summary>
-		/// Occurs when the control is resized.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnActionsPanelResize(object sender, EventArgs e) {
-			ResizeControls();
-		}
-
-		/// <summary>
 		/// Occurs when the button is clicked.
 		/// </summary>
 		/// <param name="sender">The sender of the event.</param>
@@ -304,16 +296,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditActi
 		}
 
 		/// <summary>
-		/// Resizes controls on the form based on current conditions.
-		/// </summary>
-		private void ResizeControls() {
-			// Adjust label maximimum width to allow for proper word-wrapping when auto-sized and docked
-			foreach (var label in actionsPanel.Controls.OfType<Label>()) {
-				label.MaximumSize = new System.Drawing.Size(actionsPanel.Width, 0);
-			}
-		}
-
-		/// <summary>
 		/// Unbinds the custom edit action.
 		/// </summary>
 		private void UnbindCustomEditAction() {
@@ -323,5 +305,34 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditActi
 			}
 		}
 
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					editActionsListView,
+					customActionsHeaderLabel,
+					executeCustomActionButton,
+					bindCustomActionButton,
+					unbindCustomActionButton,
+					customActionsDescriptionLabel,
+					builtInActionsLabel
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+			// Resize the width of ListView columns
+			DpiHelper.RescaleListViewColumns(editActionsListView, deviceDpiOld, deviceDpiNew);
+
+		}
+
 	}
+
 }

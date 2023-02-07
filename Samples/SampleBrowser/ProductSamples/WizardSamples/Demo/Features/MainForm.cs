@@ -7,7 +7,9 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 using ActiproSoftware.UI.WinForms.Drawing;
+using ActiproSoftware.UI.WinForms.Controls.Extensions;
 using ActiproSoftware.UI.WinForms.Controls.Wizard;
+using ActiproSoftware.SampleBrowser;
 
 namespace ActiproSoftware.ProductSamples.WizardSamples.Demo.Features {
 
@@ -29,6 +31,35 @@ namespace ActiproSoftware.ProductSamples.WizardSamples.Demo.Features {
 			// Set the active control to the Wizard... this works around a .NET framework focus bug with ContainerControls where
 			//   focus won't enter the Wizard until a mouse click occurs
 			this.ActiveControl = this.Wizard;
+		}
+
+		/// <inheritdoc/>
+		public override void DpiScaleChanged(SizeF scaleFactor) {
+			var deviceDpiOld = DpiHelper.ScaleFactorToDeviceDpi(this.DpiScaleFactor);
+			var deviceDpiNew = DpiHelper.ScaleFactorToDeviceDpi(scaleFactor);
+			
+			base.DpiScaleChanged(scaleFactor);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts				
+				var manualFontControls = new Control[] {
+					welcomeLabel,
+					finishPage1FinishPageLabel,
+					finishPage1Number1Label,
+					finishPage2FinishPageLabel,
+					finishPage2Number2Label,
+					windowsXPMessageLabel,
+					windowsXPActiproLabel,
+					windowsXPWizardLabel
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+			// Rescale controls that don't automatically scale with DPI changes
+			#if !NET6_0_OR_GREATER
+			progressBar.Size = DpiHelper.RescaleSize(progressBar.Size, deviceDpiOld, deviceDpiNew);
+			#endif
 		}
 
 		/// <summary>
@@ -239,6 +270,21 @@ namespace ActiproSoftware.ProductSamples.WizardSamples.Demo.Features {
 			SampleBrowser.Program.LaunchExternalBrowser(((LinkLabel)sender).Text);
 		}
 
+
+		/// <summary>
+		/// Occurs when the page is resized.
+		/// </summary>
+		/// <param name="sender">Sender of the event.</param>
+		/// <param name="e">An <c>EventArgs</c> that contains the event data.</param>
+		private void startPage_Resize(object sender, EventArgs e) {
+			// Resize the content panel of the start page to match the available space
+			startPageTableLayoutPanel.Bounds = new Rectangle(
+				startPage.ClientRectangle.Left + startPage.ScaleLogicalValue(startPage.WatermarkWidth),
+				startPage.ClientRectangle.Top,
+				startPage.ClientRectangle.Width - startPage.ScaleLogicalValue(startPage.WatermarkWidth),
+				startPage.ClientRectangle.Height);
+		}
+
 		/// <summary>
 		/// Occurs when the textbox is validating.
 		/// </summary>
@@ -256,5 +302,15 @@ namespace ActiproSoftware.ProductSamples.WizardSamples.Demo.Features {
 			}
 		}
 
+		/// <summary>
+		/// Occurs when the page is resized.
+		/// </summary>
+		/// <param name="sender">Sender of the event.</param>
+		/// <param name="e">An <c>EventArgs</c> that contains the event data.</param>
+		private void windowsXPPage_Resize(object sender, EventArgs e) {
+			// Adjust the size of message label to fill the space allocated by the background
+			windowsXPMessageLabel.Width = windowsXPPage.Width;
+			windowsXPMessageLabel.Height = windowsXPPage.ScaleLogicalValue(WindowsXPBackgroundFill.BottomLabelHeight);
+		}
 	}
 }

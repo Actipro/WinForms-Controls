@@ -21,7 +21,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
 			//   automatically inherits all of its registered services
 			//
 
-			// Register the programmatic mergable lexer defined in this step, which will replace
+			// Register the programmatic mergeable lexer defined in this step, which will replace
 			//   the ILexer feature service defined in the inherited language class
             this.RegisterLexer(new SimpleLexer(true));
 

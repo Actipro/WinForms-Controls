@@ -1,5 +1,7 @@
-﻿using ActiproSoftware.Text;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.Text;
 using ActiproSoftware.Text.Parsing;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Windows.Forms;
 
@@ -55,5 +57,27 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
 		private void UpdateFunctionCount(int functionCount) {
 			functionCountLabel.Text = functionCount.ToString();
 		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					functionLabel,
+					functionCountLabel
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
+
 }

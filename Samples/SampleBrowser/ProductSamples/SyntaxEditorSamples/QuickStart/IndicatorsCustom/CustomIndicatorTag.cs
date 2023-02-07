@@ -9,6 +9,7 @@ using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Highlighting;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Highlighting.Implementation;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Implementation;
+using ActiproSoftware.UI.WinForms.Drawing;
 
 namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.IndicatorsCustom {
    
@@ -57,12 +58,27 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Indicato
 		/// <param name="tagRange">The <see cref="ITag"/> and the range it covers.</param>
 		/// <param name="bounds">The bounds in which the indicator will be rendered.</param>
 		public override void DrawGlyph(TextViewDrawContext context, ITextViewLine viewLine, TagSnapshotRange<IIndicatorTag> tagRange, Rectangle bounds) {
-			var diameter = (int) Math.Max(8, Math.Min(13, Math.Round(Math.Min(bounds.Width, bounds.Height) - 2.0)));
+			// Get the DPI scale (WinForms only)
+			var scaleFactor = new SizeF(context.DpiScale, context.DpiScale);
+			
+			int minimumDiameter = 8;
+			int maximumDiameter = DpiHelper.ScaleInt32(13, scaleFactor);
+			int padding = DpiHelper.ScaleInt32(1, scaleFactor);
+			int strokeWidth = DpiHelper.ScaleInt32(1, scaleFactor);
+
+			var diameter = Math.Max(
+				minimumDiameter,
+				Math.Min(
+					maximumDiameter,
+					Math.Min(bounds.Width, bounds.Height) - (2 * padding)
+					)
+				);
+
 			var x = (int)(bounds.X + (bounds.Width - diameter) / 2.0);
 			var y = (int)(bounds.Y + (bounds.Height - diameter) / 2.0);
 
 			context.FillEllipse(new Rectangle(x, y, diameter, diameter), Color.FromArgb(0xff, 0x8a, 0xf3, 0x82));
-			context.DrawEllipse(new Rectangle(x, y, diameter, diameter), Color.FromArgb(0xff, 0x00, 0x40, 0x00), LineKind.Solid, 1);
+			context.DrawEllipse(new Rectangle(x, y, diameter, diameter), Color.FromArgb(0xff, 0x00, 0x40, 0x00), LineKind.Solid, strokeWidth);
 		}
 
 	}

@@ -1,4 +1,6 @@
-﻿using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Windows.Forms;
 
@@ -18,6 +20,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.TextStat
 		/// </summary>
 		public MainControl() {
 			InitializeComponent();
+
+			// Finalize initialization
+			DpiHelper.RescaleListViewColumns(resultsListView, DpiHelper.DefaultDeviceDpi, DpiHelper.GetSystemDeviceDpi());
 
 			// Update statistics
 			this.UpdateStatistics();
@@ -45,5 +50,28 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.TextStat
 				resultsListView.Items.Add(new ListViewItem(new string[] { statistic.Description, statistic.StringValue }));
 		}
 
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					resultsLabel,
+					resultsListView
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+			DpiHelper.RescaleListViewColumns(resultsListView, deviceDpiOld, deviceDpiNew);
+
+		}
+
 	}
+
 }

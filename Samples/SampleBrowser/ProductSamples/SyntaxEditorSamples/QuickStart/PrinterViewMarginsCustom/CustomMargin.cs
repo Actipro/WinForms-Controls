@@ -5,6 +5,7 @@ using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Implementation;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Margins;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Primitives;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Drawing;
 
@@ -84,8 +85,8 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.PrinterV
 			if (this.Visibility == Visibility.Collapsed)
 				return new Size(0, 0);
 
-			var dpiScale = g.DpiX / 96.0f;
-			return new Size(availableSize.Width, (int)(80 * dpiScale));
+			var scaleFactor = this.DpiScaleFactor;
+			return new Size(availableSize.Width, (int)(80 * scaleFactor.Width));
 		}
 
 	}

@@ -5,6 +5,7 @@ using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Adornments;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Adornments.Implementation;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Implementation;
+using ActiproSoftware.UI.WinForms.Drawing;
 
 namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.AdornmentsWatermark {
     
@@ -52,7 +53,6 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Adornmen
 		/// <param name="adornment">The <see cref="IAdornment"/> to draw.</param>
 		private void OnDrawAdornment(TextViewDrawContext context, IAdornment adornment) {
 			var color = Color.FromArgb(0xff, 0xe8, 0xe8, 0xe8);
-
 			using (var textLayout = context.Canvas.CreateTextLayout("Watermark", float.MaxValue, "Arial", 82, color)) {
 				var textLayoutLine = textLayout.Lines[0];
 				var textAreaBounds = context.TextAreaBounds;

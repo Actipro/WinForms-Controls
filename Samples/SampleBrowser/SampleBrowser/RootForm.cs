@@ -1,9 +1,12 @@
+using ActiproSoftware.UI.WinForms.Controls;
 using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 
 namespace ActiproSoftware.SampleBrowser {
@@ -14,6 +17,7 @@ namespace ActiproSoftware.SampleBrowser {
 	public partial class RootForm : Form {
 
 		private int currentNavigationListBoxSelectedIndex = -1;
+		private const string ReadyText = "Ready";
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// NESTED TYPES
@@ -59,16 +63,25 @@ namespace ActiproSoftware.SampleBrowser {
 		/// </summary>
 		public RootForm() {
 			InitializeComponent();
+			this.MinimumSize = new System.Drawing.Size(931, 686);
+
+			// Respond to clicks on the version label for displaying diagnostic information
+			versionStatusLabel.Click += this.OnVersionStatusLabelClick;
+
+			// Configure font and auto-scale after initialization for best scaling experience
+			this.Font = new Font("Segoe UI", 9F);
+			this.AutoScaleDimensions = new SizeF(96F, 96F);
+			this.AutoScaleMode = AutoScaleMode.Dpi;
 
 			this.InitializeNavigation();
 			this.InitializeSplitters();
 			this.InitializeStatusBar();
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// NON-PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 		/// <summary>
 		/// Clear the content host.
 		/// </summary>
@@ -81,9 +94,8 @@ namespace ActiproSoftware.SampleBrowser {
 
 				contentHostPanel.Controls.Clear();
 			}
-
 	
-			this.UpdatePrimaryStatus("Ready");
+			this.UpdatePrimaryStatus(ReadyText);
 		}
 
 		/// <summary>
@@ -152,7 +164,7 @@ namespace ActiproSoftware.SampleBrowser {
 			// Resolve relative paths
 			if (url.StartsWith("/", StringComparison.Ordinal)) {
 				var appPath = new Uri(Assembly.GetEntryAssembly().GetName().CodeBase).LocalPath;
-				url = System.IO.Path.GetFullPath(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(appPath), @"..\..\.." + url));
+				url = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(appPath), @"..\..\.." + url));
 			}
 
 			// Navigate
@@ -164,9 +176,20 @@ namespace ActiproSoftware.SampleBrowser {
 		/// </summary>
 		/// <param name="type">The control type.</param>
 		private void LoadUserControl(Type type) {
-			var userControl = Activator.CreateInstance(type) as UserControl;
+			var userControl = (UserControl)Activator.CreateInstance(type);
+			userControl.SuspendLayout();
 			userControl.Dock = DockStyle.Fill;
+
+			if (DpiHelper.IsPerMonitorScalingRequired) {
+				// This root form may have moved to a monitor with a different DPI than the system DPI, and that can
+				// result in the default font being scaled. Descale the font back to the size for the system
+				// DPI before adding to the root form or the user control may not scale correctly.
+				var scaleFactor = DpiHelper.GetDeviceDpiChangeFactor(DpiHelper.GetSystemDeviceDpi(), DpiHelper.GetDeviceDpi(this));
+				userControl.Font = DpiHelper.DescaleFont(this.Font, scaleFactor);
+			}
+
 			contentHostPanel.Controls.Add(userControl);
+			userControl.ResumeLayout();
 
 			// Notify samples that they are being loaded when needed
 			var sample = userControl as IProductSample;
@@ -199,7 +222,7 @@ namespace ActiproSoftware.SampleBrowser {
 
 			contentHeaderLabel.Text = familyInfo.Title;
 
-			this.UpdatePrimaryStatus("Copyright \u00A9 2002-2022 Actipro Software LLC");
+			this.UpdatePrimaryStatus("Copyright \u00A9 2002-2023 Actipro Software LLC");
 
 			if (familyInfo.Path.EndsWith(".html", StringComparison.OrdinalIgnoreCase))
 				this.LoadBrowser(familyInfo.Path, familyInfo);
@@ -339,11 +362,59 @@ namespace ActiproSoftware.SampleBrowser {
 		}
 
 		/// <summary>
+		/// Occurs when the status label is clicked.
+		/// </summary>
+		/// <param name="sender">The sender of the event.</param>
+		/// <param name="e">The <c>EventArgs</c> that contains data related to the event.</param>
+		private void OnVersionStatusLabelClick(object sender, EventArgs e) {
+			if (Control.ModifierKeys == Keys.Control) {
+				// Generate diagnostic information to be displayed for debugging/support
+
+				var sb = new StringBuilder();
+
+				sb.AppendLine($"Runtime Framework: \t{System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription}");
+
+				#if NETFRAMEWORK
+				var targetFramework = Assembly.GetExecutingAssembly()
+					.GetCustomAttributes<System.Runtime.Versioning.TargetFrameworkAttribute>()
+					.SingleOrDefault()
+					?.FrameworkDisplayName;
+				if (!string.IsNullOrWhiteSpace(targetFramework))
+					sb.AppendLine($"Target Framework:\t{targetFramework}");
+				#endif
+
+				sb.AppendLine($"DPI Awareness: \t\t{DpiHelper.GetDpiAwarenessDescription()}");
+				sb.AppendLine($"Per-Monitor V2 DPI Aware: \t{DpiHelper.IsPerMonitorV2Aware}");
+				sb.AppendLine($"Per-Monitor Scaling Req'd: \t{DpiHelper.IsPerMonitorScalingRequired}");
+				sb.AppendLine($"Font Size: \t\t{this.Font.SizeInPoints}pt");
+				sb.AppendLine($"Auto-Scale Mode: \t\t{this.AutoScaleMode} {this.AutoScaleDimensions}");
+
+				sb.AppendLine($"Control DPI: \t\t{DpiHelper.GetDeviceDpi(this)} dpi @ {DpiHelper.GetDpiScale(this).Width * 100}%");
+				sb.AppendLine($"System DPI: \t\t{DpiHelper.GetSystemDeviceDpi()} dpi @ {DpiHelper.GetSystemDpiScale().Width * 100}%");
+				var screens = Screen.AllScreens;
+				var currentScreen = Screen.FromControl(this);
+				for (var i = 0; i < screens.Length; i++) {
+					var screenDpi = DpiHelper.GetScreenDeviceDpi(screens[i]);
+					sb.AppendLine($"Screen[{i}] DPI: \t\t{screenDpi} dpi @ {DpiHelper.GetDpiScale(screenDpi).Width * 100}%"
+						+ (screens[i].Primary ? " (Primary)" : string.Empty)
+						+ (screens[i].DeviceName == currentScreen?.DeviceName ? " (Current)" : String.Empty));
+				}
+
+				// Write to debug output
+				Debug.WriteLine("**Diagnostic Information**\r\n" + sb.ToString());
+
+				// Show details and optionally copy to clipboard
+				if (DialogResult.Yes == MessageBox.Show(sb.ToString() + "\r\n\r\nCopy this information to the clipboard?", "Diagnostic Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2))
+					Clipboard.SetText(sb.ToString());
+			}
+		}
+
+		/// <summary>
 		/// Updates the primary status.
 		/// </summary>
 		/// <param name="message">The message.</param>
 		private void UpdatePrimaryStatus(string message) {
-			primaryStatusLabel.Text = message ?? "Ready";
+			primaryStatusLabel.Text = message ?? ReadyText;
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -388,7 +459,39 @@ namespace ActiproSoftware.SampleBrowser {
 				navigationListBox.SelectedItem = target;
 			}
 		}
-		
+
+		/// <summary>
+		/// Occurs when the DPI of the device where the form is displayed changes.
+		/// </summary>
+		/// <param name="e">A <see cref="DpiChangedEventArgs" /> that contains the event data.</param>
+		/// <remarks>This method should only be called when using per-monitor DPI awareness.</remarks>
+		protected override void OnDpiChanged(DpiChangedEventArgs e) {
+			base.OnDpiChanged(e);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale the font for the header label
+				contentHeaderLabel.Font = DpiHelper.RescaleFont(contentHeaderLabel.Font, e.DeviceDpiOld, e.DeviceDpiNew);
+			}
+
+			// Allow loaded content to update layout
+			if (contentHostPanel.Controls.Count > 0) {
+				var contentControl = contentHostPanel.Controls[0];
+
+				contentHostPanel.SuspendLayout();
+				contentControl.SuspendLayout();
+
+				// Remove/Add the control to force a layout update (Refresh/Invalidate had no effect)
+				contentHostPanel.Controls.Remove(contentControl);
+				contentHostPanel.Controls.Add(contentControl);
+
+				contentControl.ResumeLayout();
+				contentHostPanel.ResumeLayout();
+			}
+
+			// Perform layout to address issues with status bar not resizing
+			this.PerformLayout();
+		}
+
 		/// <summary>
 		/// Opens a form sample.
 		/// </summary>
@@ -406,7 +509,33 @@ namespace ActiproSoftware.SampleBrowser {
 				// Try to open MainForm
 				var form = Activator.CreateInstance(type) as Form;
 				if (form != null) {
-					form.StartPosition = FormStartPosition.CenterScreen;
+
+					if (DpiHelper.IsPerMonitorScalingRequired) {
+						form.StartPosition = FormStartPosition.CenterParent;
+
+						// This root form may have moved to a monitor with a different DPI than the system DPI, and that can
+						// result in the default font being scaled. Descale the font back to the size for the system
+						// DPI before assigning to the new form or the new form may not scale correctly.
+						var scaleFactor = DpiHelper.GetDeviceDpiChangeFactor(DpiHelper.GetSystemDeviceDpi(), DpiHelper.GetDeviceDpi(this));
+						form.Font = DpiHelper.DescaleFont(this.Font, scaleFactor);
+
+						// Show the form using special behavior to ensure proper DPI scaling
+						DpiAwareFormShowBehavior.ApplyTo(form);
+					}
+					else {
+						// FormStartPosition.CenterParent does not work reliably at non-standard DPI levels, so always manually
+						// position the form to be centered on the parent.
+
+						var formSize = form.Size;
+						var targetBoundsForCenter = this.Bounds;
+
+						form.StartPosition = FormStartPosition.Manual;
+						form.Location = new Point(
+							targetBoundsForCenter.Left + ((targetBoundsForCenter.Width - formSize.Width) / 2),
+							targetBoundsForCenter.Top + ((targetBoundsForCenter.Height - formSize.Height) / 2));
+
+					}
+
 					form.Show(this);
 				}
 			}

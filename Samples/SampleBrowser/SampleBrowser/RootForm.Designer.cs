@@ -126,7 +126,7 @@
 			this.companyLogoImage.Location = new System.Drawing.Point(625, 30);
 			this.companyLogoImage.Name = "companyLogoImage";
 			this.companyLogoImage.Size = new System.Drawing.Size(100, 26);
-			this.companyLogoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.companyLogoImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.companyLogoImage.TabIndex = 1;
 			this.companyLogoImage.TabStop = false;
 			// 
@@ -337,25 +337,21 @@
 			// 
 			// RootForm
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
 			this.ClientSize = new System.Drawing.Size(1040, 710);
 			this.Controls.Add(this.contentAreaPanel);
 			this.Controls.Add(this.navigationSplitter);
 			this.Controls.Add(this.titleSplitter);
 			this.Controls.Add(this.navigationPanel);
 			this.Controls.Add(this.statusStrip);
-			this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-			this.MinimumSize = new System.Drawing.Size(931, 686);
 			this.Name = "RootForm";
 			this.Text = "Actipro WinForms Controls";
 			this.statusStrip.ResumeLayout(false);
 			this.statusStrip.PerformLayout();
 			this.contentAreaPanel.ResumeLayout(false);
 			this.contentHeaderPanel.ResumeLayout(false);
-			this.contentHeaderPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.companyLogoImage)).EndInit();
 			this.navigationPanel.ResumeLayout(false);
 			this.navigationPanel.PerformLayout();

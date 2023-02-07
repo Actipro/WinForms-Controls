@@ -1,4 +1,6 @@
-﻿using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -331,6 +333,51 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.DragAndD
 			populateWithRtfCheckBox.Checked = editor.CanCutCopyDragWithRtf;
 			shouldReselectTextAfterDropCheckBox.Checked = editor.IsDragDropTextReselectEnabled;
 			isDocumentReadOnlyCheckBox.Checked = editor.Document.IsReadOnly;
+		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					allowLabel,
+					allowDragCheckBox,
+					allowDropCheckBox,
+					populateWithLabel,
+					populateWithHtmlCheckBox,
+					populateWithRtfCheckBox,
+					overrideLabel,
+					overrideDragCheckBox,
+					overrideDragTextBox,
+					overrideDropCheckBox,
+					overrideDropTextBox,
+					shouldReselectTextAfterDropCheckBox,
+					cancelDropCheckBox,
+					isDocumentReadOnlyCheckBox,
+					stringDragSourceLabel,
+					customDragSourceLabel,
+					toolboxListBox,
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+
+				if (!Program.IsControlSizeScalingHandledByRuntime) {
+					// Manually scale sizes
+					var manualSizeControl = new Control[] {
+						overrideDragTextBox,
+						overrideDropTextBox
+					};
+					foreach (var control in manualSizeControl)
+						control.Size = DpiHelper.RescaleSize(control.Size, deviceDpiOld, deviceDpiNew);
+				}
+			}
+
 		}
 
 	}

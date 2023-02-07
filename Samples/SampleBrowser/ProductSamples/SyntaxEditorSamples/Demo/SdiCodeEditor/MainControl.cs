@@ -1,5 +1,6 @@
 using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
 using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.SampleBrowser.Controls;
 using ActiproSoftware.Text;
 using ActiproSoftware.Text.Implementation;
 using ActiproSoftware.Text.Languages.CSharp.Implementation;
@@ -8,10 +9,13 @@ using ActiproSoftware.Text.Languages.DotNet.Reflection;
 using ActiproSoftware.Text.Parsing;
 using ActiproSoftware.Text.Parsing.LLParser;
 using ActiproSoftware.Text.Searching;
+using ActiproSoftware.UI.WinForms.Controls;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Highlighting;
+using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Implementation;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Outlining;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,7 +49,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 		/// </summary>
 		public MainControl() {
 			InitializeComponent();
-			
+
+			// Finalize initialization
+			DpiHelper.RescaleListViewColumns(errorListView, DpiHelper.DefaultDeviceDpi, DpiHelper.GetSystemDeviceDpi());
+
 			// Auto-hide tool windows
 			dockManager.AutoHideAllToolWindowsDockedInHost();
 
@@ -375,6 +382,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 					case nameof(cutToolStripMenuItem):
 						editor.ActiveView.CutToClipboard();
 						break;
+					case nameof(darkThemeToolStripMenuItem):
+						SetColorScheme(WindowsColorSchemeType.MetroDark);
+						break;
 					case nameof(decreaseLineIndentToolStripMenuItem):
 						editor.ActiveView.TextChangeActions.Outdent();
 						break;
@@ -420,6 +430,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 					case nameof(insertSnippetToolStripButton):
 					case nameof(insertSnippetToolStripMenuItem):
 						editor.ActiveView.IntelliPrompt.RequestInsertSnippetSession();
+						break;
+					case nameof(lightThemeToolStripMenuItem):
+						SetColorScheme(WindowsColorSchemeType.MetroLight);
 						break;
 					case nameof(makeLowercaseToolStripMenuItem):
 						editor.ActiveView.TextChangeActions.ChangeCharacterCasing(ActiproSoftware.Text.CharacterCasing.Lower);
@@ -853,7 +866,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			OpenFileDialog dialog = new OpenFileDialog();
 			dialog.CheckFileExists = true;
 			dialog.Multiselect = false;
-			dialog.Filter = "Code files (*.cs;*.vb;*.js;*.py;*.xml;*.txt)|*.cs;*.vb;*.js;*.py;*.xml;*.txt|All files (*.*)|*.*";
+			dialog.Filter = "Code files (*.cs;*.vb;*.js;*.json;*.py;*.xml;*.txt)|*.cs;*.vb;*.js;*.json;*.py;*.xml;*.txt|All files (*.*)|*.*";
 			if (dialog.ShowDialog() == DialogResult.OK) {
 				// Open a document
 				using (Stream stream = dialog.OpenFile()) {
@@ -915,6 +928,39 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			}
 		}
 
+		/// <summary>
+		/// Sets the color scheme to be used for the editor.
+		/// </summary>
+		/// <param name="colorSchemeType">The color scheme type.</param>
+		private void SetColorScheme(WindowsColorSchemeType colorSchemeType) {
+
+			// Create the appropriate renderer for the color scheme type
+			var renderer = ((colorSchemeType == WindowsColorSchemeType.MetroLight) || (colorSchemeType == WindowsColorSchemeType.MetroDark))
+				? new MetroSyntaxEditorRenderer(colorSchemeType)
+				: new SyntaxEditorRenderer();
+
+			// Configure the editor with the per-instance renderer
+			editor.Renderer = renderer;
+
+			// Ensure symbol selector is refreshed
+			symbolSelector.Invalidate();
+
+			// Update colors on this control to be consistent with the color scheme
+			var colorScheme = renderer.ColorScheme;
+			editorPanel.BackColor = colorScheme.GetKnownColor(KnownColor.Control);
+			editor.BackColor = colorScheme.GetKnownColor(KnownColor.Window);
+			editor.ForeColor = colorScheme.GetKnownColor(KnownColor.WindowText);
+
+			// Configure global image set and highlighting style registry for light/dark theme
+			SyntaxEditorHelper.UpdateImageSetForThemeChange(colorScheme);
+			SyntaxEditorHelper.UpdateHighlightingStyleRegistryForThemeChange(colorScheme);
+
+			// Update the check status of menu items
+			bool isDarkTheme = colorScheme.IsDarkColorScheme();
+			lightThemeToolStripMenuItem.Checked = !isDarkTheme;
+			darkThemeToolStripMenuItem.Checked = isDarkTheme;
+		}
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -933,6 +979,47 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// Clear .NET Languages Add-on project assembly references when the sample unloads
 			cSharpProjectAssembly.AssemblyReferences.Clear();
 			vbProjectAssembly.AssemblyReferences.Clear();
+
+			// Restore SyntaxEditor image set and highlighting style registry to match the global configuration
+			SyntaxEditorHelper.UpdateImageSetForThemeChange(UIRendererManager.ColorScheme);
+			SyntaxEditorHelper.UpdateHighlightingStyleRegistryForThemeChange(UIRendererManager.ColorScheme);
+		}
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					astOutputEditor,
+					errorListView,
+					eventsListBox,
+					menuStrip,
+					mainToolStrip,
+					statusStrip,
+					symbolSelector
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+
+				// Manually scale the buttons/images on the tool strip
+				mainToolStrip.SuspendLayout();
+				mainToolStrip.ImageScalingSize = DpiHelper.RescaleSize(mainToolStrip.ImageScalingSize, deviceDpiOld, deviceDpiNew);
+				var imageButtonSize = DpiHelper.ScaleSize(new Size(23, 22), DpiHelper.GetDpiScale(deviceDpiNew));
+				foreach (var toolStripItem in mainToolStrip.Items) {
+					if (toolStripItem is ToolStripButton toolStripButton) {
+						if (toolStripButton.DisplayStyle == ToolStripItemDisplayStyle.Image) {
+							toolStripButton.AutoSize = false;
+							toolStripButton.Size = imageButtonSize;
+						}
+					}
+				}
+				mainToolStrip.ResumeLayout();
+			}
+
+			DpiHelper.RescaleListViewColumns(errorListView, deviceDpiOld, deviceDpiNew);
+
 		}
 
 	}

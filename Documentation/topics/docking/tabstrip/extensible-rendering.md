@@ -33,8 +33,8 @@ Dock includes these built-in renderers:
 
 | Renderer | Description |
 |-----|-----|
-| [MetroLightToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.MetroLightToolWindowTabStripRenderer) | Capable of drawing a Metro Light tool window. |
-| [MetroLightDocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.MetroLightDocumentWindowTabStripRenderer) | Capable of drawing a Metro Light document window. |
+| [MetroToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.MetroToolWindowTabStripRenderer) | Capable of drawing a Metro styles (Light and Dark) for a tool window.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.MetroToolWindowTabStripRenderer.BaseColorSchemeType). |
+| [MetroDocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.MetroDocumentWindowTabStripRenderer) | Capable of drawing a Metro styles (Light and Dark) for document window.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.MetroDocumentWindowTabStripRenderer.BaseColorSchemeType). |
 | [VisualStudio2005ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer) | Capable of drawing a Visual Studio 2005 tool window. |
 | [VisualStudio2005DocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2005DocumentWindowTabStripRenderer) | Capable of drawing a Visual Studio 2005 document window. |
 | [VisualStudio2005Beta2ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2005Beta2ToolWindowTabStripRenderer) | Capable of drawing a Visual Studio 2005 Beta 2 tool window. |

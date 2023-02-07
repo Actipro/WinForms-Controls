@@ -1,4 +1,6 @@
-﻿using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -90,7 +92,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.MacroRec
 			switch (editor.MacroRecording.State) {
 				case MacroRecordingState.Recording:
 					statusMessage = "Macro recording is active";
-					recordMacroToolStripButton.Image = SampleBrowser.Resources.IconMacroRecordingStop16;
+					recordMacroToolStripButton.Image = Resources.IconMacroRecordingStop16;
 					recordMacroToolStripButton.Text = "Stop Recording";
 					pauseRecordingToolStripButton.Checked = false;
 					pauseRecordingToolStripButton.Text = "Pause Recording";
@@ -102,7 +104,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.MacroRec
 					break;
 				default:
 					statusMessage = null;
-					recordMacroToolStripButton.Image = SampleBrowser.Resources.IconMacroRecordingRecord16;
+					recordMacroToolStripButton.Image = Resources.IconMacroRecordingRecord16;
 					recordMacroToolStripButton.Text = "Record Macro";
 					pauseRecordingToolStripButton.Checked = false;
 					pauseRecordingToolStripButton.Text = "Pause Recording";
@@ -125,5 +127,27 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.MacroRec
 			pauseRecordingToolStripButton.Enabled = EditorCommands.PauseResumeMacroRecording.CanExecute(editor.ActiveView);
 			cancelRecordingToolStripButton.Enabled = EditorCommands.CancelMacroRecording.CanExecute(editor.ActiveView);
 		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					mainToolStrip,
+					statusLabel
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
+
 }

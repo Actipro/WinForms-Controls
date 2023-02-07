@@ -23,7 +23,8 @@ Bars includes these built-in renderers, which support Metro Light, Office 2007/2
 
 | Renderer | Description |
 |-----|-----|
-| [MetroLightBarRenderer](xref:@ActiproUIRoot.Controls.Bars.MetroLightBarRenderer) | Capable of drawing Metro Light bar controls. |
+| [MetroBarRenderer](xref:@ActiproUIRoot.Controls.Bars.MetroBarRenderer) | Capable of drawing Metro styles (Light and Dark) for bar controls.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Bars.MetroBarRenderer.BaseColorSchemeType). |
+| [MetroStatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.MetroStatusBarRenderer) | Capable of drawing Metro styles (Light and Dark) for statusbar controls.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Bars.MetroStatusBarRenderer.BaseColorSchemeType). |
 | [Office2003BarRenderer](xref:@ActiproUIRoot.Controls.Bars.Office2003BarRenderer) | Capable of drawing all Office 2007 styles (Blue, Silver, Black), Office 2003 styles (Blue, Olive, Silver, Royale, and Windows Classic), as well as the Visual Studio 2005 style for bar controls.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Bars.Office2003BarRenderer.BaseColorSchemeType). |
 | [Office2003StatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.Office2003StatusBarRenderer) | Capable of drawing all Office styles for statusbar controls. |
 | [VisualStudio2002BarRenderer](xref:@ActiproUIRoot.Controls.Bars.VisualStudio2002BarRenderer) | Capable of drawing Visual Studio 2002 bar controls. |

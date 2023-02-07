@@ -39,14 +39,13 @@
             // 
             // contentPanel
             // 
-            this.contentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.contentPanel.Controls.Add(this.editor);
             this.contentPanel.Controls.Add(this.mainToolStrip);
-            this.contentPanel.Location = new System.Drawing.Point(10, 10);
+            this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentPanel.Location = new System.Drawing.Point(0, 0);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(780, 580);
+            this.contentPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.contentPanel.Size = new System.Drawing.Size(800, 600);
             this.contentPanel.TabIndex = 1;
             // 
             // editor
@@ -55,7 +54,7 @@
             this.editor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.editor.IsIndicatorMarginVisible = true;
             this.editor.IsLineNumberMarginVisible = true;
-            this.editor.Location = new System.Drawing.Point(0, 25);
+            this.editor.Location = new System.Drawing.Point(10, 35);
             this.editor.Name = "editor";
             this.editor.Size = new System.Drawing.Size(780, 555);
             this.editor.TabIndex = 1;
@@ -72,7 +71,7 @@
             this.toolStripSeparator1,
             this.goToPreviousIndicatorToolStripButton,
             this.goToNextIndicatorToolStripButton});
-            this.mainToolStrip.Location = new System.Drawing.Point(0, 0);
+            this.mainToolStrip.Location = new System.Drawing.Point(10, 10);
             this.mainToolStrip.Name = "mainToolStrip";
             this.mainToolStrip.Size = new System.Drawing.Size(780, 25);
             this.mainToolStrip.TabIndex = 0;
@@ -130,10 +129,9 @@
             // 
             // MainControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.contentPanel);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "MainControl";
             this.Size = new System.Drawing.Size(800, 600);
             this.contentPanel.ResumeLayout(false);

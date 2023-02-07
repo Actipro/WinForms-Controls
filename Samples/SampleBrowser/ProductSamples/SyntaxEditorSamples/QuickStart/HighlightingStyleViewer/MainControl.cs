@@ -1,7 +1,9 @@
-﻿using ActiproSoftware.Text;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.Text;
 using ActiproSoftware.Text.Languages.CSharp.Implementation;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Highlighting;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -36,9 +38,11 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Highligh
 			textStylePreview.HighlightingStyleRegistry = AmbientHighlightingStyleRegistry.Instance;
 
 			// Populate the classification types list
+			classificationTypeListBox.DisplayMember = nameof(IClassificationType.Description);
 			foreach (var classificationType in AmbientHighlightingStyleRegistry.Instance.ClassificationTypes)
-				classificationTypeListView.Items.Add(new ListViewItem(classificationType.Description) { Tag = classificationType });
-			classificationTypeListView.Items[0].Selected = true;
+				classificationTypeListBox.Items.Add(classificationType);
+			if (classificationTypeListBox.Items.Count > 0)
+				classificationTypeListBox.SelectedItem = classificationTypeListBox.Items[0];
 		}
 		
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,14 +91,14 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Highligh
 				}
 			}
 
-			if (classificationTypeListView.SelectedItems.Count == 0)
+			if (classificationTypeListBox.SelectedItems.Count == 0)
 				return;
 
 			try {
 				ignoreUpdateRequest = true;
-			
+
 				// Update controls
-				selectedClassificationType = (IClassificationType)classificationTypeListView.SelectedItems[0].Tag;
+				selectedClassificationType = (IClassificationType)classificationTypeListBox.SelectedItems[0];
 				var selectedHighlightingStyle = AmbientHighlightingStyleRegistry.Instance[selectedClassificationType];
 				if (selectedHighlightingStyle != null) {
 					foreColorButton.Color = selectedHighlightingStyle.Foreground.HasValue ? selectedHighlightingStyle.Foreground.Value : Color.Empty;
@@ -119,5 +123,48 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Highligh
 			}
 		}
 
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					introLabel,
+					itemForegroundLabel,
+					foreColorButton,
+					itemBackgroundLabel,
+					backColorButton,
+					itemBorderLabel,
+					borderColorButton,
+					sampleEditorLabel,
+					displayItemsLabel,
+					classificationTypeListBox,
+					boldCheckBox,
+					italicCheckBox
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
+			if (!Program.IsControlSizeScalingHandledByRuntime) {
+				// Manually scale sizes
+				var manualSizeControl = new Control[] {
+					textStylePreview,
+					foreColorButton,
+					backColorButton,
+					borderColorButton
+				};
+				foreach (var control in manualSizeControl)
+					control.Size = DpiHelper.RescaleSize(control.Size, deviceDpiOld, deviceDpiNew);
+			}
+
+		}
+
 	}
+
 }

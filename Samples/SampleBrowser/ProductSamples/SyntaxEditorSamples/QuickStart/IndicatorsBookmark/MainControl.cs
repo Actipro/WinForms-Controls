@@ -1,6 +1,8 @@
-﻿using ActiproSoftware.Text;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.Text;
 using ActiproSoftware.Text.Tagging;
 using ActiproSoftware.Text.Tagging.Implementation;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -135,6 +137,25 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Indicato
 		/// <returns>The tagged range that was created, if any.</returns>
 		private TagVersionRange<BookmarkIndicatorTag> ToggleIndicator(ITextSnapshotLine snapshotLine) {
 			return editor.Document.IndicatorManager.Bookmarks.Toggle(snapshotLine);
+		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					mainToolStrip,
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+			}
+
 		}
 
 	}

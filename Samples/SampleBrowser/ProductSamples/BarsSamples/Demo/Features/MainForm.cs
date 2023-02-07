@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using ActiproSoftware.UI.WinForms.Drawing;
 using ActiproSoftware.UI.WinForms.Controls;
 using ActiproSoftware.UI.WinForms.Controls.Bars;
+using ActiproSoftware.SampleBrowser.Controls;
+using ActiproSoftware.UI.WinForms.Controls.Extensions;
 
 namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 
@@ -16,7 +18,8 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 	/// </summary>
 	public partial class MainForm : System.Windows.Forms.Form {
 
-		private BarCustomizeForm customizeForm;
+		private BarCustomizeForm	customizeForm;
+		private bool				showDarkThemeDisclaimer = true;
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// INNER CLASSES
@@ -43,6 +46,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			/// </summary>
 			public TextDocumentWindowBase(ActiproSoftware.UI.WinForms.Controls.Docking.DockManager dockManager, string filename) : base(dockManager, filename, Path.GetFileName(filename), null, null) {
 				this.FileName = filename;
+				this.Image = ActiproSoftware.SampleBrowser.Resources.IconTextDocument16;
 			}
 
 			/// <summary>
@@ -199,6 +203,8 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			/// Initializes a new instance of the <c>RichTextDocumentWindow</c> class. 
 			/// </summary>
 			public RichTextDocumentWindow(ActiproSoftware.UI.WinForms.Controls.Docking.DockManager dockManager, string filename) : base(dockManager, filename) {
+				this.Image = ActiproSoftware.SampleBrowser.Resources.IconRichTextDocument16;
+
 				RichTextDocumentTextBox textBox = new RichTextDocumentTextBox();
 				textBox.Parent = this;
 
@@ -524,7 +530,8 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			eventsListBox.SelectedIndex = eventsListBox.Items.Add(String.Format("CustomizeModeChanged: {0}", barManager.CustomizeMode));
 		
 			// If entering dialog customize mode...
-			if (barManager.CustomizeMode == BarCustomizeMode.DialogCustomize) {
+			if (!barManager.BuiltInCustomizeDialogEnabled 
+				&& (barManager.CustomizeMode == BarCustomizeMode.DialogCustomize)) {
 				// Create a customize form
 				if (customizeForm == null) {
 					customizeForm = new BarCustomizeForm(barManager);
@@ -621,6 +628,24 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		}
 
 		/// <summary>
+		/// Occurs when the panel is resized.
+		/// </summary>
+		/// <param name="sender">Sender of the event.</param>
+		/// <param name="e">Event arguments.</param>
+		private void barManagerPropertyGridPanel_Resize(object sender, EventArgs e) {
+			barManagerPropertyGrid.SuspendLayout();
+
+			// Reset the Anchor that is only used to keep designer layout consistent
+			barManagerPropertyGrid.Anchor = AnchorStyles.None;
+
+			// Set the size/location of the PropertyGrid to be 1px bigger than the containing panel so the PropertyGrid border is not visible
+			barManagerPropertyGrid.Location = new Point(-1, -1);
+			barManagerPropertyGrid.Size = new Size(barManagerPropertyGridPanel.Width + 2, barManagerPropertyGridPanel.Height + 2);
+
+			barManagerPropertyGrid.ResumeLayout();
+		}
+
+		/// <summary>
 		/// Occurs when the value of the <see cref="DockManager.SelectedDocument"/> property changes.
 		/// </summary>
 		/// <param name="sender">Sender of the event.</param>
@@ -668,6 +693,24 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 				toolBarPropertiesPropertyGrid.SelectedObject = barManager.DockableToolBars[toolBarPropertiesPropertyGridComboBox.Text];
 			else
 				toolBarPropertiesPropertyGrid.SelectedObject = null;
+		}
+
+		/// <summary>
+		/// Occurs when the panel is resized.
+		/// </summary>
+		/// <param name="sender">Sender of the event.</param>
+		/// <param name="e">Event arguments.</param>
+		private void toolBarPropertiesPropertyGridPanel_Resize(object sender, EventArgs e) {
+			toolBarPropertiesPropertyGrid.SuspendLayout();
+
+			// Reset the Anchor that is only used to keep designer layout consistent
+			toolBarPropertiesPropertyGrid.Anchor = AnchorStyles.None;
+
+			// Set the size/location of the PropertyGrid to be 1px bigger than the containing panel so the PropertyGrid border is not visible
+			toolBarPropertiesPropertyGrid.Location = new Point(-1, -1);
+			toolBarPropertiesPropertyGrid.Size = new Size(toolBarPropertiesPropertyGridPanel.Width + 2, toolBarPropertiesPropertyGridPanel.Height + 2);
+
+			toolBarPropertiesPropertyGrid.ResumeLayout();
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -773,14 +816,30 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		/// Processes the <c>File.NewRichTextDocument</c> command.
 		/// </summary>
 		private void ProcessFileNewRichTextDocument() {
-			new MainForm.RichTextDocumentWindow(dockManager, "Document" + (((BarFormContext)barManager.Tag).DocumentIndex++) + ".rtf").Activate();
+			// Create a new document window
+			var documentWindow = new MainForm.RichTextDocumentWindow(dockManager, "Document" + (((BarFormContext)barManager.Tag).DocumentIndex++) + ".rtf");
+
+			// Apply the current color scheme to the new window
+			var colorScheme = barManager.RendererResolved.ResolvedColorScheme();
+			ThemeHelper.ApplyComponentColors(documentWindow, colorScheme, recurseChildren: true);
+
+			// Activate the document
+			documentWindow.Activate();
 		}
 
 		/// <summary>
 		/// Processes the <c>File.NewTextDocument</c> command.
 		/// </summary>
 		private void ProcessFileNewTextDocument() {
-			new MainForm.TextDocumentWindow(dockManager, "Document" + (((BarFormContext)barManager.Tag).DocumentIndex++) + ".txt").Activate();
+			// Create a new document window
+			var documentWindow = new MainForm.TextDocumentWindow(dockManager, "Document" + (((BarFormContext)barManager.Tag).DocumentIndex++) + ".txt");
+
+			// Apply the current color scheme to the new window
+			var colorScheme = barManager.RendererResolved.ResolvedColorScheme();
+			ThemeHelper.ApplyComponentColors(documentWindow, colorScheme, recurseChildren: true);
+
+			// Activate the document
+			documentWindow.Activate();
 		}
 
 		/// <summary>
@@ -806,6 +865,10 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 					break;
 			}
 			if (documentWindow != null) {
+				// Apply the current color scheme to the window
+				var colorScheme = barManager.RendererResolved.ResolvedColorScheme();
+				ThemeHelper.ApplyComponentColors(documentWindow, colorScheme, recurseChildren: true);
+
 				documentWindow.Modified = false;
 				documentWindow.Activate();
 			}
@@ -953,38 +1016,53 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		}
 		
 		/// <summary>
-		/// Processes the <c>View.RendererCustomRed</c> command.
+		/// Processes the <c>View.RendererCustomGreen</c> command.
 		/// </summary>
-		private void ProcessViewRendererCustomRed() {
-			WindowsColorScheme scheme = new WindowsColorScheme("Red", WindowsColorSchemeType.WindowsXPBlue, Color.DarkRed);
+		private void ProcessViewRendererCustomGreen() {
+			var scheme = new WindowsColorScheme("Green", WindowsColorSchemeType.WindowsXPBlue, UIColor.FromWebColor("#155E2F").ToColor());
 			barManager.Renderer = new Office2003BarRenderer(scheme);
 			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(scheme);
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(scheme);
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(scheme);
 			statusBar.Renderer = new Office2003StatusBarRenderer();
+			OnRendererChanged();
 		}
 
 		/// <summary>
 		/// Processes the <c>View.RendererCustomTan</c> command.
 		/// </summary>
 		private void ProcessViewRendererCustomTan() {
-			WindowsColorScheme scheme = new WindowsColorScheme("Tan", WindowsColorSchemeType.WindowsXPBlue, Color.Tan);
+			var scheme = new WindowsColorScheme("Tan", WindowsColorSchemeType.WindowsXPBlue, Color.Tan);
 			barManager.Renderer = new Office2003BarRenderer(scheme);
 			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(scheme);
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(scheme);
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(scheme);
 			statusBar.Renderer = new Office2003StatusBarRenderer();
+			OnRendererChanged();
 		}
-		
+
+		/// <summary>
+		/// Processes the <c>View.RendererMetroDark</c> command.
+		/// </summary>
+		private void ProcessViewRendererMetroDark() {
+			barManager.Renderer = new MetroBarRenderer(WindowsColorSchemeType.MetroDark);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroDockRenderer(WindowsColorSchemeType.MetroDark);
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroDocumentWindowTabStripRenderer(WindowsColorSchemeType.MetroDark);
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroToolWindowTabStripRenderer(WindowsColorSchemeType.MetroDark);
+			statusBar.Renderer = new MetroStatusBarRenderer(WindowsColorSchemeType.MetroDark);
+			OnRendererChanged();
+		}
+
 		/// <summary>
 		/// Processes the <c>View.RendererMetroLight</c> command.
 		/// </summary>
 		private void ProcessViewRendererMetroLight() {
-			barManager.Renderer = new MetroLightBarRenderer();
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroLightDockRenderer();
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroLightDocumentWindowTabStripRenderer();
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroLightToolWindowTabStripRenderer();
-			statusBar.Renderer = new VisualStudio2005StatusBarRenderer();
+			barManager.Renderer = new MetroBarRenderer(WindowsColorSchemeType.MetroLight);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroDockRenderer(WindowsColorSchemeType.MetroLight);
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroDocumentWindowTabStripRenderer(WindowsColorSchemeType.MetroLight);
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroToolWindowTabStripRenderer(WindowsColorSchemeType.MetroLight);
+			statusBar.Renderer = new MetroStatusBarRenderer(WindowsColorSchemeType.MetroLight);
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -996,6 +1074,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPBlue);
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPBlue);
 			statusBar.Renderer = new Office2003StatusBarRenderer();
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -1007,6 +1086,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPOliveGreen);
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPOliveGreen);
 			statusBar.Renderer = new Office2003StatusBarRenderer();
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -1018,6 +1098,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005DocumentWindowTabStripRenderer();
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer();
 			statusBar.Renderer = new Office2003StatusBarRenderer();
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -1029,16 +1110,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPSilver);
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPSilver);
 			statusBar.Renderer = new Office2003StatusBarRenderer();
-		}
-
-		/// <summary>
-		/// Processes the <c>View.RendererOffice2003WindowsDefault</c> command.
-		/// </summary>
-		private void ProcessViewRendererOffice2003WindowsDefault() {
-			barManager.Renderer = new Office2003BarRenderer(WindowsColorSchemeType.WindowsDefault);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(WindowsColorSchemeType.WindowsDefault);
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.WindowsDefault);
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.WindowsDefault);
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -1050,8 +1122,9 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005DocumentWindowTabStripRenderer();
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer();
 			statusBar.Renderer = new VisualStudio2002StatusBarRenderer();
+			OnRendererChanged();
 		}
-		
+
 		/// <summary>
 		/// Processes the <c>View.RendererOffice2007Black</c> command.
 		/// </summary>
@@ -1061,6 +1134,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.Office2007Black);
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.Office2007Black);
 			statusBar.Renderer = new Office2003StatusBarRenderer();
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -1072,6 +1146,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.Office2007Blue);
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.Office2007Blue);
 			statusBar.Renderer = new Office2003StatusBarRenderer();
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -1083,6 +1158,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.Office2007Silver);
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.Office2007Silver);
 			statusBar.Renderer = new Office2003StatusBarRenderer();
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -1094,6 +1170,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2002DocumentWindowTabStripRenderer();
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2002ToolWindowTabStripRenderer();
 			statusBar.Renderer = new VisualStudio2002StatusBarRenderer();
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -1105,6 +1182,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005DocumentWindowTabStripRenderer();
 			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer();
 			statusBar.Renderer = new VisualStudio2005StatusBarRenderer();
+			OnRendererChanged();
 		}
 
 		/// <summary>
@@ -1131,6 +1209,23 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// NON-PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <summary>
+		/// Invoked when the current renderer configuration is changed.
+		/// </summary>
+		private void OnRendererChanged() {
+			// Get the new color scheme
+			var colorScheme = barManager.RendererResolved.ResolvedColorScheme();
+
+			// Update child controls to match the renderer's color scheme
+			ThemeHelper.ApplyComponentColors(dockManager, colorScheme, recurseChildren: true);
+
+			// Show disclaimer about dark color schemes
+			if (showDarkThemeDisclaimer && colorScheme.Intent.IsDarkColorScheme()) {
+				showDarkThemeDisclaimer = false;
+				ThemeHelper.ShowDarkThemeDisclaimer();
+			}
+		}
 
 		/// <summary>
 		/// Updates the application mode.
@@ -1237,9 +1332,9 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 			if (dockManager.DocumentWindows.Count == 0) {
 				// Create a new MDI child form
 				RichTextDocumentWindow documentWindow = new RichTextDocumentWindow(dockManager, "Intro.rtf"); 
-				documentWindow.Modified = false;
 				documentWindow.Activate();
 				((RichTextBox)documentWindow.TextBox).Rtf = ActiproSoftware.SampleBrowser.Resources.BarsDemoFeaturesIntro;
+				documentWindow.Modified = false;
 			}
 		}
 

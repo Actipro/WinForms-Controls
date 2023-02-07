@@ -19,6 +19,7 @@ Samples and documentation for [Actipro WinForms Controls](https://www.actiprosof
   - [Running Other Sample Applications](#running-other-sample-applications)
   - [Viewing Related Open-Source Projects](#viewing-related-open-source-projects)
 - [NuGet Packages](#nuget-packages)
+- [Supported Technologies](#supported-technologies)
 - [Contributing](#contributing)
 - [Support](#support)
 - [Licensing](#licensing)
@@ -60,7 +61,7 @@ The Markdown source code for the product documentation is contained within this 
 
 ## NuGet Packages
 
-[Packages for the Actipro WinForms Controls](https://www.nuget.org/packages?q=ActiproSoftware.Controls.WinForms) are published on nuget.org, all beginning with the `ActiproSoftware.Controls.WinForms` name prefix.  They contain .NET 5+, .NET Core 3.1, and .NET Framework 4.0+ variations of the product assemblies.
+[Packages for the Actipro WinForms Controls](https://www.nuget.org/packages?q=ActiproSoftware.Controls.WinForms) are published on nuget.org, all beginning with the `ActiproSoftware.Controls.WinForms` name prefix.
 
 ### All WinForms Controls Metapackage
 
@@ -87,6 +88,12 @@ Use these packages for SyntaxEditor's premium language add-ons as needed, which 
 - [ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript](https://www.nuget.org/packages/ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript) - Advanced JavaScript/JSON languages in the Web Languages Add-on.
 - [ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python](https://www.nuget.org/packages/ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python) - Advanced Python language in the Python Language Add-on.
 - [ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML](https://www.nuget.org/packages/ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML) - Advanced XML language in the Web Languages Add-on.
+
+## Supported Technologies
+
+- **Frameworks:** .NET 5+, .NET Core 3.1, and .NET Framework 4.6.2+
+- **Architectures:** Any CPU, ARM64, x64, and x86
+- **IDEs:** Visual Studio 2017-2022
 
 ## Contributing
 

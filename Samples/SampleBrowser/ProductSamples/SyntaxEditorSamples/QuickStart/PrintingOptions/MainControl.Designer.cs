@@ -24,11 +24,10 @@
 		/// </summary>
 		private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainControl));
-            this.contentPanel = new System.Windows.Forms.Panel();
             this.editor = new ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor();
-            this.headerPanel = new System.Windows.Forms.Panel();
             this.squiggleLinesCheckBox = new System.Windows.Forms.CheckBox();
             this.indentationGuidesCheckBox = new System.Windows.Forms.CheckBox();
+            this.columnGuidesCheckBox = new System.Windows.Forms.CheckBox();
             this.collapsedNodesCheckBox = new System.Windows.Forms.CheckBox();
             this.documentTitleLabel = new System.Windows.Forms.Label();
             this.documentTitleTextBox = new System.Windows.Forms.TextBox();
@@ -39,67 +38,38 @@
             this.pageNumbersCheckBox = new System.Windows.Forms.CheckBox();
             this.lineNumberCheckBox = new System.Windows.Forms.CheckBox();
             this.documentTitleCheckBox = new System.Windows.Forms.CheckBox();
-            this.columnGuidesCheckBox = new System.Windows.Forms.CheckBox();
-            this.contentPanel.SuspendLayout();
-            this.headerPanel.SuspendLayout();
+            this.contentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.headerLeftFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.headerRightFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.contentTableLayoutPanel.SuspendLayout();
+            this.headerLeftFlowLayoutPanel.SuspendLayout();
+            this.headerRightFlowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // contentPanel
-            // 
-            this.contentPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.contentPanel.Controls.Add(this.editor);
-            this.contentPanel.Controls.Add(this.headerPanel);
-            this.contentPanel.Location = new System.Drawing.Point(10, 10);
-            this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(780, 580);
-            this.contentPanel.TabIndex = 1;
             // 
             // editor
             // 
             this.editor.AllowDrop = true;
             this.editor.AreWordWrapGlyphsVisible = true;
+            this.contentTableLayoutPanel.SetColumnSpan(this.editor, 2);
             this.editor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.editor.Location = new System.Drawing.Point(0, 201);
+            this.editor.Location = new System.Drawing.Point(13, 249);
             this.editor.Name = "editor";
+            this.editor.OverrideCursor = null;
+            this.editor.PrintSettings.AreColumnGuidesVisible = false;
             this.editor.PrintSettings.DocumentTitle = "c:\\mydocument.txt";
             this.editor.PrintSettings.IsLineNumberMarginVisible = true;
             this.editor.PrintSettings.IsWhitespaceVisible = true;
-            this.editor.Size = new System.Drawing.Size(780, 379);
+            this.editor.Size = new System.Drawing.Size(774, 338);
             this.editor.TabIndex = 10;
             this.editor.Text = resources.GetString("editor.Text");
             this.editor.WordWrapMode = ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.WordWrapMode.Word;
             // 
-            // headerPanel
-            // 
-            this.headerPanel.Controls.Add(this.squiggleLinesCheckBox);
-            this.headerPanel.Controls.Add(this.indentationGuidesCheckBox);
-            this.headerPanel.Controls.Add(this.columnGuidesCheckBox);
-            this.headerPanel.Controls.Add(this.collapsedNodesCheckBox);
-            this.headerPanel.Controls.Add(this.documentTitleLabel);
-            this.headerPanel.Controls.Add(this.documentTitleTextBox);
-            this.headerPanel.Controls.Add(this.showPrintPreviewDialogButton);
-            this.headerPanel.Controls.Add(this.highlightingCheckBox);
-            this.headerPanel.Controls.Add(this.whitespaceCheckBox);
-            this.headerPanel.Controls.Add(this.wordWrapCheckBox);
-            this.headerPanel.Controls.Add(this.pageNumbersCheckBox);
-            this.headerPanel.Controls.Add(this.lineNumberCheckBox);
-            this.headerPanel.Controls.Add(this.documentTitleCheckBox);
-            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerPanel.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.headerPanel.Size = new System.Drawing.Size(780, 201);
-            this.headerPanel.TabIndex = 3;
-            // 
             // squiggleLinesCheckBox
             // 
             this.squiggleLinesCheckBox.AutoSize = true;
-            this.squiggleLinesCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.squiggleLinesCheckBox.Location = new System.Drawing.Point(0, 171);
+            this.squiggleLinesCheckBox.Location = new System.Drawing.Point(3, 210);
             this.squiggleLinesCheckBox.Name = "squiggleLinesCheckBox";
-            this.squiggleLinesCheckBox.Size = new System.Drawing.Size(780, 19);
+            this.squiggleLinesCheckBox.Size = new System.Drawing.Size(140, 17);
             this.squiggleLinesCheckBox.TabIndex = 13;
             this.squiggleLinesCheckBox.Text = "Are squiggle lines visible";
             this.squiggleLinesCheckBox.UseVisualStyleBackColor = true;
@@ -108,22 +78,31 @@
             // indentationGuidesCheckBox
             // 
             this.indentationGuidesCheckBox.AutoSize = true;
-            this.indentationGuidesCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.indentationGuidesCheckBox.Location = new System.Drawing.Point(0, 152);
+            this.indentationGuidesCheckBox.Location = new System.Drawing.Point(3, 187);
             this.indentationGuidesCheckBox.Name = "indentationGuidesCheckBox";
-            this.indentationGuidesCheckBox.Size = new System.Drawing.Size(780, 19);
+            this.indentationGuidesCheckBox.Size = new System.Drawing.Size(163, 17);
             this.indentationGuidesCheckBox.TabIndex = 12;
             this.indentationGuidesCheckBox.Text = "Are indentation guides visible";
             this.indentationGuidesCheckBox.UseVisualStyleBackColor = true;
             this.indentationGuidesCheckBox.CheckedChanged += new System.EventHandler(this.OnIndentationGuidesCheckBoxCheckedChanged);
             // 
+            // columnGuidesCheckBox
+            // 
+            this.columnGuidesCheckBox.AutoSize = true;
+            this.columnGuidesCheckBox.Location = new System.Drawing.Point(3, 164);
+            this.columnGuidesCheckBox.Name = "columnGuidesCheckBox";
+            this.columnGuidesCheckBox.Size = new System.Drawing.Size(145, 17);
+            this.columnGuidesCheckBox.TabIndex = 11;
+            this.columnGuidesCheckBox.Text = "Are column guides visible";
+            this.columnGuidesCheckBox.UseVisualStyleBackColor = true;
+            this.columnGuidesCheckBox.CheckedChanged += new System.EventHandler(this.OnColumnGuidesCheckBoxCheckedChanged);
+            // 
             // collapsedNodesCheckBox
             // 
             this.collapsedNodesCheckBox.AutoSize = true;
-            this.collapsedNodesCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.collapsedNodesCheckBox.Location = new System.Drawing.Point(0, 114);
+            this.collapsedNodesCheckBox.Location = new System.Drawing.Point(3, 141);
             this.collapsedNodesCheckBox.Name = "collapsedNodesCheckBox";
-            this.collapsedNodesCheckBox.Size = new System.Drawing.Size(780, 19);
+            this.collapsedNodesCheckBox.Size = new System.Drawing.Size(203, 17);
             this.collapsedNodesCheckBox.TabIndex = 10;
             this.collapsedNodesCheckBox.Text = "Are collapsed outlining nodes allowed";
             this.collapsedNodesCheckBox.UseVisualStyleBackColor = true;
@@ -132,26 +111,29 @@
             // documentTitleLabel
             // 
             this.documentTitleLabel.AutoSize = true;
-            this.documentTitleLabel.Location = new System.Drawing.Point(385, 0);
+            this.documentTitleLabel.Location = new System.Drawing.Point(3, 0);
             this.documentTitleLabel.Name = "documentTitleLabel";
-            this.documentTitleLabel.Size = new System.Drawing.Size(89, 15);
+            this.documentTitleLabel.Size = new System.Drawing.Size(78, 13);
             this.documentTitleLabel.TabIndex = 9;
             this.documentTitleLabel.Text = "Document title:";
             // 
             // documentTitleTextBox
             // 
-            this.documentTitleTextBox.Location = new System.Drawing.Point(388, 17);
+            this.documentTitleTextBox.Location = new System.Drawing.Point(3, 16);
             this.documentTitleTextBox.Name = "documentTitleTextBox";
-            this.documentTitleTextBox.Size = new System.Drawing.Size(273, 23);
+            this.documentTitleTextBox.Size = new System.Drawing.Size(273, 20);
             this.documentTitleTextBox.TabIndex = 6;
             this.documentTitleTextBox.TextChanged += new System.EventHandler(this.OnDocumentTitleTextBoxTextChanged);
             // 
             // showPrintPreviewDialogButton
             // 
             this.showPrintPreviewDialogButton.AutoSize = true;
-            this.showPrintPreviewDialogButton.Location = new System.Drawing.Point(388, 67);
+            this.showPrintPreviewDialogButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.showPrintPreviewDialogButton.Location = new System.Drawing.Point(3, 62);
+            this.showPrintPreviewDialogButton.Margin = new System.Windows.Forms.Padding(3, 23, 3, 3);
             this.showPrintPreviewDialogButton.Name = "showPrintPreviewDialogButton";
-            this.showPrintPreviewDialogButton.Size = new System.Drawing.Size(155, 25);
+            this.showPrintPreviewDialogButton.Padding = new System.Windows.Forms.Padding(10, 3, 10, 3);
+            this.showPrintPreviewDialogButton.Size = new System.Drawing.Size(162, 29);
             this.showPrintPreviewDialogButton.TabIndex = 7;
             this.showPrintPreviewDialogButton.Text = "Show Print Preview Dialog";
             this.showPrintPreviewDialogButton.UseVisualStyleBackColor = true;
@@ -160,10 +142,9 @@
             // highlightingCheckBox
             // 
             this.highlightingCheckBox.AutoSize = true;
-            this.highlightingCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.highlightingCheckBox.Location = new System.Drawing.Point(0, 95);
+            this.highlightingCheckBox.Location = new System.Drawing.Point(3, 118);
             this.highlightingCheckBox.Name = "highlightingCheckBox";
-            this.highlightingCheckBox.Size = new System.Drawing.Size(780, 19);
+            this.highlightingCheckBox.Size = new System.Drawing.Size(134, 17);
             this.highlightingCheckBox.TabIndex = 5;
             this.highlightingCheckBox.Text = "Use syntax highlighting";
             this.highlightingCheckBox.UseVisualStyleBackColor = true;
@@ -172,10 +153,9 @@
             // whitespaceCheckBox
             // 
             this.whitespaceCheckBox.AutoSize = true;
-            this.whitespaceCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.whitespaceCheckBox.Location = new System.Drawing.Point(0, 76);
+            this.whitespaceCheckBox.Location = new System.Drawing.Point(3, 95);
             this.whitespaceCheckBox.Name = "whitespaceCheckBox";
-            this.whitespaceCheckBox.Size = new System.Drawing.Size(780, 19);
+            this.whitespaceCheckBox.Size = new System.Drawing.Size(115, 17);
             this.whitespaceCheckBox.TabIndex = 4;
             this.whitespaceCheckBox.Text = "Whitespace visible";
             this.whitespaceCheckBox.UseVisualStyleBackColor = true;
@@ -184,10 +164,9 @@
             // wordWrapCheckBox
             // 
             this.wordWrapCheckBox.AutoSize = true;
-            this.wordWrapCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.wordWrapCheckBox.Location = new System.Drawing.Point(0, 57);
+            this.wordWrapCheckBox.Location = new System.Drawing.Point(3, 72);
             this.wordWrapCheckBox.Name = "wordWrapCheckBox";
-            this.wordWrapCheckBox.Size = new System.Drawing.Size(780, 19);
+            this.wordWrapCheckBox.Size = new System.Drawing.Size(172, 17);
             this.wordWrapCheckBox.TabIndex = 3;
             this.wordWrapCheckBox.Text = "Word wrap glyph margin visible";
             this.wordWrapCheckBox.UseVisualStyleBackColor = true;
@@ -196,10 +175,9 @@
             // pageNumbersCheckBox
             // 
             this.pageNumbersCheckBox.AutoSize = true;
-            this.pageNumbersCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pageNumbersCheckBox.Location = new System.Drawing.Point(0, 38);
+            this.pageNumbersCheckBox.Location = new System.Drawing.Point(3, 49);
             this.pageNumbersCheckBox.Name = "pageNumbersCheckBox";
-            this.pageNumbersCheckBox.Size = new System.Drawing.Size(780, 19);
+            this.pageNumbersCheckBox.Size = new System.Drawing.Size(155, 17);
             this.pageNumbersCheckBox.TabIndex = 2;
             this.pageNumbersCheckBox.Text = "Page number margin visible";
             this.pageNumbersCheckBox.UseVisualStyleBackColor = true;
@@ -208,10 +186,9 @@
             // lineNumberCheckBox
             // 
             this.lineNumberCheckBox.AutoSize = true;
-            this.lineNumberCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lineNumberCheckBox.Location = new System.Drawing.Point(0, 19);
+            this.lineNumberCheckBox.Location = new System.Drawing.Point(3, 26);
             this.lineNumberCheckBox.Name = "lineNumberCheckBox";
-            this.lineNumberCheckBox.Size = new System.Drawing.Size(780, 19);
+            this.lineNumberCheckBox.Size = new System.Drawing.Size(150, 17);
             this.lineNumberCheckBox.TabIndex = 1;
             this.lineNumberCheckBox.Text = "Line number margin visible";
             this.lineNumberCheckBox.UseVisualStyleBackColor = true;
@@ -220,47 +197,87 @@
             // documentTitleCheckBox
             // 
             this.documentTitleCheckBox.AutoSize = true;
-            this.documentTitleCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.documentTitleCheckBox.Location = new System.Drawing.Point(0, 0);
+            this.documentTitleCheckBox.Location = new System.Drawing.Point(3, 3);
             this.documentTitleCheckBox.Name = "documentTitleCheckBox";
-            this.documentTitleCheckBox.Size = new System.Drawing.Size(780, 19);
+            this.documentTitleCheckBox.Size = new System.Drawing.Size(160, 17);
             this.documentTitleCheckBox.TabIndex = 0;
             this.documentTitleCheckBox.Text = "Document title margin visible";
             this.documentTitleCheckBox.UseVisualStyleBackColor = true;
             this.documentTitleCheckBox.CheckedChanged += new System.EventHandler(this.OnDocumentTitleCheckBoxCheckedChanged);
             // 
-            // columnGuidesCheckBox
+            // contentTableLayoutPanel
             // 
-            this.columnGuidesCheckBox.AutoSize = true;
-            this.columnGuidesCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.columnGuidesCheckBox.Location = new System.Drawing.Point(0, 133);
-            this.columnGuidesCheckBox.Name = "columnGuidesCheckBox";
-            this.columnGuidesCheckBox.Size = new System.Drawing.Size(780, 19);
-            this.columnGuidesCheckBox.TabIndex = 11;
-            this.columnGuidesCheckBox.Text = "Are column guides visible";
-            this.columnGuidesCheckBox.UseVisualStyleBackColor = true;
-            this.columnGuidesCheckBox.CheckedChanged += new System.EventHandler(this.OnColumnGuidesCheckBoxCheckedChanged);
+            this.contentTableLayoutPanel.ColumnCount = 2;
+            this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.contentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.contentTableLayoutPanel.Controls.Add(this.headerRightFlowLayoutPanel, 1, 0);
+            this.contentTableLayoutPanel.Controls.Add(this.headerLeftFlowLayoutPanel, 0, 0);
+            this.contentTableLayoutPanel.Controls.Add(this.editor, 0, 1);
+            this.contentTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.contentTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.contentTableLayoutPanel.Name = "contentTableLayoutPanel";
+            this.contentTableLayoutPanel.Padding = new System.Windows.Forms.Padding(10);
+            this.contentTableLayoutPanel.RowCount = 2;
+            this.contentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.contentTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.contentTableLayoutPanel.Size = new System.Drawing.Size(800, 600);
+            this.contentTableLayoutPanel.TabIndex = 2;
+            // 
+            // headerLeftFlowLayoutPanel
+            // 
+            this.headerLeftFlowLayoutPanel.AutoSize = true;
+            this.headerLeftFlowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.headerLeftFlowLayoutPanel.Controls.Add(this.documentTitleCheckBox);
+            this.headerLeftFlowLayoutPanel.Controls.Add(this.lineNumberCheckBox);
+            this.headerLeftFlowLayoutPanel.Controls.Add(this.pageNumbersCheckBox);
+            this.headerLeftFlowLayoutPanel.Controls.Add(this.wordWrapCheckBox);
+            this.headerLeftFlowLayoutPanel.Controls.Add(this.whitespaceCheckBox);
+            this.headerLeftFlowLayoutPanel.Controls.Add(this.highlightingCheckBox);
+            this.headerLeftFlowLayoutPanel.Controls.Add(this.collapsedNodesCheckBox);
+            this.headerLeftFlowLayoutPanel.Controls.Add(this.columnGuidesCheckBox);
+            this.headerLeftFlowLayoutPanel.Controls.Add(this.indentationGuidesCheckBox);
+            this.headerLeftFlowLayoutPanel.Controls.Add(this.squiggleLinesCheckBox);
+            this.headerLeftFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headerLeftFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.headerLeftFlowLayoutPanel.Location = new System.Drawing.Point(13, 13);
+            this.headerLeftFlowLayoutPanel.Name = "headerLeftFlowLayoutPanel";
+            this.headerLeftFlowLayoutPanel.Size = new System.Drawing.Size(209, 230);
+            this.headerLeftFlowLayoutPanel.TabIndex = 3;
+            this.headerLeftFlowLayoutPanel.WrapContents = false;
+            // 
+            // headerRightFlowLayoutPanel
+            // 
+            this.headerRightFlowLayoutPanel.AutoSize = true;
+            this.headerRightFlowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.headerRightFlowLayoutPanel.Controls.Add(this.documentTitleLabel);
+            this.headerRightFlowLayoutPanel.Controls.Add(this.documentTitleTextBox);
+            this.headerRightFlowLayoutPanel.Controls.Add(this.showPrintPreviewDialogButton);
+            this.headerRightFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.headerRightFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.headerRightFlowLayoutPanel.Location = new System.Drawing.Point(228, 13);
+            this.headerRightFlowLayoutPanel.Name = "headerRightFlowLayoutPanel";
+            this.headerRightFlowLayoutPanel.Size = new System.Drawing.Size(559, 230);
+            this.headerRightFlowLayoutPanel.TabIndex = 3;
             // 
             // MainControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.contentPanel);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.contentTableLayoutPanel);
             this.Name = "MainControl";
             this.Size = new System.Drawing.Size(800, 600);
-            this.contentPanel.ResumeLayout(false);
-            this.headerPanel.ResumeLayout(false);
-            this.headerPanel.PerformLayout();
+            this.contentTableLayoutPanel.ResumeLayout(false);
+            this.contentTableLayoutPanel.PerformLayout();
+            this.headerLeftFlowLayoutPanel.ResumeLayout(false);
+            this.headerLeftFlowLayoutPanel.PerformLayout();
+            this.headerRightFlowLayoutPanel.ResumeLayout(false);
+            this.headerRightFlowLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Panel contentPanel;
 		private UI.WinForms.Controls.SyntaxEditor.SyntaxEditor editor;
-		private System.Windows.Forms.Panel headerPanel;
 		private System.Windows.Forms.CheckBox whitespaceCheckBox;
 		private System.Windows.Forms.CheckBox wordWrapCheckBox;
 		private System.Windows.Forms.CheckBox pageNumbersCheckBox;
@@ -274,5 +291,8 @@
 		private System.Windows.Forms.CheckBox squiggleLinesCheckBox;
 		private System.Windows.Forms.CheckBox indentationGuidesCheckBox;
 		private System.Windows.Forms.CheckBox columnGuidesCheckBox;
+		private System.Windows.Forms.TableLayoutPanel contentTableLayoutPanel;
+		private System.Windows.Forms.FlowLayoutPanel headerRightFlowLayoutPanel;
+		private System.Windows.Forms.FlowLayoutPanel headerLeftFlowLayoutPanel;
 	}
 }

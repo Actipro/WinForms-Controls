@@ -1,7 +1,9 @@
-﻿using ActiproSoftware.Text;
+﻿using ActiproSoftware.SampleBrowser;
+using ActiproSoftware.Text;
 using ActiproSoftware.Text.Parsing;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Outlining;
+using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -148,6 +150,31 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CodeOutl
 					return EditorCommands.ApplyDefaultOutliningExpansion;
 			}
 			return null;
+		}
+
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PUBLIC PROCEDURES
+		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <inheritdoc/>
+		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+			if (!Program.IsControlFontScalingHandledByRuntime) {
+				// Manually scale control fonts
+				var manualFontControls = new Control[] {
+					mainToolStrip,
+				};
+				foreach (var control in manualFontControls)
+					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+				var manualFontToolStripItems = new ToolStripItem[] {
+					allowedModeToolStripComboBox,
+					activeModeValueToolStripLabel
+				};
+				foreach (var toolStripItem in manualFontToolStripItems)
+					toolStripItem.Font = DpiHelper.RescaleFont(toolStripItem.Font, deviceDpiOld, deviceDpiNew);
+			}
+
 		}
 
 	}

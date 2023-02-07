@@ -26,13 +26,11 @@
             this.components = new System.ComponentModel.Container();
             ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelCommand labelsTestLabelBarLabelCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelCommand("Labels", "TestLabel", "User Interface Options", -1);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand newMenuNewMenuBarPopupButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand("New Menu", "New Menu", "New Menu", -1);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeWindowsDefaultBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2003WindowsDefault", "Office 2003 (Windows Default)", 12);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeBlueBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2003Blue", "Office 2003 (Blue)", 13);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeSilverBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2003Silver", "Office 2003 (Silver)", 15);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeOliveGreenBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2003OliveGreen", "Office 2003 (Olive Green)", 14);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererVisualStudioBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererVisualStudio2005", "Visual Studio 2005", 19);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand viewRendererBarPopupButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand("View", "Renderer", "Renderer", -1);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsDefaultBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsDefaultBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
@@ -51,8 +49,8 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererCustomTanBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererCustomTan", "Custom Tan", -1);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomTanBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomTanBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererCustomRedBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererCustomRed", "Custom Red", -1);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomRedBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomRedBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererCustomGreenBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererCustomGreen", "Custom Green", -1);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomGreenBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand windowMdiStyleStandardBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("Window", "MdiStyleStandard", "Standard", -1);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand windowMdiStyleTabbedBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("Window", "MdiStyleTabbed", "Tabbed", -1);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand windowMdiStyleBarPopupButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand("Window", "MdiStyle", "Mdi Style", -1);
@@ -113,7 +111,6 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand menuBarViewBarPopupButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand("Menu Bar", "View", "&View", -1);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelLink labelsTestLabelBarLabelLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelLink(labelsTestLabelBarLabelCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink viewRendererBarPopupButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink(viewRendererBarPopupButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsDefaultBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsDefaultBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
@@ -165,6 +162,7 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink fileNewRichTextDocumentBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(fileNewRichTextDocumentBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarComboBoxCommand formatFontSizeBarComboBoxCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarComboBoxCommand("Format", "FontSize", "Font Size", -1);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererMetroLightBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererMetroLight", "Metro Light", 27);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererMetroDarkBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererMetroDark", "Metro Dark", 27);
             ActiproSoftware.UI.WinForms.Controls.Bars.DockableToolBar formatDockableToolBar = new ActiproSoftware.UI.WinForms.Controls.Bars.DockableToolBar("Format");
             ActiproSoftware.UI.WinForms.Controls.Bars.BarComboBoxLink formatFontSizeBarComboBoxLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarComboBoxLink(formatFontSizeBarComboBoxCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink formatAlignLeftBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(formatAlignLeftBarButtonCommand);
@@ -208,7 +206,7 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelLink labelsTestLabelBarLabelLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelLink(labelsTestLabelBarLabelCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink viewRendererBarPopupButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink(viewRendererBarPopupButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroLightBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroLightBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsDefaultBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsDefaultBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroDarkBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroDarkBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
@@ -220,7 +218,7 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand2);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink6 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomTanBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomTanBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomRedBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomRedBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomGreenBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink newMenuNewMenuBarPopupButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink(newMenuNewMenuBarPopupButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewMdiChildMinimizeButtonVisibilityBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewMdiChildMinimizeButtonVisibilityBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewMdiChildRestoreButtonVisibilityBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewMdiChildRestoreButtonVisibilityBarButtonCommand);
@@ -272,7 +270,7 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelLink labelsTestLabelBarLabelLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelLink(labelsTestLabelBarLabelCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink viewRendererBarPopupButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink(viewRendererBarPopupButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroLightBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroLightBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsDefaultBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsDefaultBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroDarkBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroDarkBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink6 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink6 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
@@ -284,7 +282,7 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink7 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand2);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink8 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomTanBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomTanBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomRedBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomRedBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomGreenBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink newMenuNewMenuBarPopupButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink(newMenuNewMenuBarPopupButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewMdiChildMinimizeButtonVisibilityBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewMdiChildMinimizeButtonVisibilityBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewMdiChildRestoreButtonVisibilityBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewMdiChildRestoreButtonVisibilityBarButtonCommand);
@@ -312,7 +310,7 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.DockableToolBar optionsDockableToolBar = new ActiproSoftware.UI.WinForms.Controls.Bars.DockableToolBar("Options");
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink viewRendererBarPopupButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink(viewRendererBarPopupButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroLightBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroLightBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsDefaultBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsDefaultBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroDarkBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroDarkBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink8 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink8 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
@@ -324,10 +322,10 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink9 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand2);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink10 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomTanBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomTanBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomRedBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomRedBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomGreenBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink viewRendererBarPopupButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink(viewRendererBarPopupButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroLightBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroLightBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsDefaultBarButtonLink6 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsDefaultBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroDarkBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroDarkBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink10 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink6 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink10 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
@@ -339,7 +337,7 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink11 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand2);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink12 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomTanBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomTanBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomRedBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomRedBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererCustomGreenBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererCustomGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.DockableToolBar standardDockableToolBar = new ActiproSoftware.UI.WinForms.Controls.Bars.DockableToolBar("Standard");
             ActiproSoftware.UI.WinForms.Controls.Bars.BarSplitButtonLink fileNewBarSplitButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarSplitButtonLink(fileNewBarSplitButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink fileNewTextDocumentBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(fileNewTextDocumentBarButtonCommand);
@@ -394,10 +392,12 @@
             this.barDockArea3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarDockArea();
             this.dockManager = new ActiproSoftware.UI.WinForms.Controls.Docking.DockManager(this.components);
             this.barManagerPropertiesToolWindow = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow();
+            this.barManagerPropertyGridPanel = new System.Windows.Forms.Panel();
             this.toolWindowContainer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindowContainer();
             this.toolBarPropertiesToolWindow = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow();
-            this.toolBarPropertiesPropertyGridComboBox = new System.Windows.Forms.ComboBox();
+            this.toolBarPropertiesPropertyGridPanel = new System.Windows.Forms.Panel();
             this.toolBarPropertiesPropertyGrid = new System.Windows.Forms.PropertyGrid();
+            this.toolBarPropertiesPropertyGridComboBox = new System.Windows.Forms.ComboBox();
             this.eventsListBox = new System.Windows.Forms.ListBox();
             this.eventsToolWindow = new ActiproSoftware.UI.WinForms.Controls.Docking.ToolWindow();
             this.eventsToolBar = new ActiproSoftware.UI.WinForms.Controls.Bars.ToolBar();
@@ -412,16 +412,14 @@
             this.autoHideContainer3 = new ActiproSoftware.UI.WinForms.Controls.Docking.AutoHideContainer();
             this.autoHideTabStripPanel4 = new ActiproSoftware.UI.WinForms.Controls.Docking.AutoHideTabStripPanel();
             this.autoHideContainer4 = new ActiproSoftware.UI.WinForms.Controls.Docking.AutoHideContainer();
-            this.barManagerPropertyGridPanel = new System.Windows.Forms.Panel();
-            this.toolBarPropertiesPropertyGridPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
             this.barManagerPropertiesToolWindow.SuspendLayout();
+            this.barManagerPropertyGridPanel.SuspendLayout();
             this.toolBarPropertiesToolWindow.SuspendLayout();
+            this.toolBarPropertiesPropertyGridPanel.SuspendLayout();
             this.eventsToolWindow.SuspendLayout();
             this.toolWindowContainer2.SuspendLayout();
-            this.barManagerPropertyGridPanel.SuspendLayout();
-            this.toolBarPropertiesPropertyGridPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // barManager
@@ -430,11 +428,6 @@
             this.barManager.ClipboardChangedNotificationEnabled = true;
             labelsTestLabelBarLabelCommand.Text = "User Interface Options";
             newMenuNewMenuBarPopupButtonCommand.Text = "New Menu";
-            viewRendererOfficeWindowsDefaultBarButtonCommand.CanCustomizeCreate = false;
-            viewRendererOfficeWindowsDefaultBarButtonCommand.Checkable = true;
-            viewRendererOfficeWindowsDefaultBarButtonCommand.CheckGroupName = "Renderer";
-            viewRendererOfficeWindowsDefaultBarButtonCommand.CustomizeListText = "(Renderer) Office 2003 (Windows Default)";
-            viewRendererOfficeWindowsDefaultBarButtonCommand.Text = "Office 2003 (Windows Default)";
             viewRendererOfficeBlueBarButtonCommand.CanCustomizeCreate = false;
             viewRendererOfficeBlueBarButtonCommand.Checkable = true;
             viewRendererOfficeBlueBarButtonCommand.CheckGroupName = "Renderer";
@@ -491,13 +484,12 @@
             viewRendererCustomTanBarButtonCommand.CustomizeListText = "(Renderer) Custom Tan";
             viewRendererCustomTanBarButtonCommand.Text = "Custom Tan";
             viewRendererCustomTanBarButtonLink.BeginAGroup = true;
-            viewRendererCustomRedBarButtonCommand.CanCustomizeCreate = false;
-            viewRendererCustomRedBarButtonCommand.Checkable = true;
-            viewRendererCustomRedBarButtonCommand.CheckGroupName = "Renderer";
-            viewRendererCustomRedBarButtonCommand.CustomizeListText = "(Renderer) Custom Red";
-            viewRendererCustomRedBarButtonCommand.Text = "Custom Red";
+            viewRendererCustomGreenBarButtonCommand.CanCustomizeCreate = false;
+            viewRendererCustomGreenBarButtonCommand.Checkable = true;
+            viewRendererCustomGreenBarButtonCommand.CheckGroupName = "Renderer";
+            viewRendererCustomGreenBarButtonCommand.CustomizeListText = "(Renderer) Custom Green";
+            viewRendererCustomGreenBarButtonCommand.Text = "Custom Green";
             viewRendererBarPopupButtonCommand.DefaultCommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
-            viewRendererOfficeWindowsDefaultBarButtonLink,
             viewRendererOfficeBlueBarButtonLink,
             viewRendererOfficeOliveGreenBarButtonLink,
             viewRendererOfficeSilverBarButtonLink,
@@ -509,17 +501,17 @@
             viewRendererVisualStudioBarButtonLink,
             viewRendererVisualStudioBarButtonLink2,
             viewRendererCustomTanBarButtonLink,
-            viewRendererCustomRedBarButtonLink});
+            viewRendererCustomGreenBarButtonLink});
             viewRendererBarPopupButtonCommand.TearOffDockableToolBarKey = "Renderer";
             viewRendererBarPopupButtonCommand.Text = "Renderer";
             windowMdiStyleStandardBarButtonCommand.CanCustomizeCreate = false;
             windowMdiStyleStandardBarButtonCommand.Checkable = true;
-            windowMdiStyleStandardBarButtonCommand.Checked = true;
             windowMdiStyleStandardBarButtonCommand.CheckGroupName = "MdiStyle";
             windowMdiStyleStandardBarButtonCommand.CustomizeListText = "(Mdi Style) Standard";
             windowMdiStyleStandardBarButtonCommand.Text = "Standard";
             windowMdiStyleTabbedBarButtonCommand.CanCustomizeCreate = false;
             windowMdiStyleTabbedBarButtonCommand.Checkable = true;
+            windowMdiStyleTabbedBarButtonCommand.Checked = true;
             windowMdiStyleTabbedBarButtonCommand.CheckGroupName = "MdiStyle";
             windowMdiStyleTabbedBarButtonCommand.CustomizeListText = "(Mdi Style) Tabbed";
             windowMdiStyleTabbedBarButtonCommand.Text = "Tabbed";
@@ -643,7 +635,6 @@
             new ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyboardShortcut(null, 0, 131140)});
             editQuickFindBarTextBoxCommand.Text = "&Quick Find";
             viewRendererBarPopupButtonLink.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
-            viewRendererOfficeWindowsDefaultBarButtonLink2,
             viewRendererOfficeBlueBarButtonLink3,
             viewRendererOfficeOliveGreenBarButtonLink2,
             viewRendererOfficeSilverBarButtonLink3,
@@ -757,10 +748,14 @@
             viewRendererMetroLightBarButtonCommand.CheckGroupName = "Renderer";
             viewRendererMetroLightBarButtonCommand.CustomizeListText = "(Renderer) Metro Light";
             viewRendererMetroLightBarButtonCommand.Text = "Metro Light";
+            viewRendererMetroDarkBarButtonCommand.CanCustomizeCreate = false;
+            viewRendererMetroDarkBarButtonCommand.Checkable = true;
+            viewRendererMetroDarkBarButtonCommand.CheckGroupName = "Renderer";
+            viewRendererMetroDarkBarButtonCommand.CustomizeListText = "(Renderer) Metro Dark";
+            viewRendererMetroDarkBarButtonCommand.Text = "Metro Dark";
             this.barManager.Commands.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommand[] {
             labelsTestLabelBarLabelCommand,
             newMenuNewMenuBarPopupButtonCommand,
-            viewRendererOfficeWindowsDefaultBarButtonCommand,
             viewRendererOfficeBlueBarButtonCommand,
             viewRendererOfficeSilverBarButtonCommand,
             viewRendererOfficeOliveGreenBarButtonCommand,
@@ -828,8 +823,9 @@
             viewRendererOfficeBlackBarButtonCommand,
             viewRendererOfficeSilverBarButtonCommand2,
             viewRendererCustomTanBarButtonCommand,
-            viewRendererCustomRedBarButtonCommand,
-            viewRendererMetroLightBarButtonCommand});
+            viewRendererCustomGreenBarButtonCommand,
+            viewRendererMetroLightBarButtonCommand,
+            viewRendererMetroDarkBarButtonCommand});
             formatAlignLeftBarButtonLink.BeginAGroup = true;
             formatBulletedListBarButtonLink.BeginAGroup = true;
             formatOutdentBarButtonLink.BeginAGroup = true;
@@ -890,7 +886,7 @@
             viewRendererCustomTanBarButtonLink2.BeginAGroup = true;
             viewRendererBarPopupButtonLink2.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewRendererMetroLightBarButtonLink,
-            viewRendererOfficeWindowsDefaultBarButtonLink3,
+            viewRendererMetroDarkBarButtonLink,
             viewRendererOfficeBlueBarButtonLink4,
             viewRendererOfficeOliveGreenBarButtonLink3,
             viewRendererOfficeSilverBarButtonLink4,
@@ -902,7 +898,7 @@
             viewRendererVisualStudioBarButtonLink5,
             viewRendererVisualStudioBarButtonLink6,
             viewRendererCustomTanBarButtonLink2,
-            viewRendererCustomRedBarButtonLink2});
+            viewRendererCustomGreenBarButtonLink2});
             newMenuNewMenuBarPopupButtonLink2.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewMdiChildMinimizeButtonVisibilityBarButtonLink2,
             viewMdiChildRestoreButtonVisibilityBarButtonLink2,
@@ -981,7 +977,7 @@
             viewRendererCustomTanBarButtonLink3.BeginAGroup = true;
             viewRendererBarPopupButtonLink3.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewRendererMetroLightBarButtonLink2,
-            viewRendererOfficeWindowsDefaultBarButtonLink4,
+            viewRendererMetroDarkBarButtonLink2,
             viewRendererOfficeBlueBarButtonLink6,
             viewRendererOfficeOliveGreenBarButtonLink4,
             viewRendererOfficeSilverBarButtonLink6,
@@ -993,7 +989,7 @@
             viewRendererVisualStudioBarButtonLink7,
             viewRendererVisualStudioBarButtonLink8,
             viewRendererCustomTanBarButtonLink3,
-            viewRendererCustomRedBarButtonLink3});
+            viewRendererCustomGreenBarButtonLink3});
             newMenuNewMenuBarPopupButtonLink3.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewMdiChildMinimizeButtonVisibilityBarButtonLink3,
             viewMdiChildRestoreButtonVisibilityBarButtonLink3,
@@ -1042,7 +1038,7 @@
             viewRendererCustomTanBarButtonLink4.BeginAGroup = true;
             viewRendererBarPopupButtonLink4.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewRendererMetroLightBarButtonLink3,
-            viewRendererOfficeWindowsDefaultBarButtonLink5,
+            viewRendererMetroDarkBarButtonLink3,
             viewRendererOfficeBlueBarButtonLink8,
             viewRendererOfficeOliveGreenBarButtonLink5,
             viewRendererOfficeSilverBarButtonLink8,
@@ -1054,13 +1050,13 @@
             viewRendererVisualStudioBarButtonLink9,
             viewRendererVisualStudioBarButtonLink10,
             viewRendererCustomTanBarButtonLink4,
-            viewRendererCustomRedBarButtonLink4});
+            viewRendererCustomGreenBarButtonLink4});
             optionsDockableToolBar.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewRendererBarPopupButtonLink4});
             viewRendererCustomTanBarButtonLink5.BeginAGroup = true;
             viewRendererBarPopupButtonLink5.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewRendererMetroLightBarButtonLink4,
-            viewRendererOfficeWindowsDefaultBarButtonLink6,
+            viewRendererMetroDarkBarButtonLink4,
             viewRendererOfficeBlueBarButtonLink10,
             viewRendererOfficeOliveGreenBarButtonLink6,
             viewRendererOfficeSilverBarButtonLink10,
@@ -1072,7 +1068,7 @@
             viewRendererVisualStudioBarButtonLink11,
             viewRendererVisualStudioBarButtonLink12,
             viewRendererCustomTanBarButtonLink5,
-            viewRendererCustomRedBarButtonLink5});
+            viewRendererCustomGreenBarButtonLink5});
             optionsDockableToolBar.DefaultCommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewRendererBarPopupButtonLink5});
             optionsDockableToolBar.DockedColumn = 400;
@@ -1157,21 +1153,20 @@
             // 
             // imageList
             // 
-            this.imageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "");
-            this.imageList.Images.SetKeyName(1, "");
-            this.imageList.Images.SetKeyName(2, "");
-            this.imageList.Images.SetKeyName(3, "");
-            this.imageList.Images.SetKeyName(4, "");
-            this.imageList.Images.SetKeyName(5, "");
-            this.imageList.Images.SetKeyName(6, "");
-            this.imageList.Images.SetKeyName(7, "");
-            this.imageList.Images.SetKeyName(8, "");
-            this.imageList.Images.SetKeyName(9, "");
-            this.imageList.Images.SetKeyName(10, "");
-            this.imageList.Images.SetKeyName(11, "");
+            this.imageList.Images.SetKeyName(0, "TextDocument16.png");
+            this.imageList.Images.SetKeyName(1, "Open16.png");
+            this.imageList.Images.SetKeyName(2, "Save16.png");
+            this.imageList.Images.SetKeyName(3, "Print16.png");
+            this.imageList.Images.SetKeyName(4, "PrintPreview16.png");
+            this.imageList.Images.SetKeyName(5, "Cut16.png");
+            this.imageList.Images.SetKeyName(6, "Copy16.png");
+            this.imageList.Images.SetKeyName(7, "Paste16.png");
+            this.imageList.Images.SetKeyName(8, "Delete16.png");
+            this.imageList.Images.SetKeyName(9, "Undo16.png");
+            this.imageList.Images.SetKeyName(10, "Redo16.png");
+            this.imageList.Images.SetKeyName(11, "Find16.png");
             this.imageList.Images.SetKeyName(12, "");
             this.imageList.Images.SetKeyName(13, "");
             this.imageList.Images.SetKeyName(14, "");
@@ -1180,13 +1175,13 @@
             this.imageList.Images.SetKeyName(17, "");
             this.imageList.Images.SetKeyName(18, "");
             this.imageList.Images.SetKeyName(19, "");
-            this.imageList.Images.SetKeyName(20, "");
-            this.imageList.Images.SetKeyName(21, "");
-            this.imageList.Images.SetKeyName(22, "");
-            this.imageList.Images.SetKeyName(23, "");
-            this.imageList.Images.SetKeyName(24, "");
-            this.imageList.Images.SetKeyName(25, "");
-            this.imageList.Images.SetKeyName(26, "");
+            this.imageList.Images.SetKeyName(20, "AlignTextLeft16.png");
+            this.imageList.Images.SetKeyName(21, "AlignTextCenter16.png");
+            this.imageList.Images.SetKeyName(22, "AlignTextRight16.png");
+            this.imageList.Images.SetKeyName(23, "Bullets16.png");
+            this.imageList.Images.SetKeyName(24, "DecreaseIndent16.png");
+            this.imageList.Images.SetKeyName(25, "IncreaseIndent16.png");
+            this.imageList.Images.SetKeyName(26, "RichTextDocument16.png");
             this.imageList.Images.SetKeyName(27, "MetroLight.png");
             // 
             // barManagerPropertyGrid
@@ -1197,10 +1192,9 @@
             this.barManagerPropertyGrid.HelpVisible = false;
             this.barManagerPropertyGrid.LineColor = System.Drawing.SystemColors.ScrollBar;
             this.barManagerPropertyGrid.Location = new System.Drawing.Point(-1, -1);
-			this.barManagerPropertyGrid.MinimumSize = new System.Drawing.Size(10, 10);
-			this.barManagerPropertyGrid.Name = "barManagerPropertyGrid";
+            this.barManagerPropertyGrid.Name = "barManagerPropertyGrid";
             this.barManagerPropertyGrid.SelectedObject = this.barManager;
-            this.barManagerPropertyGrid.Size = new System.Drawing.Size(226, 290);
+            this.barManagerPropertyGrid.Size = new System.Drawing.Size(226, 294);
             this.barManagerPropertyGrid.TabIndex = 1;
             this.barManagerPropertyGrid.ToolbarVisible = false;
             // 
@@ -1220,7 +1214,7 @@
             this.barDockArea1.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockArea1.Location = new System.Drawing.Point(0, 50);
             this.barDockArea1.Name = "barDockArea1";
-            this.barDockArea1.Size = new System.Drawing.Size(0, 516);
+            this.barDockArea1.Size = new System.Drawing.Size(0, 519);
             this.barDockArea1.TabIndex = 3;
             this.barDockArea1.TabStop = false;
             // 
@@ -1230,7 +1224,7 @@
             this.barDockArea2.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockArea2.Location = new System.Drawing.Point(712, 50);
             this.barDockArea2.Name = "barDockArea2";
-            this.barDockArea2.Size = new System.Drawing.Size(0, 516);
+            this.barDockArea2.Size = new System.Drawing.Size(0, 519);
             this.barDockArea2.TabIndex = 4;
             this.barDockArea2.TabStop = false;
             // 
@@ -1238,7 +1232,7 @@
             // 
             this.barDockArea3.BarManager = this.barManager;
             this.barDockArea3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockArea3.Location = new System.Drawing.Point(0, 566);
+            this.barDockArea3.Location = new System.Drawing.Point(0, 569);
             this.barDockArea3.Name = "barDockArea3";
             this.barDockArea3.Size = new System.Drawing.Size(712, 0);
             this.barDockArea3.TabIndex = 5;
@@ -1247,7 +1241,7 @@
             // dockManager
             // 
             this.dockManager.DefaultMdiWindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.dockManager.DocumentMdiStyle = ActiproSoftware.UI.WinForms.Controls.Docking.DocumentMdiStyle.Standard;
+            this.dockManager.DocumentMdiStyle = ActiproSoftware.UI.WinForms.Controls.Docking.DocumentMdiStyle.Tabbed;
             this.dockManager.HostContainerControl = this;
             this.dockManager.ImageList = this.imageList;
             this.dockManager.SelectedDocumentChanged += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_SelectedDocumentChanged);
@@ -1258,13 +1252,24 @@
             this.barManagerPropertiesToolWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.barManagerPropertiesToolWindow.DockedSize = new System.Drawing.Size(226, 200);
             this.barManagerPropertiesToolWindow.DockManager = this.dockManager;
+            this.barManagerPropertiesToolWindow.Image = global::ActiproSoftware.SampleBrowser.Resources.IconWrench16;
             this.barManagerPropertiesToolWindow.Key = "BarManagerProperties";
             this.barManagerPropertiesToolWindow.Location = new System.Drawing.Point(0, 0);
             this.barManagerPropertiesToolWindow.Name = "barManagerPropertiesToolWindow";
-            this.barManagerPropertiesToolWindow.Size = new System.Drawing.Size(224, 288);
+            this.barManagerPropertiesToolWindow.Size = new System.Drawing.Size(224, 292);
             this.barManagerPropertiesToolWindow.TabIndex = 0;
             this.barManagerPropertiesToolWindow.Text = "Mgr Properties";
             this.barManagerPropertiesToolWindow.TitleBarText = "BarManager Properties";
+            // 
+            // barManagerPropertyGridPanel
+            // 
+            this.barManagerPropertyGridPanel.Controls.Add(this.barManagerPropertyGrid);
+            this.barManagerPropertyGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.barManagerPropertyGridPanel.Location = new System.Drawing.Point(0, 0);
+            this.barManagerPropertyGridPanel.Name = "barManagerPropertyGridPanel";
+            this.barManagerPropertyGridPanel.Size = new System.Drawing.Size(224, 292);
+            this.barManagerPropertyGridPanel.TabIndex = 1;
+            this.barManagerPropertyGridPanel.Resize += new System.EventHandler(this.barManagerPropertyGridPanel_Resize);
             // 
             // toolWindowContainer1
             // 
@@ -1272,7 +1277,7 @@
             this.toolWindowContainer1.DockManager = this.dockManager;
             this.toolWindowContainer1.Location = new System.Drawing.Point(474, 56);
             this.toolWindowContainer1.Name = "toolWindowContainer1";
-            this.toolWindowContainer1.Size = new System.Drawing.Size(232, 331);
+            this.toolWindowContainer1.Size = new System.Drawing.Size(232, 334);
             this.toolWindowContainer1.TabIndex = 6;
             toolWindowContainer1.Controls.Add(barManagerPropertiesToolWindow);
             toolWindowContainer1.Controls.Add(toolBarPropertiesToolWindow);
@@ -1284,22 +1289,23 @@
             this.toolBarPropertiesToolWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolBarPropertiesToolWindow.DockedSize = new System.Drawing.Size(226, 200);
             this.toolBarPropertiesToolWindow.DockManager = this.dockManager;
+            this.toolBarPropertiesToolWindow.Image = global::ActiproSoftware.SampleBrowser.Resources.IconWrench16;
             this.toolBarPropertiesToolWindow.Key = "ToolBarProperties";
             this.toolBarPropertiesToolWindow.Location = new System.Drawing.Point(0, 0);
             this.toolBarPropertiesToolWindow.Name = "toolBarPropertiesToolWindow";
-            this.toolBarPropertiesToolWindow.Size = new System.Drawing.Size(224, 288);
+            this.toolBarPropertiesToolWindow.Size = new System.Drawing.Size(224, 292);
             this.toolBarPropertiesToolWindow.TabIndex = 0;
             this.toolBarPropertiesToolWindow.Text = "ToolBar Properties";
             // 
-            // toolBarPropertiesPropertyGridComboBox
+            // toolBarPropertiesPropertyGridPanel
             // 
-            this.toolBarPropertiesPropertyGridComboBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.toolBarPropertiesPropertyGridComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolBarPropertiesPropertyGridComboBox.Location = new System.Drawing.Point(0, 0);
-            this.toolBarPropertiesPropertyGridComboBox.Name = "toolBarPropertiesPropertyGridComboBox";
-            this.toolBarPropertiesPropertyGridComboBox.Size = new System.Drawing.Size(224, 23);
-            this.toolBarPropertiesPropertyGridComboBox.TabIndex = 16;
-            this.toolBarPropertiesPropertyGridComboBox.SelectedIndexChanged += new System.EventHandler(this.toolBarPropertiesPropertyGridComboBox_SelectedIndexChanged);
+            this.toolBarPropertiesPropertyGridPanel.Controls.Add(this.toolBarPropertiesPropertyGrid);
+            this.toolBarPropertiesPropertyGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.toolBarPropertiesPropertyGridPanel.Location = new System.Drawing.Point(0, 21);
+            this.toolBarPropertiesPropertyGridPanel.Name = "toolBarPropertiesPropertyGridPanel";
+            this.toolBarPropertiesPropertyGridPanel.Size = new System.Drawing.Size(224, 271);
+            this.toolBarPropertiesPropertyGridPanel.TabIndex = 1;
+            this.toolBarPropertiesPropertyGridPanel.Resize += new System.EventHandler(this.toolBarPropertiesPropertyGridPanel_Resize);
             // 
             // toolBarPropertiesPropertyGrid
             // 
@@ -1309,23 +1315,29 @@
             this.toolBarPropertiesPropertyGrid.HelpVisible = false;
             this.toolBarPropertiesPropertyGrid.LineColor = System.Drawing.SystemColors.ScrollBar;
             this.toolBarPropertiesPropertyGrid.Location = new System.Drawing.Point(-1, -1);
-			this.toolBarPropertiesPropertyGrid.MinimumSize = new System.Drawing.Size(10, 10);
-			this.toolBarPropertiesPropertyGrid.Name = "toolBarPropertiesPropertyGrid";
-            this.toolBarPropertiesPropertyGrid.Size = new System.Drawing.Size(226, 267);
+            this.toolBarPropertiesPropertyGrid.Name = "toolBarPropertiesPropertyGrid";
+            this.toolBarPropertiesPropertyGrid.Size = new System.Drawing.Size(226, 273);
             this.toolBarPropertiesPropertyGrid.TabIndex = 17;
             this.toolBarPropertiesPropertyGrid.ToolbarVisible = false;
             // 
+            // toolBarPropertiesPropertyGridComboBox
+            // 
+            this.toolBarPropertiesPropertyGridComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.toolBarPropertiesPropertyGridComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolBarPropertiesPropertyGridComboBox.Location = new System.Drawing.Point(0, 0);
+            this.toolBarPropertiesPropertyGridComboBox.Name = "toolBarPropertiesPropertyGridComboBox";
+            this.toolBarPropertiesPropertyGridComboBox.Size = new System.Drawing.Size(224, 21);
+            this.toolBarPropertiesPropertyGridComboBox.TabIndex = 16;
+            this.toolBarPropertiesPropertyGridComboBox.SelectedIndexChanged += new System.EventHandler(this.toolBarPropertiesPropertyGridComboBox_SelectedIndexChanged);
+            // 
             // eventsListBox
             // 
-            this.eventsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.eventsListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.eventsListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.eventsListBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eventsListBox.IntegralHeight = false;
-            this.eventsListBox.ItemHeight = 15;
-            this.eventsListBox.Location = new System.Drawing.Point(-1, 25);
+            this.eventsListBox.Location = new System.Drawing.Point(0, 25);
             this.eventsListBox.Name = "eventsListBox";
-            this.eventsListBox.Size = new System.Drawing.Size(700, 120);
+            this.eventsListBox.Size = new System.Drawing.Size(698, 119);
             this.eventsListBox.TabIndex = 7;
             // 
             // eventsToolWindow
@@ -1336,6 +1348,7 @@
             this.eventsToolWindow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.eventsToolWindow.DockedSize = new System.Drawing.Size(200, 167);
             this.eventsToolWindow.DockManager = this.dockManager;
+            this.eventsToolWindow.Image = global::ActiproSoftware.SampleBrowser.Resources.IconOutput16;
             this.eventsToolWindow.Key = "Events";
             this.eventsToolWindow.Location = new System.Drawing.Point(1, 28);
             this.eventsToolWindow.Name = "eventsToolWindow";
@@ -1360,14 +1373,14 @@
             this.toolWindowContainer2.Controls.Add(this.eventsToolWindow);
             this.toolWindowContainer2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.toolWindowContainer2.DockManager = this.dockManager;
-            this.toolWindowContainer2.Location = new System.Drawing.Point(6, 387);
+            this.toolWindowContainer2.Location = new System.Drawing.Point(6, 390);
             this.toolWindowContainer2.Name = "toolWindowContainer2";
             this.toolWindowContainer2.Size = new System.Drawing.Size(700, 173);
             this.toolWindowContainer2.TabIndex = 7;
             // 
             // statusBar
             // 
-            this.statusBar.Location = new System.Drawing.Point(0, 566);
+            this.statusBar.Location = new System.Drawing.Point(0, 569);
             this.statusBar.Name = "statusBar";
             statusBarLabelPanel1.Key = "Position";
             statusBarLabelPanel1.ToolTipText = "Position";
@@ -1397,7 +1410,7 @@
             statusBarLabelPanel3,
             statusBarProgressBarPanel1,
             statusBarLabelPanel4});
-            this.statusBar.Size = new System.Drawing.Size(712, 24);
+            this.statusBar.Size = new System.Drawing.Size(712, 21);
             this.statusBar.TabIndex = 12;
             this.statusBar.TabStop = false;
             this.statusBar.Text = "statusBar1";
@@ -1410,7 +1423,7 @@
             this.autoHideTabStripPanel1.DockManager = this.dockManager;
             this.autoHideTabStripPanel1.Location = new System.Drawing.Point(0, 50);
             this.autoHideTabStripPanel1.Name = "autoHideTabStripPanel1";
-            this.autoHideTabStripPanel1.Size = new System.Drawing.Size(6, 516);
+            this.autoHideTabStripPanel1.Size = new System.Drawing.Size(6, 519);
             this.autoHideTabStripPanel1.TabIndex = 14;
             // 
             // autoHideContainer1
@@ -1448,7 +1461,7 @@
             this.autoHideTabStripPanel3.DockManager = this.dockManager;
             this.autoHideTabStripPanel3.Location = new System.Drawing.Point(706, 50);
             this.autoHideTabStripPanel3.Name = "autoHideTabStripPanel3";
-            this.autoHideTabStripPanel3.Size = new System.Drawing.Size(6, 516);
+            this.autoHideTabStripPanel3.Size = new System.Drawing.Size(6, 519);
             this.autoHideTabStripPanel3.TabIndex = 18;
             // 
             // autoHideContainer3
@@ -1465,7 +1478,7 @@
             this.autoHideTabStripPanel4.AllowDrop = true;
             this.autoHideTabStripPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.autoHideTabStripPanel4.DockManager = this.dockManager;
-            this.autoHideTabStripPanel4.Location = new System.Drawing.Point(6, 560);
+            this.autoHideTabStripPanel4.Location = new System.Drawing.Point(6, 563);
             this.autoHideTabStripPanel4.Name = "autoHideTabStripPanel4";
             this.autoHideTabStripPanel4.Size = new System.Drawing.Size(700, 6);
             this.autoHideTabStripPanel4.TabIndex = 20;
@@ -1479,27 +1492,10 @@
             this.autoHideContainer4.Size = new System.Drawing.Size(0, 0);
             this.autoHideContainer4.TabIndex = 21;
             // 
-            // barManagerPropertyGridPanel
-            // 
-            this.barManagerPropertyGridPanel.Controls.Add(this.barManagerPropertyGrid);
-            this.barManagerPropertyGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.barManagerPropertyGridPanel.Location = new System.Drawing.Point(0, 0);
-            this.barManagerPropertyGridPanel.Name = "barManagerPropertyGridPanel";
-            this.barManagerPropertyGridPanel.Size = new System.Drawing.Size(224, 288);
-            this.barManagerPropertyGridPanel.TabIndex = 1;
-            // 
-            // toolBarPropertiesPropertyGridPanel
-            // 
-            this.toolBarPropertiesPropertyGridPanel.Controls.Add(this.toolBarPropertiesPropertyGrid);
-            this.toolBarPropertiesPropertyGridPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolBarPropertiesPropertyGridPanel.Location = new System.Drawing.Point(0, 23);
-            this.toolBarPropertiesPropertyGridPanel.Name = "toolBarPropertiesPropertyGridPanel";
-            this.toolBarPropertiesPropertyGridPanel.Size = new System.Drawing.Size(224, 265);
-            this.toolBarPropertiesPropertyGridPanel.TabIndex = 1;
-            // 
             // MainForm
             // 
-            this.AutoScaleBaseSize = new System.Drawing.Size(6, 16);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(712, 590);
             this.Controls.Add(this.toolWindowContainer1);
             this.Controls.Add(this.autoHideContainer1);
@@ -1516,9 +1512,7 @@
             this.Controls.Add(this.barDockArea3);
             this.Controls.Add(this.barDockArea4);
             this.Controls.Add(this.statusBar);
-            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.IsMdiContainer = true;
             this.KeyPreview = true;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1526,11 +1520,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).EndInit();
             this.barManagerPropertiesToolWindow.ResumeLayout(false);
+            this.barManagerPropertyGridPanel.ResumeLayout(false);
             this.toolBarPropertiesToolWindow.ResumeLayout(false);
+            this.toolBarPropertiesPropertyGridPanel.ResumeLayout(false);
             this.eventsToolWindow.ResumeLayout(false);
             this.toolWindowContainer2.ResumeLayout(false);
-            this.barManagerPropertyGridPanel.ResumeLayout(false);
-            this.toolBarPropertiesPropertyGridPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
