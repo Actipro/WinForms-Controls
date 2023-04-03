@@ -13,7 +13,7 @@ See the [Commands and Command Links](index.md) topic for more information on com
 
 ![Screenshot](../images/bar-textbox-on-menu.gif)
 
-Textboxes allow for entry of text.  The pressing of `Enter` or the changing of a value and tabbing off the textbox will raise the command click event.
+Textboxes allow for entry of text.  The pressing of <kbd>Enter</kbd> or the changing of a value and tabbing off the textbox will raise the command click event.
 
 ## Obtaining the Textbox Value
 

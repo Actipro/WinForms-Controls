@@ -9,7 +9,7 @@ The Dock controls have two modes of multiple document interface (MDI) support, `
 
 Set the [DocumentMdiStyle](xref:@ActiproUIRoot.Controls.Docking.DockManager.DocumentMdiStyle) property of the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component to `Standard` to use this MDI mode.  MDI modes can be changed at run-time.
 
-The standard `Ctrl+Tab` hotkey provides for quick switching between selected document windows.
+The standard <kbd>Ctrl</kbd>+<kbd>Tab</kbd> hotkey provides for quick switching between selected document windows.
 
 ![Screenshot](images/dock-controls-standard-mdi.png)
 

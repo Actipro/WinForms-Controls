@@ -47,7 +47,7 @@ Out of the box, the dock controls have [rendering capabilities](extensible-rende
 - Tabbed MDI tabs can be floated to top-level windows.
 - Tabbed MDI containers can display a drop-down list of active documents and/or use scroll buttons to smoothly scroll through tabs that are out of view.
 - [Document windows](document-windows.md) track modified states and reflect them in the user interface.
-- `Ctrl+Tab` tool and document switching with the optional [Next Window Navigation](next-window-navigation.md) dialog.
+- <kbd>Ctrl</kbd>+<kbd>Tab</kbd> tool and document switching with the optional [Next Window Navigation](next-window-navigation.md) dialog.
 - Ability to cancel the closing of tool and document windows.
 - Option to hide document tabs if there is only one document open.
 - Programmatically dock all tool windows anywhere in the layout and move/resize floating tool windows at run-time.

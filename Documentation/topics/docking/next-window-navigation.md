@@ -21,10 +21,10 @@ Several keys may be used to display the dialog:
 
 | Key | Description |
 |-----|-----|
-| `Ctrl+Tab` | Displays the **Next Window Navigation** dialog and selects the next document window.  Hold the `Control` key down to keep the dialog displayed. |
-| `Ctrl+Shift+Tab` | Displays the **Next Window Navigation** dialog and selects the previous document window.  Hold the `Control` key down to keep the dialog displayed. |
-| `Alt+F7` | Displays the **Next Window Navigation** dialog and selects the next tool window.  Hold the `Alt` key down to keep the dialog displayed. |
-| `Alt+Shift+F7` | Displays the **Next Window Navigation** dialog and selects the previous tool window.  Hold the `Alt` key down to keep the dialog displayed. |
+| <kbd>Ctrl</kbd>+<kbd>Tab</kbd> | Displays the **Next Window Navigation** dialog and selects the next document window.  Hold the <kbd>Ctrl</kbd> key down to keep the dialog displayed. |
+| <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Tab</kbd> | Displays the **Next Window Navigation** dialog and selects the previous document window.  Hold the <kbd>Ctrl</kbd> key down to keep the dialog displayed. |
+| <kbd>Alt</kbd>+<kbd>F7</kbd> | Displays the **Next Window Navigation** dialog and selects the next tool window.  Hold the <kbd>Alt</kbd> key down to keep the dialog displayed. |
+| <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>F7</kbd> | Displays the **Next Window Navigation** dialog and selects the previous tool window.  Hold the <kbd>Alt</kbd> key down to keep the dialog displayed. |
 
 ## Next Window Navigation Types
 
@@ -42,10 +42,10 @@ Several keys are also valid while the **Next Window Navigation** dialog is displ
 
 | Key | Description |
 |-----|-----|
-| `Left` | Selects the tool or document window left of the current selection in the **Next Window Navigation** dialog.  Wrapping will occur if necessary. |
-| `Up` | Selects the tool or document window above the current selection in the **Next Window Navigation** dialog.  Wrapping will occur if necessary. |
-| `Right` | Selects the tool or document window right of the current selection in the **Next Window Navigation** dialog.  Wrapping will occur if necessary. |
-| `Down` | Selects the tool or document window below the current selection in the **Next Window Navigation** dialog.  Wrapping will occur if necessary. |
+| <kbd>Left Arrow</kbd> | Selects the tool or document window left of the current selection in the **Next Window Navigation** dialog.  Wrapping will occur if necessary. |
+| <kbd>Up Arrow</kbd> | Selects the tool or document window above the current selection in the **Next Window Navigation** dialog.  Wrapping will occur if necessary. |
+| <kbd>Right Arrow</kbd> | Selects the tool or document window right of the current selection in the **Next Window Navigation** dialog.  Wrapping will occur if necessary. |
+| <kbd>Down Arrow</kbd> | Selects the tool or document window below the current selection in the **Next Window Navigation** dialog.  Wrapping will occur if necessary. |
 
 ## Customizing the Selected Window's Descriptions
 
