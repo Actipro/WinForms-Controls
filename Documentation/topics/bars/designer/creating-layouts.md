@@ -61,7 +61,7 @@ To create a command:
 
 ![Screenshot](../images/bar-design-time-new-command-form.png)
 
-1. Select an existing **Category** or enter a new category for the command, e.g. `File`, `Edit`, `View`.
+1. Select an existing **Category** or enter a new category for the command, e.g., `File`, `Edit`, `View`.
 1. Enter the **Command Text** to be displayed in menus and toolbars.
 1. Verify the **Command Name**, which is automatically generated from the **Command Text**, or enter a custom value as desired. This value will be combined with given **Category** to create the [FullName](xref:@ActiproUIRoot.Controls.Bars.BarCommand.FullName) of the command.
 1. Select the **Command Type** for the new command. See the [Commands Overview](../commands/index.md) topic for more information on different command types.
@@ -84,7 +84,7 @@ To create a [MenuBar](xref:@ActiproUIRoot.Controls.Bars.MenuBar):
 1. If not already open, start customize mode to open the **Customize** dialog.
 1. Select the **Toolbars & Menus** tab.
 1. Click the **New...** button to display the **New Bar Control** dialog.
-1. Enter a **Name** for the new control, e.g. `Main Menu`.
+1. Enter a **Name** for the new control, e.g., `Main Menu`.
 1. Select [MenuBar](xref:@ActiproUIRoot.Controls.Bars.MenuBar) for the **Bar control type**.
 1. Click **OK**.
 
@@ -100,7 +100,7 @@ To create a [DockableToolBar](xref:@ActiproUIRoot.Controls.Bars.DockableToolBar)
 1. If not already open, start customize mode to open the **Customize** dialog.
 1. Select the **Toolbars & Menus** tab.
 1. Click the **New...** button to display the **New Bar Control** dialog.
-1. Enter a **Name** for the new control, e.g. `Standard`.
+1. Enter a **Name** for the new control, e.g., `Standard`.
 1. Select [DockableToolBar](xref:@ActiproUIRoot.Controls.Bars.DockableToolBar) for the **Bar control type**.
 1. Click **OK**.
 
@@ -113,7 +113,7 @@ To create a [PopupMenu](xref:@ActiproUIRoot.Controls.Bars.PopupMenu):
 1. If not already open, start customize mode to open the **Customize** dialog.
 1. Select the **Toolbars & Menus** tab.
 1. Click the **New...** button to display the **New Bar Control** dialog.
-1. Enter a **Name** for the new control, e.g. `Popup`.
+1. Enter a **Name** for the new control, e.g., `Popup`.
 1. Select [PopupMenu](xref:@ActiproUIRoot.Controls.Bars.PopupMenu) for the **Bar control type**.
 1. Click **OK**.
 
@@ -152,7 +152,7 @@ New command links are added after any command link already selected in the **Pre
 
 ## Customize Command Links
 
-The **Links** tab of the **Customize** dialog is used to customize all command links. Every bar control has a collection of command links, and popup command links (e.g. [BarPopupButtonLink](xref:@ActiproUIRoot.Controls.Bars.BarPopupButtonLink) or [BarSplitButtonLink](xref:@ActiproUIRoot.Controls.Bars.BarSplitButtonLink)) also have their own child links.
+The **Links** tab of the **Customize** dialog is used to customize all command links. Every bar control has a collection of command links, and popup command links (e.g., [BarPopupButtonLink](xref:@ActiproUIRoot.Controls.Bars.BarPopupButtonLink) or [BarSplitButtonLink](xref:@ActiproUIRoot.Controls.Bars.BarSplitButtonLink)) also have their own child links.
 
 The top section of the **Links** tab is used to select which collection of links will be customized, where each bar control type has its own drop-down of selections. For each drop-down, bar controls are listed by name. Child popup links are listed by their hierarchy with a vertical bar (`|`) separating the name of a parent from the name of a child. Since there is only one menubar allowed, the primary links on a menubar will omit the parent menubar identifier when displayed in the drop-down list.
 

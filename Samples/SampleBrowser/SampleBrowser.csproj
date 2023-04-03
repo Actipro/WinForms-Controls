@@ -14,7 +14,7 @@
 
 		<AssemblyName>SampleBrowser</AssemblyName>
 
-		<Version>23.1.0.0</Version>
+		<Version>23.1.1.0</Version>
 
 		<RootNamespace>ActiproSoftware</RootNamespace>
 
@@ -51,11 +51,11 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="ActiproSoftware.Controls.WinForms" Version="23.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet" Version="23.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript" Version="23.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python" Version="23.1.0" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML" Version="23.1.0" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms" Version="23.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet" Version="23.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript" Version="23.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python" Version="23.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML" Version="23.1.1" />
 	</ItemGroup>
 
 </Project>

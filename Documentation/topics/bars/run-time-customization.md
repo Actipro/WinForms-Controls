@@ -14,7 +14,7 @@ The [CustomizeMode](xref:@ActiproUIRoot.Controls.Bars.BarManager.CustomizeMode) 
 | Value | Description |
 |-----|-----|
 | [None](xref:@ActiproUIRoot.Controls.Bars.BarCustomizeMode.None) | There is no customize mode active. |
-| [QuickCustomize](xref:@ActiproUIRoot.Controls.Bars.BarCustomizeMode.QuickCustomize) | The quick customize mode is active.  This occurs when the `Alt` key is held down at run-time. |
+| [QuickCustomize](xref:@ActiproUIRoot.Controls.Bars.BarCustomizeMode.QuickCustomize) | The quick customize mode is active.  This occurs when the <kbd>Alt</kbd> key is held down at run-time. |
 | [DialogCustomize](xref:@ActiproUIRoot.Controls.Bars.BarCustomizeMode.DialogCustomize) | The dialog customize mode is active.  A run-time customize mode should be displayed while this mode is active. |
 
 > [!IMPORTANT]
@@ -36,7 +36,7 @@ barManager.CustomizeMode = BarCustomizeMode.None;
 
 The `Customize` menu item will appear on context menu clicks within toolbars and dock areas if the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).[CustomizeEnabled](xref:@ActiproUIRoot.Controls.Bars.BarManager.CustomizeEnabled) property is set to `true`.  When clicked, that menu item automatically sets the [CustomizeMode](xref:@ActiproUIRoot.Controls.Bars.BarManager.CustomizeMode) to [DialogCustomize](xref:@ActiproUIRoot.Controls.Bars.BarCustomizeMode.DialogCustomize).
 
-Additionally, quick customize mode will be enabled if the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).[QuickCustomizeEnabled](xref:@ActiproUIRoot.Controls.Bars.BarManager.QuickCustomizeEnabled) property is set to `true`.  Quick customize mode is activated when the end user holds the `Alt` key to click and drag a toolbar button.
+Additionally, quick customize mode will be enabled if the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).[QuickCustomizeEnabled](xref:@ActiproUIRoot.Controls.Bars.BarManager.QuickCustomizeEnabled) property is set to `true`.  Quick customize mode is activated when the end user holds the <kbd>Alt</kbd> key to click and drag a toolbar button.
 
 ## Controlling Command Customization
 
@@ -105,7 +105,7 @@ Second, handle the [CustomizeSelectedCommandLinkChanged](xref:@ActiproUIRoot.Con
 private void barManager_CustomizeSelectedCommandLinkChanged(object sender, ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventArgs e) {
 	// Update the customize form with the selection change
 	if (customizeForm != null)
-		customizeForm.UpdateSelectedCommandLink(e.CommandLink);		
+		customizeForm.UpdateSelectedCommandLink(e.CommandLink);
 }
 ```
 

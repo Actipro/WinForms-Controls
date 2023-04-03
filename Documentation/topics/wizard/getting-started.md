@@ -43,7 +43,7 @@ For complete customization, you can even create a class that inherits from [Wiza
 
 ## Changing Button Text
 
-Each of the buttons' text can be modified by setting the appropriate property (i.e. [NextButtonText](xref:@ActiproUIRoot.Controls.Wizard.Wizard.NextButtonText) property) on the [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard) control.  You may wish to do this to switch from the normal button names or maybe because you are programming for a non-English language.  In any event, [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard) also provides width properties (i.e. [NextButtonWidth](xref:@ActiproUIRoot.Controls.Wizard.Wizard.NextButtonWidth) property) for each button so that you can change the width of each button to accommodate the width of the custom text.
+Each of the buttons' text can be modified by setting the appropriate property (i.e., [NextButtonText](xref:@ActiproUIRoot.Controls.Wizard.Wizard.NextButtonText) property) on the [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard) control.  You may wish to do this to switch from the normal button names or maybe because you are programming for a non-English language.  In any event, [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard) also provides width properties (i.e., [NextButtonWidth](xref:@ActiproUIRoot.Controls.Wizard.Wizard.NextButtonWidth) property) for each button so that you can change the width of each button to accommodate the width of the custom text.
 
 Both of these types of properties are localizable so that you can store different values for different languages.  See the [Localization](localization.md) topic for more information on localization of properties.
 

@@ -12,11 +12,11 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Adornmen
 	/// Provides the main user control for this sample.
 	/// </summary>
 	public partial class MainControl : UserControl {
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// OBJECT
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 		/// <summary>
 		/// Initializes an instance of the <c>MainControl</c> class.
 		/// </summary>
@@ -28,11 +28,11 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Adornmen
 
 			this.RefreshSquiggleTags();
 		}
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// NON-PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 		/// <summary>
 		/// Rescan the document and look for instances of the word 'Actipro' to mark with squiggle tags.
 		/// </summary>
@@ -59,7 +59,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Adornmen
 						// Create a version range for the match
 						var snapshotRange = new TextSnapshotRange(snapshot, TextRange.FromSpan(match.Index, match.Length));
 						var versionRange = snapshotRange.ToVersionRange(TextRangeTrackingModes.DeleteWhenZeroLength);
-				
+
 						// Create a tag, and include a quick info tip if specified
 						var tag = new SquiggleTag();
 						tag.ClassificationType = ClassificationTypes.Warning;  // This classification type is mapped in the tagger to a Green color

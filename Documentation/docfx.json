@@ -3,25 +3,25 @@
 		{
 			"src": [
 				{
-					"src": "../../Source/bin/Release",
+					"src": "../../Deploy/Build/AssembliesDocFX",
 					"files": [
-						"net462/ActiproSoftware.Shared.WinForms.dll",
-						"net462/ActiproSoftware.Bars.WinForms.dll",
-						"net462/ActiproSoftware.Docking.WinForms.dll",
-						"net462/ActiproSoftware.Navigation.WinForms.dll",
-						"net462/ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll",
-						"net462/ActiproSoftware.SyntaxEditor.Addons.JavaScript.WinForms.dll",
-						"net462/ActiproSoftware.SyntaxEditor.Addons.Python.WinForms.dll",
-						"net462/ActiproSoftware.SyntaxEditor.Addons.Xml.WinForms.dll",
-						"net462/ActiproSoftware.SyntaxEditor.WinForms.dll",
-						"net462/ActiproSoftware.Text.Addons.DotNet.WinForms.dll",
-						"net462/ActiproSoftware.Text.Addons.DotNet.Roslyn.WinForms.dll",
-						"net462/ActiproSoftware.Text.Addons.JavaScript.WinForms.dll",
-						"net462/ActiproSoftware.Text.Addons.Python.WinForms.dll",
-						"net462/ActiproSoftware.Text.Addons.Xml.WinForms.dll",
-						"net462/ActiproSoftware.Text.LLParser.WinForms.dll",
-						"net462/ActiproSoftware.Text.WinForms.dll",
-						"net462/ActiproSoftware.Wizard.WinForms.dll"
+						"ActiproSoftware.Shared.WinForms.dll",
+						"ActiproSoftware.Bars.WinForms.dll",
+						"ActiproSoftware.Docking.WinForms.dll",
+						"ActiproSoftware.Navigation.WinForms.dll",
+						"ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll",
+						"ActiproSoftware.SyntaxEditor.Addons.JavaScript.WinForms.dll",
+						"ActiproSoftware.SyntaxEditor.Addons.Python.WinForms.dll",
+						"ActiproSoftware.SyntaxEditor.Addons.Xml.WinForms.dll",
+						"ActiproSoftware.SyntaxEditor.WinForms.dll",
+						"ActiproSoftware.Text.Addons.DotNet.WinForms.dll",
+						"ActiproSoftware.Text.Addons.DotNet.Roslyn.WinForms.dll",
+						"ActiproSoftware.Text.Addons.JavaScript.WinForms.dll",
+						"ActiproSoftware.Text.Addons.Python.WinForms.dll",
+						"ActiproSoftware.Text.Addons.Xml.WinForms.dll",
+						"ActiproSoftware.Text.LLParser.WinForms.dll",
+						"ActiproSoftware.Text.WinForms.dll",
+						"ActiproSoftware.Wizard.WinForms.dll"
 						// "**.csproj"
 					]
 				}

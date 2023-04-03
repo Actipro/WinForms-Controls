@@ -13,6 +13,33 @@
 
 				<h2>Version 23.1</h2>
 
+				<h3>4/3/2023 - v23.1.1</h3>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Improved the logic of the move selected lines up and down commands.</li>
+					<li>Updated pointer interaction in an editor view to quit if the view is unable to be focused.</li>
+					<li>Fixed an issue where typing in a block selection than spanned multiple word-wrapped view lines for the same single document line didn't yield expected results.</li>
+					<li>Fixed an issue with HighlightingStyleRegistry importing decimal font size values for style settings on systems where the current culture recognizes the decimal point character (.) as the thousands separator.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Improved the IProjectAssemblyReferencesCollection.Add method logic in .NET Core and later for finding system assemblies by name when they are in the same folder as mscorlib.dll.</li>
+					<li>Improved the VB resolver logic for handling For Each statement variables.</li>
+					<li>Fixed an issue where IntelliPrompt parameter info could flicker slightly while editing.</li>
+					<li>Fixed possible infinite recursion scenario with BinaryAssemblySerializer collecting type definitions.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Fixed an issue parsing graphics path data for icons on systems where the current culture recognizes the decimal point character (.) as the thousands separator.</li>
+					<li>Fixed an issue with UIColor parsing decimal alpha values from colors in rgba() format on systems where the current culture recognizes the decimal point character (.) as the thousands separator.</li>
+					<li>Fixed an issue where InputAdapter didn't always raise PointerCaptureLost events properly.</li>
+				</ul>
+				<h4>All</h4>
+				<ul>
+					<li>Updated SyntaxEditor-related NuGet packages to properly support cross-platform .NET 6.0.</li>
+				</ul>
+
+
 				<h3>2/7/2023 - v23.1.0</h3>
 				<h4>Bars</h4>
 				<ul>

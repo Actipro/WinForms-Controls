@@ -104,7 +104,7 @@ The Actipro NuGet packages can be downloaded directly from the package pages lin
 
 ## Managing NuGet Packages
 
-To find and install an Actipro package, right click on your solution in Visual Studio's Solution Explorer tool window, and select the "Manage NuGet Packages for Solution..." menu item.  In the document that appears, ensure the package source on the upper right points to the package source that contains Actipro NuGet packages (e.g. nuget.org).  Then enter "ActiproSoftware.Controls.WinForms" (without quotes) in the "Browse" tab's search box to see available @@PlatformName Control packages.
+To find and install an Actipro package, right click on your solution in Visual Studio's Solution Explorer tool window, and select the "Manage NuGet Packages for Solution..." menu item.  In the document that appears, ensure the package source on the upper right points to the package source that contains Actipro NuGet packages (e.g., nuget.org).  Then enter "ActiproSoftware.Controls.WinForms" (without quotes) in the "Browse" tab's search box to see available @@PlatformName Control packages.
 
 Select the package in the package list that you wish to add to a project.  On the right side, check the project(s) that should have the target project added.  Choose the version to install and click the "Install" button.
 

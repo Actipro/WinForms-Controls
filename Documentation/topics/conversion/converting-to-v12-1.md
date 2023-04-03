@@ -19,7 +19,7 @@ These major infrastructure updates align our product deployment, distribution, a
 
 ## Unified Versioning Scheme
 
-Prior to this version, each WinForms product had separate version numbers (i.e. v4.0).  In this version and moving forward, all WinForms products will now share the same version/build numbers so that it's easy to identify which assemblies work with which.  The 2012.1 version will have version number 12.1, and so on, allowing you to also have a general idea of when the version was released (year 2012, first major release of that year).
+Prior to this version, each WinForms product had separate version numbers (i.e., v4.0).  In this version and moving forward, all WinForms products will now share the same version/build numbers so that it's easy to identify which assemblies work with which.  The 2012.1 version will have version number 12.1, and so on, allowing you to also have a general idea of when the version was released (year 2012, first major release of that year).
 
 ## UIStudio Split Into Separate Products
 
@@ -31,7 +31,7 @@ The namespaces in the updated assemblies still retain UIStudio in their name to 
 
 All WinForms products now target .NET 3.5 as their minimum framework version.  They will work fine in any .NET framework 3.5 or later (.NET 4.0, .NET 4.5, etc.).
 
-In addition, the products now support "client profile", meaning they no longer have requirements on `System.Design.dll` and will work on end user machines that have only installed .NET 3.5 or later's "client profile".
+In addition, the products now support "client profile", meaning they no longer have requirements on *System.Design.dll* and will work on end user machines that have only installed .NET 3.5 or later's "client profile".
 
 > [!NOTE]
 > Update your application's project to target .NET 3.5 or later, optionally choosing the "client profile" variation if appropriate.
@@ -40,17 +40,17 @@ In addition, the products now support "client profile", meaning they no longer h
 
 All Actipro product assembly names have been updated to more generic platform-based naming schema as described in this list:
 
-- `ActiproSoftware.UIStudio.Bar.Net20.dll` is now `ActiproSoftware.Bars.WinForms.dll`
-- `ActiproSoftware.UIStudio.Dock.Net20.dll` is now `ActiproSoftware.Docking.WinForms.dll`
-- `ActiproSoftware.UIStudio.NavigationBar.Net20.dll` is now `ActiproSoftware.Navigation.WinForms.dll`
-- `ActiproSoftware.SyntaxEditor.Net20.dll` is now `ActiproSoftware.SyntaxEditor.WinForms.dll`
-- `ActiproSoftware.SyntaxEditor.Addons.DotNet.Net20.dll` is now `ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll`
-- `ActiproSoftware.SyntaxEditor.Addons.Web.Net20.dll` is now `ActiproSoftware.SyntaxEditor.Addons.Xml.WinForms.dll`
-- `ActiproSoftware.Wizard.Net20.dll` is now `ActiproSoftware.Wizard.WinForms.dll`
-- `ActiproSoftware.Shared.Net20.dll` and `ActiproSoftware.WinUICore.Net20.dll` have both been merged into `ActiproSoftware.Shared.WinForms.dll`
+- *ActiproSoftware.UIStudio.Bar.Net20.dll* is now *ActiproSoftware.Bars.WinForms.dll*
+- *ActiproSoftware.UIStudio.Dock.Net20.dll* is now *ActiproSoftware.Docking.WinForms.dll*
+- *ActiproSoftware.UIStudio.NavigationBar.Net20.dll* is now *ActiproSoftware.Navigation.WinForms.dll*
+- *ActiproSoftware.SyntaxEditor.Net20.dll* is now *ActiproSoftware.SyntaxEditor.WinForms.dll*
+- *ActiproSoftware.SyntaxEditor.Addons.DotNet.Net20.dll* is now *ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll*
+- *ActiproSoftware.SyntaxEditor.Addons.Web.Net20.dll* is now *ActiproSoftware.SyntaxEditor.Addons.Xml.WinForms.dll*
+- *ActiproSoftware.Wizard.Net20.dll* is now *ActiproSoftware.Wizard.WinForms.dll*
+- *ActiproSoftware.Shared.Net20.dll* and *ActiproSoftware.WinUICore.Net20.dll* have both been merged into *ActiproSoftware.Shared.WinForms.dll*
 
 > [!NOTE]
-> Update all assembly references in your projects, and be sure to also update your licenses.licx file with the proper entries you need, as described in detail in the [Licensing](../licensing.md) topic.
+> Update all assembly references in your projects, and be sure to also update your *licenses.licx* file with the proper entries you need, as described in detail in the [Licensing](../licensing.md) topic.
 
 ## Visual Studio 2010 Projects
 
@@ -88,7 +88,7 @@ Several of the former UIStudio product namespaces (that only contain assembly me
 
 ## Designer Functionality Moved to Separate Design Assemblies
 
-Visual Studio designer functionality for the products has been moved out to separate Design assemblies now.  This allows the products themselves to fully support apps that target "client profile" variations of the .NET framework since they no longer have a `System.Design.dll` dependency.
+Visual Studio designer functionality for the products has been moved out to separate Design assemblies now.  This allows the products themselves to fully support apps that target "client profile" variations of the .NET framework since they no longer have a *System.Design.dll* dependency.
 
 ## Removed ThemeHelper Class
 

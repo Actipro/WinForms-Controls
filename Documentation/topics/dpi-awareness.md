@@ -23,6 +23,9 @@ Actipro WinForms Controls target multiple .NET Frameworks, and each target can h
 > [!TIP]
 > Per-monitor DPI awareness is still a work-in-progress for Windows Forms, so targeting the latest supported version of .NET is recommended.
 
+> [!IMPORTANT]
+> Actipro controls are tested with `PerMonitorV2` only. The original `PerMonitor` configuration version was very limited and has been replaced with `PerMonitorV2` on all versions of Windows still under support. For per-monitor DPI awareness, using `PerMonitorV2` instead of `PerMonitor` is highly recommended.
+
 ### Bars
 
 - The Bars customization form may not rescale correctly on some .NET targets when moving between monitors of different DPI's and the application is running with per-monitor DPI awareness.  This primarily impacts .NET 6+.

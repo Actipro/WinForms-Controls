@@ -11,7 +11,7 @@ Set the [DocumentMdiStyle](xref:@ActiproUIRoot.Controls.Docking.DockManager.Docu
 
 Close buttons can optionally be displayed for each document window and an event can be intercepted to cancel the closing of any document window.
 
-The standard `Ctrl+Tab` hotkey provides for quick switching between selected document windows.
+The standard <kbd>Ctrl</kbd>+<kbd>Tab</kbd> hotkey provides for quick switching between selected document windows.
 
 Even though document windows can be split into multiple tab groups, a single collection of all active documents is available from the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component.  See the [Working with Documents](working-with-documents.md) topic for more information on this collection.
 

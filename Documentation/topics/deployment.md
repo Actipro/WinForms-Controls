@@ -49,8 +49,8 @@ This table shows the product assemblies that may be redistributed based on indiv
 <td>Bars</td>
 <td>
 
-- `ActiproSoftware.Bars.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.Bars` NuGet package)
-- `ActiproSoftware.Shared.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.Shared` NuGet package)
+- *ActiproSoftware.Bars.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.Bars` NuGet package)
+- *ActiproSoftware.Shared.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.Shared` NuGet package)
 
 </td>
 </tr>
@@ -59,8 +59,8 @@ This table shows the product assemblies that may be redistributed based on indiv
 <td>Docking/MDI</td>
 <td>
 
-- `ActiproSoftware.Docking.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.Docking` NuGet package)
-- `ActiproSoftware.Shared.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.Shared` NuGet package)
+- *ActiproSoftware.Docking.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.Docking` NuGet package)
+- *ActiproSoftware.Shared.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.Shared` NuGet package)
 
 </td>
 </tr>
@@ -69,8 +69,8 @@ This table shows the product assemblies that may be redistributed based on indiv
 <td>Navigation</td>
 <td>
 
-- `ActiproSoftware.Navigation.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.Navigation` NuGet package)
-- `ActiproSoftware.Shared.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.Shared` NuGet package)
+- *ActiproSoftware.Navigation.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.Navigation` NuGet package)
+- *ActiproSoftware.Shared.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.Shared` NuGet package)
 
 </td>
 </tr>
@@ -79,10 +79,10 @@ This table shows the product assemblies that may be redistributed based on indiv
 <td>SyntaxEditor</td>
 <td>
 
-- `ActiproSoftware.SyntaxEditor.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor` NuGet package)
-- `ActiproSoftware.Text.LLParser.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor` NuGet package)
-- `ActiproSoftware.Text.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor` NuGet package)
-- `ActiproSoftware.Shared.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.Shared` NuGet package)
+- *ActiproSoftware.SyntaxEditor.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor` NuGet package)
+- *ActiproSoftware.Text.LLParser.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor` NuGet package)
+- *ActiproSoftware.Text.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor` NuGet package)
+- *ActiproSoftware.Shared.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.Shared` NuGet package)
 
 </td>
 </tr>
@@ -95,9 +95,9 @@ SyntaxEditor .NET Languages Add-on \*
 </td>
 <td>
 
-- `ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet` NuGet package)
-- `ActiproSoftware.Text.Addons.DotNet.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet` NuGet package)
-- `ActiproSoftware.Text.Addons.DotNet.Roslyn.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet` NuGet package)
+- *ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet` NuGet package)
+- *ActiproSoftware.Text.Addons.DotNet.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet` NuGet package)
+- *ActiproSoftware.Text.Addons.DotNet.Roslyn.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet` NuGet package)
 
 </td>
 </tr>
@@ -110,8 +110,8 @@ SyntaxEditor Python Language Add-on \*
 </td>
 <td>
 
-- `ActiproSoftware.SyntaxEditor.Addons.Python.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python` NuGet package)
-- `ActiproSoftware.Text.Addons.Python.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python` NuGet package)
+- *ActiproSoftware.SyntaxEditor.Addons.Python.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python` NuGet package)
+- *ActiproSoftware.Text.Addons.Python.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python` NuGet package)
 
 </td>
 </tr>
@@ -124,10 +124,10 @@ SyntaxEditor Web Languages Add-on \*
 </td>
 <td>
 
-- `ActiproSoftware.SyntaxEditor.Addons.JavaScript.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript` NuGet package)
-- `ActiproSoftware.Text.Addons.JavaScript.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript` NuGet package)
-- `ActiproSoftware.SyntaxEditor.Addons.Xml.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML` NuGet package)
-- `ActiproSoftware.Text.Addons.Xml.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML` NuGet package)
+- *ActiproSoftware.SyntaxEditor.Addons.JavaScript.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript` NuGet package)
+- *ActiproSoftware.Text.Addons.JavaScript.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript` NuGet package)
+- *ActiproSoftware.SyntaxEditor.Addons.Xml.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML` NuGet package)
+- *ActiproSoftware.Text.Addons.Xml.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML` NuGet package)
 
 </td>
 </tr>
@@ -136,8 +136,8 @@ SyntaxEditor Web Languages Add-on \*
 <td>Wizard</td>
 <td>
 
-- `ActiproSoftware.Wizard.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.Wizard` NuGet package)
-- `ActiproSoftware.Shared.WinForms.dll` (via `ActiproSoftware.Controls.WinForms.Shared` NuGet package)
+- *ActiproSoftware.Wizard.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.Wizard` NuGet package)
+- *ActiproSoftware.Shared.WinForms.dll* (via `ActiproSoftware.Controls.WinForms.Shared` NuGet package)
 
 </td>
 </tr>

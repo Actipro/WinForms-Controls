@@ -27,7 +27,7 @@ Binary assemblies, or types implementing [IBinaryAssembly](xref:ActiproSoftware.
 
 @if (wpf winforms) {
 
-Binary assemblies, or types implementing [IBinaryAssembly](xref:ActiproSoftware.Text.Languages.DotNet.Reflection.IBinaryAssembly), will automatically attempt to probe and look for .xml documentation files of the same name as the .dll in certain file system locations.  This attempt will not succeed in cases such as in non-full trust XBAPs or where security prohibits access to certain file paths.  If the attempt does succeed and an appropriate .xml documentation file is located, it will be loaded up into a [FileAssemblyDocumentation](xref:ActiproSoftware.Text.Languages.DotNet.Reflection.Implementation.FileAssemblyDocumentation) instance that gets assigned to the [IBinaryAssembly](xref:ActiproSoftware.Text.Languages.DotNet.Reflection.IBinaryAssembly).[Documentation](xref:ActiproSoftware.Text.Languages.DotNet.Reflection.IAssembly.Documentation) property.  If that property is null, then no documentation was able to be automatically loaded for the assembly. 
+Binary assemblies, or types implementing [IBinaryAssembly](xref:ActiproSoftware.Text.Languages.DotNet.Reflection.IBinaryAssembly), will automatically attempt to probe and look for .xml documentation files of the same name as the *.dll* in certain file system locations.  This attempt will not succeed in cases such as in non-full trust XBAPs or where security prohibits access to certain file paths.  If the attempt does succeed and an appropriate .xml documentation file is located, it will be loaded up into a [FileAssemblyDocumentation](xref:ActiproSoftware.Text.Languages.DotNet.Reflection.Implementation.FileAssemblyDocumentation) instance that gets assigned to the [IBinaryAssembly](xref:ActiproSoftware.Text.Languages.DotNet.Reflection.IBinaryAssembly).[Documentation](xref:ActiproSoftware.Text.Languages.DotNet.Reflection.IAssembly.Documentation) property.  If that property is null, then no documentation was able to be automatically loaded for the assembly. 
 
 }
 
@@ -35,7 +35,7 @@ Binary assemblies, or types implementing [IBinaryAssembly](xref:ActiproSoftware.
 
 ### Probing Logic
 
-When probing for .xml files, it will first examine the folder that contained the .dll file, if that is known.  Within this folder, it will search for a localization child folder named by the current culture.  If a file is not found there, it will look in the folder that contains the .dll.  If a file is not found there, it will start searching through various known .NET 'Reference Assemblies' folder for the file.
+When probing for .xml files, it will first examine the folder that contained the *.dll* file, if that is known.  Within this folder, it will search for a localization child folder named by the current culture.  If a file is not found there, it will look in the folder that contains the *.dll*.  If a file is not found there, it will start searching through various known .NET 'Reference Assemblies' folder for the file.
 
 }
 
