@@ -11,7 +11,7 @@ There currently are two ways to handle and process command clicks.
 
 ## Handling the BarManager.CommandClick Event
 
-This method of processing command clicks is similar to a "dispatch" type of method.  Basically you handle the [CommandClick](xref:@ActiproUIRoot.Controls.Bars.BarManager.CommandClick) event exposed by the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) and in it, use a large switch statement to forward command processing to other methods.  Or you can handle the processing directly in the event handler itself.
+This method of processing command clicks is similar to a "dispatch" type of method.  Basically, you handle the [CommandClick](xref:@ActiproUIRoot.Controls.Bars.BarManager.CommandClick) event exposed by the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) and in it, use a large `switch` statement to forward command processing to other methods.  Or you can handle the processing directly in the event handler itself.
 
 The [CommandClick](xref:@ActiproUIRoot.Controls.Bars.BarManager.CommandClick) event arguments indicate which [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand) should be processed.  They also will pass which [BarCommandLink](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink) was clicked if the click originated from the user interface.
 
@@ -37,7 +37,7 @@ private void barManager_CommandClick(object sender, ActiproSoftware.UI.WinForms.
 
 ## Overriding Command Classes
 
-Another option, which is much more advanced, is to create a command class for each command.  For instance you could make a `FileNewCommand` that inherits [BarButtonCommand](xref:@ActiproUIRoot.Controls.Bars.BarButtonCommand).  Then you would place all your code for `File.New` in the override of the [OnClick](xref:@ActiproUIRoot.Controls.Bars.BarButtonCommand.OnClick*) method.
+Another option, which is much more advanced, is to create a command class for each command.  For instance, you could make a `FileNewCommand` that inherits [BarButtonCommand](xref:@ActiproUIRoot.Controls.Bars.BarButtonCommand).  Then you would place all your code for `"File.New"` in the override of the [OnClick](xref:@ActiproUIRoot.Controls.Bars.BarButtonCommand.OnClick*) method.
 
 This sample demonstrates how to handle command clicks using this approach:
 
@@ -45,13 +45,13 @@ This sample demonstrates how to handle command clicks using this approach:
 public class FileNewCommand : BarButtonCommand {
 
 	/// <summary>
-	/// Initializes a new instance of the <c>FileNewCommand</c> class. 
+	/// Initializes a new instance of the <c>FileNewCommand</c> class.
 	/// </summary>
 	/// <param name="category">The category of the bar command.</param>
 	/// <param name="name">The name of the bar command.</param>
 	/// <param name="text">The text caption.</param>
 	/// <param name="imageIndex">The index of an image within an <c>ImageList</c>.</param>
-	public FileNewCommand(string category, string name, string text, int imageIndex) : 
+	public FileNewCommand(string category, string name, string text, int imageIndex) :
 		base(category, name, text, imageIndex) {}
 
 	/// <summary>
@@ -72,7 +72,7 @@ The downside to this method is that there is no designer-oriented way to swap th
 To make the switch you'd change this line...
 
 ```csharp
-ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand fileNewBarButtonCommand = 
+ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand fileNewBarButtonCommand =
 	new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("File", "New", "&New...", -1);
 ```
 
@@ -82,4 +82,7 @@ To this:
 MyNamespace.FileNewCommand fileNewBarButtonCommand = new MyNamespace.FileNewCommand("File", "New", "&New...", -1);
 ```
 
-Once that code is in place, the designer should remember to code serialize your class.  Remember to always back up your code before changing anything in `InitializeComponent`!
+Once that code is in place, the designer should remember to code serialize your class.
+
+> [!IMPORTANT]
+> Remember to always back up your code before changing anything in `InitializeComponent`!

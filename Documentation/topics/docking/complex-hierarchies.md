@@ -7,7 +7,7 @@ order: 2
 
 Tool windows can be docked and positioned in extremely complex hierarchies.  This feature is supported in floating windows as well.
 
-![Screenshot](images/dock-controls-complex-hierarchies.gif)
+![Screenshot](images/dock-controls-complex-hierarchies.png)
 
 *Tool windows in a nested hierarchy*
 

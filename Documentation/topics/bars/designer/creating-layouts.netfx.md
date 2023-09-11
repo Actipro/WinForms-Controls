@@ -5,8 +5,8 @@ order: 2
 ---
 # Designer for .NET Framework
 
-> [!WARNING]
-> This topic is for working with .NET Framework. See the [Designer for .NET Core / .NET 5 and Higher](creating-layouts.md) topic for working with .NET Core or .NET 5 and higher.
+> [!IMPORTANT]
+> This topic is about working with .NET Framework. See the [Designer for .NET Core / .NET 5 and Higher](creating-layouts.md) topic for working with .NET Core or .NET 5 and higher.
 
 The Bars controls are specifically designed to make the design-time customization experience remarkably like the run-time customization experience. The Bars controls can be completely designed and customized in the designer and rely heavily on drag-and-drop functionality.
 
@@ -19,14 +19,14 @@ To get started working with a new bar layout, please follow the steps in this to
 
 Menubars, dockable toolbars, popup menus, and (optionally) standalone toolbars are all managed by a [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).
 
-The first step in creating a bar layout is to add a [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) component to your **Form**.
+The first step in creating a bar layout is to add a [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) component to your `Form`.
 
 ## Set the HostContainerControl
 
 Before any docking of toolbars can take place, a host container control must be set on the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).
 
 1. In Visual Studio, select the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) component.
-1. In the **Properties** window, set [HostContainerControl](xref:@ActiproUIRoot.Controls.Bars.BarManager.HostContainerControl) property to the control that should become the host container control. Typically, this is your **Form**.
+1. In the **Properties** window, set [HostContainerControl](xref:@ActiproUIRoot.Controls.Bars.BarManager.HostContainerControl) property to the control that should become the host container control. Typically, this is your `Form`.
 
 After a [HostContainerControl](xref:@ActiproUIRoot.Controls.Bars.BarManager.HostContainerControl) has been set, four [BarDockArea](xref:@ActiproUIRoot.Controls.Bars.BarDockArea) controls are added as children of the host container control, one docked to each side.
 
@@ -49,7 +49,7 @@ This starts the design-time customize mode and opens the **Customize** dialog. [
 
 ## Create Commands
 
-The next step for a new bar layout is to create the commands. All commands require a [Category](xref:@ActiproUIRoot.Controls.Bars.BarCommand.Category) and a Name, and these values are combined to create a unique [FullName](xref:@ActiproUIRoot.Controls.Bars.BarCommand.FullName) for the command. For example, clipboard commands with a category of `Edit` might be given a [FullName](xref:@ActiproUIRoot.Controls.Bars.BarCommand.FullName) of `Edit.Cut`, `Edit.Copy`, and `Edit.Paste`.
+The next step for a new bar layout is to create the commands. All commands require a [Category](xref:@ActiproUIRoot.Controls.Bars.BarCommand.Category) and a Name, and these values are combined to create a unique [FullName](xref:@ActiproUIRoot.Controls.Bars.BarCommand.FullName) for the command. For example, clipboard commands with a category of `"Edit"` might be given a [FullName](xref:@ActiproUIRoot.Controls.Bars.BarCommand.FullName) of `"Edit.Cut"`, `"Edit.Copy"`, and `"Edit.Paste"`.
 
 ![Screenshot](../images/bar-design-time-customize-form-commands-tab.png)
 
@@ -61,7 +61,7 @@ To create a command:
 
 ![Screenshot](../images/bar-design-time-new-command-form.png)
 
-1. Select an existing **Category** or enter a new category for the command, e.g., `File`, `Edit`, `View`.
+1. Select an existing **Category** or enter a new category for the command, e.g., *File*, *Edit*, or *View*.
 1. Enter the **Command Text** to be displayed in menus and toolbars.
 1. Verify the **Command Name**, which is automatically generated from the **Command Text**, or enter a custom value as desired. This value will be combined with given **Category** to create the [FullName](xref:@ActiproUIRoot.Controls.Bars.BarCommand.FullName) of the command.
 1. Select the **Command Type** for the new command. See the [Commands Overview](../commands/index.md) topic for more information on different command types.
@@ -73,7 +73,7 @@ To create a command:
 
 ## Create Bar Controls
 
-With commands defined, bar controls are ready to be created and populated with command links. The `Customize` dialog can be used to create menubars, dockable toolbars, and popup menus.
+With commands defined, bar controls are ready to be created and populated with command links. The **Customize** dialog can be used to create menubars, dockable toolbars, and popup menus.
 
 ### Create a MenuBar
 
@@ -84,13 +84,13 @@ To create a [MenuBar](xref:@ActiproUIRoot.Controls.Bars.MenuBar):
 1. If not already open, start customize mode to open the **Customize** dialog.
 1. Select the **ToolBars and PopupMenus** tab.
 1. Click the **New...** button to display the **New Bar Control** dialog.
-1. Enter a **Name** for the new control, e.g., `Main Menu`.
+1. Enter a **Name** for the new control, e.g., *Main Menu*.
 1. Select [MenuBar](xref:@ActiproUIRoot.Controls.Bars.MenuBar) for the **Bar control type**.
 1. Click **OK**.
 
 The menubar should now be visible in the designer, but it has no command links in it.
 
-> [!TIP]
+> [!NOTE]
 > If the [MenuBar](xref:@ActiproUIRoot.Controls.Bars.MenuBar) control type is disabled on the **New Bar Control** dialog, make sure the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).[HostContainerControl](xref:@ActiproUIRoot.Controls.Bars.BarManager.HostContainerControl) property has been assigned. This option will also be disabled if a [MenuBar](xref:@ActiproUIRoot.Controls.Bars.MenuBar) has already been added to the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).
 
 > [!TIP]
@@ -103,7 +103,7 @@ To create a [DockableToolBar](xref:@ActiproUIRoot.Controls.Bars.DockableToolBar)
 1. If not already open, start customize mode to open the **Customize** dialog.
 1. Select the **ToolBars and PopupMenus** tab.
 1. Click the **New...** button to display the **New Bar Control** dialog.
-1. Enter a **Name** for the new control, e.g., `Standard`.
+1. Enter a **Name** for the new control, e.g., *Standard*.
 1. Select [DockableToolBar](xref:@ActiproUIRoot.Controls.Bars.DockableToolBar) for the **Bar control type**.
 1. Click **OK**.
 
@@ -119,7 +119,7 @@ To create a [PopupMenu](xref:@ActiproUIRoot.Controls.Bars.PopupMenu):
 1. If not already open, start customize mode to open the **Customize** dialog.
 1. Select the **ToolBars and PopupMenus** tab.
 1. Click the **New...** button to display the **New Bar Control** dialog.
-1. Enter a **Name** for the new control, e.g., `Popup`.
+1. Enter a **Name** for the new control, e.g., *Popup*.
 1. Select [PopupMenu](xref:@ActiproUIRoot.Controls.Bars.PopupMenu) for the **Bar control type**.
 1. Click **OK**.
 

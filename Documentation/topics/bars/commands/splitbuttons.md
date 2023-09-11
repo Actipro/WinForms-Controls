@@ -13,7 +13,7 @@ See the [Commands and Command Links](index.md) topic for more information on com
 
 ![Screenshot](../images/bar-splitbutton-on-menu.gif)
 
-Split buttons appear like a button but with an additional drop-down button when on a toolbar and appear like a normal menu item but with a special clickable popup menu area when on a menu.  The main button part of a split button can be clicked and an action can be taken in response to the click.  The drop-down button part of a split button can be clicked to display a menu.
+Split buttons appear like a button but with an additional drop-down button when on a toolbar and appear like a normal menu item but with a special clickable popup menu area when on a menu.  The main button part of a split button can be clicked, and an action can be taken in response to the click.  The drop-down button part of a split button can be clicked to display a menu.
 
 ## Checkable Buttons
 
@@ -27,7 +27,7 @@ Whenever a [BarSplitButtonLink](xref:@ActiproUIRoot.Controls.Bars.BarSplitButton
 
 ## Tear-Off Menus
 
-The popup menu displayed by the split button can optionally have a gripper placed on it, allowing it to torn off into a floating toolbar by the end user.  To allow this feature, set the command's [CanTearOff](xref:@ActiproUIRoot.Controls.Bars.BarSplitButtonCommand.CanTearOff) property to `true`.  Since split buttons don't have a toolbar key associated with them and a toolbar is created when tearing off a menu, the toolbar needs to know what key to use for displaying in customize dialogs, etc.  This toolbar key is set using the command's [TearOffDockableToolBarKey](xref:@ActiproUIRoot.Controls.Bars.BarSplitButtonCommand.TearOffDockableToolBarKey) property.
+The popup menu displayed by the split button can optionally have a gripper placed on it, allowing it to be torn off into a floating toolbar by the end user.  To allow this feature, set the command's [CanTearOff](xref:@ActiproUIRoot.Controls.Bars.BarSplitButtonCommand.CanTearOff) property to `true`.  Since split buttons don't have a toolbar key associated with them and a toolbar is created when tearing off a menu, the toolbar needs to know what key to use for displaying in customize dialogs, etc.  This toolbar key is set using the command's [TearOffDockableToolBarKey](xref:@ActiproUIRoot.Controls.Bars.BarSplitButtonCommand.TearOffDockableToolBarKey) property.
 
 When a tear-off occurs, the [MenuTearOff](xref:@ActiproUIRoot.Controls.Bars.BarManager.MenuTearOff) event on the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) is raised.
 
@@ -39,7 +39,7 @@ Each command link instance can override all of these properties as well with com
 
 ## Enabling / Disabling
 
-Command links can be enabled or disabled based on a resolved value of enabled properties, one on the command and one on the command link that can override it.  The command link's [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.Enabled) accepts a `DefaultableBoolean`, which can override the command's [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarCommand.Enabled) property.
+Command links can be enabled or disabled based on a resolved value of enabled properties, one on the command and one on the command link that can override it.  The command link's [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.Enabled) property accepts a `DefaultableBoolean`, which can override the command's [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarCommand.Enabled) property.
 
 ## Keyboard Shortcuts
 
@@ -65,4 +65,4 @@ Tooltips will be displayed for the command if the [ToolTipEnabled](xref:@Actipro
 
 ## Changing the Text Displayed in the Run-Time Customize Dialog for the Command
 
-By default, the [Text](xref:@ActiproUIRoot.Controls.Bars.BarCommand.Text) property value of the command will be displayed in the run-time customize dialog's command listbox.  However if this is not appropriate or needs to be customized for the command listbox, the [CustomizeListText](xref:@ActiproUIRoot.Controls.Bars.BarCommand.CustomizeListText) property can be set to override what is displayed.
+By default, the [Text](xref:@ActiproUIRoot.Controls.Bars.BarCommand.Text) property value of the command will be displayed in the run-time customize dialog's command listbox.  However, if this is not appropriate or needs to be customized for the command listbox, the [CustomizeListText](xref:@ActiproUIRoot.Controls.Bars.BarCommand.CustomizeListText) property can be set to override what is displayed.

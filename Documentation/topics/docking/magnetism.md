@@ -7,7 +7,7 @@ order: 9
 
 The Dock controls have optional magnetism features that take effect when dragging and resizing undocked tool windows, as well as documents in the MDI area (standard MDI mode only).
 
-When magnetism is active, any undocked tool windows or standard MDI documents that are dragged will attempt to "snap" their corners to other nearby window corners.  If a corner is not found nearby, then the dragged window will attempt to align to the edge of another nearby window instead.  This makes it very easy for the end user to align windows in a column or row.  Additionally, the resizing of windows will also use magnetism to "snap" edges to the location of other nearby window edges.
+When magnetism is active, any undocked tool windows or standard MDI documents that are dragged will attempt to *snap* their corners to other nearby window corners.  If a corner is not found nearby, then the dragged window will attempt to align to the edge of another nearby window instead.  This makes it very easy for the end user to align windows in a column or row.  Additionally, the resizing of windows will also use magnetism to snap edges to the location of other nearby window edges.
 
 ## Magnetism Configuration
 

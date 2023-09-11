@@ -7,7 +7,7 @@ order: 12
 
 The [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) optionally can raise an event whenever Windows indicates that the contents of the Windows clipboard have changed.
 
-This is useful for any application that uses an `Edit.Paste` command since you can enable or disable it based on the contents of the clipboard.
+This is useful for any application that uses an `"Edit.Paste"` command since you can enable or disable it based on the contents of the clipboard.
 
 ## Enabling Clipboard Change Notifications
 

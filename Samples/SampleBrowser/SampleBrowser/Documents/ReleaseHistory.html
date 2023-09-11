@@ -13,6 +13,41 @@
 
 				<h2>Version 23.1</h2>
 
+
+				<h3>9/11/2023 - v23.1.2</h3>
+				<h4>Docking</h4>
+				<ul>
+					<li>Fixed an issue where dragging a tool window over an outer dock guide that was positioned over a tool window would dock to the outside of the tool window instead of the main host.</li>
+					<li>Fixed an issue where floating a tool window tab within a container could cause a layout issue when using ToolWindowInnerFill MDI mode if it was not the last tool window in the container.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Improved the display speed of large completion lists.</li>
+					<li>Updated OverlayPaneCollection.AddSearch to close any existing overlay panes before adding the SearchOverlayPane.</li>
+					<li>Fixed an issue with view line offset to character index calculation logic.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Updated the C# grammar with improved error handling within block statements.</li>
+					<li>Updated the VB grammar to support a first optional argument in an argument list.</li>
+					<li>Updated the binary assembly reflection logic to handle a possible exception when examining obfuscated assemblies.</li>
+					<li>Fixed C# grammar not recognizing a throw expression used within the lambda body of a switch expression.</li>
+					<li>Fixed an issue where the assembly repository cache mechanism wasn't working properly in .NET Core 3.1 or later applications.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Fixed an issue where the package repository cache mechanism wasn't working properly in .NET Core 3.1 or later applications.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Fixed Office 2007 Black color scheme to use a dark color for menu border.</li>
+				</ul>
+				<h4>All</h4>
+				<ul>
+					<li>Fixed possible cross-thread exception that might be raised when invalidating elements if a UIRenderer property was changed on a different thread than the one that created the control.</li>
+				</ul>
+
+
 				<h3>4/3/2023 - v23.1.1</h3>
 				<h4>SyntaxEditor</h4>
 				<ul>

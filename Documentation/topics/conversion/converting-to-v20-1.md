@@ -15,7 +15,7 @@ Bringing the same codebase to WinForms allows the WinForms version to be kept in
 
 ### Approaching Conversion
 
-Unfortunately many APIs between the 2020.1 version and prior WinForms versions are different, as are ways of accomplishing similar tasks.  Depending on which feature areas you use, it could take significant effort to convert old code to work with the new codebase.
+Unfortunately, many APIs between the 2020.1 version and prior WinForms versions are different, as are ways of accomplishing similar tasks.  Depending on which feature areas you use, it could take significant effort to convert old code to work with the new codebase.
 
 The best approach is to examine related documentation and samples for feature areas and add-ons you use.  We include many QuickStart samples in the 2020.1 version that focus on specific feature areas.  These QuickStart samples are excellent places to go when wanting to learn about a feature area.
 

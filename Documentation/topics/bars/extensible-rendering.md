@@ -19,7 +19,7 @@ These are some sample rendering styles that come with [BarManager](xref:@Actipro
 
 ## Use Built-In Renderers As-Is
 
-Bars includes these built-in renderers, which support Metro Light, Office 2007/2003, and Visual Studio 2005/2002 styles:
+Bars includes these built-in renderers, which support Metro Light, Metro Dark, Office, and Visual Studio styles:
 
 | Renderer | Description |
 |-----|-----|
@@ -54,7 +54,7 @@ This code shows how change the background of menus to be `LightBlue` for the bui
 WindowsColorScheme.WindowsClassic.MenuBack = Color.LightBlue;
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > Any renderers created before the color settings were changed may need to be refreshed for the color changes to take effect in the renderer.
 
 ## Modify Properties on Built-In Renderers
@@ -69,7 +69,7 @@ After your custom renderer class has been created, assign it to the [Renderer](x
 
 ## Customizing Individual Statusbar Panels
 
-Renderer settings affect the rendering of all the controls that use the renderer.  However there are other properties on each [StatusBarPanel](xref:@ActiproUIRoot.Controls.Bars.StatusBarPanel) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific panel:
+Renderer settings affect the rendering of all the controls that use the renderer.  However, there are other properties on each [StatusBarPanel](xref:@ActiproUIRoot.Controls.Bars.StatusBarPanel) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific panel:
 
 | Member | Description |
 |-----|-----|

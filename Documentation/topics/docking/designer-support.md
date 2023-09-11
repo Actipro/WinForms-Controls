@@ -5,7 +5,7 @@ order: 22
 ---
 # Designer Support
 
-The Dock controls provide design-time support, making it easy to configure the docking layout in the Visual Studio designer.  After you drop a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component on a designer `Form` from the **Toolbox**, the first thing to do is set the [HostContainerControl](xref:@ActiproUIRoot.Controls.Docking.DockManager.HostContainerControl).  This is the control that will act as the hosting container for the docking system.  This control may be a `Form` or any other type of container control.  Typically it is the parent `Form`.
+The Dock controls provide design-time support, making it easy to configure the docking layout in the Visual Studio designer.  After you drop a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component on a designer `Form` from the **Toolbox**, the first thing to do is set the [HostContainerControl](xref:@ActiproUIRoot.Controls.Docking.DockManager.HostContainerControl).  This is the control that will act as the hosting container for the docking system.  This control may be a `Form` or any other type of container control.  Typically, it is the parent `Form`.
 
 Tool window layouts created in the designer are persisted to code.  When the application is run, the layout is restored just as it was designed in the designer.
 
@@ -54,14 +54,14 @@ To remove a tool window:
 When a tool window is removed, any child controls will be reparented to the host container control.
 
 > [!TIP]
-> 
+>
 > The same **Remove ToolWindow** action is also available as a designer verb on a context menu displayed by right-clicking on the title bar of a tool window.
-> 
+>
 > The **Tool Windows** dialog, discussed below, can also be used to remove a tool window.
 
 ## States Supported
 
-Tool windows support an inactive state, docked state, and an auto-hide state in the designer.  At this time, the tabbed document and floating tool window states cannot be designed.  However they can be programmatically set at run-time and run-time tool window layouts can save and restore any tool window state.
+Tool windows support an inactive state, docked state, and an auto-hide state in the designer.  At this time, the tabbed document and floating tool window states cannot be designed.  However, they can be programmatically set at run-time and run-time tool window layouts can save and restore any tool window state.
 
 ## Using the Tool Windows Dialog
 
@@ -75,9 +75,9 @@ To open to **Tool Windows** dialog:
 *Tool Windows dialog, available from the "Tool Windows..." designer action*
 
 > [!TIP]
-> 
+>
 > Double-click a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component to quickly open the **Tool Windows** dialog using the default designer action for the component.
-> 
+>
 > The same **Tool Windows...** action is also available as a designer verb on the context menu of a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component or [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) control when working with .NET Core or .NET 5 and higher.
 
 The **Tool Windows** dialog lists all of the tool windows currently being managed by the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component.

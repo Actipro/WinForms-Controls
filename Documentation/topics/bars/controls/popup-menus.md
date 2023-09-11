@@ -13,7 +13,7 @@ All popup menus should have a unique key and are added to a [BarManager](xref:@A
 
 ## Using the Toolbar Style
 
-By default, popup menus display looking like normal menus.  However they can also optionally display using a toolbar style.
+By default, popup menus display looking like normal menus.  However, they can also optionally display using a toolbar style.
 
 To display them using a toolbar style, set the [UseToolBarStyle](xref:@ActiproUIRoot.Controls.Bars.PopupMenu.UseToolBarStyle) to `true`.  The [ToolBarStyledMenuWrapWidth](xref:@ActiproUIRoot.Controls.Bars.PopupMenu.ToolBarStyledMenuWrapWidth) property controls how wide the menu can become before wrapping command links to the next line.
 

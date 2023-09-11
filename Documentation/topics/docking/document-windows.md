@@ -15,7 +15,7 @@ Document windows are available to the end-user when they are active, as indicate
 
 ## Document Window Lifetime
 
-The lifetime of a document window is considered to be while it is active in the layout.  By default, the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) automatically disposes document windows when they are closed.  However this behavior can be changed so that when closed, a document window simply becomes invisible and can be activated to reappear in the document MDI area.  The [DisposeDocumentWindowsAfterClose](xref:@ActiproUIRoot.Controls.Docking.DockManager.DisposeDocumentWindowsAfterClose) property on the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) controls this behavior.
+The lifetime of a document window is considered to be while it is active in the layout.  By default, the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) automatically disposes document windows when they are closed.  However, this behavior can be changed so that when closed, a document window simply becomes invisible and can be activated to reappear in the document MDI area.  The [DisposeDocumentWindowsAfterClose](xref:@ActiproUIRoot.Controls.Docking.DockManager.DisposeDocumentWindowsAfterClose) property on the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) controls this behavior.
 
 ## Modified States
 

@@ -15,7 +15,7 @@ See the [Commands and Command Links](index.md) topic for more information on com
 
 Comboboxes have two modes of input, normal and drop-down list.  The style is specified by the [Style](xref:@ActiproUIRoot.Controls.Bars.BarComboBoxCommand.Style) property on the command and takes an enumeration value of type [BarComboBoxCommandStyle](xref:@ActiproUIRoot.Controls.Bars.BarComboBoxCommandStyle).
 
-When using the normal style, a drop-down of items can be displayed and typing can occur in the combobox.  The selecting of a drop-down item, pressing of <kbd>Enter</kbd> or the changing of a value and tabbing off the combobox will raise the command click event.
+When using the normal style, a drop-down of items can be displayed and typing can occur in the combobox.  The selecting of a drop-down item, pressing of <kbd>Enter</kbd>, or the changing of a value and tabbing off the combobox will raise the command click event.
 
 When using the drop-down list style, a drop-down of items can be displayed and but the text in the combobox is read-only.  The selecting of a drop-down item will raise the command click event.
 
@@ -37,7 +37,7 @@ The selected index of the combobox can be set using the command's [SelectedIndex
 
 ## Enabling / Disabling
 
-Command links can be enabled or disabled based on a resolved value of enabled properties, one on the command and one on the command link that can override it.  The command link's [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.Enabled) accepts a `DefaultableBoolean`, which can override the command's [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarCommand.Enabled) property.
+Command links can be enabled or disabled based on a resolved value of enabled properties, one on the command and one on the command link that can override it.  The command link's [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.Enabled) property accepts a `DefaultableBoolean`, which can override the command's [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarCommand.Enabled) property.
 
 ## Keyboard Shortcuts
 
@@ -59,4 +59,4 @@ Tooltips will be displayed for the command if the [ToolTipEnabled](xref:@Actipro
 
 ## Changing the Text Displayed in the Run-Time Customize Dialog for the Command
 
-By default, the [Text](xref:@ActiproUIRoot.Controls.Bars.BarCommand.Text) property value of the command will be displayed in the run-time customize dialog's command listbox.  However if this is not appropriate or needs to be customized for the command listbox, the [CustomizeListText](xref:@ActiproUIRoot.Controls.Bars.BarCommand.CustomizeListText) property can be set to override what is displayed.
+By default, the [Text](xref:@ActiproUIRoot.Controls.Bars.BarCommand.Text) property value of the command will be displayed in the run-time customize dialog's command listbox.  However, if this is not appropriate or needs to be customized for the command listbox, the [CustomizeListText](xref:@ActiproUIRoot.Controls.Bars.BarCommand.CustomizeListText) property can be set to override what is displayed.

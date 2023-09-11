@@ -7,11 +7,11 @@ order: 11
 
 All of the breaking changes are detailed or linked below.
 
-## Unification of Products Into a Single Download
+## Unification of Products into a Single Download
 
 All WinForms products are now unified into a single platform download.  Licenses for individual products can still be purchased, but all WinForms products are distributed as a unit.
 
-A new unified WinForms products license key that you obtain when you are licensed for one or more products contains flags indicating which products you are licensed to use.  Thus now if you have licensed all the WinForms products, you will have a single license key.
+A new unified WinForms products license key that you obtain when you are licensed for one or more products contains flags indicating which products you are licensed to use.  Thus, now if you have licensed all the WinForms products, you will have a single license key.
 
 A new WinForms Studio bundle is also now available for purchase that provides significant savings over purchasing all the WinForms control products separately.  Please note that the SyntaxEditor add-ons are not included in the WinForms Studio bundle.
 
@@ -21,7 +21,7 @@ These major infrastructure updates align our product deployment, distribution, a
 
 Prior to this version, each WinForms product had separate version numbers (i.e., v4.0).  In this version and moving forward, all WinForms products will now share the same version/build numbers so that it's easy to identify which assemblies work with which.  The 2012.1 version will have version number 12.1, and so on, allowing you to also have a general idea of when the version was released (year 2012, first major release of that year).
 
-## UIStudio Split Into Separate Products
+## UIStudio Split into Separate Products
 
 What was formerly called UIStudio has been split into three separate products (Bars, Docking, and Navigation).  They can now be purchased separately, or together in the WinForms Studio bundle.
 
@@ -54,9 +54,9 @@ All Actipro product assembly names have been updated to more generic platform-ba
 
 ## Visual Studio 2010 Projects
 
-The 2012.1 products are built using Visual Studio 2010, and the sample projects are shipped in both VS 2010 and VS 2008 form.  VS 2005 samples are no longer available.
+The 2012.1 products are built using Visual Studio 2010, and the sample projects are shipped in both Visual Studio 2010 and Visual Studio 2008 form.  Visual Studio 2005 samples are no longer available.
 
-## Former WinUICore Assembly Merged Into Shared Assembly
+## Former WinUICore Assembly Merged into Shared Assembly
 
 The old WinUICore assembly and all its contents have been merged into the new Shared assembly.  Since all products previously required both assemblies, it made sense to merge them into a single assembly for ease of use and distribution.
 
@@ -65,7 +65,7 @@ The old WinUICore assembly and all its contents have been merged into the new Sh
 
 ## Resource Access
 
-Access to string resources have been improved to use the implementation we have in our WPF and UWP products.  String resources used to be accessed via a call such as `AssemblyInfo.Instance.Resources.GetString(name)`.  Now they are accessed like `SR.GetString(name)`.
+Access to string resources has been improved to use the implementation we have in our WPF and UWP products.  String resources used to be accessed via a call such as `AssemblyInfo.Instance.Resources.GetString(name)`.  Now they are accessed like `SR.GetString(name)`.
 
 > [!NOTE]
 > Change all `AssemblyInfo.Instance.Resources.GetString` calls to `SR.GetString` instead.

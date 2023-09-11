@@ -36,7 +36,7 @@ Keyboard shortcuts can optionally be set up to work only in a certain applicatio
 
 Each [BarKeyboardShortcut](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut) has a [Mode](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.Mode) property.  If that value is `null`, then the shortcut applies to the global mode.  If that value is populated, then the shortcut only applies to that specific mode.
 
-For example, if a `Text Editor` mode is currently set, any keyboard shortcuts defined for the `Text Editor` mode will be recognized.  If there is no keyboard shortcut defined in the mode for a key sequence that is pressed, a keyboard shortcut in the global mode is searched for.  If one is found, then that keyboard shortcut is used.
+For example, if a `"Text Editor"` mode is currently set, any keyboard shortcuts defined for the `"Text Editor"` mode will be recognized.  If there is no keyboard shortcut defined in the mode for a key sequence that is pressed, a keyboard shortcut in the global mode is searched for.  If one is found, then that keyboard shortcut is used.
 
 ## Assigning Keyboard Shortcuts to a Command
 
@@ -82,14 +82,14 @@ private void barManager_KeyTyped(object sender, ActiproSoftware.UI.WinForms.Cont
 
 ## Disabled Shortcuts
 
-Sometimes it is handy to be able to "disable" a shortcut.  This can be done by setting the [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.Enabled) property to `false`.  When a shortcut is disabled, it does not execute its associated [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand).
+Sometimes it is handy to be able to disable a shortcut.  This can be done by setting the [Enabled](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.Enabled) property to `false`.  When a shortcut is disabled, it does not execute its associated [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand).
 
-This is extremely useful for commands such as `Edit.Cut`.  For that command, you want the default system shortcut <kbd>Ctrl</kbd>+<kbd>X</kbd> to display for the command link when on a menu, but you don't really want the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) to intercept the <kbd>Ctrl</kbd>+<kbd>X</kbd> key since that would potentially block controls from being able to access cut functionality unless you specifically coded this for every `Control` on your form.  Therefore, disable the keyboard shortcut.  It can still be added to a command and will display in the user interface but will not be handled when the key sequence is pressed.
+This is extremely useful for commands such as `"Edit.Cut"`.  For that command, you want the default system shortcut <kbd>Ctrl</kbd>+<kbd>X</kbd> to display for the command link when on a menu, but you don't really want the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) to intercept the <kbd>Ctrl</kbd>+<kbd>X</kbd> key since that would potentially block controls from being able to access cut functionality unless you specifically coded this for every `Control` on your `Form`.  Therefore, disable the keyboard shortcut.  It can still be added to a command and will display in the user interface but will not be handled when the key sequence is pressed.
 
 ## Protected Keys and Keyboard Shortcuts
 
-You may wish to "protect" certain keys or keyboard shortcuts, which means that they cannot be added or removed as a keyboard shortcut.  All disabled shortcuts are automatically protected.
+You may wish to protect certain keys or keyboard shortcuts, which means that they cannot be added or removed as a keyboard shortcut.  All disabled shortcuts are automatically protected.
 
-In the above example, this means that <kbd>Ctrl</kbd>+<kbd>X</kbd> cannot be used as a single-key shortcut and also cannot be used as a chord start by any other command.  Also, <kbd>Ctrl</kbd>+<kbd>X</kbd> cannot be removed from the `Edit.Cut` command.
+In the above example, this means that <kbd>Ctrl</kbd>+<kbd>X</kbd> cannot be used as a single-key shortcut and also cannot be used as a chord start by any other command.  Also, <kbd>Ctrl</kbd>+<kbd>X</kbd> cannot be removed from the `"Edit.Cut"` command.
 
 Specific keys, such as <kbd>Esc</kbd>, can be temporarily protected by adding them to the [ProtectedKeys](xref:@ActiproUIRoot.Controls.Bars.BarManager.ProtectedKeys) collection on the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).

@@ -7,7 +7,7 @@ order: 2
 
 The [NavigationBar](xref:@ActiproUIRoot.Controls.Navigation.NavigationBar) control's run-time features are very easy to use.  The [NavigationBar](xref:@ActiproUIRoot.Controls.Navigation.NavigationBar) contains a number of panes of data, but only displays one [NavigationPane](xref:@ActiproUIRoot.Controls.Navigation.NavigationPane) at a time.
 
-![Screenshot](images/navigationbar-olive-green.gif)
+![Screenshot](images/navigationbar-metro-light.png)
 
 *The NavigationBar control*
 
@@ -15,9 +15,9 @@ The [NavigationBar](xref:@ActiproUIRoot.Controls.Navigation.NavigationBar) contr
 
 Each [NavigationPane](xref:@ActiproUIRoot.Controls.Navigation.NavigationPane) has an associated button that can be clicked to display the pane.  There are three places where the buttons that represent panes can be located.  These locations are represented by the [NavigationPaneButtonLocation](xref:@ActiproUIRoot.Controls.Navigation.NavigationPaneButtonLocation) enumeration, and the location of the button for a specific [NavigationPane](xref:@ActiproUIRoot.Controls.Navigation.NavigationPane) can be found by examining the [ButtonLocation](xref:@ActiproUIRoot.Controls.Navigation.NavigationPane.ButtonLocation) property.
 
-- Bar - The button is in the main bar area.
-- Overflow - The button is in the overflow area.
-- Menu - The button is in the overflow menu.
+- `Bar` - The button is in the main bar area.
+- `Overflow` - The button is in the overflow area.
+- `Menu` - The button is in the overflow menu.
 
 ## Changing the Selected Navigation Pane
 

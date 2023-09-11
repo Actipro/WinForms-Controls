@@ -9,7 +9,7 @@ Actipro WinForms Controls can be configured using Visual Studio designer functio
 
 ## .NET Framework Support
 
-Proper designer support for .NET Framework requires that controls have been installed by the *WinForms Controls Installer* with the "Visual Studio Designer Functionality" option selected.
+Proper designer support for .NET Framework requires that controls have been installed by the **WinForms Controls Installer** with the **Visual Studio Designer Functionality** option selected.
 
 > [!IMPORTANT]
 > Due to limitations with NuGet packages, our controls must be installed as noted above even when working with NuGet package references. This is only necessary for design-time support and the installer is not required on build machines when NuGet packages are used.
@@ -21,7 +21,7 @@ To support Visual Studio design-time functionality with .NET Core and/or .NET 5+
 > [!IMPORTANT]
 > WinForms designer support for .NET Core / .NET 5+ in Visual Studio 2019/2022 is available *only as a preview*.  Our NuGet packages ship with support for multiple versions of the Visual Studio Design Tools SDK, and Visual Studio will attempt to use the version which most closely matches.  Breaking changes to the SDK are still common with new Visual Studio releases, and **any upgrade to Visual Studio may break designer functionality** until an update is available.
 
-Until Visual Studio designer support stabilizes, new versions of Visual Studio will likely require new versions of our controls.  With each new Visual Studio version that is incompatible with a previous version, we intend to publish updated NuGet packages to support the latest version of Visual Studio. *Only the latest version* of WinForms Controls will be updated to support the new releases of Visual Studio.
+Until Visual Studio designer support stabilizes, new versions of Visual Studio will likely require new versions of our controls.  With each new Visual Studio version that is incompatible with the previous version, we intend to publish updated NuGet packages to support the latest version of Visual Studio. *Only the latest version* of WinForms Controls will be updated to support the new releases of Visual Studio.
 
 ### Visual Studio Support Matrix
 
@@ -42,7 +42,7 @@ The following outlines the compatibility of Actipro WinForms Controls with versi
 <td>WinForms Controls v23.1</td>
 <td>
 
-- Visual Studio 2022 v17.0-17.4
+- Visual Studio 2022 v17.0-17.6
 - Visual Studio 2019 v16.10-16.11
 - *Minor updates to v16 and v17 are expected to be supported and will be verified as they are released*
 
@@ -106,6 +106,8 @@ In the following example, the .NET Framework designer capabilities will be used 
 ```xml
 <TargetFrameworks>net462;net471;netcoreapp3.1;net60-windows</TargetFrameworks>
 ```
+> [!WARNING]
+> Starting with Visual Studio 2002 v17.6, mixing .NET Framework-based targets (e.g., `net48`) with .NET Core-based targets (e.g., `net6.0-windows`) is only supported if the .NET Framework-based target is listed first. This will force the .NET Framework designer functionality and requires the installer option mentioned in the ".NET Framework Support" section above.  To continue using the .NET Core-based designer functionality in Visual Studio 17.6, all .NET Framework-based targets must be removed.
 
 > [!IMPORTANT]
 > See the requirements noted above for .NET Framework or .NET Core / .NET 5+ based on which target framework will govern the designer capabilities of your project.

@@ -8,11 +8,11 @@ order: 11
 The Dock controls use a robust object model that allows for complete programmatic control over the docking windows.  The MDI area managed by a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) can contain documents.
 
 > [!IMPORTANT]
-> Documents can be tool or document windows so it is important to remember that the functionality below describes any tool or document window that is active in the MDI area.
+> Documents can be tool or document windows, so it is important to remember that the functionality below describes any tool or document window that is active in the MDI area.
 
 ## Creating a Tool Window
 
-The [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) class has several constructors available.  However the parameterless constructor is reserved for internal code and should never be called.
+The [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) class has several constructors available.  However, the parameterless constructor is reserved for internal code and should never be called.
 
 This code demonstrates how to create a tool window in code:
 
@@ -108,7 +108,7 @@ tw.State = ToolWindowState.TabbedDocument;
 
 ## Creating a Document Window
 
-The [DocumentWindow](xref:@ActiproUIRoot.Controls.Docking.DocumentWindow) class has several constructors available.  However the parameterless constructor is reserved for internal code and should never be called.
+The [DocumentWindow](xref:@ActiproUIRoot.Controls.Docking.DocumentWindow) class has several constructors available.  However, the parameterless constructor is reserved for internal code and should never be called.
 
 This code demonstrates how to create a document window in code:
 

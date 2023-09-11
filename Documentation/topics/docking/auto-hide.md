@@ -9,11 +9,11 @@ When screen real estate runs low, tool windows can be placed into auto-hide mode
 
 The mouse can be hovered or clicked over an auto-hide tab to display its corresponding tool window.  When this is done, the tool window slides back into view.
 
-![Screenshot](images/dock-controls-auto-hide.gif)
+![Screenshot](images/dock-controls-auto-hide.png)
 
 *Tool window collapsed into auto-hide mode*
 
-![Screenshot](images/dock-controls-auto-hide2.gif)
+![Screenshot](images/dock-controls-auto-hide2.png)
 
 *Tool window slides out to reveal itself when the auto-hide tab is hovered over or clicked*
 

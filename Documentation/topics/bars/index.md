@@ -23,7 +23,7 @@ Out of the box, the bar controls have [rendering capabilities](extensible-render
 
 ## Feature List
 
-- Built-in [rendering styles](extensible-rendering.md) include Metro Light, Visual Studio 2005, and all Office 2007/2003 styles.
+- Built-in [rendering styles](extensible-rendering.md) include Metro Light, Metro Dark, Visual Studio, and Office styles.
 
 - Robust rendering interface allows for totally customized rendering.
 
@@ -35,7 +35,7 @@ Out of the box, the bar controls have [rendering capabilities](extensible-render
 
 - [Checkable buttons](checkable-buttons.md) can be placed in check groups.
 
-- Options for automatically toggling the checked state of checkable buttons when they are clicked, and unchecking any other checkable buttons in the same check group.
+- Options for automatically toggling the checked state of checkable buttons when they are clicked and unchecking any other checkable buttons in the same check group.
 
 - Ability to create default command links for popup or split button commands.
 
@@ -83,15 +83,15 @@ Out of the box, the bar controls have [rendering capabilities](extensible-render
 
 - Command / command link design model allows for total run-time UI customization, just like in Office or Visual Studio.
 
-- Quick customize mode of menubar and toolbar command links (via holding down of Alt key).
+- Quick customize mode of menubar and toolbar command links (via holding down of <kbd>Alt</kbd> key).
 
 - A `CommandUpdate` event that is raised periodically allowing for the command states in the user interface to be updated lazily.
 
-- Complete source code supplied for a fully-functional run-time Customize dialog familiar to users of Microsoft products.
+- Complete source code supplied for a fully-functional run-time **Customize** dialog familiar to users of Microsoft products.
 
-- BarCommandListBox control that lists commands and allows for run-time customization when used on a Customize dialog.
+- `BarCommandListBox` control that lists commands and allows for run-time customization when used on a **Customize** dialog.
 
-- BarKeyboardShortcutTextBox that allows for the definition of keyboard shortcuts, including shortcuts that consist of chords.
+- `BarKeyboardShortcutTextBox` that allows for the definition of keyboard shortcuts, including shortcuts that consist of chords.
 
 - Detailed event model.
 

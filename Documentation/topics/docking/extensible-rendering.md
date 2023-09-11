@@ -17,25 +17,29 @@ This object model allows for three levels of rendering customization.  Choose wh
 
 These are some sample rendering styles that come with [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager):
 
-![Screenshot](images/dock-controls-visual-studio-2005-blue.gif)
+![Screenshot](images/dock-controls-metro-light.png)
 
-*Visual Studio 2005 blue-themed Dock controls*
+*Metro Light-themed Dock controls*
 
-![Screenshot](images/dock-controls-visual-studio-2005-olive-green.gif)
+![Screenshot](images/dock-controls-visual-studio-2005.png)
 
-*Visual Studio 2005 olive green-themed Dock controls*
+*Visual Studio 2005-themed Dock controls*
 
-![Screenshot](images/dock-controls-visual-studio-2002-blue.gif)
-
-*Visual Studio 2002 blue-themed Dock controls*
-
-![Screenshot](images/dock-controls-office-2003-blue.gif)
+![Screenshot](images/dock-controls-office-2003-blue.png)
 
 *Office 2003 blue-themed Dock controls*
 
-![Screenshot](images/dock-controls-office-2003-silver.gif)
+![Screenshot](images/dock-controls-office-2003-olive-green.png)
 
-*Office 2003 silver-themed Dock controls*
+*Office 2003 olive green-themed Dock controls*
+
+![Screenshot](images/dock-controls-office-2003-silver.png)
+
+*Office 2003 blue-themed Dock controls*
+
+![Screenshot](images/dock-controls-office-2003-black.png)
+
+*Office 2003 black-themed Dock controls*
 
 ## DockManager Renderers
 
@@ -49,7 +53,7 @@ The [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component us
 
 ## Use Built-In Renderers As-Is
 
-Dock includes these built-in renderers, which support Metro Light, Office 2007/2003 and Visual Studio 2005/2002 styles:
+Dock includes these built-in renderers, which support Metro Light, Metro Dark, Office, and Visual Studio styles:
 
 | Renderer | Description |
 |-----|-----|
@@ -97,7 +101,7 @@ After your custom renderer class has been created, assign it to the [DockRendere
 
 ## Customizing Individual Windows
 
-Renderer settings affect the rendering of all the controls that use the renderer.  However there are other properties on each [TabbedMdiWindow](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific window:
+Renderer settings affect the rendering of all the controls that use the renderer.  However, there are other properties on each [TabbedMdiWindow](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific window:
 
 | Member | Description |
 |-----|-----|

@@ -9,7 +9,7 @@ order: 9
 
 This object model allows for three levels of rendering customization.  Choose which level of customization you wish to use:
 
-- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include all Visual Studio and Office styles (Blue, Olive, Silver, and Windows Classic) for tool/document windows.
+- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include Metro Light, Metro Dark, Visual Studio, and Office for tool/document windows.
 - Modify Properties on Built-In Renderers - Use the built-in renderers but modify the various properties on the renderers to easily create a customized appearance.
 - Create Custom Renderers - Implement the [ITabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.ITabStripRenderer) interface or inherit our [TabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.TabStripRenderer) class to do all the measuring and drawing of the controls and their elements yourself.
 
@@ -59,7 +59,7 @@ tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003D
 
 Each color property on the `WindowsColorScheme` class has a getter and setter.  This means that after a base color scheme is selected for use, you may alter specific colors as needed.
 
-This code shows how change the background of menus to be `LightBlue` for the built-in Windows Classic color scheme.
+This code shows how to change the background of menus to be `LightBlue` for the built-in Windows Classic color scheme.
 
 ```csharp
 WindowsColorScheme.WindowsClassic.MenuBack = Color.LightBlue;
@@ -80,7 +80,7 @@ After your custom renderer class has been created, assign it to the [Renderer](x
 
 ## Customizing Individual Tab Pages
 
-Renderer settings affect the rendering of all the controls that use the renderer.  However there are other properties on each [TabStripPage](xref:@ActiproUIRoot.Controls.Docking.TabStripPage) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific page:
+Renderer settings affect the rendering of all the controls that use the renderer.  However, there are other properties on each [TabStripPage](xref:@ActiproUIRoot.Controls.Docking.TabStripPage) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific page:
 
 | Member | Description |
 |-----|-----|

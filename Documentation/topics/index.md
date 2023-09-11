@@ -13,7 +13,7 @@ WinForms Studio is a bundled suite of professional user interface controls and c
 
 ![Screenshot](images/card-syntaxeditor.png)
 
-[Actipro SyntaxEditor](syntaxeditor/index.md) is a powerful text editing control that is packed with features for efficient code editing, including syntax highlighting, line numbers, block selection, IntelliPrompt UI, code outlining, parsing, split views, zooming, bi-di support, and much more.  It has many of the same code editing features found in the Visual Studio code editor.
+[Actipro SyntaxEditor](syntaxeditor/index.md) is a powerful text editing control that is packed with features for efficient code editing, including syntax highlighting, line numbers, block selection, IntelliPrompt UI, code outlining, parsing, split views, zooming, bi-directional support, and much more.  It has many of the same code editing features found in the Visual Studio code editor.
 
 SyntaxEditor is built on top of our next-generation extensible text/parsing framework.  While over 20 free sample languages are available to get you started (such as C#, VB, XML, and more), custom language definitions can be developed and distributed with your applications as well.  SyntaxEditor is designed for use in IDE (integrated development environment) applications, however there are many other applications out there that can take advantage of such a control.
 
@@ -31,15 +31,45 @@ These optional premium add-ons for advanced syntax language implementations are 
 
 ![Screenshot](images/card-bars.png)
 
-[Actipro Bars](bars/index.md) provides extensive bar user interface features similar to products like Visual Studio.  This includes dockable toolbars, standalone toolbars, popup menus, and statusbars.  The entire bar control system takes a different approach to design and implementation than other competitors.  The design of Actipro's bar controls is geared towards large applications, with a command / command link design pattern.  Several high-level features include: docking on any side of a host, multiple command link styles, layout save/restore, designer support, full run-time end-user customization support, a powerful keyboard shortcut model, application modes, multiple built-in rendering styles, programmatic control over the bar layout, and much more.
+[Actipro Bars](bars/index.md) provides extensive bar user interface features similar to products like Visual Studio.  This includes dockable toolbars, standalone toolbars, popup menus, and statusbars.  The entire bar control system takes a different approach to design and implementation than other competitors.  The design of Actipro's bar controls is geared towards large applications, with a command / command link design pattern.  Several high-level features include:
+
+- Docking on any side of a host
+- Multiple [command link styles](bars/commands/index.md)
+- Layout save/restore
+- Full [run-time end-user customization](bars/run-time-customization.md) support
+- Powerful [keyboard shortcut](bars/keyboard-shortcuts.md) model
+- [Application modes](bars/application-modes.md)
+- Programmatic control over the bar layout
+- [Designer support](bars/designer/index.md)
+- Multiple [built-in rendering styles](bars/extensible-rendering.md) with support for custom themes
 
 ### Docking & MDI
 
 ![Screenshot](images/card-docking.png)
 
-[Actipro Docking & MDI](docking/index.md) provides all the latest functionality of docking tool windows and multiple styles of document MDI found in products like Visual Studio.  Ths includes features such as: tear-off tool windows that can be docked in nested hierarchies, dock guides, next window navigation, auto-hide, tool window inner-fill, layout save/restore, document windows, standard and tabbed MDI, multiple tab groups, designer support, multiple built-in rendering styles, a robust object model that gives you complete programmatic control over the dock layout, and much more.
+[Actipro Docking & MDI](docking/index.md) provides all the latest functionality of docking tool windows and multiple styles of document MDI found in products like Visual Studio.  This includes features such as:
 
-The [TabStrip](docking/tabstrip/index.md) control included in this product provides a complete alternative to the standard TabControl found in the .NET framework.  The features of TabStrip include: alignment of tabs to any side, optional display of close and/or options buttons, several modes of tab overflow handling including one for smooth scrolling of tabs, drag/drop reordering of tabs, designer support, multiple built-in rendering styles, and much more.
+- Tear-off tool windows that can be docked in nested hierarchies
+- Dock guides
+- [Next window navigation](docking/next-window-navigation.md)
+- [Auto-hide](docking/auto-hide.md)
+- [Tool window inner-fill](docking/tool-window-inner-fill.md)
+- Layout save/restore
+- [Document windows](docking/document-windows.md)
+- [Standard](docking/standard-mdi.md) and [tabbed](docking/tabbed-mdi.md) MDI
+- Multiple tab groups
+- Robust [object model](docking/object-model.md) that gives you complete programmatic control over the dock layout
+- [Designer support](docking/designer-support.md)
+- Multiple [built-in rendering styles](docking/extensible-rendering.md) with support for custom themes
+
+The [TabStrip](docking/tabstrip/index.md) control included in this product provides a complete alternative to the standard `TabControl` found in the .NET.  The features of [TabStrip](docking/tabstrip/index.md) include:
+
+- [Alignment of tabs](docking/tabstrip/tab-alignments.md) to any side
+- Optional display of close and/or options buttons
+- Several modes of [tab overflow handling](docking/tabstrip/tab-overflow-styles.md) including one for smooth scrolling of tabs
+- Drag/drop reordering of tabs
+- [Designer support](docking/tabstrip/designer-support.md)
+- Multiple [built-in rendering styles](docking/tabstrip/extensible-rendering.md) with support for custom themes
 
 ### Wizard
 
@@ -47,13 +77,29 @@ The [TabStrip](docking/tabstrip/index.md) control included in this product provi
 
 [Actipro Wizard](wizard/index.md) is the premiere control for building wizard dialogs in WinForms that conform to the Wizard97 specifications.
 
-Features include: multiple page types, easy page sequencing, selection change processing, full control over button states, page titles that update the containing form, theming, and much more.
+Features include:
+
+- Multiple [page types](wizard/interior-and-exterior-pages.md)
+- Easy page sequencing
+- Selection change processing
+- Full control over button states
+- Page titles that update the containing form
+- [Designer support](wizard/design-time-functionality.md)
+- Multiple built-in rendering styles with support for custom themes
 
 ### Navigation
 
 ![Screenshot](images/card-navigation.png)
 
-[Actipro Navigation](navigation/index.md) provides the NavigationBar control which duplicates the functionality of the navigation bar first introduced in Outlook.  It has an elegant user interface which uses buttons to control which navigation pane is selected.  Features include: buttons with single-click access to each pane, an overflow chevron button providing access to customization features and hidden buttons, a ready-to-use Navigation Bar Options dialog, support for large and small images, a separate NavigationBarPanel control that can act as a container, designer support, multiple built-in rendering styles, and much more.
+[Actipro Navigation](navigation/index.md) provides the [NavigationBar](xref:@ActiproUIRoot.Controls.Navigation.NavigationBar) control which duplicates the functionality of the navigation bar first introduced in Outlook.  It has an elegant user interface which uses buttons to control which navigation pane is selected.  Features include:
+
+- Buttons with single-click access to each pane
+- An overflow chevron button providing access to customization features and hidden buttons
+- A ready-to-use [Navigation Bar Options](navigation/options-dialog.md) dialog
+- Support for large and small images
+- A separate [NavigationBarPanel](navigation/navigationbar-panel.md) control that can act as a container
+- [Designer support](navigation/designer-support.md)
+- Multiple [built-in rendering styles](navigation/extensible-rendering.md) with support for custom themes
 
 ### Shared Library
 

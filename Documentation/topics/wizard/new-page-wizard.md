@@ -14,7 +14,7 @@ A **New Page Wizard** is provided to aid in creating new wizard pages.  To acces
 
 ## Choosing a Page Type
 
-The first page in the **New Page Wizard** allows you to choose which type of page (internal, external, or welcome) to create.  If **External Page** is selected, clicking the **Finish** button will simply close the wizard and create a blank, external page. Selecting **Internal Page** or **Welcome Page** will present additional optional after clicking the **Next** button, and those options are discussed below for each page type.
+The first page in the **New Page Wizard** allows you to choose which type of page (internal, external, or welcome) to create.  If **External Page** is selected, clicking the **Finish** button will simply close the wizard and create a blank, external page. Selecting **Internal Page** or **Welcome Page** will present additional options after clicking the **Next** button, and those options are discussed below for each page type.
 
 ## Internal Page Customization
 

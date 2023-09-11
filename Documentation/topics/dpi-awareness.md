@@ -28,7 +28,7 @@ Actipro WinForms Controls target multiple .NET Frameworks, and each target can h
 
 ### Bars
 
-- The Bars customization form may not rescale correctly on some .NET targets when moving between monitors of different DPI's and the application is running with per-monitor DPI awareness.  This primarily impacts .NET 6+.
+- The Bars customization form may not rescale correctly on some .NET targets when moving between monitors of different DPIs and the application is running with per-monitor DPI awareness.  This primarily impacts .NET 6+.
 
 ### Docking
 
@@ -36,4 +36,4 @@ Actipro WinForms Controls target multiple .NET Frameworks, and each target can h
 
 ### SyntaxEditor
 
-- When using per-monitor DPI awareness and an instance of `SyntaxEditor` is display on more than one monitor with different DPI's, the common images used for IntelliPrompt may have a DPI that does not match the current monitor.
+- When using per-monitor DPI awareness and an instance of `SyntaxEditor` is display on more than one monitor with different DPIs, the common images used for IntelliPrompt may have a DPI that does not match the current monitor.

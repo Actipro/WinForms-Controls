@@ -23,4 +23,4 @@ We highly recommend the first support option since it will enable other users to
 
 Licensed customers of our products will receive the highest priority of support.
 
-Please visit the [Actipro Software](http://www.actiprosoftware.com) web site to sign up for our .NET newsletter or to see our other .NET products.
+Please visit the [Actipro Software](http://www.actiprosoftware.com) website to sign up for our .NET newsletter or to see our other .NET products.

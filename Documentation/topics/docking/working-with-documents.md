@@ -8,7 +8,7 @@ order: 17
 The MDI area managed by a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) can contain documents.
 
 > [!IMPORTANT]
-> Documents can be tool or document windows so it is important to remember that the functionality below describes any tool or document window that is active in the MDI area.
+> Documents can be tool or document windows, so it is important to remember that the functionality below describes any tool or document window that is active in the MDI area.
 
 ## Active Documents Collection
 

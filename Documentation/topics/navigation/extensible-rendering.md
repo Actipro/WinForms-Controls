@@ -9,7 +9,7 @@ Both [NavigationBar](xref:@ActiproUIRoot.Controls.Navigation.NavigationBar) and 
 
 This object model allows for three levels of rendering customization.  Choose which level of customization you wish to use:
 
-- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include Metro Light, all Office 2007 styles (Blue, Silver, Black) and 2003 styles (Blue, Olive, Silver, and Windows Classic).
+- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include Metro Light, Metro Dark, Office 2007 styles (Blue, Silver, Black) and 2003 styles (Blue, Olive, Silver, and Windows Classic).
 
 - Modify Properties on Built-In Renderers - Use the built-in renderers but modify the various properties on the renderers to easily create a customized appearance.
 
@@ -17,7 +17,7 @@ This object model allows for three levels of rendering customization.  Choose wh
 
 These are some sample rendering styles that come with [NavigationBar](xref:@ActiproUIRoot.Controls.Navigation.NavigationBar):
 
-![Screenshot](images/navigationbar-office-2007-blue.gif)![Screenshot](images/navigationbar-blue.gif)![Screenshot](images/navigationbar-olive-green.gif)![Screenshot](images/navigationbar-silver.gif)![Screenshot](images/navigationbar-classic.gif)
+![Screenshot](images/navigationbar-metro-light.png)![Screenshot](images/navigationbar-metro-dark.png)![Screenshot](images/navigationbar-office-2007-blue.png)![Screenshot](images/navigationbar-office-2007-silver.png)![Screenshot](images/navigationbar-xp-blue.png)![Screenshot](images/navigationbar-xp-olive-green.png)![Screenshot](images/navigationbar-xp-silver.png)![Screenshot](images/navigationbar-xp-royale.png)
 
 ## Use Built-In Renderers As-Is
 
@@ -46,7 +46,7 @@ navigationBar.Renderer = new Office2007NavigationBarRenderer(scheme);
 
 Each color property on the `WindowsColorScheme` class has a getter and setter.  This means that after a base color scheme is selected for use, you may alter specific colors as needed.
 
-This code shows how change the background of menus to be `LightBlue` for the built-in Windows Classic color scheme.
+This code shows how to change the background of menus to be `LightBlue` for the built-in Windows Classic color scheme.
 
 ```csharp
 WindowsColorScheme.WindowsClassic.MenuBack = Color.LightBlue;
@@ -67,7 +67,7 @@ After your custom renderer class has been created, assign it to the [Renderer](x
 
 ## Customizing Individual Navigation Panes
 
-Renderer settings affect the rendering of all the controls that use the renderer.  However there are other properties on each [NavigationPane](xref:@ActiproUIRoot.Controls.Navigation.NavigationPane) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific pane:
+Renderer settings affect the rendering of all the controls that use the renderer.  However, there are other properties on each [NavigationPane](xref:@ActiproUIRoot.Controls.Navigation.NavigationPane) that allow for customization of that particular instance.  These are the properties that can be used to customize a specific pane:
 
 | Member | Description |
 |-----|-----|

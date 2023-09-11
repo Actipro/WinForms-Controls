@@ -9,7 +9,7 @@ Bar layouts can be saved to and loaded from XML.  There are two different styles
 
 ## Differential Layouts
 
-Differential layouts are intended to be used once your application is deployed.  These are the type of layouts you will use 99% of the time since they are the preferred way to persist end user customizations from one application execution to the next.
+Differential layouts are intended to be used once your application is deployed.  These are the type of layouts you will use most of the time since they are the preferred way to persist end user customizations from one application execution to the next.
 
 They don't save any command information (except for customized keyboard shortcuts), and only save differential data for layouts.  The differential data is found by comparing the layout set up in the designer to the current run-time layout.
 
