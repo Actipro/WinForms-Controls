@@ -10,7 +10,7 @@ order: 8
 > [!NOTE]
 > See the [Visual Studio Designer](../../visual-studio-designer.md) topic for details and requirements for designer functionality.
 
-After you drop a [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) control on a designer `Form` from the **Toolbox**, toggle the **Smart Tag** panel for a list of designer actions. The designer actions can also be accessed from the control's context menu.  The **Add Page** action can be used to a add a new [TabStripPage](xref:@ActiproUIRoot.Controls.Docking.TabStripPage).  Alternatively you may modify the [Pages](xref:@ActiproUIRoot.Controls.Docking.TabStrip.Pages) collection from the **Properties** window to add/remove pages or reorder them.
+After you drop a [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) control on a designer `Form` from the **Toolbox**, toggle the **Smart Tag** panel for a list of designer actions. The designer actions can also be accessed from the control's context menu.  The **Add Page** action can be used to add a new [TabStripPage](xref:@ActiproUIRoot.Controls.Docking.TabStripPage).  Alternatively you may modify the [Pages](xref:@ActiproUIRoot.Controls.Docking.TabStrip.Pages) collection from the **Properties** window to add/remove pages or reorder them.
 
 ![Screenshot](../images/tabstrip-designer.png)
 

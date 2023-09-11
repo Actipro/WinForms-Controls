@@ -49,7 +49,7 @@ Global defaults can be set to affect dockable toolbar capabilities.  The values 
 | [DockableToolBarsHaveOptionsButtons](xref:@ActiproUIRoot.Controls.Bars.BarManager.DockableToolBarsHaveOptionsButtons) Property | Gets or sets the global setting for whether dockable toolbars have options buttons. |
 | [DockableToolBarsHideOnApplicationFocusLoss](xref:@ActiproUIRoot.Controls.Bars.BarManager.DockableToolBarsHideOnApplicationFocusLoss) Property | Gets or sets whether dockable toolbars hide when the application loses focus. |
 
-Instance settings are specific to a single instance of a dockable toolbar.  Boolean values use a `DefaultableBoolean` enumeration value to indicate whether they should use the global default value, or force a `true` or `false` instance setting.
+Instance settings are specific to a single instance of a dockable toolbar.  Boolean values use a `DefaultableBoolean` enumeration value to indicate whether they should use the global default value or force a `true` or `false` instance setting.
 
 These are the settings found on the [DockableToolBar](xref:@ActiproUIRoot.Controls.Bars.DockableToolBar) class that provide instance settings to each dockable toolbar.
 
@@ -100,7 +100,7 @@ Once the toolbar is in a floating position, the [Redock](xref:@ActiproUIRoot.Con
 
 ## Modes
 
-Application modes are described in the [Application Modes](../application-modes.md) topic.  However to set in which application modes a dockable toolbar is designed for, add the modes to the [Modes](xref:@ActiproUIRoot.Controls.Bars.DockableToolBar.Modes) collection.  If there are no modes in the collection, it is assumed that the toolbar is for general use and not designed for any one specific mode.
+Application modes are described in the [Application Modes](../application-modes.md) topic.  However, to set in which application modes a dockable toolbar is designed for, add the modes to the [Modes](xref:@ActiproUIRoot.Controls.Bars.DockableToolBar.Modes) collection.  If there are no modes in the collection, it is assumed that the toolbar is for general use and not designed for any one specific mode.
 
 ## Modifying Child Command Links
 
@@ -119,5 +119,5 @@ The [CreationStyle](xref:@ActiproUIRoot.Controls.Bars.DockableToolBar.CreationSt
 | Value | Description |
 |-----|-----|
 | `Normal` | The toolbar is a normal toolbar that was created by the developer. |
-| `Custom` | The toolbar is a custom toolbar that was created by the end-user via a Customize dialog. |
+| `Custom` | The toolbar is a custom toolbar that was created by the end-user via a **Customize** dialog. |
 | `Temporary` | The toolbar is a toolbar that was created by the end-user by dragging and creating a temporary floating menu.  The toolbar will be destroyed once it is closed by the end-user. |

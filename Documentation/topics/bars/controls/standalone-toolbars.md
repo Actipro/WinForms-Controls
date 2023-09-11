@@ -25,7 +25,7 @@ If the toolbar is attached to a [BarManager](xref:@ActiproUIRoot.Controls.Bars.B
 
 ## Handling Command Link Events
 
-The toolbar has several events that appear on the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager), such as [CommandClick](xref:@ActiproUIRoot.Controls.Bars.ToolBar.CommandClick).  These can be used for processing of command link clicks.
+The toolbar has several equivalent events like those that appear on the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager), such as [CommandClick](xref:@ActiproUIRoot.Controls.Bars.ToolBar.CommandClick).  These can be used for processing command link clicks.
 
 > [!IMPORTANT]
 > If a [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) is attached to the toolbar, only the events on the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) will be raised and not the equivalent events on the toolbar.

@@ -15,7 +15,7 @@ The [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) control has full [
 
 ## Feature List
 
-- Built-in rendering styles include Metro Light, Visual Studio 2005/2002, and all Office 2007/2003 styles.
+- Built-in rendering styles include Metro Light, Metro Dark, Visual Studio, and Office.
 - Robust rendering interface allows for totally [customized rendering](extensible-rendering.md).
 - Use as a replacement for the built-in .NET `TabControl`.
 - [Align tabs](tab-alignments.md) to the left, top, right, or bottom.

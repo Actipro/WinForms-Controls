@@ -5,9 +5,13 @@ order: 3
 ---
 # Recent Documentation Updates
 
-WinForms Studio's documentation has frequent updates so this topic is the best place to get caught up on recent major new documentation updates for each of the products.
+WinForms Studio's documentation has frequent updates, so this topic is the best place to get caught up on recent major new documentation updates for each of the products.
 
-If you are looking for a list of recently-added major new features to WinForms Studio products, please see the Sample Browser's Release History pages instead.
+If you are looking for a list of recently-added major new features to WinForms Studio products, please see the **Sample Browser**'s Release History pages instead.
+
+## Updates for v23.1.3
+
+- **SyntaxEditor:** Added the [Overlay Panes](syntaxeditor/user-interface/editor-view/overlay-panes.md) topic for developing custom overlay panes.
 
 ## Updates for v23.1.0
 
@@ -41,7 +45,7 @@ If you are looking for a list of recently-added major new features to WinForms S
 
 ## Updates for v21.1.0
 
-- **All:** Added the [Converting to 2021.1](conversion/converting-to-v21-1.md) topic with information on porting the API namespace changes we made in this version.  API namespaces across the product range were updated in this version for more clear organization and to align with the naming of other platforms.
+- **All:** Added the [Converting to 2021.1](conversion/converting-to-v21-1.md) topic with information on porting the API namespace changes we made in this version.  API namespaces across the product range were updated in this version for clearer organization and to align with the naming of other platforms.
 
 - **All:** Added the [Visual Studio Designer](visual-studio-designer.md) topic with details on support for working with designers in Visual Studio.
 

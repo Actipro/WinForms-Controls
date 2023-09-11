@@ -5,7 +5,7 @@ order: 1
 ---
 # Overview
 
-The most important concept to understand with the bar controls is the concept of commands and command links.  Since the bar controls are fairly advanced, understanding this concept is key before using them.  Be sure to thoroughly read this topic before moving onto using the bar controls.
+The most important concept to understand with the bar controls is the concept of *commands* and *command links*.  Since the bar controls are fairly advanced, understanding this concept is key before using them.  Be sure to thoroughly read this topic before moving on to using the bar controls.
 
 A command is any object that inherits from [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand).  Commands represent a specific functionality of your application, such as creating a new document.  A command *does not* have a user interface.  Changes made to a command affect all the command links that reference it.
 
@@ -13,13 +13,14 @@ A command link is any object that inherits from [BarCommandLink](xref:@ActiproUI
 
 ## Command Categories and Names
 
-Each command has a unique key, known in the bar controls as a "full name".  The full name can be returned via the [FullName](xref:@ActiproUIRoot.Controls.Bars.BarCommand.FullName) property on [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand).
+Each command has a unique key, known in the bar controls as a *full name*.  The full name can be returned via the [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand).[FullName](xref:@ActiproUIRoot.Controls.Bars.BarCommand.FullName) property.
 
-The full name is a concatenation of a category and a command name, with a period ( `.`) in between.  This allows commands to easily be categorized and also for some names to be used more than once, in different categories.
+The full name is a concatenation of a category and a command name, with a period (`.`) in between.  This allows commands to easily be categorized and for some names to be used more than once, in different categories.
 
-For instance, typical commands on a `File` menu are `New`, `Open`, etc.  In Bars, the full name of these commands would be `File.New` and `File.Open`, where the category of the command is `File` and the names of the commands are `New` and `Open` respectively.
+For instance, typical commands on a **File** menu are **New**, **Open**, etc.  In Bars, the full name of these commands would be `"File.New"` and `"File.Open"`, where the category of the command is `"File"` and the names of the commands are `"New"` and `"Open"` respectively.
 
-The full name is the primary method of accessing and identifying commands.
+> [!NOTE]
+> The full name is the primary method of accessing and identifying commands.
 
 ## Command / Command Link Types
 
@@ -168,6 +169,6 @@ The easiest way to create a command link for a command is to call the [CreateCom
 
 Command links can be cloned by using the [Clone](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.Clone*) method.
 
-## Preventing Menus from Closing When a Link Is clicked
+## Preventing Menus from Closing When a Link Is Clicked
 
-When used on a menu, command links normally close the menu when they are clicked.  However in some cases it is useful to keep the menu open so that the link may be immediately clicked again.  For these scenarios, you can set the [StaysOpenOnClick](xref:@ActiproUIRoot.Controls.Bars.BarCommand.StaysOpenOnClick) property to `true` to keep a menu open when a link for the command is clicked.
+When used on a menu, command links normally close the menu when they are clicked.  However, in some cases it is useful to keep the menu open so that the link may be immediately clicked again.  For these scenarios, you can set the [StaysOpenOnClick](xref:@ActiproUIRoot.Controls.Bars.BarCommand.StaysOpenOnClick) property to `true` to keep a menu open when a link for the command is clicked.

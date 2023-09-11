@@ -7,7 +7,7 @@ order: 10
 
 Application modes are a special feature found in the bar controls.  An application mode is a mode that your application enters in which certain functionality should be switched on or off.
 
-This is extremely useful in an IDE type of application.  In an IDE like Visual Studio, there are modes like `Text Editor`, `Image Editor`, `WebBrowser`, etc.  In each mode certain keyboard shortcuts and dockable toolbars are used that are not used in other modes.
+This is extremely useful in an IDE type of application.  In an IDE like Visual Studio, there are modes like `"Text Editor"`, `"Image Editor"`, `"WebBrowser"`, etc.  In each mode certain keyboard shortcuts and dockable toolbars are used that are not used in other modes.
 
 The [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) provides functionality for automatically displaying and hiding certain dockable toolbars based on what the current application mode is.  The [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) can also be set up to only recognize certain keyboard shortcuts while in specific modes.
 
@@ -39,6 +39,6 @@ To enable this functionality, add the applicable modes to the [Modes](xref:@Acti
 
 Each [BarKeyboardShortcut](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut) has a [Mode](xref:@ActiproUIRoot.Controls.Bars.BarKeyboardShortcut.Mode) property.  If that value is `null`, then the shortcut applies to the global mode.  If that value is populated, then the shortcut only applies to that specific mode.
 
-For example, if a `Text Editor` mode is currently set, any keyboard shortcuts defined for the `Text Editor` mode will be recognized.  If there is no keyboard shortcut defined in the mode for a key sequence that is pressed, a keyboard shortcut in the global mode is searched for.  If one is found, then that keyboard shortcut is used.
+For example, if a `"Text Editor"` mode is currently set, any keyboard shortcuts defined for the `"Text Editor"` mode will be recognized.  If there is no keyboard shortcut defined in the mode for a key sequence that is pressed, a keyboard shortcut in the global mode is searched for.  If one is found, then that keyboard shortcut is used.
 
 Read the [Keyboard Shortcuts](keyboard-shortcuts.md) topic for more information on keyboard shortcuts.

@@ -37,7 +37,7 @@ This means that you can drop an instance of [UIRendererManager](xref:@ActiproUIR
 
 ## Setting a Custom Global Renderer Factory
 
-There may be certain cases where you'd like to use a global renderer that isn't available by default.  For instance, say you'd like to use the [VisualStudio2002ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2002ToolWindowTabStripRenderer) by default for all standalone [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) controls in your application.  There is no color scheme that will use that renderer since the color schemes default to using the newer Visual Studio renderers instead.  Therefore you have to create a class which implements [IUIRendererFactory](xref:@ActiproUIRoot.Controls.IUIRendererFactory).
+There may be certain cases where you'd like to use a global renderer that isn't available by default.  For instance, say you'd like to use the [VisualStudio2002ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2002ToolWindowTabStripRenderer) by default for all standalone [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) controls in your application.  There is no color scheme that will use that renderer since the color schemes default to using the newer Visual Studio renderers instead.  Therefore, you have to create a class which implements [IUIRendererFactory](xref:@ActiproUIRoot.Controls.IUIRendererFactory).
 
 The [IUIRendererFactory](xref:@ActiproUIRoot.Controls.IUIRendererFactory).[CreateRenderer](xref:@ActiproUIRoot.Controls.IUIRendererFactory.CreateRenderer*) method implemented on the custom factory class is responsible for returning an instance if [IUIRenderer](xref:@ActiproUIRoot.Controls.IUIRenderer), which is the interface that all renderers implement.
 
@@ -56,7 +56,7 @@ Now that the factory class is available, it must be assigned to the [UIRendererM
 This code demonstrates how to set the custom renderer factory:
 
 ```csharp
-UIRendererManager.RegisterRendererFactory(typeof(ITabStripRenderer), 
+UIRendererManager.RegisterRendererFactory(typeof(ITabStripRenderer),
 	new CustomTabStripRendererFactory(), overwrite: true);
 ```
 

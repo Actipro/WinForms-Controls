@@ -13,15 +13,15 @@ The dock controls have [designer support](designer-support.md) which lets you ma
 
 Tool window layouts can be serialized to a file or stream and later reloaded to restore all the same tool window docking states.
 
-![Screenshot](images/dock-controls-visual-studio-2005-blue.gif)
+![Screenshot](images/dock-controls-metro-light.png)
 
-*Dock controls in the Visual Studio 2005 theme*
+*Dock controls in the Metro Light theme*
 
-Out of the box, the dock controls have [rendering capabilities](extensible-rendering.md) that mimic Visual Studio 2005, Visual Studio 2002, and Office tool and document window styles.  The dock controls even support the [Next Window Navigation](next-window-navigation.md) dialog.
+Out of the box, the dock controls have [rendering capabilities](extensible-rendering.md) that Visual Studio and Office tool and document window styles.  The dock controls even support the [Next Window Navigation](next-window-navigation.md) dialog.
 
 ## Feature List
 
-- Built-in rendering styles include Metro Light, Visual Studio 2005/2002, and all Office 2007/2003 styles.
+- Built-in rendering styles include Metro Light, Metro Dark, Visual Studio, and Office styles.
 - Robust rendering interface allows for totally [customized rendering](extensible-rendering.md).
 - Dock [tool windows](tool-windows.md) on all sides of a central client area.
 - Multiple styles of docking guides which easily control drop locations.
@@ -38,16 +38,16 @@ Out of the box, the dock controls have [rendering capabilities](extensible-rende
 - Extremely granular control over exactly what each tool window can do (`CanDockLeft`, `CanAutoHide`, `CanClose`, etc.) and how it appears (`TitleBarText`, `ImageIndex`, `HasTitleBar`, `HasOptions`, etc.).
 - Load and save tool window layouts directly to XML data files or persist layout data in some other media, such as a database.
 - Dynamically read and write custom XML data to layout data.
-- Instantly switch between window layouts - useful for IDEs when state switching occurs between design-time and run-time modes.
+- Instantly switch between window layouts, which is useful for IDEs when state switching occurs between design-time and run-time modes.
 - Option to turn off MDI so that a single control can be used to fill the client area.
-- Two styles of MDI - standard and tabbed.
+- Two styles of MDI: standard and tabbed.
 - [Standard MDI](standard-mdi.md) allows for normal MDI windows that can be tiled and cascaded.
 - [Tabbed MDI](tabbed-mdi.md) has tabstrips that allow for selection of the current document.
 - Tabbed MDI tabs can be dragged to create new horizontal or vertical tab groups.
 - Tabbed MDI tabs can be floated to top-level windows.
 - Tabbed MDI containers can display a drop-down list of active documents and/or use scroll buttons to smoothly scroll through tabs that are out of view.
 - [Document windows](document-windows.md) track modified states and reflect them in the user interface.
-- <kbd>Ctrl</kbd>+<kbd>Tab</kbd> tool and document switching with the optional [Next Window Navigation](next-window-navigation.md) dialog.
+- <kbd>Ctrl</kbd>+<kbd>Tab</kbd> tool and document window switching with the optional [Next Window Navigation](next-window-navigation.md) dialog.
 - Ability to cancel the closing of tool and document windows.
 - Option to hide document tabs if there is only one document open.
 - Programmatically dock all tool windows anywhere in the layout and move/resize floating tool windows at run-time.
@@ -56,4 +56,4 @@ Out of the box, the dock controls have [rendering capabilities](extensible-rende
 - Built-in default context menus that may be cancelled to provide custom menus.
 - Detailed event model.
 - Full [designer support](designer-support.md) for codeless layout design.
-- [Tool Windows](designer-support.md) dialog available in designer to aid in locating and manipulating tool windows.
+- [Tool Windows](designer-support.md) dialog is available in designer to aid in locating and manipulating tool windows.

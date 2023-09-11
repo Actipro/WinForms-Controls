@@ -7,7 +7,7 @@ order: 1
 
 Wizards are one of the best ways to simplify the user experience of applications.  They allow developers to take complex operations and break them up into a series of simple steps.  Each step is customized to a specific task and provides specialized explanations and controls for that task.
 
-From a design perspective, wizards are similar to property sheets in that they hold a collection of pages that are displayed one at a time.  However instead of using tabstrips to navigate through pages, **Next** and **Back** buttons are used.  Wizards contain a number of pages, each page representing a step in the wizard.  The problem is that Windows Forms provides no easy way to design wizards, that is, until now.
+From a design perspective, wizards are similar to property sheets in that they hold a collection of pages that are displayed one at a time.  However, instead of using tabstrips to navigate through pages, **Next** and **Back** buttons are used.  Wizards contain a number of pages, each page representing a step in the wizard.  The problem is that Windows Forms provides no easy way to design wizards, that is, until now.
 
 Actipro Software's [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wizard) control provides a powerful framework for developing wizards that follow the Wizard97 specifications.
 

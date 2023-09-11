@@ -40,34 +40,34 @@ Additionally, quick customize mode will be enabled if the [BarManager](xref:@Act
 
 ## Controlling Command Customization
 
-Sometimes, commands are added to a [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) that shouldn't be able to be instantiated into a command link by the end user from the `Customize` dialog.  This scenario is common where you might have a [BarPopupButtonCommand](xref:@ActiproUIRoot.Controls.Bars.BarPopupButtonCommand) with a number of default command links in it where each command link also references a command that should not support instantiation into a link by the end user. If this scenario is not prevented, the result would be that the end user can create the popup button command link (and therefore see all the child command links together) but can't create those child command links individually.
+Sometimes, commands are added to a [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) that shouldn't be able to be instantiated into a command link by the end user from the **Customize** dialog.  This scenario is common where you might have a [BarPopupButtonCommand](xref:@ActiproUIRoot.Controls.Bars.BarPopupButtonCommand) with a number of default command links in it where each command link also references a command that should not support instantiation into a link by the end user. If this scenario is not prevented, the result would be that the end user can create the popup button command link (and therefore see all the child command links together) but can't create those child command links individually.
 
 To prevent a command from being able to be instantiated into a command link by the user, set the [CanCustomizeCreate](xref:@ActiproUIRoot.Controls.Bars.BarCommand.CanCustomizeCreate) property to `false` on the command.
 
-The [CanCustomizeKeyboardShortcuts](xref:@ActiproUIRoot.Controls.Bars.BarCommand.CanCustomizeKeyboardShortcuts) property indicates whether the command is visible on the `Shortcuts` tab of the `Customize` dialog.  Setting this property to `false` prevents keyboard shortcuts from being modified for the command.
+The [CanCustomizeKeyboardShortcuts](xref:@ActiproUIRoot.Controls.Bars.BarCommand.CanCustomizeKeyboardShortcuts) property indicates whether the command is visible on the **Shortcuts** tab of the **Customize** dialog.  Setting this property to `false` prevents keyboard shortcuts from being modified for the command.
 
 ## Properly Designing Popup and Split Commands to Allow for Customization
 
-[Popup](commands/popupbuttons.md) and [split](commands/splitbuttons.md) commands both generally have a pre-defined collection of child command links to show on a popup when they are clicked.  It is good design to add a `Menu Bar` category of commands, one for each root main menu button.  For instance, you would normally add `MenuBar.File`, `MenuBar.Edit`, etc. commands.  For each of those commands, you should add all the child command links to their `DefaultCommandLinks` collection.  By doing this, whenever those commands are dragged and dropped by the end user, a completely pre-populated menu will be available.
+[Popup](commands/popupbuttons.md) and [split](commands/splitbuttons.md) commands both generally have a pre-defined collection of child command links to show on a popup when they are clicked.  It is good design to add a `"Menu Bar"` category of commands, one for each root main menu button.  For instance, you would normally add `"MenuBar.File"`, `"MenuBar.Edit"`, etc. commands.  For each of those commands, you should add all the child command links to their `DefaultCommandLinks` collection.  By doing this, whenever those commands are dragged and dropped by the end user, a completely pre-populated menu will be available.
 
-You also should generally provide a [BarPopupButtonCommand](xref:@ActiproUIRoot.Controls.Bars.BarPopupButtonCommand) with the full name `New Menu.New Menu`.  End users can drag and drop that command to create their own customized popup menus.
+You also should generally provide a [BarPopupButtonCommand](xref:@ActiproUIRoot.Controls.Bars.BarPopupButtonCommand) with the full name `"New Menu.New Menu"`.  End users can drag and drop that command to create their own customized popup menus.
 
 ## Using the Built-In Customize Dialog
 
 ![Screenshot](images/bar-run-time-customize-form.png)
 
-By default, the [BuiltInCustomizeDialogEnabled](xref:@ActiproUIRoot.Controls.Bars.BarManager.BuiltInCustomizeDialogEnabled) property on the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) is set to `true`.  This allows for the built-in `Customize` dialog to be displayed whenever the end user starts dialog customize mode.
+By default, the [BuiltInCustomizeDialogEnabled](xref:@ActiproUIRoot.Controls.Bars.BarManager.BuiltInCustomizeDialogEnabled) property on the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) is set to `true`.  This allows for the built-in **Customize** dialog to be displayed whenever the end user starts dialog customize mode.
 
 ## Using a Custom Customize Dialog
 
 A benefit of using Bars is that we provide the full source for the run-time **Customize** dialog in our sample project.  This allows you to completely change the look and feel of the dialog or add your own functionality if desired.  Our sample project includes two forms that contain all the code necessary to have a fully functional customize form:
 
-- BarCustomizeForm
-- BarCustomizeNewToolBarForm
+- `BarCustomizeForm`
+- `BarCustomizeNewToolBarForm`
 
 To tie your custom form to the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager), a couple events need to be handled.
 
-First, handle the [CustomizeModeChanged](xref:@ActiproUIRoot.Controls.Bars.BarManager.CustomizeModeChanged) event.  This event is raised whenever the [CustomizeMode](xref:@ActiproUIRoot.Controls.Bars.BarManager.CustomizeMode) property value changes.  This lets you know whether you should show or hide the customize dialog.  Note that the customize dialog itself will tell the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) to exit customize mode when it is closed.  Use code similar to this (assuming you have a `Form`-level member variable for your customize form):
+First, handle the [CustomizeModeChanged](xref:@ActiproUIRoot.Controls.Bars.BarManager.CustomizeModeChanged) event.  This event is raised whenever the [CustomizeMode](xref:@ActiproUIRoot.Controls.Bars.BarManager.CustomizeMode) property value changes.  This lets you know whether you should show or hide the **Customize** dialog.  Note that the dialog itself will tell the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) to exit customize mode when it is closed.  Use code similar to the following (assuming you have a `Form`-level member variable for your **Customize** form):
 
 ```csharp
 /// <summary>
@@ -94,7 +94,7 @@ private void barManager_CustomizeModeChanged(object sender, System.EventArgs e) 
 }
 ```
 
-Second, handle the [CustomizeSelectedCommandLinkChanged](xref:@ActiproUIRoot.Controls.Bars.BarManager.CustomizeSelectedCommandLinkChanged) event.  This event is raised whenever the [CustomizeSelectedCommandLink](xref:@ActiproUIRoot.Controls.Bars.BarManager.CustomizeSelectedCommandLink) property value changes.  The customize dialog generally needs to update in response to one of these events, so simply pass it onto the customize dialog similar to this:
+Second, handle the [CustomizeSelectedCommandLinkChanged](xref:@ActiproUIRoot.Controls.Bars.BarManager.CustomizeSelectedCommandLinkChanged) event.  This event is raised whenever the [CustomizeSelectedCommandLink](xref:@ActiproUIRoot.Controls.Bars.BarManager.CustomizeSelectedCommandLink) property value changes.  The **Customize** dialog generally needs to update in response to one of these events, so simply pass it onto the **Customize** dialog similar to the following:
 
 ```csharp
 /// <summary>
@@ -109,11 +109,11 @@ private void barManager_CustomizeSelectedCommandLinkChanged(object sender, Actip
 }
 ```
 
-That's it... you're ready to use your own custom **Customize** dialog.
+That's it!  You're ready to use your own custom **Customize** dialog.
 
 ## The BarCommandListBox Control
 
-The [BarCommandListBox](xref:@ActiproUIRoot.Controls.Bars.BarCommandListBox) control is a `ListBox` that can draw all the commands managed by a [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).  This control is used on **Customize** dialogs, and allows for the commands to be dragged over a bar control and dropped to create a new command link.
+The [BarCommandListBox](xref:@ActiproUIRoot.Controls.Bars.BarCommandListBox) control is a `ListBox` that can draw all the commands managed by a [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager).  This control is used on **Customize** dialogs, and it allows for the commands to be dragged over a bar control and dropped to create a new command link.
 
 ## The BarKeyboardShortcutTextBox Control
 

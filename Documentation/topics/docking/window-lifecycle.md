@@ -5,7 +5,7 @@ order: 4
 ---
 # Window Lifecycle
 
-Both tool and document windows share the same base class and share similar lifecycles.  The main difference is that by default, tool windows exist throughout the life of the manager and document windows exist only while active.  However that behavior can be overridden.
+Both tool and document windows share the same base class and share similar lifecycles.  The main difference is that by default, tool windows exist throughout the life of the manager and document windows exist only while active.  However, that behavior can be overridden.
 
 ## Lifecycle Events
 

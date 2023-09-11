@@ -9,7 +9,7 @@ Dock controls was one of the first docking window suites to provide a **Next Win
 
 The **Next Window Navigation** dialog makes it easy to determine what window will be selected next by providing a high-level view of everything that is open in the dock control workspace.  The dialog grows as needed and is truly a helpful tool for window switching.
 
-![Screenshot](images/dock-controls-next-window-navigation-dialog.gif)
+![Screenshot](images/dock-controls-next-window-navigation-dialog.png)
 
 *The Next Window Navigation Dialog in action*
 
@@ -32,9 +32,9 @@ There are several types of Next Window Navigation available.  The [NextWindowNav
 
 | Value | Description |
 |-----|-----|
-| `ToolAndDocumentWindow` | The Next Window Navigation will work for both tool and document windows. |
-| `ToolWindow` | The Next Window Navigation will work for tool windows only. |
-| `DocumentWindow` | The Next Window Navigation will work for document windows only. |
+| `ToolAndDocumentWindow` | The **Next Window Navigation** will work for both tool and document windows. |
+| `ToolWindow` | The **Next Window Navigation** will work for tool windows only. |
+| `DocumentWindow` | The **Next Window Navigation** will work for document windows only. |
 
 ## Navigation Keys
 
@@ -49,6 +49,6 @@ Several keys are also valid while the **Next Window Navigation** dialog is displ
 
 ## Customizing the Selected Window's Descriptions
 
-When a window is selected, its [TitleBarText](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.TitleBarText) property (with nullable fallback to the [Text](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.Text) property) is displayed on the first line in the selection box.  By default, tool windows don't display any description lines.  By default, document windows display the file type ( [FileType](xref:@ActiproUIRoot.Controls.Docking.DocumentWindow.FileType) property) as the first description line and the file name ( [FileName](xref:@ActiproUIRoot.Controls.Docking.DocumentWindow.FileName) property) as the second description line.
+When a window is selected, its [TitleBarText](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.TitleBarText) property (with nullable fallback to the [Text](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow.Text) property) is displayed on the first line in the selection box.  By default, tool windows don't display any description lines.  By default, document windows display the file type ([FileType](xref:@ActiproUIRoot.Controls.Docking.DocumentWindow.FileType) property) as the first description line and the file name ([FileName](xref:@ActiproUIRoot.Controls.Docking.DocumentWindow.FileName) property) as the second description line.
 
 The defaults can be customized.  By handling the [NextWindowNavigationSelectionChanged](xref:@ActiproUIRoot.Controls.Docking.DockManager.NextWindowNavigationSelectionChanged) event, you can set the various properties of the event arguments to customize the text to display on the two description lines as well as the `StringTrimming` to use for each line.  The event is raised each time a [TabbedMdiWindow](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow) is selected in the **Next Window Navigation** dialog.

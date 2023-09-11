@@ -18,4 +18,4 @@ While the repository doesn't contain the source code for our commercial WinForms
 
 For support of our closed-source UI control products, please use the support options described in the [Support](support.md) topic.  Do not submit a GitHub issue for control product support.
 
-We welcome contributions by our customers!  If you have an idea for improving our samples, documentation, or one of the open-source libraries (basically anything whose source is in the repository), please submit a GitHub issue to discuss the idea with us.  We may then ask you to create a pull request with code changes for the idea.
+We welcome contributions from our customers!  If you have an idea for improving our samples, documentation, or one of the open-source libraries (basically anything whose source is in the repository), please submit a GitHub issue to discuss the idea with us.  We may then ask you to create a pull request with code changes for the idea.

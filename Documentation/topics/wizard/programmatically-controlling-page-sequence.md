@@ -50,7 +50,7 @@ With those two events in place on the wizard, the default navigation of pages is
 
 ## Controlling Page Sequence with a WizardPage
 
-However you also could have implemented the [NextButtonClick](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.NextButtonClick) and [BackButtonClick](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.BackButtonClick) events for the [WizardPage](xref:@ActiproUIRoot.Controls.Wizard.WizardPage) control.
+However, you also could have implemented the [NextButtonClick](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.NextButtonClick) and [BackButtonClick](xref:@ActiproUIRoot.Controls.Wizard.WizardPage.BackButtonClick) events for the [WizardPage](xref:@ActiproUIRoot.Controls.Wizard.WizardPage) control.
 
 In the `NextButtonClick` event handler, you implement this code:
 

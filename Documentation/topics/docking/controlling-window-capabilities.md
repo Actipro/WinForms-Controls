@@ -29,7 +29,7 @@ Global defaults can be set to affect window capabilities.  The values can be ove
 
 ## Instance Settings
 
-Instance settings are specific to a single instance of a tool or document window.  Boolean values use a `DefaultableBoolean` enumeration value to indicate whether they should use the global default value, or force a `true` or `false` instance setting.
+Instance settings are specific to a single instance of a tool or document window.  Boolean values use a `DefaultableBoolean` enumeration value to indicate whether they should use the global default value, or force a `true`/`false` instance setting.
 
 These are the settings found on the [TabbedMdiWindow](xref:@ActiproUIRoot.Controls.Docking.TabbedMdiWindow) class that provide instance settings to each tool window and document window.
 

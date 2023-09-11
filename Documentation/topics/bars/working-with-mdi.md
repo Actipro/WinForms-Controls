@@ -28,7 +28,7 @@ This table indicates the members of [BarManager](xref:@ActiproUIRoot.Controls.Ba
 
 ## Merging Command Links
 
-The bar controls support the merging of command links from two different bar controls, often referred to as MDI merging.  However since dockable toolbars (and menubars) are lightweight elements and do not inherit from `Control`, the bar controls can't automatically merge a menubar from a child MDI windows with a menubar from a parent MDI window.  This is easily done in code though with a few lines.
+The bar controls support the merging of command links from two different bar controls, often referred to as MDI merging.  However, since dockable toolbars (and menubars) are lightweight elements and do not inherit from `Control`, the bar controls can't automatically merge a menubar from a child MDI windows with a menubar from a parent MDI window.  This is easily done in code though with a few lines.
 
 This table indicates the static members of [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) that control merging:
 
@@ -95,7 +95,7 @@ The [MergeAction](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.MergeAction) 
 
 "Matching" of command links is done by comparing each command link's merge key.  The resolved merge key defaults to the command's full name, unless the [MergeKey](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.MergeKey) property overrides it.  If the command link is a merge source command link, the resolved merge key looks for a match on the target command link collection.  If the command link is a merge target command link, the resolved merge key is used for matching against source command links.
 
-Therefore if you wished to insert a `File.Save` source command link before a `File.Exit` target command link, you'd set the source command link's [MergeAction](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.MergeAction) property to `BarMergeAction.Insert` and the source command link's [MergeKey](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.MergeKey) property to `File.Exit`.
+Therefore if you wished to insert a `"File.Save"` source command link before a `"File.Exit"` target command link, you'd set the source command link's [MergeAction](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.MergeAction) property to `BarMergeAction.Insert` and the source command link's [MergeKey](xref:@ActiproUIRoot.Controls.Bars.BarCommandLink.MergeKey) property to `"File.Exit"`.
 
 ## MDI Window List
 

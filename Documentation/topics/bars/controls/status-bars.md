@@ -9,11 +9,11 @@ Statusbars, represented by the [StatusBar](xref:@ActiproUIRoot.Controls.Bars.Sta
 
 ![Screenshot](../images/bar-status-bar.gif)
 
-In addition to customizable rendering, the Bars statusbar supports several panels types, each with many features.
+In addition to customizable rendering, the Bars statusbar supports several panel types, each with many features.
 
 ## Gripper Visibility
 
-The [GripperVisible](xref:@ActiproUIRoot.Controls.Bars.StatusBar.GripperVisible) property on the [StatusBar](xref:@ActiproUIRoot.Controls.Bars.StatusBar) class controls whether the gripper is visible on the statusbar.  If set to `true`, the gripper will be visible.  A value of `false` hides the gripper.
+The [GripperVisible](xref:@ActiproUIRoot.Controls.Bars.StatusBar.GripperVisible) property on the [StatusBar](xref:@ActiproUIRoot.Controls.Bars.StatusBar) class controls whether the gripper is visible on the statusbar.  If it is set to `true`, the gripper will be visible.  A value of `false` hides the gripper.
 
 ## Modifying Child Panels
 

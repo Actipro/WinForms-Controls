@@ -18,7 +18,7 @@ This table indicates the members of the [IBarCheckableCommand](xref:@ActiproUIRo
 | [Checkable](xref:@ActiproUIRoot.Controls.Bars.IBarCheckableCommand.Checkable) Property | Gets or sets whether the button is checkable. |
 | [Checked](xref:@ActiproUIRoot.Controls.Bars.IBarCheckableCommand.Checked) Property | Gets or sets whether the button is checked. |
 | [CheckGroupName](xref:@ActiproUIRoot.Controls.Bars.IBarCheckableCommand.CheckGroupName) Property | Gets or sets the name of the check group. |
-| [FullName](xref:@ActiproUIRoot.Controls.Bars.IBarCheckableCommand.FullName) Property | Gets the full name of the command, which is `Category.Name`. |
+| [FullName](xref:@ActiproUIRoot.Controls.Bars.IBarCheckableCommand.FullName) Property | Gets the full name of the command, which is formatted like `"Category.Name"`. |
 
 ## Working with Checkable Buttons
 
@@ -36,7 +36,7 @@ If the [AutoUpdateChecks](xref:@ActiproUIRoot.Controls.Bars.BarManager.AutoUpdat
 
 Check groups are a powerful feature found in Bars.  When working with checkable buttons, there are two scenarios.  The first is where the checkable button provides an on/off toggle for a specific feature.  This sort of checkable button stands alone.  The second is where the checkable button is a toggle for a specific feature within a feature group.  For instance, in a text editing application, there would be a check group for text alignment (left, center, right, and justify).
 
-By specifying a [CheckGroupName](xref:@ActiproUIRoot.Controls.Bars.IBarCheckableCommand.CheckGroupName) for all the checkable buttons in a check group, Bars adds numerous features for easily working with check groups.  In our above scenario, all the checkable buttons for the text alignment check group could have a [CheckGroupName](xref:@ActiproUIRoot.Controls.Bars.IBarCheckableCommand.CheckGroupName) value of `TextAlignment`.
+By specifying a [CheckGroupName](xref:@ActiproUIRoot.Controls.Bars.IBarCheckableCommand.CheckGroupName) for all the checkable buttons in a check group, Bars adds numerous features for easily working with check groups.  In our above scenario, all the checkable buttons for the text alignment check group could have a [CheckGroupName](xref:@ActiproUIRoot.Controls.Bars.IBarCheckableCommand.CheckGroupName) value of `"TextAlignment"`.
 
 If the [AutoUpdateCheckGroups](xref:@ActiproUIRoot.Controls.Bars.BarManager.AutoUpdateCheckGroups) property is set to `true`, any checkable buttons in a check group that are clicked by the end user will be automatically checked and all other checkable buttons in the check group will be unchecked.  If that property is `false`, the checkable buttons can only have their [Checked](xref:@ActiproUIRoot.Controls.Bars.IBarCheckableCommand.Checked) state toggled programmatically.
 

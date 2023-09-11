@@ -3,18 +3,35 @@
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
 		<UseWindowsForms>true</UseWindowsForms>
+		<LangVersion>latest</LangVersion>
 
-		<!-- IMPORTANT NOTE: The first listed framework for multi-target projects will determine the Visual Studio designer support -->
 		<!--
-		<TargetFrameworks>netcoreapp3.1;net6.0-windows;net7.0-windows;net472</TargetFrameworks>
+
+			IMPORTANT NOTES ON VISUAL STUDIO DESIGNER:
+
+			* The first listed framework for multi-target projects will determine the Visual Studio designer support
+
+			* .NET Framework targets require the product's offline installer to run with the designer support option
+			  even when using NuGet package references.
+
+			* Visual Studio 17.6 designer support for .NET Core-based targets (e.g., 'net6.0-windows') will fail to
+			  initialize if a .NET Framework-based target (e.g., 'net48') is also a listed target. If mixed targets are
+				necessary, list the .NET Framework-based target first (and run the product's installer as noted above)
+				to force the .NET Framework designer support.
+
 		-->
-		<TargetFrameworks>netcoreapp3.1;net472</TargetFrameworks>
+		
+		<!--
+		<TargetFrameworks>netcoreapp3.1;net6.0-windows;net7.0-windows</TargetFrameworks>
+		<TargetFrameworks>net472;net48</TargetFrameworks>
+		-->
+		<TargetFrameworks>net6.0-windows</TargetFrameworks>
 
 		<DefineConstants>CODE_ANALYSIS;WINFORMS;DESKTOP</DefineConstants>
 
 		<AssemblyName>SampleBrowser</AssemblyName>
 
-		<Version>23.1.1.0</Version>
+		<Version>23.1.2.0</Version>
 
 		<RootNamespace>ActiproSoftware</RootNamespace>
 
@@ -51,11 +68,11 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-		<PackageReference Include="ActiproSoftware.Controls.WinForms" Version="23.1.1" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet" Version="23.1.1" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript" Version="23.1.1" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python" Version="23.1.1" />
-		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML" Version="23.1.1" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms" Version="23.1.2" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.DotNet" Version="23.1.2" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.JavaScript" Version="23.1.2" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.Python" Version="23.1.2" />
+		<PackageReference Include="ActiproSoftware.Controls.WinForms.SyntaxEditor.Addons.XML" Version="23.1.2" />
 	</ItemGroup>
 
 </Project>

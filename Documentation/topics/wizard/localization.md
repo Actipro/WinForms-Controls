@@ -15,7 +15,7 @@ To enable localization, you must set two properties on the `Form` object that co
 
 - The `Language` property should be set to the current language to be localized.  The default language will be used for all languages which do not have specific settings.
 
-Once those two properties have been set, you can change various properties on the wizard and they will be set specific to current language context defined by the `Language` property.
+Once those two properties have been set, you can change various properties on the wizard, and they will be set specific to current language context defined by the `Language` property.
 
 ## Localizable Wizard Properties
 
@@ -43,7 +43,7 @@ The following properties on the [Wizard](xref:@ActiproUIRoot.Controls.Wizard.Wiz
 
 - [NextButtonWidth](xref:@ActiproUIRoot.Controls.Wizard.Wizard.NextButtonWidth)
 
-The properties above enable you to set different fonts and text for each language.  Sometimes various text is drastically different size.  By setting the widths of the buttons for each language, you have total control over the size of the buttons.  The wizard automatically takes care of positioning the buttons appropriately.
+The properties above enable you to set different fonts and text for each language.  Sometimes various texts are drastically different sizes.  By setting the widths of the buttons for each language, you have total control over the size of the buttons.  The wizard automatically takes care of positioning the buttons appropriately.
 
 ## Localizable WizardPage Properties
 

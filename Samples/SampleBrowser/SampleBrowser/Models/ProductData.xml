@@ -71,6 +71,7 @@
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Exporting to HTML/RTF" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/Exporting/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Globalization" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/Globalization/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Go to Line" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GoToLine/" />
+			<Item Kind="InlineSample" BlurbText="New!" Category="General QuickStarts" Title="Go to Line (Custom Overlay)" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/GoToLineOverlay/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Highlighting Style Viewer" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/HighlightingStyleViewer/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Hit Testing" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/HitTesting/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Indicators - Bookmark" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IndicatorsBookmark/" />

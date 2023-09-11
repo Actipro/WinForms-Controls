@@ -22,7 +22,7 @@ This table describes where referenced assemblies appear after project compilatio
 | Reference Kind | Description |
 |-----|-----|
 | NuGet package reference | The referenced assemblies will be in your `bin` folder after compilation. |
-| Assembly reference | The referenced assemblies will be in your `bin` folder after compilation if the "Copy Local" property on the reference (via the Visual Studio Properties window) is set to true. |
+| Assembly reference | The referenced assemblies will be in your `bin` folder after compilation if the **Copy Local** property on the reference (via the Visual Studio **Properties** window) is set to `true`. |
 
 ## Redistributable Files
 
@@ -185,7 +185,7 @@ Available via the `ActiproSoftware.Controls.WinForms` NuGet metapackage, and inc
 
 ### No Run-time Royalties
 
-There are no run-time royalties or other distribution charges for our WinForms control products.  We only require that you have the proper of licenses for each developer on your project.
+There are no run-time royalties or other distribution charges for our WinForms control products.  We only require that you have the proper number of licenses for each developer on your project.
 
 See the [Licensing](licensing.md) topic for more information on licensing requirements.
 
@@ -193,7 +193,7 @@ See the [Licensing](licensing.md) topic for more information on licensing requir
 
 You do **NOT** need to use our product installers to place our controls on end user machines, nor are you permitted to apply your license key on end user machines.
 
-If you are getting license popups on end user machines, your licensing configuration is incorrect on your build machine.  Read the [Licensing](licensing.md) topic to troubleshoot the issue.  Once licensing is configured properly, you should only need to xcopy our product assemblies into the same folder as your application on end machines.
+If you are getting license popups on end user machines, your licensing configuration is incorrect on your build machine.  Read the [Licensing](licensing.md) topic to troubleshoot the issue.  Once licensing is configured properly, you should only need to `xcopy` our product assemblies into the same folder as your application on end machines.
 
 ### Do Not Install Our Controls to End User GACs (Global Assembly Cache)
 

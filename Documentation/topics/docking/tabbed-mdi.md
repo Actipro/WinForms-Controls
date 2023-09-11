@@ -9,7 +9,7 @@ The Dock controls have two modes of multiple document interface (MDI) support, `
 
 Set the [DocumentMdiStyle](xref:@ActiproUIRoot.Controls.Docking.DockManager.DocumentMdiStyle) property of the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component to `Tabbed` to use this MDI mode.  MDI modes can be changed at run-time.
 
-Close buttons can optionally be displayed for each document window and an event can be intercepted to cancel the closing of any document window.
+**Close** buttons can optionally be displayed for each document window and an event can be intercepted to cancel the closing of any document window.
 
 The standard <kbd>Ctrl</kbd>+<kbd>Tab</kbd> hotkey provides for quick switching between selected document windows.
 
@@ -68,7 +68,7 @@ The [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager).[TabbedMdiTa
 
 ## Displaying the Active Files Menu
 
-The [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component raises the [ActiveFilesContextMenu](xref:@ActiproUIRoot.Controls.Docking.DockManager.ActiveFilesContextMenu) event when the `Active Files` button is clicked in the tabstrip.  This button is only visible when the [TabbedMdiContainerButtonStyle](xref:@ActiproUIRoot.Controls.Docking.DockManager.TabbedMdiContainerButtonStyle) property is set to `DropDownList`.
+The [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component raises the [ActiveFilesContextMenu](xref:@ActiproUIRoot.Controls.Docking.DockManager.ActiveFilesContextMenu) event when the **Active Files** button is clicked in the tabstrip.  This button is only visible when the [TabbedMdiContainerButtonStyle](xref:@ActiproUIRoot.Controls.Docking.DockManager.TabbedMdiContainerButtonStyle) property is set to `DropDownList`.
 
 By default, a menu will display containing a list of the currently active tool and document windows in the tabbed MDI container.  This default menu can be cancelled by setting the `Cancel` property of the event arguments to `true`.  A custom menu can be displayed in its place.
 
