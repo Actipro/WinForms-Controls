@@ -32,11 +32,28 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.SearchRe
 
 			// Refresh highlights
 			this.RefreshHighlights();
+
+			// Listen for changes in the active view so highlights can be moved
+			editor.ActiveViewChanged += this.OnEditorActiveViewChanged;
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// NON-PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <summary>
+		/// Occurs when the active view in the editor is changed.
+		/// </summary>
+		/// <param name="sender">The sender of the event.</param>
+		/// <param name="e">A <see cref="EditorViewChangedEventArgs"/> that contains the event data.</param>
+		private void OnEditorActiveViewChanged(object sender, EditorViewChangedEventArgs e) {
+			// Clear search options from the inactive view
+			if (e.OldValue != null)
+				e.OldValue.HighlightedResultSearchOptions = null;
+
+			// Apply highlights to the newly active view
+			RefreshHighlights();
+		}
 
 		/// <summary>
 		/// Occurs when the control becomes the active control on the form.
