@@ -33,9 +33,9 @@ Pressing keys like <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd>, which nor
 To prevent these keys (or any other key combination) from reaching the `SyntaxEditor` control, override the overlay pane control's `OnKeyDown` method and set `KeyEventArgs.Handled = true`.
 
 > [!TIP]
-> The [OverlayPaneBase](xref:@ActiproUIRoot.Controls.SyntaxEditor.OverlayPaneBase) control has built-in support for handling key presses. By default, <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> will be handled and used to move keyboard focus. Override the [OnMoveFocus](xref:@ActiproUIRoot.Controls.SyntaxEditor.OverlayPaneBase.OnMoveFocus) method to customize which elements receive focus.  Set [AllowTabKeyToMoveFocus](xref:@ActiproUIRoot.Controls.SyntaxEditor.OverlayPaneBase.AllowTabKeyToMoveFocus) = `false` to disable the automatic handling of these keys.
+> The [OverlayPaneBase](xref:@ActiproUIRoot.Controls.SyntaxEditor.Implementation.OverlayPaneBase) control has built-in support for handling key presses. By default, <kbd>Tab</kbd> and <kbd>Shift</kbd>+<kbd>Tab</kbd> will be handled and used to move keyboard focus. Override the [OnMoveFocus](xref:@ActiproUIRoot.Controls.SyntaxEditor.Implementation.OverlayPaneBase.OnMoveFocus*) method to customize which elements receive focus.  Set [AllowTabKeyToMoveFocus](xref:@ActiproUIRoot.Controls.SyntaxEditor.Implementation.OverlayPaneBase.AllowTabKeyToMoveFocus) = `false` to disable the automatic handling of these keys.
 >
->To customize the handling of additional keys, override the [ProcessKeyDown](xref:@ActiproUIRoot.Controls.SyntaxEditor.OverlayPaneBase.ProcessKeyDown) method and return `true` for any keys that were handled by the overlay pane.
+>To customize the handling of additional keys, override the [ProcessKeyDown](xref:@ActiproUIRoot.Controls.SyntaxEditor.Implementation.OverlayPaneBase.ProcessKeyDown*) method and return `true` for any keys that were handled by the overlay pane.
 
 }
 

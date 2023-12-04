@@ -49,7 +49,8 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.IntelliP
 					e.Cancel = true;
 
 					// Show a messagebox instead
-					MessageBox.Show("Show a dialog for building a URL here.  Note that auto-complete was cancelled in code-behind.", "URL Builder", MessageBoxButtons.OK, MessageBoxIcon.Information);
+					var owner = session.View?.SyntaxEditor?.FindForm();
+					MessageBox.Show(owner, "Show a dialog for building a URL here.  Note that auto-complete was cancelled in code-behind.", "URL Builder", MessageBoxButtons.OK, MessageBoxIcon.Information);
 				}
 			}
 		}

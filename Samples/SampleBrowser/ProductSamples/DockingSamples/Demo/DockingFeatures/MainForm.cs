@@ -34,6 +34,14 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 			//
 			InitializeComponent();
 
+			#if NETFRAMEWORK
+			// 11/15/2023 - Workaround for issue detected on Win11 23H2 (OS Build 22635.2700) where the 'resize' event of the panel
+			// that contains these property grids was not being raised and, as a result, the property grid layout was incorrect until
+			// they were resized.  Could not reproduce on Win11 22H2.  Issue was not present on "netcoreapp3.1" or "net6.0-windows".
+			ResizeDockManagerPropertyGrid();
+			ResizeToolWindowPropertyGrid();
+			#endif
+
 			// Select the first item
 			if (toolWindowPropertyGridComboBox.Items.Count > 0)
 				toolWindowPropertyGridComboBox.SelectedIndex = 0;
@@ -353,16 +361,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void dockManagerPropertyGridPanel_Resize(object sender, EventArgs e) {
-			dockManagerPropertyGrid.SuspendLayout();
-
-			// Reset the Anchor that is only used to keep designer layout consistent
-			dockManagerPropertyGrid.Anchor = AnchorStyles.None;
-
-			// Set the size/location of the PropertyGrid to be 1px bigger than the containing panel so the PropertyGrid border is not visible
-			dockManagerPropertyGrid.Location = new Point(-1, -1);
-			dockManagerPropertyGrid.Size = new Size(dockManagerPropertyGridPanel.Width + 2, dockManagerPropertyGridPanel.Height + 2);
-
-			dockManagerPropertyGrid.ResumeLayout();
+			ResizeDockManagerPropertyGrid();
 		}
 
 		/// <summary>
@@ -731,16 +730,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void toolWindowPropertyGridPanel_Resize(object sender, EventArgs e) {
-			toolWindowPropertyGrid.SuspendLayout();
-
-			// Reset the Anchor that is only used to keep designer layout consistent
-			toolWindowPropertyGrid.Anchor = AnchorStyles.None;
-
-			// Set the size/location of the PropertyGrid to be 1px bigger than the containing panel so the PropertyGrid border is not visible
-			toolWindowPropertyGrid.Location = new Point(-1, -1);
-			toolWindowPropertyGrid.Size = new Size(toolWindowPropertyGridPanel.Width + 2, toolWindowPropertyGridPanel.Height + 2);
-
-			toolWindowPropertyGrid.ResumeLayout();
+			ResizeToolWindowPropertyGrid();
 		}
 
 		/// <summary>
@@ -1558,6 +1548,27 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 			writer.Close();
 
 			return true;
+		}
+
+		private void ResizeDockManagerPropertyGrid() {
+			ResizePropertyGridWithinPanel(dockManagerPropertyGrid, dockManagerPropertyGridPanel);
+		}
+
+		private void ResizeToolWindowPropertyGrid() {
+			ResizePropertyGridWithinPanel(toolWindowPropertyGrid, toolWindowPropertyGridPanel);
+		}
+
+		private void ResizePropertyGridWithinPanel(PropertyGrid propertyGrid, Panel panel) {
+			propertyGrid.SuspendLayout();
+
+			// Reset the Anchor that is only used to keep designer layout consistent
+			propertyGrid.Anchor = AnchorStyles.None;
+
+			// Set the size/location of the PropertyGrid to be 1px bigger than the containing panel so the PropertyGrid border is not visible
+			propertyGrid.Location = new Point(-1, -1);
+			propertyGrid.Size = new Size(panel.Width + 2, panel.Height + 2);
+
+			propertyGrid.ResumeLayout();
 		}
 
 		/// <summary>

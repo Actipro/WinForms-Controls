@@ -44,6 +44,7 @@
             this.editor.PrintSettings.AreColumnGuidesVisible = false;
             this.editor.Size = new System.Drawing.Size(774, 547);
             this.editor.TabIndex = 1;
+			this.editor.WordWrapMode = UI.WinForms.Controls.SyntaxEditor.WordWrapMode.Word;
             // 
             // documentComboBox
             // 

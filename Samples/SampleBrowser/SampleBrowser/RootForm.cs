@@ -513,11 +513,15 @@ namespace ActiproSoftware.SampleBrowser {
 					if (DpiHelper.IsPerMonitorScalingRequired) {
 						form.StartPosition = FormStartPosition.CenterParent;
 
+						#if !NET8_0_OR_GREATER
+						// NOTE: This issue was fixed with .NET 8
+
 						// This root form may have moved to a monitor with a different DPI than the system DPI, and that can
 						// result in the default font being scaled. Descale the font back to the size for the system
 						// DPI before assigning to the new form or the new form may not scale correctly.
 						var scaleFactor = DpiHelper.GetDeviceDpiChangeFactor(DpiHelper.GetSystemDeviceDpi(), DpiHelper.GetDeviceDpi(this));
 						form.Font = DpiHelper.DescaleFont(this.Font, scaleFactor);
+						#endif
 
 						// Show the form using special behavior to ensure proper DPI scaling
 						DpiAwareFormShowBehavior.ApplyTo(form);
