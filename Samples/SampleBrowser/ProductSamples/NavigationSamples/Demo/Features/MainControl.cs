@@ -1,11 +1,12 @@
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
-using ActiproSoftware.UI.WinForms.Drawing;
-using ActiproSoftware.UI.WinForms.Controls.Navigation;
 using ActiproSoftware.SampleBrowser.Controls;
+using ActiproSoftware.UI.WinForms.Controls.Navigation;
+using ActiproSoftware.UI.WinForms.Drawing;
+using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Linq;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
 
@@ -29,11 +30,26 @@ namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
 			customNavigationBarRenderer = navigationBar.Renderer;
 
 			// Populate the drop-down list
-			string[] names = Enum.GetNames(typeof(WindowsColorSchemeType));
-			foreach (string name in names)
+			foreach (FieldInfo fieldInfo in typeof(WindowsColorSchemeType).GetFields()
+				.Where(x => x.IsLiteral)
+				.OrderBy(x => x.Name)) {
+
+				// Ignore items that are not browsable
+				if ((fieldInfo.GetCustomAttribute<EditorBrowsableAttribute>()?.State ?? EditorBrowsableState.Always) == EditorBrowsableState.Never)
+					continue;
+
+				var name = fieldInfo.Name;
+
+				// Ignore special "WindowsDefault" that just resolves as one of the other types
+				if (((WindowsColorSchemeType)fieldInfo.GetValue(fieldInfo.Name)) == WindowsColorSchemeType.WindowsDefault)
+					continue;
+
 				rendererDropDownList.Items.Add(name);
+			}
 			rendererDropDownList.Items.Add("Custom");
-			rendererDropDownList.SelectedIndex = rendererDropDownList.Items.IndexOf(WindowsColorSchemeType.MetroLight.ToString());
+
+			// Pre-select the type that is the current windows default
+			rendererDropDownList.SelectedIndex = rendererDropDownList.Items.IndexOf(WindowsColorScheme.DefaultColorSchemeType.ToString());
 
 			// Expand all nodes
 			mailTreeView.ExpandAll();
@@ -128,17 +144,32 @@ namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void rendererDropDownList_SelectedIndexChanged(object sender, System.EventArgs e) {
+			// Determine the selected color scheme type
+			var selectedColorSchemeTypeName = rendererDropDownList.SelectedItem.ToString();
+			WindowsColorSchemeType? colorSchemeType = (selectedColorSchemeTypeName == "Custom")
+				? null
+				: (WindowsColorSchemeType)Enum.Parse(typeof(WindowsColorSchemeType), selectedColorSchemeTypeName, ignoreCase: true);
+
 			// Update the navigationbar renderer
-			if (rendererDropDownList.SelectedItem.ToString() == "Custom")
+			if (!colorSchemeType.HasValue) {
 				navigationBar.Renderer = customNavigationBarRenderer;
+			}
 			else {
-				WindowsColorSchemeType colorSchemeType = (WindowsColorSchemeType)Enum.Parse(typeof(WindowsColorSchemeType), rendererDropDownList.SelectedItem.ToString(), true);
-				if (rendererDropDownList.SelectedItem.ToString().StartsWith("Metro"))
-					navigationBar.Renderer = new MetroNavigationBarRenderer(colorSchemeType);
-				else if (rendererDropDownList.SelectedItem.ToString().StartsWith("Office2007"))
-					navigationBar.Renderer = new Office2007NavigationBarRenderer(colorSchemeType);
-				else
-					navigationBar.Renderer = new Office2003NavigationBarRenderer(colorSchemeType);
+				switch (colorSchemeType.Value) {
+					case WindowsColorSchemeType.MetroDark:
+					case WindowsColorSchemeType.MetroLight:
+					case WindowsColorSchemeType.VisualStudioBlue:
+						navigationBar.Renderer = new MetroNavigationBarRenderer(colorSchemeType.Value);
+						break;
+					case WindowsColorSchemeType.OfficeClassicBlack:
+					case WindowsColorSchemeType.OfficeClassicBlue:
+					case WindowsColorSchemeType.OfficeClassicSilver:
+						navigationBar.Renderer = new OfficeClassicNavigationBarRenderer(colorSchemeType.Value);
+						break;
+					default:
+						navigationBar.Renderer = new OfficeLunaNavigationBarRenderer(colorSchemeType.Value);
+						break;
+				}
 			}
 			rendererPropertyGrid.SelectedObject = navigationBar.Renderer;
 
@@ -150,18 +181,35 @@ namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
 			// Update form background and tabstrip renderer
 			var colorScheme = navigationBar.Renderer.ColorScheme;
 			if (navigationBar.Renderer is MetroNavigationBarRenderer) {
-				tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroToolWindowTabStripRenderer(colorScheme) {  AreImagesVisible = true };
+				if (colorSchemeType.HasValue && colorSchemeType.Value == WindowsColorSchemeType.VisualStudioBlue)
+					tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioToolWindowTabStripRenderer(colorScheme) {  AreImagesVisible = true };
+				else
+					tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.MetroToolWindowTabStripRenderer(colorScheme) {  AreImagesVisible = true };
 			}
-			else if (navigationBar.Renderer is Office2003NavigationBarRenderer) {
-				tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(colorScheme) { AreImagesVisible = true };
+			else if (navigationBar.Renderer is OfficeLunaNavigationBarRenderer) {
+				tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicToolWindowTabStripRenderer(colorScheme) { AreImagesVisible = true };
 			}
 			else {
-				tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer() { AreImagesVisible = true };
+				tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioClassicToolWindowTabStripRenderer() { AreImagesVisible = true };
 			}
-			this.BackColor = colorScheme.FormBackGradientBegin;
 
 			// Customize key controls based on color scheme to render better in light/dark themes
 			ThemeHelper.ApplyComponentColors(this, colorScheme, recurseChildren: true);
+
+			// Force the back color of this sample to match the theme instead of generic "control" control
+			this.BackColor = (colorScheme.ColorSchemeType == WindowsColorSchemeType.VisualStudioBlue)
+				? colorScheme.GetKnownColor(KnownColor.AppWorkspace)
+				: colorScheme.FormBackGradientBegin;
+
+			// Theme the splitters to match the background (transparent not supported)
+			vSplitter.BackColor = this.BackColor;
+			vSplitter2.BackColor = this.BackColor;
+			hSplitter.BackColor = this.BackColor;
+
+			// For this sample the panel will have a dark background and cannot have default control text foreground on these controls
+			rendererLabel.ForeColor = preventSelectionChangesCheckBox.ForeColor = (colorSchemeType == WindowsColorSchemeType.OfficeClassicBlack)
+				? Color.White
+				: colorScheme.GetKnownColor(KnownColor.ControlText);
 		}
 
 		/// <summary>

@@ -1019,12 +1019,12 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		/// Processes the <c>View.RendererCustomGreen</c> command.
 		/// </summary>
 		private void ProcessViewRendererCustomGreen() {
-			var scheme = new WindowsColorScheme("Green", WindowsColorSchemeType.WindowsXPBlue, UIColor.FromWebColor("#155E2F").ToColor());
-			barManager.Renderer = new Office2003BarRenderer(scheme);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(scheme);
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(scheme);
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(scheme);
-			statusBar.Renderer = new Office2003StatusBarRenderer();
+			var scheme = new WindowsColorScheme("Green", WindowsColorSchemeType.LunaBlue, UIColor.FromWebColor("#155E2F").ToColor());
+			barManager.Renderer = new OfficeClassicBarRenderer(scheme);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDockRenderer(scheme);
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer(scheme);
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicToolWindowTabStripRenderer(scheme);
+			statusBar.Renderer = new OfficeClassicStatusBarRenderer();
 			OnRendererChanged();
 		}
 
@@ -1032,12 +1032,12 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		/// Processes the <c>View.RendererCustomTan</c> command.
 		/// </summary>
 		private void ProcessViewRendererCustomTan() {
-			var scheme = new WindowsColorScheme("Tan", WindowsColorSchemeType.WindowsXPBlue, Color.Tan);
-			barManager.Renderer = new Office2003BarRenderer(scheme);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(scheme);
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(scheme);
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(scheme);
-			statusBar.Renderer = new Office2003StatusBarRenderer();
+			var scheme = new WindowsColorScheme("Tan", WindowsColorSchemeType.LunaBlue, Color.Tan);
+			barManager.Renderer = new OfficeClassicBarRenderer(scheme);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDockRenderer(scheme);
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer(scheme);
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicToolWindowTabStripRenderer(scheme);
+			statusBar.Renderer = new OfficeClassicStatusBarRenderer();
 			OnRendererChanged();
 		}
 
@@ -1066,122 +1066,122 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		}
 
 		/// <summary>
-		/// Processes the <c>View.RendererOffice2003Blue</c> command.
+		/// Processes the <c>View.RendererOfficeLunaBlue</c> command.
 		/// </summary>
-		private void ProcessViewRendererOffice2003Blue() {
-			barManager.Renderer = new Office2003BarRenderer(WindowsColorSchemeType.WindowsXPBlue);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(WindowsColorSchemeType.WindowsXPBlue);
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPBlue);
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPBlue);
-			statusBar.Renderer = new Office2003StatusBarRenderer();
+		private void ProcessViewRendererOfficeLunaBlue() {
+			barManager.Renderer = new OfficeClassicBarRenderer(WindowsColorSchemeType.LunaBlue);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDockRenderer(WindowsColorSchemeType.LunaBlue);
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer(WindowsColorSchemeType.LunaBlue);
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicToolWindowTabStripRenderer(WindowsColorSchemeType.LunaBlue);
+			statusBar.Renderer = new OfficeClassicStatusBarRenderer();
 			OnRendererChanged();
 		}
 
 		/// <summary>
-		/// Processes the <c>View.RendererOffice2003OliveGreen</c> command.
+		/// Processes the <c>View.RendererOfficeLunaOliveGreen</c> command.
 		/// </summary>
-		private void ProcessViewRendererOffice2003OliveGreen() {
-			barManager.Renderer = new Office2003BarRenderer(WindowsColorSchemeType.WindowsXPOliveGreen);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(WindowsColorSchemeType.WindowsXPOliveGreen);
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPOliveGreen);
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPOliveGreen);
-			statusBar.Renderer = new Office2003StatusBarRenderer();
+		private void ProcessViewRendererOfficeLunaOliveGreen() {
+			barManager.Renderer = new OfficeClassicBarRenderer(WindowsColorSchemeType.LunaOliveGreen);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDockRenderer(WindowsColorSchemeType.LunaOliveGreen);
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer(WindowsColorSchemeType.LunaOliveGreen);
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicToolWindowTabStripRenderer(WindowsColorSchemeType.LunaOliveGreen);
+			statusBar.Renderer = new OfficeClassicStatusBarRenderer();
 			OnRendererChanged();
 		}
 
 		/// <summary>
-		/// Processes the <c>View.RendererOffice2003Royale</c> command.
+		/// Processes the <c>View.RendererOfficeLunaSilver</c> command.
 		/// </summary>
-		private void ProcessViewRendererOffice2003Royale() {
-			barManager.Renderer = new Office2003BarRenderer(WindowsColorSchemeType.WindowsXPRoyale);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005DockRenderer();
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005DocumentWindowTabStripRenderer();
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer();
-			statusBar.Renderer = new Office2003StatusBarRenderer();
+		private void ProcessViewRendererOfficeLunaSilver() {
+			barManager.Renderer = new OfficeClassicBarRenderer(WindowsColorSchemeType.LunaSilver);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDockRenderer(WindowsColorSchemeType.LunaSilver);
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer(WindowsColorSchemeType.LunaSilver);
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicToolWindowTabStripRenderer(WindowsColorSchemeType.LunaSilver);
+			statusBar.Renderer = new OfficeClassicStatusBarRenderer();
 			OnRendererChanged();
 		}
 
 		/// <summary>
-		/// Processes the <c>View.RendererOffice2003Silver</c> command.
+		/// Processes the <c>View.RendererOfficeWindowsClassic</c> command.
 		/// </summary>
-		private void ProcessViewRendererOffice2003Silver() {
-			barManager.Renderer = new Office2003BarRenderer(WindowsColorSchemeType.WindowsXPSilver);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(WindowsColorSchemeType.WindowsXPSilver);
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPSilver);
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.WindowsXPSilver);
-			statusBar.Renderer = new Office2003StatusBarRenderer();
+		private void ProcessViewRendererOfficeWindowsClassic() {
+			barManager.Renderer = new OfficeClassicBarRenderer(WindowsColorSchemeType.WindowsClassic);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioClassicDockRenderer();
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioClassicDocumentWindowTabStripRenderer();
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioClassicToolWindowTabStripRenderer();
+			statusBar.Renderer = new WindowsClassicStatusBarRenderer();
 			OnRendererChanged();
 		}
 
 		/// <summary>
-		/// Processes the <c>View.RendererOffice2003WindowsClassic</c> command.
+		/// Processes the <c>View.RendererOfficeClassicBlack</c> command.
 		/// </summary>
-		private void ProcessViewRendererOffice2003WindowsClassic() {
-			barManager.Renderer = new Office2003BarRenderer(WindowsColorSchemeType.WindowsClassic);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005DockRenderer();
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005DocumentWindowTabStripRenderer();
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer();
-			statusBar.Renderer = new VisualStudio2002StatusBarRenderer();
+		private void ProcessViewRendererOfficeClassicBlack() {
+			barManager.Renderer = new OfficeClassicBarRenderer(WindowsColorSchemeType.OfficeClassicBlack);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDockRenderer(WindowsColorSchemeType.OfficeClassicBlack);
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer(WindowsColorSchemeType.OfficeClassicBlack);
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicToolWindowTabStripRenderer(WindowsColorSchemeType.OfficeClassicBlack);
+			statusBar.Renderer = new OfficeClassicStatusBarRenderer();
 			OnRendererChanged();
 		}
 
 		/// <summary>
-		/// Processes the <c>View.RendererOffice2007Black</c> command.
+		/// Processes the <c>View.RendererOfficeClassicBlue</c> command.
 		/// </summary>
-		private void ProcessViewRendererOffice2007Black() {
-			barManager.Renderer = new Office2003BarRenderer(WindowsColorSchemeType.Office2007Black);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(WindowsColorSchemeType.Office2007Black);
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.Office2007Black);
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.Office2007Black);
-			statusBar.Renderer = new Office2003StatusBarRenderer();
+		private void ProcessViewRendererOfficeClassicBlue() {
+			barManager.Renderer = new OfficeClassicBarRenderer(WindowsColorSchemeType.OfficeClassicBlue);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDockRenderer(WindowsColorSchemeType.OfficeClassicBlue);
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer(WindowsColorSchemeType.OfficeClassicBlue);
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicToolWindowTabStripRenderer(WindowsColorSchemeType.OfficeClassicBlue);
+			statusBar.Renderer = new OfficeClassicStatusBarRenderer();
 			OnRendererChanged();
 		}
 
 		/// <summary>
-		/// Processes the <c>View.RendererOffice2007Blue</c> command.
+		/// Processes the <c>View.RendererOfficeClassicSilver</c> command.
 		/// </summary>
-		private void ProcessViewRendererOffice2007Blue() {
-			barManager.Renderer = new Office2003BarRenderer(WindowsColorSchemeType.Office2007Blue);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(WindowsColorSchemeType.Office2007Blue);
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.Office2007Blue);
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.Office2007Blue);
-			statusBar.Renderer = new Office2003StatusBarRenderer();
+		private void ProcessViewRendererOfficeClassicSilver() {
+			barManager.Renderer = new OfficeClassicBarRenderer(WindowsColorSchemeType.OfficeClassicSilver);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDockRenderer(WindowsColorSchemeType.OfficeClassicSilver);
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer(WindowsColorSchemeType.OfficeClassicSilver);
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicToolWindowTabStripRenderer(WindowsColorSchemeType.OfficeClassicSilver);
+			statusBar.Renderer = new OfficeClassicStatusBarRenderer();
 			OnRendererChanged();
 		}
 
 		/// <summary>
-		/// Processes the <c>View.RendererOffice2007Silver</c> command.
+		/// Processes the <c>View.RendererWindowsClassic</c> command.
 		/// </summary>
-		private void ProcessViewRendererOffice2007Silver() {
-			barManager.Renderer = new Office2003BarRenderer(WindowsColorSchemeType.Office2007Silver);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(WindowsColorSchemeType.Office2007Silver);
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(WindowsColorSchemeType.Office2007Silver);
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(WindowsColorSchemeType.Office2007Silver);
-			statusBar.Renderer = new Office2003StatusBarRenderer();
+		private void ProcessViewRendererWindowsClassic() {
+			barManager.Renderer = new WindowsClassicBarRenderer();
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.WindowsClassicDockRenderer();
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.WindowsClassicDocumentWindowTabStripRenderer();
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.WindowsClassicToolWindowTabStripRenderer();
+			statusBar.Renderer = new WindowsClassicStatusBarRenderer();
 			OnRendererChanged();
 		}
 
 		/// <summary>
-		/// Processes the <c>View.RendererVisualStudio2002</c> command.
+		/// Processes the <c>View.RendererVisualStudioClassic</c> command.
 		/// </summary>
-		private void ProcessViewRendererVisualStudio2002() {
-			barManager.Renderer = new VisualStudio2002BarRenderer();
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2002DockRenderer();
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2002DocumentWindowTabStripRenderer();
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2002ToolWindowTabStripRenderer();
-			statusBar.Renderer = new VisualStudio2002StatusBarRenderer();
+		private void ProcessViewRendererVisualStudioClassic() {
+			barManager.Renderer = new OfficeClassicBarRenderer(WindowsColorSchemeType.VisualStudioClassic);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioClassicDockRenderer();
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioClassicDocumentWindowTabStripRenderer();
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioClassicToolWindowTabStripRenderer();
+			statusBar.Renderer = new VisualStudioClassicStatusBarRenderer();
 			OnRendererChanged();
 		}
 
 		/// <summary>
-		/// Processes the <c>View.RendererVisualStudio2005</c> command.
+		/// Processes the <c>View.RendererVisualStudioBlue</c> command.
 		/// </summary>
-		private void ProcessViewRendererVisualStudio2005() {
-			barManager.Renderer = new Office2003BarRenderer(WindowsColorSchemeType.VisualStudio2005);
-			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005DockRenderer();
-			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005DocumentWindowTabStripRenderer();
-			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer();
-			statusBar.Renderer = new VisualStudio2005StatusBarRenderer();
+		private void ProcessViewRendererVisualStudioBlue() {
+			barManager.Renderer = new VisualStudioBarRenderer(WindowsColorSchemeType.VisualStudioBlue);
+			dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioDockRenderer(WindowsColorSchemeType.VisualStudioBlue);
+			dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioDocumentWindowTabStripRenderer(WindowsColorSchemeType.VisualStudioBlue);
+			dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioToolWindowTabStripRenderer(WindowsColorSchemeType.VisualStudioBlue);
+			statusBar.Renderer = new MetroStatusBarRenderer(WindowsColorSchemeType.VisualStudioBlue);
 			OnRendererChanged();
 		}
 

@@ -216,6 +216,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 				case "Python (in Python Language Add-on)":
 					// Python Language Add-on Python language
 					this.LoadLanguage(new ActiproSoftware.Text.Languages.Python.Implementation.PythonSyntaxLanguage());
+					editor.Document.FileName = "mymodule.py";
 					break;
 				case "RTF":
 					this.LoadLanguageDefinitionFromFile("Rtf.langdef");
@@ -595,6 +596,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 						currentLineHighlightingEnabledToolStripMenuItem.Checked = !currentLineHighlightingEnabledToolStripMenuItem.Checked;
 						editor.IsCurrentLineHighlightingEnabled = currentLineHighlightingEnabledToolStripMenuItem.Checked;
 						break;
+					case nameof(currentLineNumberHighlightingEnabledToolStripMenuItem):
+						currentLineNumberHighlightingEnabledToolStripMenuItem.Checked = !currentLineNumberHighlightingEnabledToolStripMenuItem.Checked;
+						editor.IsCurrentLineNumberHighlightingEnabled = currentLineNumberHighlightingEnabledToolStripMenuItem.Checked;
+						break;
 					case nameof(delimiterHighlightingEnabledToolStripMenuItem):
 						delimiterHighlightingEnabledToolStripMenuItem.Checked = !delimiterHighlightingEnabledToolStripMenuItem.Checked;
 						editor.IsDelimiterHighlightingEnabled = delimiterHighlightingEnabledToolStripMenuItem.Checked;
@@ -942,21 +947,21 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			// Configure the editor with the per-instance renderer
 			editor.Renderer = renderer;
 
-			// Ensure symbol selector is refreshed
-			symbolSelector.Invalidate();
-
 			// Update colors on this control to be consistent with the color scheme
+			//
+			// The color properties for SyntaxEditor.BackColor and SyntaxEditor.ForeColor
+			//   are only used when the corresponding color properties of the "Plain Text" highlighting
+			//   style are undefined (which is the default).
 			var colorScheme = renderer.ColorScheme;
 			editorPanel.BackColor = colorScheme.GetKnownColor(KnownColor.Control);
 			editor.BackColor = colorScheme.GetKnownColor(KnownColor.Window);
 			editor.ForeColor = colorScheme.GetKnownColor(KnownColor.WindowText);
 
 			// Configure global image set and highlighting style registry for light/dark theme
-			SyntaxEditorHelper.UpdateImageSetForThemeChange(colorScheme);
-			SyntaxEditorHelper.UpdateHighlightingStyleRegistryForThemeChange(colorScheme);
+			SyntaxEditorThemeManager.ColorScheme = colorScheme;
 
 			// Update the check status of menu items
-			bool isDarkTheme = colorScheme.IsDarkColorScheme();
+			bool isDarkTheme = SyntaxEditorThemeManager.IsDarkThemeActive;
 			lightThemeToolStripMenuItem.Checked = !isDarkTheme;
 			darkThemeToolStripMenuItem.Checked = isDarkTheme;
 		}
@@ -981,8 +986,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 			vbProjectAssembly.AssemblyReferences.Clear();
 
 			// Restore SyntaxEditor image set and highlighting style registry to match the global configuration
-			SyntaxEditorHelper.UpdateImageSetForThemeChange(UIRendererManager.ColorScheme);
-			SyntaxEditorHelper.UpdateHighlightingStyleRegistryForThemeChange(UIRendererManager.ColorScheme);
+			SyntaxEditorThemeManager.ColorScheme = null;
 		}
 
 		/// <inheritdoc/>

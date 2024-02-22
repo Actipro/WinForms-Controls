@@ -120,12 +120,23 @@
   <data name="editor.Text" xml:space="preserve">
     <value>/*
 
-This sample shows the current line highlighting feature, which renders
-a highlight in the active view over the view line that contains the caret.
+This sample shows two options for emphasizing the line in the active view
+that contains the caret.
+
+Current line highlighting renders a border above and below the current
+line with an optional background color.
 
 Set the SyntaxEditor.IsCurrentLineHighlightingEnabled property to true
 to activate it.  The highlight color can be set via a style associated
 with the pre-defined DisplayItemClassificationTypes.CurrentLine 
+classification type.
+
+Current line number highlighting uses a different style in the line
+number margin to render the current line.
+
+Set the SyntaxEditor.IsCurrentLineNumberHighlightingEnabled property to
+true to activate it.  The highlight color can be set via a style associated
+with the pre-defined DisplayItemClassificationTypes.LineNumberCurrent
 classification type.
 
 */

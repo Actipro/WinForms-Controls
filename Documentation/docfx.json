@@ -5,24 +5,8 @@
 				{
 					"src": "../../Deploy/Build/AssembliesDocFX",
 					"files": [
-						"ActiproSoftware.Shared.WinForms.dll",
-						"ActiproSoftware.Bars.WinForms.dll",
-						"ActiproSoftware.Docking.WinForms.dll",
-						"ActiproSoftware.Navigation.WinForms.dll",
-						"ActiproSoftware.SyntaxEditor.Addons.DotNet.WinForms.dll",
-						"ActiproSoftware.SyntaxEditor.Addons.JavaScript.WinForms.dll",
-						"ActiproSoftware.SyntaxEditor.Addons.Python.WinForms.dll",
-						"ActiproSoftware.SyntaxEditor.Addons.Xml.WinForms.dll",
-						"ActiproSoftware.SyntaxEditor.WinForms.dll",
-						"ActiproSoftware.Text.Addons.DotNet.WinForms.dll",
-						"ActiproSoftware.Text.Addons.DotNet.Roslyn.WinForms.dll",
-						"ActiproSoftware.Text.Addons.JavaScript.WinForms.dll",
-						"ActiproSoftware.Text.Addons.Python.WinForms.dll",
-						"ActiproSoftware.Text.Addons.Xml.WinForms.dll",
-						"ActiproSoftware.Text.LLParser.WinForms.dll",
-						"ActiproSoftware.Text.WinForms.dll",
-						"ActiproSoftware.Wizard.WinForms.dll"
-						// "**.csproj"
+						// Actipro assemblies
+						"ActiproSoftware.*.dll"
 					]
 				}
 			],
@@ -36,6 +20,7 @@
 				"src": "topics",
 				"files": [
 					"**.md",
+					"api/ActiproSoftware.yml",
 					"api/ActiproSoftware.*.yml",
 					"api/toc.yml",
 					"toc.yml"
@@ -68,10 +53,10 @@
 			"_appTitle": "Actipro WinForms Controls Docs",
 			"_docsCompanyHref": "https://www.actiprosoftware.com/products/controls/windowsforms",
 			"_docsCompanyName": "Actipro Software LLC",
-			"_docsCopyrightYears": "1999-2023",
+			"_docsCopyrightYears": "1999-2024",
 			"_docsProductHref": "https://www.actiprosoftware.com/products/controls/windowsforms",
 			"_docsProductName": "WinForms Controls",
-			"_docsProductVersion": "23.1",
+			"_docsProductVersion": "24.1",
 			"_disableContribution": true,
 			"_enableNewTab": true,
 			"_gitContribute": {

@@ -25,7 +25,7 @@
 		private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainControl));
-            ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer visualStudio2005ToolWindowTabStripRenderer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer();
+            ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioClassicToolWindowTabStripRenderer visualStudio2005ToolWindowTabStripRenderer1 = new ActiproSoftware.UI.WinForms.Controls.Docking.VisualStudioClassicToolWindowTabStripRenderer();
             ActiproSoftware.UI.WinForms.Drawing.MultiColorLinearGradient multiColorLinearGradient1 = new ActiproSoftware.UI.WinForms.Drawing.MultiColorLinearGradient();
             ActiproSoftware.UI.WinForms.Drawing.MultiColorLinearGradient multiColorLinearGradient2 = new ActiproSoftware.UI.WinForms.Drawing.MultiColorLinearGradient();
             ActiproSoftware.UI.WinForms.Controls.Navigation.MetroNavigationBarRenderer metroNavigationBarRenderer1 = new ActiproSoftware.UI.WinForms.Controls.Navigation.MetroNavigationBarRenderer(ActiproSoftware.UI.WinForms.Drawing.WindowsColorSchemeType.MetroLight);
@@ -559,14 +559,14 @@
             "Metro Light Tool Window",
             "Metro Dark Document Window",
             "Metro Dark Tool Window",
-            "Office 2003 Document Window",
-            "Office 2003 Tool Window",
-            "Office 2003 (based on Visual Studio 2005 Beta 2 style) Tool Window",
-            "Visual Studio 2005 Document Window",
-            "Visual Studio 2005 Tool Window",
-            "Visual Studio 2005 Beta 2 Tool Window",
-            "Visual Studio 2002 Document Window",
-            "Visual Studio 2002 Tool Window",
+            "Visual Studio Blue Document Window",
+            "Visual Studio Blue Tool Window",
+            "Visual Studio Classic Document Window",
+            "Visual Studio Classic Tool Window",
+            "Office Classic Document Window",
+            "Office Classic Tool Window",
+            "Windows Classic Document Window",
+            "Windows Classic Tool Window",
             "Custom"});
             this.rendererDropDownList.Location = new System.Drawing.Point(70, 13);
             this.rendererDropDownList.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);

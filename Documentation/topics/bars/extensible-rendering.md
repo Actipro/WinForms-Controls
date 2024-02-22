@@ -9,39 +9,40 @@ All the bar controls use an extensible rendering model that is based on our comm
 
 This object model allows for three levels of rendering customization.  Choose which level of customization you wish to use:
 
-- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include all Visual Studio and Office styles.
+- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include several Metro, Visual Studio, and Office styles.
 - Modify Properties on Built-In Renderers - Use the built-in renderers but modify the various properties on the renderers to easily create a customized appearance.
 - Create Custom Renderers - Implement the [IBarRenderer](xref:@ActiproUIRoot.Controls.Bars.IBarRenderer) or [IStatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.IStatusBarRenderer) interfaces or inherit our [BarRenderer](xref:@ActiproUIRoot.Controls.Bars.BarRenderer) or [StatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.StatusBarRenderer) classes to do all the measuring and drawing of the controls and their elements yourself.
 
 These are some sample rendering styles that come with [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) and [StatusBar](xref:@ActiproUIRoot.Controls.Bars.StatusBar):
 
-![Screenshot](images/bar-controls-metro-light.png)![Screenshot](images/bar-controls-office-2007-blue.png)![Screenshot](images/bar-controls-office-2007-silver.png)![Screenshot](images/bar-controls-office-2007-black.png)![Screenshot](images/bar-controls-office-2003-blue.png)![Screenshot](images/bar-controls-office-2003-olive-green.png)![Screenshot](images/bar-controls-office-2003-silver.png)![Screenshot](images/bar-controls-office-2003-royale.png)![Screenshot](images/bar-controls-windows-classic.png)![Screenshot](images/bar-controls-visual-studio-2002.png)![Screenshot](images/bar-controls-visual-studio-2005.png)
+![Screenshot](images/bar-controls-metro-light.png)![Screenshot](images/bar-controls-office-2007-blue.png)![Screenshot](images/bar-controls-office-2007-silver.png)![Screenshot](images/bar-controls-office-2007-black.png)![Screenshot](images/bar-controls-office-2003-blue.png)![Screenshot](images/bar-controls-office-2003-olive-green.png)![Screenshot](images/bar-controls-office-2003-silver.png)![Screenshot](images/bar-controls-windows-classic.png)![Screenshot](images/bar-controls-visual-studio-2002.png)![Screenshot](images/bar-controls-visual-studio-2005.png)
 
 ## Use Built-In Renderers As-Is
 
-Bars includes these built-in renderers, which support Metro Light, Metro Dark, Office, and Visual Studio styles:
+Bars includes these built-in renderers, which support Metro, Visual Studio, Office, and other classic styles:
 
 | Renderer | Description |
 |-----|-----|
 | [MetroBarRenderer](xref:@ActiproUIRoot.Controls.Bars.MetroBarRenderer) | Capable of drawing Metro styles (Light and Dark) for bar controls.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Bars.MetroBarRenderer.BaseColorSchemeType). |
 | [MetroStatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.MetroStatusBarRenderer) | Capable of drawing Metro styles (Light and Dark) for statusbar controls.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Bars.MetroStatusBarRenderer.BaseColorSchemeType). |
-| [Office2003BarRenderer](xref:@ActiproUIRoot.Controls.Bars.Office2003BarRenderer) | Capable of drawing all Office 2007 styles (Blue, Silver, Black), Office 2003 styles (Blue, Olive, Silver, Royale, and Windows Classic), as well as the Visual Studio 2005 style for bar controls.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Bars.Office2003BarRenderer.BaseColorSchemeType). |
-| [Office2003StatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.Office2003StatusBarRenderer) | Capable of drawing all Office styles for statusbar controls. |
-| [VisualStudio2002BarRenderer](xref:@ActiproUIRoot.Controls.Bars.VisualStudio2002BarRenderer) | Capable of drawing Visual Studio 2002 bar controls. |
-| [VisualStudio2002StatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.VisualStudio2002StatusBarRenderer) | Capable of drawing Visual Studio 2002 statusbar controls. |
-| [VisualStudio2005StatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.VisualStudio2005StatusBarRenderer) | Capable of drawing Visual Studio 2005 statusbar controls. |
+| [OfficeClassicBarRenderer](xref:@ActiproUIRoot.Controls.Bars.OfficeClassicBarRenderer) | Capable of drawing all Office classic styles (Blue, Silver, Black), Luna styles (Blue, Olive Green, Silver), and Windows Classic, as well as the Visual Studio classic style for bar controls.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Bars.OfficeClassicBarRenderer.BaseColorSchemeType). |
+| [OfficeClassicStatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.OfficeClassicStatusBarRenderer) | Capable of drawing all Office styles for statusbar controls. |
+| [VisualStudioBarRenderer](xref:@ActiproUIRoot.Controls.Bars.VisualStudioBarRenderer) | Capable of drawing Visual Studio bar controls. |
+| [VisualStudioClassicStatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.VisualStudioClassicStatusBarRenderer) | Capable of drawing Visual Studio classic statusbar controls. |
+| [WindowsClassicBarRenderer](xref:@ActiproUIRoot.Controls.Bars.WindowsClassicBarRenderer) | Capable of drawing Windows classic bar controls. |
+| [WindowsClassicStatusBarRenderer](xref:@ActiproUIRoot.Controls.Bars.WindowsClassicStatusBarRenderer) | Capable of drawing Windows classic statusbar controls. |
 
 ## Color Tinting Color Schemes
 
-With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a tan or red color scheme and then use those color schemes with the [Office2003BarRenderer](xref:@ActiproUIRoot.Controls.Bars.Office2003BarRenderer) class like this:
+With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a tan or red color scheme and then use those color schemes with the [OfficeClassicBarRenderer](xref:@ActiproUIRoot.Controls.Bars.OfficeClassicBarRenderer) class like this:
 
 ![Screenshot](images/bar-controls-custom-tan.png)![Screenshot](images/bar-controls-custom-red.png)
 
-This code shows how to load a custom tan-tinted color scheme (displayed in the screenshot above) that is based on the built-in Windows XP blue theme:
+This code shows how to load a custom tan-tinted color scheme (displayed in the screenshot above) that is based on the built-in Luna blue theme:
 
 ```csharp
-WindowsColorScheme scheme = new WindowsColorScheme("Tan", WindowsColorSchemeType.WindowsXPBlue, Color.Tan);
-barManager.Renderer = new Office2003BarRenderer(scheme);
+var scheme = new WindowsColorScheme("Tan", WindowsColorSchemeType.LunaBlue, Color.Tan);
+barManager.Renderer = new OfficeClassicBarRenderer(scheme);
 ```
 
 ## Customizing Specific Colors in a Color Scheme

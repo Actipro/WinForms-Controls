@@ -9,7 +9,7 @@ The Dock controls use an extensible rendering model that is based on our common 
 
 This object model allows for three levels of rendering customization.  Choose which level of customization you wish to use:
 
-- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include all Visual Studio and Office styles.
+- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include many Metro, Visual Studio, and Office styles.
 
 - Modify Properties on Built-In Renderers - Use the built-in renderers but modify the various properties on the renderers to easily create a customized appearance.
 
@@ -23,23 +23,23 @@ These are some sample rendering styles that come with [DockManager](xref:@Actipr
 
 ![Screenshot](images/dock-controls-visual-studio-2005.png)
 
-*Visual Studio 2005-themed Dock controls*
+*Visual Studio Classic-themed Dock controls*
 
 ![Screenshot](images/dock-controls-office-2003-blue.png)
 
-*Office 2003 blue-themed Dock controls*
+*Office Classic blue-themed Dock controls*
 
 ![Screenshot](images/dock-controls-office-2003-olive-green.png)
 
-*Office 2003 olive green-themed Dock controls*
+*Office Classic olive green-themed Dock controls*
 
 ![Screenshot](images/dock-controls-office-2003-silver.png)
 
-*Office 2003 blue-themed Dock controls*
+*Office Classic blue-themed Dock controls*
 
 ![Screenshot](images/dock-controls-office-2003-black.png)
 
-*Office 2003 black-themed Dock controls*
+*Office Classic black-themed Dock controls*
 
 ## DockManager Renderers
 
@@ -53,27 +53,27 @@ The [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component us
 
 ## Use Built-In Renderers As-Is
 
-Dock includes these built-in renderers, which support Metro Light, Metro Dark, Office, and Visual Studio styles:
+Dock includes these built-in renderers, which support Metro, Visual Studio, Office, and other classic styles:
 
 | Renderer | Description |
 |-----|-----|
 | [MetroDockRenderer](xref:@ActiproUIRoot.Controls.Docking.MetroDockRenderer) | Capable of drawing Metro styles (Light and Dark) for dock controls.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.MetroDockRenderer.BaseColorSchemeType). |
-| [Office2003DockRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003DockRenderer) | Capable of drawing all Office 2007 styles (Blue, Silver, Black) and Office 2003 styles (Blue, Olive, Silver, Royale, and Windows Classic).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer.BaseColorSchemeType). |
-| [VisualStudio2002DockRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2002DockRenderer) | Capable of drawing Visual Studio 2002 dock controls. |
-| [VisualStudio2005DockRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2005DockRenderer) | Capable of drawing Visual Studio 2005 dock controls. |
-| [VisualStudio2005Beta2DockRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2005Beta2DockRenderer) | Capable of drawing Visual Studio 2005 Beta 2 dock controls. |
+| [OfficeClassicDockRenderer](xref:@ActiproUIRoot.Controls.Docking.OfficeClassicDockRenderer) | Capable of drawing all Office classic styles (Blue, Silver, Black), Luna styles (Blue, Olive Green, Silver), and Windows Classic).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.OfficeClassicDockRenderer.BaseColorSchemeType). |
+| [VisualStudioDockRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudioDockRenderer) | Capable of drawing Visual Studio classic dock controls. |
+| [VisualStudioClassicDockRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudioClassicDockRenderer) | Capable of drawing Visual Studio classic dock controls. |
+| [WindowsClassicDockRenderer](xref:@ActiproUIRoot.Controls.Docking.WindowsClassicDockRenderer) | Capable of drawing Windows classic dock controls. |
 
 ## Color Tinting Color Schemes
 
-With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a tan or red color scheme and then use those color schemes with the [Office2003DockRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003DockRenderer), [Office2003DocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003DocumentWindowTabStripRenderer), and [Office2003ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003ToolWindowTabStripRenderer) classes like this:
+With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a tan or red color scheme and then use those color schemes with the [OfficeClassicDockRenderer](xref:@ActiproUIRoot.Controls.Docking.OfficeClassicDockRenderer), [OfficeClassicDocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer), and [OfficeClassicToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.OfficeClassicToolWindowTabStripRenderer) classes like this:
 
-This code shows how to load a custom tan-tinted color scheme (displayed in the screenshot above) that is based on the built-in Windows XP blue theme:
+This code shows how to load a custom tan-tinted color scheme (displayed in the screenshot above) that is based on the built-in Luna blue theme:
 
 ```csharp
-WindowsColorScheme scheme = new WindowsColorScheme("Tan", WindowsColorSchemeType.WindowsXPBlue, Color.Tan);
-dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DockRenderer(scheme);
-dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(scheme);
-dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003ToolWindowTabStripRenderer(scheme);
+var scheme = new WindowsColorScheme("Tan", WindowsColorSchemeType.LunaBlue, Color.Tan);
+dockManager.DockRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDockRenderer(scheme);
+dockManager.TabbedMdiContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer(scheme);
+dockManager.ToolWindowContainerTabStripRenderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicToolWindowTabStripRenderer(scheme);
 ```
 
 ## Customizing Specific Colors in a Color Scheme

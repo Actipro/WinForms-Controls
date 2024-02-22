@@ -48,6 +48,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 			// Load the Web Languages Add-on Python language
 			var language = new PythonSyntaxLanguage();
 			codeEditor.Document.Language = language;
+			codeEditor.Document.FileName = "mymodule.py";
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////

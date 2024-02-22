@@ -11,7 +11,126 @@
 		<div class="section-content">
 			<div class="container">
 
+				<h2>Version 24.1</h2>
+
+
+				<h3>2/23/2024 - v24.1.0</h3>
+				<h4>Bars</h4>
+				<ul>
+					<li>Added modern Visual Studio renderers.</li>
+					<li>Improved how MetroStatusBarRenderer draws the resize gripper.  Added new StatusBarGripperLightColor and StatusBarGripperDarkColor properties to replace single StatusBarGripperForeColor property.</li>
+					<li>Improved toolbar separator rendering across multiple renderers to be more accurate.</li>
+					<li>Renamed VisualStudio2002BarRenderer as WindowsClassicBarRenderer.</li>
+					<li>Renamed Office2003BarRenderer as OfficeClassicBarRenderer.</li>
+					<li>Renamed VisualStudio2002StatusBarRenderer as WindowsClassicStatusBarRenderer.</li>
+					<li>Renamed VisualStudio2005StatusBarRenderer as VisualStudioClassicStatusBarRenderer.</li>
+					<li>Renamed Office2003StatusBarRenderer as OfficeClassicStatusBarRenderer.</li>
+				</ul>
+				<h4>Docking</h4>
+				<ul>
+					<li>Added modern Visual Studio renderers.</li>
+					<li>Renamed VisualStudio2002DockRenderer as WindowsClassicDockRenderer.</li>
+					<li>Renamed VisualStudio2002DocumentWindowTabStripRenderer as WindowsClassicDocumentWindowTabStripRenderer.</li>
+					<li>Renamed VisualStudio2002ToolWindowTabStripRenderer as WindowsClassicToolWindowTabStripRenderer.</li>
+					<li>Renamed VisualStudio2005DockRenderer as VisualStudioClassicDockRenderer.</li>
+					<li>Renamed VisualStudio2005DocumentWindowTabStripRenderer as VisualStudioClassicDocumentWindowTabStripRenderer.</li>
+					<li>Renamed VisualStudio2005ToolWindowTabStripRenderer as VisualStudioClassicToolWindowTabStripRenderer.</li>
+					<li>Renamed Office2003DockRenderer as OfficeClassicDockRenderer.</li>
+					<li>Renamed Office2003DocumentWindowTabStripRenderer as OfficeClassicDocumentWindowTabStripRenderer.</li>
+					<li>Renamed Office2003ToolWindowTabStripRenderer as OfficeClassicToolWindowTabStripRenderer.</li>
+					<li>Renamed VisualStudioTabStripRenderer as VisualStudioTabStripRendererBase.</li>
+					<li>Deprecated all Visual Studio 2005 Beta 2 renderers with plans to remove in a future release.</li>
+				</ul>
+				<h4>Navigation</h4>
+				<ul>
+					<li>Renamed Office2003NavigationBarRenderer as OfficeLunaNavigationBarRenderer.</li>
+					<li>Renamed Office2007NavigationBarRenderer as OfficeClassicNavigationBarRenderer.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added native support to switch between light and dark themes using distinct color palettes for each theme intent.</li>
+					<li>Added SyntaxEditorThemeManager to simplify the process of switching between light and dark themes.</li>
+					<li>Added SyntaxEditor.IsCurrentLineNumberHighlightingEnabled feature that will render the current line number in a style defined by DisplayItemClassificationTypeProvider.LineNumberCurrent.</li>
+					<li>Added built-in Operator and Punctuation IClassificationType instances to ClassifictionTypes.</li>
+					<li>Added BuiltInClassificationTypesProvider that will automatically register highlighting styles for built-in IClassificationType instances defined in ClassificationTypes.</li>
+					<li>Added Punctuation classification type to sample language definitions (where appropriate).</li>
+					<li>Added DisplayItemClassificationTypes.WordWrapGlyph to separate the word wrap glyph color from the visible white space color.</li>
+					<li>Added MarkdownDeleted classification type and highlighting style to the free Markdown language project and definition files.</li>
+					<li>Added support for primary and secondary carets to render with different brushes based on corresponding highlighting styles.</li>
+					<li>Updated collapsible region foreground, current line background/border, delimiter matching background, and find match highlight background colors to render with a default opacity when configured with opaque colors.</li>
+					<li>Updated NavigableSymbolSelector to automatically invalidate itself when renderer-related properties of the assocaited SyntaxEditor control are changed.</li>
+					<li>Fixed word wrap glyphs not rendered in printer usage scenarios.</li>
+					<li>Fixed printer rendering when syntax highlighting was enabled and the editor was configured for use with a dark theme.</li>
+					<li>Changed the system font used for overlay panes to better support system text sizes and DPI scaling.</li>
+				</ul>
+				<h5>JavaScript Language Add-on</h5>
+				<ul>
+					<li>Added Punctuation classification type.</li>
+					<li>Fixed Operator classification type not being applied.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Updated the C# parser grammar to support C# 9.0 syntax.</li>
+					<li>Updated the Roslyn extensions to use the latest Microsoft.CodeAnalysis.Compilers v4.8 NuGet package.</li>
+					<li>Improved resolver support for C# local functions.</li>
+					<li>Improved documentation comment display in IntelliPrompt to support 'para' and 'br' tags.</li>
+					<li>Added Punctuation classification type.</li>
+					<li>Fixed Operator classification type not being applied.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Added support for IntelliPrompt to use type hint annotations.</li>
+					<li>Improved the resolver's ability to resolve types within external modules that were defined in other modules.</li>
+					<li>Added Punctuation classification type.</li>
+					<li>Fixed Operator classification type not being applied.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Added UIRendererManager.ColorSchemeChanged event that is raised when the UIRendererManager.ColorScheme property is changed.</li>
+					<li>Added several enhancements to the UIColor class with support for additional color types, grayscale conversion, and chromatic adaptation.</li>
+					<li>Renamed WindowsXPScrollBarRenderer as WindowsScrollBarRenderer.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Fixed an issue in the nativer rendering logic related to clip rectangles.</li>
+				</ul>
+				<h4>All</h4>
+				<ul>
+					<li>API documentation is based on assemblies that target .NET 6 (previously .NET Framework).</li>
+					<li>The Sample Browser application included with the installer changed target from .NET Framework 4.7.2 to .NET 6.</li>
+					<li>Removed official support for Visual Studio 2017 although users should still be able to continue using the IDE for their own applications. Sample Browser requires Visual Studio 2019 or newer.</li>
+					<li>Added new Visual Studio Blue color scheme and modern Visual Studio renderers.</li>
+					<li>Removed all previously deprecated "metro light" renderers that were replaced by the unified "metro" renderers that support both dark and light.</li>
+					<li>Renamed WindowsColorSchemeType.VisualStudio2005 and WindowsColorScheme.VisualStudio2005 as VisualStudioClassic.</li>
+					<li>Renamed all WindowsColorSchemeType.Office2007* and WindowsColorScheme.Office2007* values as OfficeClassic (e.g., Office2007Blue renamed as OfficeClassicBlue).</li>
+					<li>Renamed most WindowsColorSchemeType.WindowsXP* and WindowsColorScheme.WindowsXP* values as Luna (e.g., WindowsXPBlue renamed as LunaBlue).  WindowsXPRoyale has been deprecated since it replicates other classic themes and will be removed in a future release.</li>
+				</ul>
+
+				<p>
+					<!-- Older version toggle -->
+					<a id="toggle-link" href="#toggle-link" onclick="var els = document.getElementsByClassName('section-content'); for (var i = 0; i < els.length; i++) els[i].classList.remove('d-none'); this.classList.add('d-none');">See release history for older versions</a>
+				</p>
+
+			</div>
+		</div>
+
+		<div class="section-content d-none bg-silver">
+			<div class="container">
+
+
 				<h2>Version 23.1</h2>
+
+
+				<h3>2/23/2024 - v23.1.4</h3>
+				<h4>SyntaxEditor</h4>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Fixed a C# grammar issue related to pattern expression parsing.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Improved the parsing of subscription expressions.</li>
+				</ul>
 
 
 				<h3>12/4/2023 - v23.1.3</h3>
@@ -199,7 +318,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 				<h2>Version 22.1</h2>
@@ -403,7 +522,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none">
+		<div class="section-content d-none bg-silver">
 			<div class="container">
 
 				<h2>Version 21.1</h2>
@@ -558,7 +677,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 				<h2>Version 20.1</h2>
@@ -841,7 +960,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none">
+		<div class="section-content d-none bg-silver">
 			<div class="container">
 
 				<h2>Version 18.1</h2>
@@ -918,7 +1037,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 				<h2>Version 16.1</h2>
@@ -964,7 +1083,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none">
+		<div class="section-content d-none bg-silver">
 			<div class="container">
 
 				<h2>Version 14.1</h2>
@@ -1076,7 +1195,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 				<h2>Version 13.1</h2>
@@ -1145,7 +1264,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none">
+		<div class="section-content d-none bg-silver">
 			<div class="container">
 
 				<h2>Version 12.1</h2>

@@ -11,7 +11,7 @@ using System.Runtime.Versioning;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Actipro Software LLC")]
 [assembly: AssemblyProduct("WinForms Controls Sample Browser")]
-[assembly: AssemblyCopyright("Copyright (c) 2002-2023 Actipro Software LLC.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright (c) 2002-2024 Actipro Software LLC.  All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
@@ -29,5 +29,5 @@ using System.Runtime.Versioning;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("23.1.3.0")]
-[assembly: AssemblyInformationalVersion("23.1.3.0 - 20230911")]
+[assembly: AssemblyVersion("24.1.0.0")]
+[assembly: AssemblyInformationalVersion("24.1.0.0 - 20240206")]

@@ -173,6 +173,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
             this.indentationGuidesVisibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lineModificationMarksVisibleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.currentLineHighlightingEnabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.currentLineNumberHighlightingEnabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.delimiterHighlightingEnabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoCorrectEnabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripSeparator();
@@ -1338,6 +1339,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
             this.indentationGuidesVisibleToolStripMenuItem,
             this.lineModificationMarksVisibleToolStripMenuItem,
             this.currentLineHighlightingEnabledToolStripMenuItem,
+            this.currentLineNumberHighlightingEnabledToolStripMenuItem,
             this.delimiterHighlightingEnabledToolStripMenuItem,
             this.autoCorrectEnabledToolStripMenuItem,
             this.toolStripMenuItem19,
@@ -1469,13 +1471,23 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
             // 
             // currentLineHighlightingEnabledToolStripMenuItem
             // 
+            this.currentLineHighlightingEnabledToolStripMenuItem.Checked = true;
+            this.currentLineHighlightingEnabledToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.currentLineHighlightingEnabledToolStripMenuItem.Name = "currentLineHighlightingEnabledToolStripMenuItem";
             this.currentLineHighlightingEnabledToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.currentLineHighlightingEnabledToolStripMenuItem.Text = "Current Line Highlighting Enabled";
-            // 
-            // delimiterHighlightingEnabledToolStripMenuItem
-            // 
-            this.delimiterHighlightingEnabledToolStripMenuItem.Checked = true;
+			// 
+			// currentLineNumberHighlightingEnabledToolStripMenuItem
+			// 
+			this.currentLineNumberHighlightingEnabledToolStripMenuItem.Checked = true;
+			this.currentLineNumberHighlightingEnabledToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.currentLineNumberHighlightingEnabledToolStripMenuItem.Name = "currentLineNumberHighlightingEnabledToolStripMenuItem";
+			this.currentLineNumberHighlightingEnabledToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
+			this.currentLineNumberHighlightingEnabledToolStripMenuItem.Text = "Current Line Number Highlighting Enabled";
+			// 
+			// delimiterHighlightingEnabledToolStripMenuItem
+			// 
+			this.delimiterHighlightingEnabledToolStripMenuItem.Checked = true;
             this.delimiterHighlightingEnabledToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.delimiterHighlightingEnabledToolStripMenuItem.Name = "delimiterHighlightingEnabledToolStripMenuItem";
             this.delimiterHighlightingEnabledToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
@@ -2100,6 +2112,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 		private System.Windows.Forms.ToolStripMenuItem indentationGuidesVisibleToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem lineModificationMarksVisibleToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem currentLineHighlightingEnabledToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem currentLineNumberHighlightingEnabledToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem delimiterHighlightingEnabledToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem autoCorrectEnabledToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem collapseToDefinitionsToolStripMenuItem;

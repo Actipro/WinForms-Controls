@@ -23,7 +23,7 @@ Out of the box, the bar controls have [rendering capabilities](extensible-render
 
 ## Feature List
 
-- Built-in [rendering styles](extensible-rendering.md) include Metro Light, Metro Dark, Visual Studio, and Office styles.
+- Built-in [rendering styles](extensible-rendering.md) include Metro, Visual Studio, Office, and Windows Classic styles.
 
 - Robust rendering interface allows for totally customized rendering.
 

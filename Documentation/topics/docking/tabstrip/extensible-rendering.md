@@ -9,7 +9,7 @@ order: 9
 
 This object model allows for three levels of rendering customization.  Choose which level of customization you wish to use:
 
-- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include Metro Light, Metro Dark, Visual Studio, and Office for tool/document windows.
+- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include several Metro, Visual Studio, and Office styles for tool/document windows.
 - Modify Properties on Built-In Renderers - Use the built-in renderers but modify the various properties on the renderers to easily create a customized appearance.
 - Create Custom Renderers - Implement the [ITabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.ITabStripRenderer) interface or inherit our [TabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.TabStripRenderer) class to do all the measuring and drawing of the controls and their elements yourself.
 
@@ -35,24 +35,25 @@ Dock includes these built-in renderers:
 |-----|-----|
 | [MetroToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.MetroToolWindowTabStripRenderer) | Capable of drawing a Metro styles (Light and Dark) for a tool window.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.MetroToolWindowTabStripRenderer.BaseColorSchemeType). |
 | [MetroDocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.MetroDocumentWindowTabStripRenderer) | Capable of drawing a Metro styles (Light and Dark) for document window.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.MetroDocumentWindowTabStripRenderer.BaseColorSchemeType). |
-| [VisualStudio2005ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2005ToolWindowTabStripRenderer) | Capable of drawing a Visual Studio 2005 tool window. |
-| [VisualStudio2005DocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2005DocumentWindowTabStripRenderer) | Capable of drawing a Visual Studio 2005 document window. |
-| [VisualStudio2005Beta2ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2005Beta2ToolWindowTabStripRenderer) | Capable of drawing a Visual Studio 2005 Beta 2 tool window. |
-| [VisualStudio2002ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2002ToolWindowTabStripRenderer) | Capable of drawing a Visual Studio 2002 tool window. |
-| [VisualStudio2002DocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2002DocumentWindowTabStripRenderer) | Capable of drawing a Visual Studio 2002 document window. |
-| [Office2003ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003ToolWindowTabStripRenderer) | Capable of drawing all Office styles (Blue, Olive, Silver, and Windows Classic) for a tool window.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.Office2003ToolWindowTabStripRenderer.BaseColorSchemeType). |
-| [Office2003DocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003DocumentWindowTabStripRenderer) | Capable of drawing all Office styles (Blue, Olive, Silver, and Windows Classic) for a document window.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.Office2003DocumentWindowTabStripRenderer.BaseColorSchemeType). |
-| [Office2003VisualStudio2005Beta2ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003VisualStudio2005Beta2ToolWindowTabStripRenderer) | Capable of drawing all Office styles (Blue, Olive, Silver, and Windows Classic) for a tool window, using a style similar to the Visual Studio 2005 Beta 2 style.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.Office2003ToolWindowTabStripRenderer.BaseColorSchemeType). |
+| [OfficeClassicToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.OfficeClassicToolWindowTabStripRenderer) | Capable of drawing all Office classic styles (Blue, Black, Silver), Luna styles (Blue, Olive Green, Silver), and Windows Classic for a tool window.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.OfficeClassicToolWindowTabStripRenderer.BaseColorSchemeType). |
+| [OfficeClassicDocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer) | Capable of drawing all Office classic styles (Blue, Black, Silver), Luna styles (Blue, Olive Green, Silver), and Windows Classic for a document window.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer.BaseColorSchemeType). |
+| [VisualStudioToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudioToolWindowTabStripRenderer) | Capable of drawing a Visual Studio tool window. |
+| [VisualStudioDocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudioDocumentWindowTabStripRenderer) | Capable of drawing a Visual Studio document window. |
+| [VisualStudioClassicToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudioClassicToolWindowTabStripRenderer) | Capable of drawing a Visual Studio classic tool window. |
+| [VisualStudioClassicDocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudioClassicDocumentWindowTabStripRenderer) | Capable of drawing a Visual Studio classic document window. |
+| [WindowsClassicToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.WindowsClassicToolWindowTabStripRenderer) | Capable of drawing a Windows classic tool window. |
+| [WindowsClassicDocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.WindowsClassicDocumentWindowTabStripRenderer) | Capable of drawing a Windows classic document window. |
+
 
 ## Color Tinting Color Schemes
 
-With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a custom color scheme and then use those color schemes with the [Office2003DocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003DocumentWindowTabStripRenderer) and [Office2003ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.Office2003ToolWindowTabStripRenderer) classes.
+With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a custom color scheme and then use those color schemes with the [OfficeClassicDocumentWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer) and [OfficeClassicToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.OfficeClassicToolWindowTabStripRenderer) classes.
 
-This code shows how to load a custom purple-tinted color scheme that is based on the built-in Windows XP blue theme:
+This code shows how to load a custom purple-tinted color scheme that is based on the built-in Luna blue theme:
 
 ```csharp
-WindowsColorScheme scheme = new WindowsColorScheme("Purple", WindowsColorSchemeType.WindowsXPBlue, Color.Purple);
-tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.Office2003DocumentWindowTabStripRenderer(scheme);
+var scheme = new WindowsColorScheme("Purple", WindowsColorSchemeType.LunaBlue, Color.Purple);
+tabStrip.Renderer = new ActiproSoftware.UI.WinForms.Controls.Docking.OfficeClassicDocumentWindowTabStripRenderer(scheme);
 ```
 
 ## Customizing Specific Colors in a Color Scheme

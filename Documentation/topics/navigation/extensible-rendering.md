@@ -9,7 +9,7 @@ Both [NavigationBar](xref:@ActiproUIRoot.Controls.Navigation.NavigationBar) and 
 
 This object model allows for three levels of rendering customization.  Choose which level of customization you wish to use:
 
-- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include Metro Light, Metro Dark, Office 2007 styles (Blue, Silver, Black) and 2003 styles (Blue, Olive, Silver, and Windows Classic).
+- Use Built-In Renderers As-Is - Use the built-in rendering styles without any changes, which include several Metro, Visual Studio, and Office styles.
 
 - Modify Properties on Built-In Renderers - Use the built-in renderers but modify the various properties on the renderers to easily create a customized appearance.
 
@@ -17,7 +17,7 @@ This object model allows for three levels of rendering customization.  Choose wh
 
 These are some sample rendering styles that come with [NavigationBar](xref:@ActiproUIRoot.Controls.Navigation.NavigationBar):
 
-![Screenshot](images/navigationbar-metro-light.png)![Screenshot](images/navigationbar-metro-dark.png)![Screenshot](images/navigationbar-office-2007-blue.png)![Screenshot](images/navigationbar-office-2007-silver.png)![Screenshot](images/navigationbar-xp-blue.png)![Screenshot](images/navigationbar-xp-olive-green.png)![Screenshot](images/navigationbar-xp-silver.png)![Screenshot](images/navigationbar-xp-royale.png)
+![Screenshot](images/navigationbar-metro-light.png)![Screenshot](images/navigationbar-metro-dark.png)![Screenshot](images/navigationbar-office-2007-blue.png)![Screenshot](images/navigationbar-office-2007-silver.png)![Screenshot](images/navigationbar-xp-blue.png)![Screenshot](images/navigationbar-xp-olive-green.png)![Screenshot](images/navigationbar-xp-silver.png)
 
 ## Use Built-In Renderers As-Is
 
@@ -25,21 +25,21 @@ Navigation includes the following built-in renderers:
 
 | Renderer | Description |
 |-----|-----|
-| [MetroNavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.MetroNavigationBarRenderer) | Capable of drawing in a Metro style (Light and Dark).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer.BaseColorSchemeType). |
-| [Office2007NavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.Office2007NavigationBarRenderer) | Capable of drawing all Office 2007 styles (Blue, Silver, and Black).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer.BaseColorSchemeType). |
-| [Office2003NavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer) | Capable of drawing all Office 2003 styles (Blue, Olive, Silver, and Windows Classic).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer.BaseColorSchemeType). |
+| [MetroNavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.MetroNavigationBarRenderer) | Capable of drawing in a Metro style (Light and Dark).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.OfficeLunaNavigationBarRenderer.BaseColorSchemeType). |
+| [OfficeClassicNavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.OfficeClassicNavigationBarRenderer) | Capable of drawing all Office classic styles (Blue, Silver, and Black).  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.OfficeLunaNavigationBarRenderer.BaseColorSchemeType). |
+| [OfficeLunaNavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.OfficeLunaNavigationBarRenderer) | Capable of drawing all Office Luna styles (Blue, Olive Green, Silver), and Windows Classic.  To change to a different style, change the [BaseColorSchemeType](xref:@ActiproUIRoot.Controls.Navigation.OfficeLunaNavigationBarRenderer.BaseColorSchemeType). |
 
 ## Color Tinting Color Schemes
 
-With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a purple color scheme and then use those color schemes with the [Office2007NavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.Office2007NavigationBarRenderer) or [Office2003NavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.Office2003NavigationBarRenderer) classes like this:
+With one line of code, any `WindowsColorScheme` can be tinted so that all of the colors are altered.  For instance, you can easily create a purple color scheme and then use those color schemes with the [OfficeClassicNavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.OfficeClassicNavigationBarRenderer) or [OfficeLunaNavigationBarRenderer](xref:@ActiproUIRoot.Controls.Navigation.OfficeLunaNavigationBarRenderer) classes like this:
 
 ![Screenshot](images/navigationbar-custom-purple.gif)
 
-This code shows how to load a custom purple-tinted color scheme (displayed in the screenshot above) that is based on the built-in Office 2007 blue theme:
+This code shows how to load a custom purple-tinted color scheme (displayed in the screenshot above) that is based on the built-in Office classic blue theme:
 
 ```csharp
-WindowsColorScheme scheme = new WindowsColorScheme("Purple", WindowsColorSchemeType.WindowsXPBlue, Color.Purple);
-navigationBar.Renderer = new Office2007NavigationBarRenderer(scheme);
+var scheme = new WindowsColorScheme("Purple", WindowsColorSchemeType.OfficeClassicBlue, Color.Purple);
+navigationBar.Renderer = new OfficeClassicNavigationBarRenderer(scheme);
 ```
 
 ## Customizing Specific Colors in a Color Scheme

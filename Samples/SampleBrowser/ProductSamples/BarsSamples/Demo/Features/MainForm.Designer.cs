@@ -26,25 +26,23 @@
             this.components = new System.ComponentModel.Container();
             ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelCommand labelsTestLabelBarLabelCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarLabelCommand("Labels", "TestLabel", "User Interface Options", -1);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand newMenuNewMenuBarPopupButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand("New Menu", "New Menu", "New Menu", -1);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeBlueBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2003Blue", "Office 2003 (Blue)", 13);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeSilverBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2003Silver", "Office 2003 (Silver)", 15);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeOliveGreenBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2003OliveGreen", "Office 2003 (Olive Green)", 14);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererVisualStudioBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererVisualStudio2005", "Visual Studio 2005", 19);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeBlueBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOfficeLunaBlue", "Luna (Blue)", 13);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeSilverBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOfficeLunaSilver", "Luna (Silver)", 15);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeOliveGreenBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOfficeLunaOliveGreen", "Luna (Olive Green)", 14);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererVisualStudioBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererVisualStudioClassic", "Visual Studio (Classic)", 19);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand viewRendererBarPopupButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonCommand("View", "Renderer", "Renderer", -1);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeRoyaleBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2003Royale", "Office 2003 (Royale)", 16);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeRoyaleBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeRoyaleBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeWindowsClassicBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2003WindowsClassic", "Office 2003 (Windows Classic)", 17);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeWindowsClassicBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOfficeWindowsClassic", "Office Classic (Windows Classic)", 17);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsClassicBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsClassicBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeBlackBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2007Black", "Office 2007 (Black)", 15);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeBlackBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOfficeClassicBlack", "Office Classic (Black)", 15);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlackBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlackBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeBlueBarButtonCommand2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2007Blue", "Office 2007 (Blue)", 13);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeBlueBarButtonCommand2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOfficeClassicBlue", "Office Classic (Blue)", 13);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand2);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeSilverBarButtonCommand2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOffice2007Silver", "Office 2007 (Silver)", 16);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererOfficeSilverBarButtonCommand2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererOfficeClassicSilver", "Office Classic (Silver)", 16);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand2);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererVisualStudioBarButtonCommand2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererVisualStudio2002", "Visual Studio 2002", 18);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererVisualStudioBarButtonCommand2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererWindowsClassic", "Windows Classic", 17);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand2);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererCustomTanBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererCustomTan", "Custom Tan", -1);
@@ -114,7 +112,6 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeRoyaleBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeRoyaleBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsClassicBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsClassicBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand2);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBarButtonCommand);
@@ -163,6 +160,7 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarComboBoxCommand formatFontSizeBarComboBoxCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarComboBoxCommand("Format", "FontSize", "Font Size", -1);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererMetroLightBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererMetroLight", "Metro Light", 27);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererMetroDarkBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererMetroDark", "Metro Dark", 27);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand viewRendererVisualStudioBlueBarButtonCommand = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonCommand("View", "RendererVisualStudioBlue", "Visual Studio (Blue)", 28);
             ActiproSoftware.UI.WinForms.Controls.Bars.DockableToolBar formatDockableToolBar = new ActiproSoftware.UI.WinForms.Controls.Bars.DockableToolBar("Format");
             ActiproSoftware.UI.WinForms.Controls.Bars.BarComboBoxLink formatFontSizeBarComboBoxLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarComboBoxLink(formatFontSizeBarComboBoxCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink formatAlignLeftBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(formatAlignLeftBarButtonCommand);
@@ -207,10 +205,10 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink viewRendererBarPopupButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink(viewRendererBarPopupButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroLightBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroLightBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroDarkBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroDarkBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBlueBarButtonLink = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeRoyaleBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeRoyaleBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsClassicBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsClassicBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlackBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlackBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand2);
@@ -271,10 +269,10 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink viewRendererBarPopupButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink(viewRendererBarPopupButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroLightBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroLightBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroDarkBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroDarkBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBlueBarButtonLink2 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink6 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink6 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeRoyaleBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeRoyaleBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsClassicBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsClassicBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlackBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlackBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink7 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand2);
@@ -311,10 +309,10 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink viewRendererBarPopupButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink(viewRendererBarPopupButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroLightBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroLightBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroDarkBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroDarkBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBlueBarButtonLink3 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink8 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink8 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeRoyaleBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeRoyaleBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsClassicBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsClassicBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlackBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlackBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink9 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand2);
@@ -326,10 +324,10 @@
             ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink viewRendererBarPopupButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarPopupButtonLink(viewRendererBarPopupButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroLightBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroLightBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererMetroDarkBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererMetroDarkBarButtonCommand);
+            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererVisualStudioBlueBarButtonLink4 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererVisualStudioBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink10 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeOliveGreenBarButtonLink6 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeOliveGreenBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeSilverBarButtonLink10 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeSilverBarButtonCommand);
-            ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeRoyaleBarButtonLink6 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeRoyaleBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeWindowsClassicBarButtonLink6 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeWindowsClassicBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlackBarButtonLink5 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlackBarButtonCommand);
             ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink viewRendererOfficeBlueBarButtonLink11 = new ActiproSoftware.UI.WinForms.Controls.Bars.BarButtonLink(viewRendererOfficeBlueBarButtonCommand2);
@@ -431,53 +429,49 @@
             viewRendererOfficeBlueBarButtonCommand.CanCustomizeCreate = false;
             viewRendererOfficeBlueBarButtonCommand.Checkable = true;
             viewRendererOfficeBlueBarButtonCommand.CheckGroupName = "Renderer";
-            viewRendererOfficeBlueBarButtonCommand.CustomizeListText = "(Renderer) Office 2003 (Blue)";
-            viewRendererOfficeBlueBarButtonCommand.Text = "Office 2003 (Blue)";
+            viewRendererOfficeBlueBarButtonCommand.CustomizeListText = "(Renderer) Luna (Blue)";
+            viewRendererOfficeBlueBarButtonCommand.Text = "Luna (Blue)";
             viewRendererOfficeSilverBarButtonCommand.CanCustomizeCreate = false;
             viewRendererOfficeSilverBarButtonCommand.Checkable = true;
             viewRendererOfficeSilverBarButtonCommand.CheckGroupName = "Renderer";
-            viewRendererOfficeSilverBarButtonCommand.CustomizeListText = "(Renderer) Office 2003 (Silver)";
-            viewRendererOfficeSilverBarButtonCommand.Text = "Office 2003 (Silver)";
+            viewRendererOfficeSilverBarButtonCommand.CustomizeListText = "(Renderer) Luna (Silver)";
+            viewRendererOfficeSilverBarButtonCommand.Text = "Luna (Silver)";
             viewRendererOfficeOliveGreenBarButtonCommand.CanCustomizeCreate = false;
             viewRendererOfficeOliveGreenBarButtonCommand.Checkable = true;
             viewRendererOfficeOliveGreenBarButtonCommand.CheckGroupName = "Renderer";
-            viewRendererOfficeOliveGreenBarButtonCommand.CustomizeListText = "(Renderer) Office 2003 (Olive Green)";
-            viewRendererOfficeOliveGreenBarButtonCommand.Text = "Office 2003 (Olive Green)";
+            viewRendererOfficeOliveGreenBarButtonCommand.CustomizeListText = "(Renderer) Luna (Olive Green)";
+            viewRendererOfficeOliveGreenBarButtonCommand.Text = "Luna (Olive Green)";
             viewRendererVisualStudioBarButtonCommand.CanCustomizeCreate = false;
             viewRendererVisualStudioBarButtonCommand.Checkable = true;
             viewRendererVisualStudioBarButtonCommand.CheckGroupName = "Renderer";
-            viewRendererVisualStudioBarButtonCommand.CustomizeListText = "(Renderer) Office 2003 (Windows Classic)";
-            viewRendererVisualStudioBarButtonCommand.Text = "Visual Studio 2005";
+            viewRendererVisualStudioBarButtonCommand.CustomizeListText = "(Renderer) Visual Studio (Classic)";
+            viewRendererVisualStudioBarButtonCommand.Text = "Visual Studio (Classic)";
             viewRendererBarPopupButtonCommand.CanTearOff = true;
-            viewRendererOfficeRoyaleBarButtonCommand.CanCustomizeCreate = false;
-            viewRendererOfficeRoyaleBarButtonCommand.Checkable = true;
-            viewRendererOfficeRoyaleBarButtonCommand.CheckGroupName = "Renderer";
-            viewRendererOfficeRoyaleBarButtonCommand.Text = "Office 2003 (Royale)";
             viewRendererOfficeWindowsClassicBarButtonCommand.CanCustomizeCreate = false;
             viewRendererOfficeWindowsClassicBarButtonCommand.Checkable = true;
             viewRendererOfficeWindowsClassicBarButtonCommand.CheckGroupName = "Renderer";
-            viewRendererOfficeWindowsClassicBarButtonCommand.CustomizeListText = "(Renderer) Office 2003 (Windows Classic)";
-            viewRendererOfficeWindowsClassicBarButtonCommand.Text = "Office 2003 (Windows Classic)";
+            viewRendererOfficeWindowsClassicBarButtonCommand.CustomizeListText = "(Renderer) Office Classic (Windows Classic)";
+            viewRendererOfficeWindowsClassicBarButtonCommand.Text = "Office Classic (Windows Classic)";
             viewRendererOfficeBlackBarButtonCommand.CanCustomizeCreate = false;
             viewRendererOfficeBlackBarButtonCommand.Checkable = true;
             viewRendererOfficeBlackBarButtonCommand.CheckGroupName = "Renderer";
-            viewRendererOfficeBlackBarButtonCommand.CustomizeListText = "(Renderer) Office 2007 (Black)";
-            viewRendererOfficeBlackBarButtonCommand.Text = "Office 2007 (Black)";
+            viewRendererOfficeBlackBarButtonCommand.CustomizeListText = "(Renderer) Office Classic (Black)";
+            viewRendererOfficeBlackBarButtonCommand.Text = "Office Classic (Black)";
             viewRendererOfficeBlueBarButtonCommand2.CanCustomizeCreate = false;
             viewRendererOfficeBlueBarButtonCommand2.Checkable = true;
             viewRendererOfficeBlueBarButtonCommand2.CheckGroupName = "Renderer";
-            viewRendererOfficeBlueBarButtonCommand2.CustomizeListText = "(Renderer) Office 2007 (Blue)";
-            viewRendererOfficeBlueBarButtonCommand2.Text = "Office 2007 (Blue)";
+            viewRendererOfficeBlueBarButtonCommand2.CustomizeListText = "(Renderer) Office Classic (Blue)";
+            viewRendererOfficeBlueBarButtonCommand2.Text = "Office Classic (Blue)";
             viewRendererOfficeSilverBarButtonCommand2.CanCustomizeCreate = false;
             viewRendererOfficeSilverBarButtonCommand2.Checkable = true;
             viewRendererOfficeSilverBarButtonCommand2.CheckGroupName = "Renderer";
-            viewRendererOfficeSilverBarButtonCommand2.CustomizeListText = "(Renderer) Office 2007 (Silver)";
-            viewRendererOfficeSilverBarButtonCommand2.Text = "Office 2007 (Silver)";
+            viewRendererOfficeSilverBarButtonCommand2.CustomizeListText = "(Renderer) Office Classic (Silver)";
+            viewRendererOfficeSilverBarButtonCommand2.Text = "Office Classic (Silver)";
             viewRendererVisualStudioBarButtonCommand2.CanCustomizeCreate = false;
             viewRendererVisualStudioBarButtonCommand2.Checkable = true;
             viewRendererVisualStudioBarButtonCommand2.CheckGroupName = "Renderer";
-            viewRendererVisualStudioBarButtonCommand2.CustomizeListText = "(Renderer) Office 2003 (Windows Classic)";
-            viewRendererVisualStudioBarButtonCommand2.Text = "Visual Studio 2002";
+            viewRendererVisualStudioBarButtonCommand2.CustomizeListText = "(Renderer) Windows Classic";
+            viewRendererVisualStudioBarButtonCommand2.Text = "Windows Classic";
             viewRendererCustomTanBarButtonCommand.CanCustomizeCreate = false;
             viewRendererCustomTanBarButtonCommand.Checkable = true;
             viewRendererCustomTanBarButtonCommand.CheckGroupName = "Renderer";
@@ -493,7 +487,6 @@
             viewRendererOfficeBlueBarButtonLink,
             viewRendererOfficeOliveGreenBarButtonLink,
             viewRendererOfficeSilverBarButtonLink,
-            viewRendererOfficeRoyaleBarButtonLink,
             viewRendererOfficeWindowsClassicBarButtonLink,
             viewRendererOfficeBlackBarButtonLink,
             viewRendererOfficeBlueBarButtonLink2,
@@ -638,7 +631,6 @@
             viewRendererOfficeBlueBarButtonLink3,
             viewRendererOfficeOliveGreenBarButtonLink2,
             viewRendererOfficeSilverBarButtonLink3,
-            viewRendererOfficeRoyaleBarButtonLink2,
             viewRendererOfficeWindowsClassicBarButtonLink2,
             viewRendererVisualStudioBarButtonLink3,
             viewRendererVisualStudioBarButtonLink4});
@@ -753,6 +745,11 @@
             viewRendererMetroDarkBarButtonCommand.CheckGroupName = "Renderer";
             viewRendererMetroDarkBarButtonCommand.CustomizeListText = "(Renderer) Metro Dark";
             viewRendererMetroDarkBarButtonCommand.Text = "Metro Dark";
+            viewRendererVisualStudioBlueBarButtonCommand.CanCustomizeCreate = false;
+            viewRendererVisualStudioBlueBarButtonCommand.Checkable = true;
+            viewRendererVisualStudioBlueBarButtonCommand.CheckGroupName = "Renderer";
+            viewRendererVisualStudioBlueBarButtonCommand.CustomizeListText = "(Renderer) Visual Studio (Blue)";
+            viewRendererVisualStudioBlueBarButtonCommand.Text = "Visual Studio (Blue)";
             this.barManager.Commands.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommand[] {
             labelsTestLabelBarLabelCommand,
             newMenuNewMenuBarPopupButtonCommand,
@@ -794,7 +791,6 @@
             menuBarEditBarPopupButtonCommand,
             viewRendererOfficeWindowsClassicBarButtonCommand,
             viewClearEventLogBarButtonCommand,
-            viewRendererOfficeRoyaleBarButtonCommand,
             windowWindowListBarExpanderButtonCommand,
             fileSaveLayoutBarButtonCommand,
             fileLoadLayoutBarButtonCommand,
@@ -825,7 +821,8 @@
             viewRendererCustomTanBarButtonCommand,
             viewRendererCustomGreenBarButtonCommand,
             viewRendererMetroLightBarButtonCommand,
-            viewRendererMetroDarkBarButtonCommand});
+            viewRendererMetroDarkBarButtonCommand,
+            viewRendererVisualStudioBlueBarButtonCommand});
             formatAlignLeftBarButtonLink.BeginAGroup = true;
             formatBulletedListBarButtonLink.BeginAGroup = true;
             formatOutdentBarButtonLink.BeginAGroup = true;
@@ -887,10 +884,10 @@
             viewRendererBarPopupButtonLink2.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewRendererMetroLightBarButtonLink,
             viewRendererMetroDarkBarButtonLink,
+            viewRendererVisualStudioBlueBarButtonLink,
             viewRendererOfficeBlueBarButtonLink4,
             viewRendererOfficeOliveGreenBarButtonLink3,
             viewRendererOfficeSilverBarButtonLink4,
-            viewRendererOfficeRoyaleBarButtonLink3,
             viewRendererOfficeWindowsClassicBarButtonLink3,
             viewRendererOfficeBlackBarButtonLink2,
             viewRendererOfficeBlueBarButtonLink5,
@@ -978,10 +975,10 @@
             viewRendererBarPopupButtonLink3.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewRendererMetroLightBarButtonLink2,
             viewRendererMetroDarkBarButtonLink2,
+            viewRendererVisualStudioBlueBarButtonLink2,
             viewRendererOfficeBlueBarButtonLink6,
             viewRendererOfficeOliveGreenBarButtonLink4,
             viewRendererOfficeSilverBarButtonLink6,
-            viewRendererOfficeRoyaleBarButtonLink4,
             viewRendererOfficeWindowsClassicBarButtonLink4,
             viewRendererOfficeBlackBarButtonLink3,
             viewRendererOfficeBlueBarButtonLink7,
@@ -1039,10 +1036,10 @@
             viewRendererBarPopupButtonLink4.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewRendererMetroLightBarButtonLink3,
             viewRendererMetroDarkBarButtonLink3,
+            viewRendererVisualStudioBlueBarButtonLink3,
             viewRendererOfficeBlueBarButtonLink8,
             viewRendererOfficeOliveGreenBarButtonLink5,
             viewRendererOfficeSilverBarButtonLink8,
-            viewRendererOfficeRoyaleBarButtonLink5,
             viewRendererOfficeWindowsClassicBarButtonLink5,
             viewRendererOfficeBlackBarButtonLink4,
             viewRendererOfficeBlueBarButtonLink9,
@@ -1057,10 +1054,10 @@
             viewRendererBarPopupButtonLink5.CommandLinks.AddRange(new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLink[] {
             viewRendererMetroLightBarButtonLink4,
             viewRendererMetroDarkBarButtonLink4,
+            viewRendererVisualStudioBlueBarButtonLink4,
             viewRendererOfficeBlueBarButtonLink10,
             viewRendererOfficeOliveGreenBarButtonLink6,
             viewRendererOfficeSilverBarButtonLink10,
-            viewRendererOfficeRoyaleBarButtonLink6,
             viewRendererOfficeWindowsClassicBarButtonLink6,
             viewRendererOfficeBlackBarButtonLink5,
             viewRendererOfficeBlueBarButtonLink11,
@@ -1183,6 +1180,7 @@
             this.imageList.Images.SetKeyName(25, "IncreaseIndent16.png");
             this.imageList.Images.SetKeyName(26, "RichTextDocument16.png");
             this.imageList.Images.SetKeyName(27, "MetroLight.png");
+            this.imageList.Images.SetKeyName(28, "VisualStudio2022.png");
             // 
             // barManagerPropertyGrid
             // 
