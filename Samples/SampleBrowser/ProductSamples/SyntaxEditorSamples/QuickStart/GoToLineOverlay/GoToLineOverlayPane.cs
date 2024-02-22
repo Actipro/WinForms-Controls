@@ -34,8 +34,13 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GoToLine
 
 			this.SuspendLayout();
 			try {
+				#if NET7_0_OR_GREATER
+				// Use system font (so editor font isn't inherited)
+				this.Font = SystemFonts.MessageBoxFont;
+				#else
 				// Use system font (so editor font isn't inherited) and scale to match the DPI of the editor
-				this.Font = DpiHelper.AutoScaleFont(SystemFonts.DefaultFont, DpiHelper.GetDeviceDpi(view.SyntaxEditor));
+				this.Font = DpiHelper.AutoScaleFont(SystemFonts.MessageBoxFont, DpiHelper.GetDeviceDpi(view.SyntaxEditor));
+				#endif
 
 				this.BackColor = ColorScheme.GetKnownColor(KnownColor.Control);
 				this.ForeColor = ColorScheme.GetKnownColor(KnownColor.ControlText);

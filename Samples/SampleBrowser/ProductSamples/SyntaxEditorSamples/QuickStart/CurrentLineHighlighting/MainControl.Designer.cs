@@ -26,7 +26,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainControl));
             this.editor = new ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.SyntaxEditor();
             this.isHighlightingEnabledCheckBox = new System.Windows.Forms.CheckBox();
-            this.contentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.isLineNumberHighlightingEnabledCheckBox = new System.Windows.Forms.CheckBox();
+			this.contentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.headerFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.contentTableLayoutPanel.SuspendLayout();
             this.headerFlowLayoutPanel.SuspendLayout();
@@ -59,6 +60,17 @@
             this.isHighlightingEnabledCheckBox.Text = "Is line highlighting enabled";
             this.isHighlightingEnabledCheckBox.UseVisualStyleBackColor = true;
             this.isHighlightingEnabledCheckBox.CheckedChanged += new System.EventHandler(this.OnIsHighlightingEnabledCheckBoxCheckedChanged);
+			// 
+			// isLineNumberHighlightingEnabledCheckBox
+			// 
+			isLineNumberHighlightingEnabledCheckBox.AutoSize = true;
+			isLineNumberHighlightingEnabledCheckBox.Location = new System.Drawing.Point(178, 3);
+			isLineNumberHighlightingEnabledCheckBox.Name = "isLineNumberHighlightingEnabledCheckBox";
+			isLineNumberHighlightingEnabledCheckBox.Size = new System.Drawing.Size(214, 19);
+			isLineNumberHighlightingEnabledCheckBox.TabIndex = 1;
+			isLineNumberHighlightingEnabledCheckBox.Text = "Is line number highlighting enabled";
+			isLineNumberHighlightingEnabledCheckBox.UseVisualStyleBackColor = true;
+			isLineNumberHighlightingEnabledCheckBox.CheckedChanged += this.OnIsLineNumberHighlightingEnabledCheckBoxCheckedChanged;
             // 
             // contentTableLayoutPanel
             // 
@@ -81,6 +93,7 @@
             this.headerFlowLayoutPanel.AutoSize = true;
             this.headerFlowLayoutPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.headerFlowLayoutPanel.Controls.Add(this.isHighlightingEnabledCheckBox);
+            this.headerFlowLayoutPanel.Controls.Add(isLineNumberHighlightingEnabledCheckBox);
             this.headerFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.headerFlowLayoutPanel.Location = new System.Drawing.Point(13, 13);
             this.headerFlowLayoutPanel.Name = "headerFlowLayoutPanel";
@@ -105,6 +118,7 @@
 		#endregion
 		private UI.WinForms.Controls.SyntaxEditor.SyntaxEditor editor;
 		private System.Windows.Forms.CheckBox isHighlightingEnabledCheckBox;
+		private System.Windows.Forms.CheckBox isLineNumberHighlightingEnabledCheckBox;
 		private System.Windows.Forms.TableLayoutPanel contentTableLayoutPanel;
 		private System.Windows.Forms.FlowLayoutPanel headerFlowLayoutPanel;
 	}

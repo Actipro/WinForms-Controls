@@ -26,7 +26,7 @@ The [NavigationBar](xref:@ActiproUIRoot.Controls.Navigation.NavigationBar) contr
 ## Feature List
 
 - Complete implementation of Navigation Bar functionality found in Outlook.
-- Built-in [rendering styles](extensible-rendering.md).  include Metro Light, Metro Dark, Office (Black, Blue, Olive, Silver), and Windows Classic.
+- Built-in [rendering styles](extensible-rendering.md).  include Metro, Office (Black, Blue, Olive Green, Silver), and Windows Classic.
 - Robust rendering interface allows for totally [customized rendering](extensible-rendering.md).
 - [Buttons](run-time-usage.md) provide single-click access to each pane.
 - Buttons can be collapsed to an overflow area, allowing for more client area real estate.

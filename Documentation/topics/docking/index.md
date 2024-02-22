@@ -21,7 +21,7 @@ Out of the box, the dock controls have [rendering capabilities](extensible-rende
 
 ## Feature List
 
-- Built-in rendering styles include Metro Light, Metro Dark, Visual Studio, and Office styles.
+- Built-in rendering styles include Metro, Visual Studio, Office, and Windows Classic styles.
 - Robust rendering interface allows for totally [customized rendering](extensible-rendering.md).
 - Dock [tool windows](tool-windows.md) on all sides of a central client area.
 - Multiple styles of docking guides which easily control drop locations.

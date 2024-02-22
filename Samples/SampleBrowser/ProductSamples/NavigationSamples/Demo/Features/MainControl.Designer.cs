@@ -26,7 +26,7 @@ namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
 		/// </summary>
 		private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            ActiproSoftware.UI.WinForms.Controls.Navigation.Office2003NavigationBarRenderer office2003NavigationBarRenderer1 = new ActiproSoftware.UI.WinForms.Controls.Navigation.Office2003NavigationBarRenderer(ActiproSoftware.UI.WinForms.Drawing.WindowsColorSchemeType.WindowsXPOliveGreen);
+            ActiproSoftware.UI.WinForms.Controls.Navigation.OfficeLunaNavigationBarRenderer office2003NavigationBarRenderer1 = new ActiproSoftware.UI.WinForms.Controls.Navigation.OfficeLunaNavigationBarRenderer(ActiproSoftware.UI.WinForms.Drawing.WindowsColorSchemeType.LunaOliveGreen);
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Actipro WinForms Studio", 1, 1);
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Deleted Items", 2, 2);
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Drafts", 3, 3);

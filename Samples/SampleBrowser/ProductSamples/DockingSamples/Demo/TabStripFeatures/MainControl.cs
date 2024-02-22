@@ -70,29 +70,29 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.TabStripFeatures {
 				case "Metro Dark Tool Window":
 					tabStrip.Renderer = new MetroToolWindowTabStripRenderer(WindowsColorSchemeType.MetroDark);
 					break;
-				case "Visual Studio 2005 Document Window":
-					tabStrip.Renderer = new VisualStudio2005DocumentWindowTabStripRenderer();
+				case "Visual Studio Blue Document Window":
+					tabStrip.Renderer = new VisualStudioDocumentWindowTabStripRenderer(WindowsColorSchemeType.VisualStudioBlue);
 					break;
-				case "Visual Studio 2005 Tool Window":
-					tabStrip.Renderer = new VisualStudio2005ToolWindowTabStripRenderer();
+				case "Visual Studio Blue Tool Window":
+					tabStrip.Renderer = new VisualStudioToolWindowTabStripRenderer(WindowsColorSchemeType.VisualStudioBlue);
 					break;
-				case "Visual Studio 2005 Beta 2 Tool Window":
-					tabStrip.Renderer = new VisualStudio2005Beta2ToolWindowTabStripRenderer();
+				case "Visual Studio Classic Document Window":
+					tabStrip.Renderer = new VisualStudioClassicDocumentWindowTabStripRenderer();
 					break;
-				case "Visual Studio 2002 Document Window":
-					tabStrip.Renderer = new VisualStudio2002DocumentWindowTabStripRenderer();
+				case "Visual Studio Classic Tool Window":
+					tabStrip.Renderer = new VisualStudioClassicToolWindowTabStripRenderer();
 					break;
-				case "Visual Studio 2002 Tool Window":
-					tabStrip.Renderer = new VisualStudio2002ToolWindowTabStripRenderer();
+				case "Windows Classic Document Window":
+					tabStrip.Renderer = new WindowsClassicDocumentWindowTabStripRenderer();
 					break;
-				case "Office 2003 Document Window":
-					tabStrip.Renderer = new Office2003DocumentWindowTabStripRenderer();
+				case "Windows Classic Tool Window":
+					tabStrip.Renderer = new WindowsClassicToolWindowTabStripRenderer();
 					break;
-				case "Office 2003 Tool Window":
-					tabStrip.Renderer = new Office2003ToolWindowTabStripRenderer();
+				case "Office Classic Document Window":
+					tabStrip.Renderer = new OfficeClassicDocumentWindowTabStripRenderer();
 					break;
-				case "Office 2003 (based on Visual Studio 2005 Beta 2 style) Tool Window":
-					tabStrip.Renderer = new Office2003VisualStudio2005Beta2ToolWindowTabStripRenderer();
+				case "Office Classic Tool Window":
+					tabStrip.Renderer = new OfficeClassicToolWindowTabStripRenderer();
 					break;
 				default:
 					tabStrip.Renderer = customTabStripRenderer;

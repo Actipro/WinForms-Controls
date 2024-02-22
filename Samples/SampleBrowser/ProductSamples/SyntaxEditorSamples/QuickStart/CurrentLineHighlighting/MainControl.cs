@@ -10,11 +10,11 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CurrentL
 	/// Provides the main user control for this sample.
 	/// </summary>
 	public partial class MainControl : UserControl {
-		
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// OBJECT
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 		/// <summary>
 		/// Initializes an instance of the <c>MainControl</c> class.
 		/// </summary>
@@ -28,11 +28,13 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CurrentL
 			DisplayItemClassificationTypeProvider provider = new DisplayItemClassificationTypeProvider();
 			provider.RegisterAll();
 
-			// This is how the style for the current line highlight can be retrieved for color customization
-			// var style = AmbientHighlightingStyleRegistry.Instance[provider.CurrentLine];
+			// This is how the style for the current line or line number highlights can be retrieved for color customization
+			// var currentLineStyle = AmbientHighlightingStyleRegistry.Instance[provider.CurrentLine];
+			// var currentLineNumberStyle = AmbientHighlightingStyleRegistry.Instance[provider.LineNumberCurrent];
 
 			// Initialize the UI to match the default editor properties
 			isHighlightingEnabledCheckBox.Checked = editor.IsCurrentLineHighlightingEnabled;
+			isLineNumberHighlightingEnabledCheckBox.Checked = editor.IsCurrentLineNumberHighlightingEnabled;
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -48,6 +50,15 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CurrentL
 			editor.IsCurrentLineHighlightingEnabled = isHighlightingEnabledCheckBox.Checked;
 		}
 
+		/// <summary>
+		/// Occurs when the checkbox is checked or unchecked.
+		/// </summary>
+		/// <param name="sender">The sender of the event.</param>
+		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
+		private void OnIsLineNumberHighlightingEnabledCheckBoxCheckedChanged(object sender, EventArgs e) {
+			editor.IsCurrentLineNumberHighlightingEnabled = isLineNumberHighlightingEnabledCheckBox.Checked;
+		}
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,7 +70,8 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CurrentL
 			if (!Program.IsControlFontScalingHandledByRuntime) {
 				// Manually scale control fonts
 				var manualFontControls = new Control[] {
-					isHighlightingEnabledCheckBox
+					isHighlightingEnabledCheckBox,
+					isLineNumberHighlightingEnabledCheckBox
 				};
 				foreach (var control in manualFontControls)
 					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);

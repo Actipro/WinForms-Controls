@@ -86,6 +86,8 @@ The following outlines the compatibility of Actipro WinForms Controls with versi
 </tbody>
 </table>
 
+*The above table if for .NET Core / .NET5+ only and does not apply to any version of .NET Framework.*
+
 ### .NET Framework Designer Workaround
 
 If you are unable to use a WinForms Controls version that is compatible with the version of Visual Studio you are using, you may be able to use the .NET Framework designer support instead.
@@ -107,7 +109,7 @@ In the following example, the .NET Framework designer capabilities will be used 
 <TargetFrameworks>net462;net471;netcoreapp3.1;net60-windows</TargetFrameworks>
 ```
 > [!WARNING]
-> Starting with Visual Studio 2002 v17.6, mixing .NET Framework-based targets (e.g., `net48`) with .NET Core-based targets (e.g., `net6.0-windows`) is only supported if the .NET Framework-based target is listed first. This will force the .NET Framework designer functionality and requires the installer option mentioned in the ".NET Framework Support" section above.  To continue using the .NET Core-based designer functionality in Visual Studio 17.6, all .NET Framework-based targets must be removed.
+> Starting with Visual Studio 2022 v17.6, mixing .NET Framework-based targets (e.g., `net48`) with .NET Core-based targets (e.g., `net6.0-windows`) is only supported if the .NET Framework-based target is listed first. This will force the .NET Framework designer functionality and requires the installer option mentioned in the ".NET Framework Support" section above.  To continue using the .NET Core-based designer functionality in Visual Studio 17.6, all .NET Framework-based targets must be removed.
 
 > [!IMPORTANT]
 > See the requirements noted above for .NET Framework or .NET Core / .NET 5+ based on which target framework will govern the designer capabilities of your project.

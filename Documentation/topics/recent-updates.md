@@ -9,6 +9,12 @@ WinForms Studio's documentation has frequent updates, so this topic is the best 
 
 If you are looking for a list of recently-added major new features to WinForms Studio products, please see the **Sample Browser**'s Release History pages instead.
 
+## Updates for v24.1.0
+
+- **All:** Added [Troubleshooting (General)](troubleshooting.md) topic.
+
+- **All:** Updated [Sample Code and QuickStarts](quick-starts.md) topic.
+
 ## Updates for v23.1.3
 
 - **SyntaxEditor:** Added the [Overlay Panes](syntaxeditor/user-interface/editor-view/overlay-panes.md) topic for developing custom overlay panes.

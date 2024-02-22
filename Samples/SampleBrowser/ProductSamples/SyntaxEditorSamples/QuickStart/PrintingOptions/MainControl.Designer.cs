@@ -49,6 +49,7 @@
             // editor
             // 
             this.editor.AllowDrop = true;
+			this.editor.AreIndentationGuidesVisible = true;
             this.editor.AreWordWrapGlyphsVisible = true;
             this.contentTableLayoutPanel.SetColumnSpan(this.editor, 2);
             this.editor.Dock = System.Windows.Forms.DockStyle.Fill;

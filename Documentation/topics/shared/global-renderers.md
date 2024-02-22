@@ -20,10 +20,10 @@ The [UIRendererManager](xref:@ActiproUIRoot.Controls.UIRendererManager) tracks a
 
 Once you have determined which color scheme you'd like to use, set it to the static [UIRendererManager](xref:@ActiproUIRoot.Controls.UIRendererManager).[ColorScheme](xref:@ActiproUIRoot.Controls.UIRendererManager.ColorScheme) property, and all the global renderers will attempt update to use that color scheme.
 
-This code demonstrates how to set the color scheme to a built-in Visual Studio 2005 theme:
+This code demonstrates how to set the color scheme to a built-in Metro Light theme:
 
 ```csharp
-UIRendererManager.ColorScheme = WindowsColorScheme.VisualStudio2005;
+UIRendererManager.ColorScheme = WindowsColorScheme.MetroLight;
 ```
 
 ## Using the UIRendererManager Component
@@ -37,16 +37,16 @@ This means that you can drop an instance of [UIRendererManager](xref:@ActiproUIR
 
 ## Setting a Custom Global Renderer Factory
 
-There may be certain cases where you'd like to use a global renderer that isn't available by default.  For instance, say you'd like to use the [VisualStudio2002ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2002ToolWindowTabStripRenderer) by default for all standalone [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) controls in your application.  There is no color scheme that will use that renderer since the color schemes default to using the newer Visual Studio renderers instead.  Therefore, you have to create a class which implements [IUIRendererFactory](xref:@ActiproUIRoot.Controls.IUIRendererFactory).
+There may be certain cases where you'd like to use a global renderer that is different than the default.  For instance, say you'd like to use the [VisualStudioToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudioToolWindowTabStripRenderer) by default for all standalone [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) controls in your application.  You can create a class which implements [IUIRendererFactory](xref:@ActiproUIRoot.Controls.IUIRendererFactory).
 
 The [IUIRendererFactory](xref:@ActiproUIRoot.Controls.IUIRendererFactory).[CreateRenderer](xref:@ActiproUIRoot.Controls.IUIRendererFactory.CreateRenderer*) method implemented on the custom factory class is responsible for returning an instance if [IUIRenderer](xref:@ActiproUIRoot.Controls.IUIRenderer), which is the interface that all renderers implement.
 
-This code demonstrates how to implement a renderer factory for our Visual Studio 2002 [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) renderer:
+This code demonstrates how to implement a renderer factory for our Visual Studio [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) renderer:
 
 ```csharp
 public class CustomTabStripRendererFactory : IUIRendererFactory {
 	IUIRenderer IUIRendererFactory.CreateRenderer() {
-		return new VisualStudio2002ToolWindowTabStripRenderer();
+		return new VisualStudioToolWindowTabStripRenderer();
 	}
 }
 ```
@@ -60,7 +60,7 @@ UIRendererManager.RegisterRendererFactory(typeof(ITabStripRenderer),
 	new CustomTabStripRendererFactory(), overwrite: true);
 ```
 
-At this point any standalone [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) control that doesn't have a control-specific renderer assigned to it will use the global [VisualStudio2002ToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudio2002ToolWindowTabStripRenderer) instance created by the factory.
+At this point any standalone [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) control that doesn't have a control-specific renderer assigned to it will use the global [VisualStudioToolWindowTabStripRenderer](xref:@ActiproUIRoot.Controls.Docking.VisualStudioToolWindowTabStripRenderer) instance created by the factory.
 
 ## Renderer vs. RendererResolved Properties
 

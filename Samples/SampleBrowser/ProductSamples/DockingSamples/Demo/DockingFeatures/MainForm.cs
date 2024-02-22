@@ -899,11 +899,11 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		private void viewRendererMenuItem_Popup(object sender, System.EventArgs e) {
 			var dockRenderer = dockManager.DockRenderer;
 			rendererMetroDarkToolStripMenuItem.Checked = ((dockRenderer.GetType() == typeof(MetroDockRenderer)) && (dockRenderer.ColorScheme.BaseColorSchemeType == WindowsColorSchemeType.MetroDark));
-			rendererMetroLightToolStripMenuItem.Checked = ((dockRenderer.GetType() == typeof(MetroDockRenderer)) && (dockRenderer.ColorScheme.BaseColorSchemeType == WindowsColorSchemeType.MetroLight)); ;
-			rendererOffice2003ToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(Office2003DockRenderer));
-			rendererVisualStudio2005ToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(VisualStudio2005DockRenderer));
-			rendererVisualStudio2005Beta2ToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(VisualStudio2005Beta2DockRenderer));
-			rendererVisualStudio2002ToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(VisualStudio2002DockRenderer));
+			rendererMetroLightToolStripMenuItem.Checked = ((dockRenderer.GetType() == typeof(MetroDockRenderer)) && (dockRenderer.ColorScheme.BaseColorSchemeType == WindowsColorSchemeType.MetroLight));
+			rendererOffice2003ToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(OfficeClassicDockRenderer));
+			rendererVisualStudio2022BlueToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(VisualStudioDockRenderer) && (dockRenderer.ColorScheme.BaseColorSchemeType == WindowsColorSchemeType.VisualStudioBlue));
+			rendererVisualStudio2005ToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(VisualStudioClassicDockRenderer));
+			rendererVisualStudio2002ToolStripMenuItem.Checked = (dockRenderer.GetType() == typeof(WindowsClassicDockRenderer));
 		}
 
 		/// <summary>
@@ -938,21 +938,9 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void viewRendererOffice2003MenuItem_Click(object sender, System.EventArgs e) {
-			dockManager.DockRenderer = new Office2003DockRenderer();
-			dockManager.TabbedMdiContainerTabStripRenderer = new Office2003DocumentWindowTabStripRenderer();
-			dockManager.ToolWindowContainerTabStripRenderer = new Office2003ToolWindowTabStripRenderer();
-			OnRendererChanged();
-		}
-
-		/// <summary>
-		/// Occurs when the menu item is clicked.
-		/// </summary>
-		/// <param name="sender">Sender of the event.</param>
-		/// <param name="e">Event arguments.</param>
-		private void viewRendererOffice2003VisualStudio2005Beta2MenuItem_Click(object sender, System.EventArgs e) {
-			dockManager.DockRenderer = new Office2003VisualStudio2005Beta2DockRenderer();
-			dockManager.TabbedMdiContainerTabStripRenderer = new Office2003DocumentWindowTabStripRenderer();
-			dockManager.ToolWindowContainerTabStripRenderer = new Office2003VisualStudio2005Beta2ToolWindowTabStripRenderer();
+			dockManager.DockRenderer = new OfficeClassicDockRenderer();
+			dockManager.TabbedMdiContainerTabStripRenderer = new OfficeClassicDocumentWindowTabStripRenderer();
+			dockManager.ToolWindowContainerTabStripRenderer = new OfficeClassicToolWindowTabStripRenderer();
 			OnRendererChanged();
 		}
 
@@ -962,21 +950,9 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void viewRendererVisualStudio2002MenuItem_Click(object sender, System.EventArgs e) {
-			dockManager.DockRenderer = new VisualStudio2002DockRenderer();
-			dockManager.TabbedMdiContainerTabStripRenderer = new VisualStudio2002DocumentWindowTabStripRenderer();
-			dockManager.ToolWindowContainerTabStripRenderer = new VisualStudio2002ToolWindowTabStripRenderer();
-			OnRendererChanged();
-		}
-
-		/// <summary>
-		/// Occurs when the menu item is clicked.
-		/// </summary>
-		/// <param name="sender">Sender of the event.</param>
-		/// <param name="e">Event arguments.</param>
-		private void viewRendererVisualStudio2005Beta2MenuItem_Click(object sender, System.EventArgs e) {
-			dockManager.DockRenderer = new VisualStudio2005Beta2DockRenderer();
-			dockManager.TabbedMdiContainerTabStripRenderer = new VisualStudio2005DocumentWindowTabStripRenderer();
-			dockManager.ToolWindowContainerTabStripRenderer = new VisualStudio2005Beta2ToolWindowTabStripRenderer();
+			dockManager.DockRenderer = new WindowsClassicDockRenderer();
+			dockManager.TabbedMdiContainerTabStripRenderer = new WindowsClassicDocumentWindowTabStripRenderer();
+			dockManager.ToolWindowContainerTabStripRenderer = new WindowsClassicToolWindowTabStripRenderer();
 			OnRendererChanged();
 		}
 
@@ -986,9 +962,22 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// <param name="sender">Sender of the event.</param>
 		/// <param name="e">Event arguments.</param>
 		private void viewRendererVisualStudio2005MenuItem_Click(object sender, System.EventArgs e) {
-			dockManager.DockRenderer = new VisualStudio2005DockRenderer();
-			dockManager.TabbedMdiContainerTabStripRenderer = new VisualStudio2005DocumentWindowTabStripRenderer();
-			dockManager.ToolWindowContainerTabStripRenderer = new VisualStudio2005ToolWindowTabStripRenderer();
+			dockManager.DockRenderer = new VisualStudioClassicDockRenderer();
+			dockManager.TabbedMdiContainerTabStripRenderer = new VisualStudioClassicDocumentWindowTabStripRenderer();
+			dockManager.ToolWindowContainerTabStripRenderer = new VisualStudioClassicToolWindowTabStripRenderer();
+			OnRendererChanged();
+		}
+
+		/// <summary>
+		/// Occurs when the menu item is clicked.
+		/// </summary>
+		/// <param name="sender">Sender of the event.</param>
+		/// <param name="e">Event arguments.</param>
+		private void viewRendererVisualStudio2022BlueMenuItem_Click(object sender, System.EventArgs e) {
+			var colorSchemeType = WindowsColorSchemeType.VisualStudioBlue;
+			dockManager.DockRenderer = new VisualStudioDockRenderer(colorSchemeType);
+			dockManager.TabbedMdiContainerTabStripRenderer = new VisualStudioDocumentWindowTabStripRenderer(colorSchemeType);
+			dockManager.ToolWindowContainerTabStripRenderer = new VisualStudioToolWindowTabStripRenderer(colorSchemeType);
 			OnRendererChanged();
 		}
 
@@ -1575,7 +1564,7 @@ namespace ActiproSoftware.ProductSamples.DockingSamples.Demo.DockingFeatures {
 		/// Update the border styles of child controls.
 		/// </summary>
 		private void UpdateChildControlBorderStyles() {
-			bool showBorders = (dockManager.DockRenderer.GetType() == typeof(VisualStudio2002DockRenderer));
+			bool showBorders = (dockManager.DockRenderer.GetType() == typeof(WindowsClassicDockRenderer));
 			foreach (ToolWindow toolWindow in dockManager.ToolWindows) {
 				bool changeToolWindowBorder = false;
 				foreach (Control control in toolWindow.Controls) {

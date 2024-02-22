@@ -394,6 +394,8 @@ items:
         href: syntaxeditor/user-interface/styles/highlighting-style-registries.md
       - name: "TextStylePreview Control"
         href: syntaxeditor/user-interface/styles/text-style-preview.md
+      - name: "Dark Themes"
+        href: syntaxeditor/user-interface/styles/dark-themes.md
     - name: "Adornment Features"
       href: syntaxeditor/user-interface/adornment/index.md
       items:
@@ -745,6 +747,8 @@ items:
   items:
   - name: "Overview"
     href: conversion/index.md
+  - name: "Converting to v24.1"
+    href: conversion/converting-to-v24-1.md
   - name: "Converting to v23.1"
     href: conversion/converting-to-v23-1.md
   - name: "Converting to v22.1"
@@ -755,6 +759,8 @@ items:
     href: conversion/converting-to-v20-1.md
   - name: "Converting to v12.1"
     href: conversion/converting-to-v12-1.md
+- name: "Troubleshooting (General)"
+  href: troubleshooting.md
 - name: "Supported Technologies"
   href: supported-technologies.md
 - name: "GitHub Open-Source"

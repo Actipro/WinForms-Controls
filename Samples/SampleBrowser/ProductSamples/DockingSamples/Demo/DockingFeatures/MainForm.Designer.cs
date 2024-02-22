@@ -100,11 +100,10 @@
             this.rendererToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererMetroLightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererMetroDarkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rendererVisualStudio2022BlueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererVisualStudio2005ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rendererVisualStudio2005Beta2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererVisualStudio2002ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rendererOffice2003ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.office2003RoundedVisualStudio2005Beta2TabsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockGuideStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockGuideStyleNoneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockGuideStyleModernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -879,11 +878,10 @@
             this.rendererToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.rendererMetroLightToolStripMenuItem,
             this.rendererMetroDarkToolStripMenuItem,
+            this.rendererVisualStudio2022BlueToolStripMenuItem,
             this.rendererVisualStudio2005ToolStripMenuItem,
-            this.rendererVisualStudio2005Beta2ToolStripMenuItem,
             this.rendererVisualStudio2002ToolStripMenuItem,
-            this.rendererOffice2003ToolStripMenuItem,
-            this.office2003RoundedVisualStudio2005Beta2TabsToolStripMenuItem});
+            this.rendererOffice2003ToolStripMenuItem});
             this.rendererToolStripMenuItem.Name = "rendererToolStripMenuItem";
             this.rendererToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.rendererToolStripMenuItem.Text = "Renderer";
@@ -903,40 +901,33 @@
             this.rendererMetroDarkToolStripMenuItem.Text = "Metro Dark";
             this.rendererMetroDarkToolStripMenuItem.Click += new System.EventHandler(this.viewRendererMetroDarkToolStripMenuItem_Click);
             // 
+            // rendererVisualStudio2022BlueToolStripMenuItem
+            // 
+            this.rendererVisualStudio2022BlueToolStripMenuItem.Name = "rendererVisualStudio2022BlueToolStripMenuItem";
+            this.rendererVisualStudio2022BlueToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
+            this.rendererVisualStudio2022BlueToolStripMenuItem.Text = "Visual Studio (Blue)";
+            this.rendererVisualStudio2022BlueToolStripMenuItem.Click += new System.EventHandler(this.viewRendererVisualStudio2022BlueMenuItem_Click);
+            // 
             // rendererVisualStudio2005ToolStripMenuItem
             // 
             this.rendererVisualStudio2005ToolStripMenuItem.Name = "rendererVisualStudio2005ToolStripMenuItem";
             this.rendererVisualStudio2005ToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
-            this.rendererVisualStudio2005ToolStripMenuItem.Text = "Visual Studio 2005";
+            this.rendererVisualStudio2005ToolStripMenuItem.Text = "Visual Studio (Classic)";
             this.rendererVisualStudio2005ToolStripMenuItem.Click += new System.EventHandler(this.viewRendererVisualStudio2005MenuItem_Click);
-            // 
-            // rendererVisualStudio2005Beta2ToolStripMenuItem
-            // 
-            this.rendererVisualStudio2005Beta2ToolStripMenuItem.Name = "rendererVisualStudio2005Beta2ToolStripMenuItem";
-            this.rendererVisualStudio2005Beta2ToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
-            this.rendererVisualStudio2005Beta2ToolStripMenuItem.Text = "Visual Studio 2005 Beta 2";
-            this.rendererVisualStudio2005Beta2ToolStripMenuItem.Click += new System.EventHandler(this.viewRendererVisualStudio2005Beta2MenuItem_Click);
             // 
             // rendererVisualStudio2002ToolStripMenuItem
             // 
             this.rendererVisualStudio2002ToolStripMenuItem.Name = "rendererVisualStudio2002ToolStripMenuItem";
             this.rendererVisualStudio2002ToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
-            this.rendererVisualStudio2002ToolStripMenuItem.Text = "Visual Studio 2002";
+            this.rendererVisualStudio2002ToolStripMenuItem.Text = "Windows Classic";
             this.rendererVisualStudio2002ToolStripMenuItem.Click += new System.EventHandler(this.viewRendererVisualStudio2002MenuItem_Click);
             // 
             // rendererOffice2003ToolStripMenuItem
             // 
             this.rendererOffice2003ToolStripMenuItem.Name = "rendererOffice2003ToolStripMenuItem";
             this.rendererOffice2003ToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
-            this.rendererOffice2003ToolStripMenuItem.Text = "Office 2003";
+            this.rendererOffice2003ToolStripMenuItem.Text = "Office Classic";
             this.rendererOffice2003ToolStripMenuItem.Click += new System.EventHandler(this.viewRendererOffice2003MenuItem_Click);
-            // 
-            // office2003RoundedVisualStudio2005Beta2TabsToolStripMenuItem
-            // 
-            this.office2003RoundedVisualStudio2005Beta2TabsToolStripMenuItem.Name = "office2003RoundedVisualStudio2005Beta2TabsToolStripMenuItem";
-            this.office2003RoundedVisualStudio2005Beta2TabsToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
-            this.office2003RoundedVisualStudio2005Beta2TabsToolStripMenuItem.Text = "Office 2003 (Rounded Visual Studio 2005 Beta 2 Tabs)";
-            this.office2003RoundedVisualStudio2005Beta2TabsToolStripMenuItem.Click += new System.EventHandler(this.viewRendererOffice2003VisualStudio2005Beta2MenuItem_Click);
             // 
             // dockGuideStyleToolStripMenuItem
             // 
@@ -1539,11 +1530,10 @@
 		private System.Windows.Forms.ToolStripMenuItem aboutWinFormsStudioToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem rendererToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem rendererMetroLightToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem rendererVisualStudio2022BlueToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem rendererVisualStudio2005ToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem rendererVisualStudio2005Beta2ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem rendererVisualStudio2002ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem rendererOffice2003ToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem office2003RoundedVisualStudio2005Beta2TabsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem dockGuideStyleToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem dockHintStyleToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem splitterExtentToolStripMenuItem;
