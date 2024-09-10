@@ -34,6 +34,8 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 	/// </summary>
 	public partial class MainControl : UserControl, IProductSample {
 		
+		private float				defaultFontSize;
+		private int					defaultIndicatorMarginWidth;
 		private bool				hasPendingParseData;
 		
 		// Project assemblies used by C#/VB in the .NET Languages Add-on
@@ -49,6 +51,11 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 		/// </summary>
 		public MainControl() {
 			InitializeComponent();
+
+			// Cache the default font size and indicator margin width that can be used to auto-scale the indicator margin
+			// as the font size changes.
+			defaultFontSize = editor.Font.Size;
+			defaultIndicatorMarginWidth = editor.IndicatorMarginWidth;
 
 			// Finalize initialization
 			DpiHelper.RescaleListViewColumns(errorListView, DpiHelper.DefaultDeviceDpi, DpiHelper.GetSystemDeviceDpi());
@@ -320,9 +327,21 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 		/// <param name="sender">The sender of the event.</param>
 		/// <param name="e">The <see cref="EventArgs"/> that contains the event data.</param>
 		private void OnFontSizeToolStripMenuItemDropDownOpening(object sender, EventArgs e) {
+			fontSize6ToolStripMenuItem.Checked = (editor.Font.Size == 6);
+			fontSize8ToolStripMenuItem.Checked = (editor.Font.Size == 8);
 			fontSize10ToolStripMenuItem.Checked = (editor.Font.Size == 10);
+			fontSize12ToolStripMenuItem.Checked = (editor.Font.Size == 12);
 			fontSize14ToolStripMenuItem.Checked = (editor.Font.Size == 14);
+			fontSize16ToolStripMenuItem.Checked = (editor.Font.Size == 16);
 			fontSize18ToolStripMenuItem.Checked = (editor.Font.Size == 18);
+			fontSize20ToolStripMenuItem.Checked = (editor.Font.Size == 20);
+			fontSize22ToolStripMenuItem.Checked = (editor.Font.Size == 22);
+			fontSize24ToolStripMenuItem.Checked = (editor.Font.Size == 24);
+			fontSize26ToolStripMenuItem.Checked = (editor.Font.Size == 26);
+			fontSize28ToolStripMenuItem.Checked = (editor.Font.Size == 28);
+			fontSize36ToolStripMenuItem.Checked = (editor.Font.Size == 36);
+			fontSize48ToolStripMenuItem.Checked = (editor.Font.Size == 48);
+			fontSize72ToolStripMenuItem.Checked = (editor.Font.Size == 72);
 		}
 		
 		/// <summary>
@@ -332,6 +351,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
 		private void OnFontSizeToolStripMenuItemDropDownItemClicked(object sender, ToolStripItemClickedEventArgs e) {
 			editor.Font = new Font(editor.Font.FontFamily, int.Parse(e.ClickedItem.Text));
+
+			// Scale the indicator margin width based on the size of the font
+			var fontScale = editor.Font.Size / defaultFontSize;
+			editor.IndicatorMarginWidth = (int)Math.Round(defaultIndicatorMarginWidth * fontScale, MidpointRounding.AwayFromZero);
 		}
 
 		/// <summary>

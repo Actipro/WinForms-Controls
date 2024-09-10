@@ -11,7 +11,49 @@
 		<div class="section-content">
 			<div class="container">
 
+
 				<h2>Version 24.1</h2>
+
+
+				<h3>9/9/2024 - v24.1.1</h3>
+				<h4>Bars</h4>
+				<ul>
+					<li>Fixed an issue where dragging a tool window over an outer dock guide that was positioned over a tool window would display the dock guide in the correct location but would actually dock to the tool window instead of the outer edge.</li>
+				</ul>
+				<h4>Docking</h4>
+				<ul>
+					<li>Updated DocumentWindow and ToolWindow with public static properties for several default size and location values.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added the ability to hold the Ctrl key to make IntelliPrompt sessions semi-transparent.</li>
+					<li>Updated IntelliPrompt completion item inline descriptions to trim properly when necessary.</li>
+					<li>Updated visible whitespace tab arrows to only render when there is enough space.</li>
+					<li>Updated outlining margin rendering logic for view lines with intra-line spacers.</li>
+					<li>Updated the outlining margin to scale its width and outlining nodes based on changes in the view's default font size.</li>
+					<li>Updated how rendering logic processes clip regions.</li>
+					<li>Updated the SyntaxEditor.Dispose logic to dispose the internal timer.</li>
+					<li>Updated the logic for pasting a full line when there is a selection to match current Visual Studio editor behavior.</li>
+					<li>Updated all key processing to consistently handle modifier keys.</li>
+					<li>Updated IntelliPrompt completion session logic for canceling the session if the placement bounds are no longer in view.</li>
+					<li>Updated bookmark, breakpoint, and current statement indicators to auto-scale based on indicator margin bounds instead of DPI.</li>
+					<li>Updated hit test logic.</li>
+					<li>Fixed an issue introduced in the previous build that was incorrectly clipping text in printer views.</li>
+					<li>Fixed code snippet template session not correctly recognizing Shift+Tab to move to the previous field.</li>
+					<li>Fixed search view not executing "Find All" when Ctrl+Enter was pressed in the "Find What" textbox.</li>
+					<li>Fixed scrollbar renderers not being updated when using a global renderer and changing the color scheme.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Updated IntelliPrompt tips to include documentation comment remarks sections, if available.</li>
+					<li>Updated the Roslyn binary assembly loading logic.</li>
+					<li>Updated C# context factory logic related to range operators.</li>
+					<li>Fixed an issue where VBIndentProvider might not indent properly after lines containing commas.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Fixed an issue where ITextLayout may not apply text formats properly in a certain scenario.</li>
+				</ul>
 
 
 				<h3>2/23/2024 - v24.1.0</h3>
@@ -89,9 +131,6 @@
 					<li>Added UIRendererManager.ColorSchemeChanged event that is raised when the UIRendererManager.ColorScheme property is changed.</li>
 					<li>Added several enhancements to the UIColor class with support for additional color types, grayscale conversion, and chromatic adaptation.</li>
 					<li>Renamed WindowsXPScrollBarRenderer as WindowsScrollBarRenderer.</li>
-				</ul>
-				<h4>Shared</h4>
-				<ul>
 					<li>Fixed an issue in the nativer rendering logic related to clip rectangles.</li>
 				</ul>
 				<h4>All</h4>
@@ -105,6 +144,7 @@
 					<li>Renamed all WindowsColorSchemeType.Office2007* and WindowsColorScheme.Office2007* values as OfficeClassic (e.g., Office2007Blue renamed as OfficeClassicBlue).</li>
 					<li>Renamed most WindowsColorSchemeType.WindowsXP* and WindowsColorScheme.WindowsXP* values as Luna (e.g., WindowsXPBlue renamed as LunaBlue).  WindowsXPRoyale has been deprecated since it replicates other classic themes and will be removed in a future release.</li>
 				</ul>
+
 
 				<p>
 					<!-- Older version toggle -->

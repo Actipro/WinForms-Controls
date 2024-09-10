@@ -29,5 +29,5 @@ using System.Runtime.Versioning;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("24.1.0.0")]
-[assembly: AssemblyInformationalVersion("24.1.0.0 - 20240206")]
+[assembly: AssemblyVersion("24.1.1.0")]
+[assembly: AssemblyInformationalVersion("24.1.1.0 - 20240223")]

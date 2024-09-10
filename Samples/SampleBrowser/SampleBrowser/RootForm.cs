@@ -163,8 +163,8 @@ namespace ActiproSoftware.SampleBrowser {
 
 			// Resolve relative paths
 			if (url.StartsWith("/", StringComparison.Ordinal)) {
-				var appPath = new Uri(Assembly.GetEntryAssembly().GetName().CodeBase).LocalPath;
-				url = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(appPath), @"..\..\.." + url));
+				var appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+				url = Path.GetFullPath(Path.Combine(appLocation, @"..\..\.." + url));
 			}
 
 			// Navigate
