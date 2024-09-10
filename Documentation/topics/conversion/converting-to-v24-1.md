@@ -159,7 +159,7 @@ The [UIColor](xref:@ActiproUIRoot.Drawing.UIColor) class has been updated with a
 
 ## Previously Deprecated Items Removed
 
-The following members were deprecated in previous releases have been removed in this release.
+The following members were deprecated in previous releases and have been removed in this release.
 
-- (Docking) [AssemblyInfo](xref:ActiproSoftware.Products.Docking.AssemblyInfo).`GetImage` method that did not accept a scale factor was removed. Use the [GetImage](xref:ActiproSoftware.Products.Docking.AssemblyInfo.GetImage*) method that accepts a scale factor.
+- (Docking) `AssemblyInfo.GetImage` method that did not accept a scale factor was removed. Use the `GetImage` method that accepts a scale factor instead.
 - (SyntaxEditor) [IntelliPromptSessionTypes](xref:@ActiproUIRoot.Controls.SyntaxEditor.IntelliPrompt.IntelliPromptSessionTypes).`CodeSnippet` was removed. Use the [CodeSnippetTemplate](xref:@ActiproUIRoot.Controls.SyntaxEditor.IntelliPrompt.IntelliPromptSessionTypes.CodeSnippetTemplate) property instead.

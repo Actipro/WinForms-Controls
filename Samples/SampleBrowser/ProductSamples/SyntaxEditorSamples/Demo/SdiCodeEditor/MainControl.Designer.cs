@@ -178,9 +178,21 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
             this.autoCorrectEnabledToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem19 = new System.Windows.Forms.ToolStripSeparator();
             this.fontSizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize8ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontSize10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize12ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontSize14ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize16ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fontSize18ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize20ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize22ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize24ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize26ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize28ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize36ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize48ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontSize72ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.outliningToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collapseToDefinitionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hideSelectionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1509,14 +1521,38 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
             // fontSizeToolStripMenuItem
             // 
             this.fontSizeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontSize6ToolStripMenuItem,
+            this.fontSize8ToolStripMenuItem,
             this.fontSize10ToolStripMenuItem,
+            this.fontSize12ToolStripMenuItem,
             this.fontSize14ToolStripMenuItem,
-            this.fontSize18ToolStripMenuItem});
+            this.fontSize16ToolStripMenuItem,
+            this.fontSize18ToolStripMenuItem,
+            this.fontSize20ToolStripMenuItem,
+            this.fontSize22ToolStripMenuItem,
+            this.fontSize24ToolStripMenuItem,
+            this.fontSize26ToolStripMenuItem,
+            this.fontSize28ToolStripMenuItem,
+            this.fontSize36ToolStripMenuItem,
+            this.fontSize48ToolStripMenuItem,
+            this.fontSize72ToolStripMenuItem});
             this.fontSizeToolStripMenuItem.Name = "fontSizeToolStripMenuItem";
             this.fontSizeToolStripMenuItem.Size = new System.Drawing.Size(254, 22);
             this.fontSizeToolStripMenuItem.Text = "Font Size";
             this.fontSizeToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnFontSizeToolStripMenuItemDropDownOpening);
             this.fontSizeToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.OnFontSizeToolStripMenuItemDropDownItemClicked);
+            // 
+            // fontSize6ToolStripMenuItem
+            // 
+            this.fontSize6ToolStripMenuItem.Name = "fontSize6ToolStripMenuItem";
+            this.fontSize6ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize6ToolStripMenuItem.Text = "6";
+            // 
+            // fontSize8ToolStripMenuItem
+            // 
+            this.fontSize8ToolStripMenuItem.Name = "fontSize8ToolStripMenuItem";
+            this.fontSize8ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize8ToolStripMenuItem.Text = "8";
             // 
             // fontSize10ToolStripMenuItem
             // 
@@ -1526,17 +1562,77 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
             this.fontSize10ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.fontSize10ToolStripMenuItem.Text = "10";
             // 
+            // fontSize12ToolStripMenuItem
+            // 
+            this.fontSize12ToolStripMenuItem.Name = "fontSize12ToolStripMenuItem";
+            this.fontSize12ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize12ToolStripMenuItem.Text = "12";
+            // 
             // fontSize14ToolStripMenuItem
             // 
             this.fontSize14ToolStripMenuItem.Name = "fontSize14ToolStripMenuItem";
             this.fontSize14ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.fontSize14ToolStripMenuItem.Text = "14";
             // 
+            // fontSize16ToolStripMenuItem
+            // 
+            this.fontSize16ToolStripMenuItem.Name = "fontSize16ToolStripMenuItem";
+            this.fontSize16ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize16ToolStripMenuItem.Text = "16";
+            // 
             // fontSize18ToolStripMenuItem
             // 
             this.fontSize18ToolStripMenuItem.Name = "fontSize18ToolStripMenuItem";
             this.fontSize18ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.fontSize18ToolStripMenuItem.Text = "18";
+            // 
+            // fontSize20ToolStripMenuItem
+            // 
+            this.fontSize20ToolStripMenuItem.Name = "fontSize20ToolStripMenuItem";
+            this.fontSize20ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize20ToolStripMenuItem.Text = "20";
+            // 
+            // fontSize22ToolStripMenuItem
+            // 
+            this.fontSize22ToolStripMenuItem.Name = "fontSize22ToolStripMenuItem";
+            this.fontSize22ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize22ToolStripMenuItem.Text = "22";
+            // 
+            // fontSize24ToolStripMenuItem
+            // 
+            this.fontSize24ToolStripMenuItem.Name = "fontSize24ToolStripMenuItem";
+            this.fontSize24ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize24ToolStripMenuItem.Text = "24";
+            // 
+            // fontSize26ToolStripMenuItem
+            // 
+            this.fontSize26ToolStripMenuItem.Name = "fontSize26ToolStripMenuItem";
+            this.fontSize26ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize26ToolStripMenuItem.Text = "26";
+            // 
+            // fontSize28ToolStripMenuItem
+            // 
+            this.fontSize28ToolStripMenuItem.Name = "fontSize28ToolStripMenuItem";
+            this.fontSize28ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize28ToolStripMenuItem.Text = "28";
+            // 
+            // fontSize36ToolStripMenuItem
+            // 
+            this.fontSize36ToolStripMenuItem.Name = "fontSize36ToolStripMenuItem";
+            this.fontSize36ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize36ToolStripMenuItem.Text = "36";
+            // 
+            // fontSize48ToolStripMenuItem
+            // 
+            this.fontSize48ToolStripMenuItem.Name = "fontSize48ToolStripMenuItem";
+            this.fontSize48ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize48ToolStripMenuItem.Text = "48";
+            // 
+            // fontSize72ToolStripMenuItem
+            // 
+            this.fontSize72ToolStripMenuItem.Name = "fontSize72ToolStripMenuItem";
+            this.fontSize72ToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.fontSize72ToolStripMenuItem.Text = "72";
             // 
             // outliningToolStripMenuItem
             // 
@@ -2214,9 +2310,21 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 		private System.Windows.Forms.ToolStripMenuItem canScrollPastDocumentEndToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem19;
 		private System.Windows.Forms.ToolStripMenuItem fontSizeToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize6ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize8ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fontSize10ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize12ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fontSize14ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize16ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem fontSize18ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize20ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize22ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize24ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize26ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize28ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize36ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize48ToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem fontSize72ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem jSONWithCommentsinWebLanguagesAddonToolStripMenuItem;
 		private System.Windows.Forms.Panel contentPanel;
 		private System.Windows.Forms.Panel editorPanel;
