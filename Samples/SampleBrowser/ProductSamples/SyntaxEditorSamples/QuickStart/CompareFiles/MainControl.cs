@@ -8,6 +8,7 @@ using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -389,6 +390,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CompareF
 		/// <summary>
 		/// Gets or sets if insignificant white space should be ignored when comparing documents.
 		/// </summary>
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public bool IgnoreWhiteSpace {
 			get => ignoreWhiteSpace;
 			set {

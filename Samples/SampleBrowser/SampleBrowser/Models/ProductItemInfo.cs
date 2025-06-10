@@ -6,7 +6,9 @@ namespace ActiproSoftware.SampleBrowser {
     /// Provides information about a product item.
     /// </summary>
     public class ProductItemInfo {
-        	
+
+		private string blurbText;
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// OBJECT
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,18 +21,21 @@ namespace ActiproSoftware.SampleBrowser {
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+
 		/// <summary>
 		/// Gets or sets the blurb text.
 		/// </summary>
 		/// <value>The blurb text.</value>
-		public string BlurbText { get; set; }
-		
-        /// <summary>
-        /// Gets or sets the category.
-        /// </summary>
-        /// <value>The category.</value>
-        public string Category { get; set; }
+		public string BlurbText {
+			get => blurbText ?? (IsPrivate ? "Private!" : null);
+			set => blurbText = value;
+		}
+
+		/// <summary>
+		/// Gets or sets the category.
+		/// </summary>
+		/// <value>The category.</value>
+		public string Category { get; set; }
 
         /// <summary>
         /// Gets or sets the description.
@@ -45,7 +50,12 @@ namespace ActiproSoftware.SampleBrowser {
 		/// <c>true</c> if this item should render a category header; otherwise, <c>false</c>.
 		/// </value>
 		public bool IsCategoryHeaderRequired { get; set; }
-		
+
+		/// <summary>
+		/// Gets or sets Whether this item is a private item not intended for inclusion in public projects.
+		/// </summary>
+		public bool IsPrivate { get; set; }
+
 		/// <summary>
 		/// Gets or sets the <see cref="ProductItemKind"/> of item.
 		/// </summary>

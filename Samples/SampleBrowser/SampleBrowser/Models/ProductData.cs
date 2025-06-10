@@ -60,7 +60,11 @@ namespace ActiproSoftware.SampleBrowser {
 							attr = itemEl.Attribute(XName.Get("Description"));
 							if (attr != null)
 								itemInfo.Description = attr.Value;
-							
+
+							attr = itemEl.Attribute(XName.Get("IsPrivate"));
+							if (attr != null)
+								itemInfo.IsPrivate = bool.Parse(attr.Value);
+
 							attr = itemEl.Attribute(XName.Get("Kind"));
 							if (attr != null)
 								itemInfo.Kind = (ProductItemKind)Enum.Parse(typeof(ProductItemKind), attr.Value);

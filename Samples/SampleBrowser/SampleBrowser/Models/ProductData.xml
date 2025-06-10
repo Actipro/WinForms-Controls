@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ProductData>
 
 	<ProductFamily Title="Introduction" Path="/SampleBrowser/Documents/Introduction.html">
@@ -11,8 +11,8 @@
 		<Items>
 			<Item Kind="InlineSample" Category="General Demos" Title="SDI Code Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/SdiCodeEditor/" />
 
-			<Item Kind="InlineSample" Category=".NET Languages Add-on Demos" Title="C# Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/DotNetAddonCSharpEditor/" />
-			<Item Kind="InlineSample" Category=".NET Languages Add-on Demos" Title="Visual Basic Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/DotNetAddonVBEditor/" />
+			<Item Kind="InlineSample" BlurbText="Updated!" Category=".NET Languages Add-on Demos" Title="C# Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/DotNetAddonCSharpEditor/" />
+			<Item Kind="InlineSample" BlurbText="Updated!" Category=".NET Languages Add-on Demos" Title="Visual Basic Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/DotNetAddonVBEditor/" />
 
 			<Item Kind="InlineSample" Category="Python Language Add-on Demos" Title="Python Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/PythonAddonPythonEditor/" />
 
@@ -76,7 +76,7 @@
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Hit Testing" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/HitTesting/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Indicators - Bookmark" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IndicatorsBookmark/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Indicators - Custom" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IndicatorsCustom/" />
-			<Item Kind="InlineSample" Category="General QuickStarts" Title="Indicators - Debugging" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IndicatorsDebugging/" />
+			<Item Kind="InlineSample" BlurbText="Updated!" Category="General QuickStarts" Title="Indicators - Debugging" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/IndicatorsDebugging/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Language Transitions" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/LanguageTransitions/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Line Commenting" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/LineCommenting/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Macro Recording" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/MacroRecording/" />
@@ -122,6 +122,9 @@
 			<Item Kind="InlineSample" Category="Web Languages Add-on QuickStarts" Title="JSON Getting Started" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/WebAddonJsonGettingStarted/" />
 			<Item Kind="InlineSample" Category="Web Languages Add-on QuickStarts" Title="XML Getting Started" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/WebAddonXmlGettingStarted/" />
 			<Item Kind="InlineSample" Category="Web Languages Add-on QuickStarts" Title="XML Text Formatter Options" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/WebAddonXmlTextFormatterOptions/" />
+
+			
+			
 		</Items>
 	</ProductFamily>
 

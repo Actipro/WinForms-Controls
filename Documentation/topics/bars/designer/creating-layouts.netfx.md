@@ -6,7 +6,7 @@ order: 2
 # Designer for .NET Framework
 
 > [!IMPORTANT]
-> This topic is about working with .NET Framework. See the [Designer for .NET Core / .NET 5 and Higher](creating-layouts.md) topic for working with .NET Core or .NET 5 and higher.
+> This topic is about working with .NET Framework. See the [Designer for .NET](creating-layouts.md) topic for working with .NET 6 and higher.
 
 The Bars controls are specifically designed to make the design-time customization experience remarkably like the run-time customization experience. The Bars controls can be completely designed and customized in the designer and rely heavily on drag-and-drop functionality.
 

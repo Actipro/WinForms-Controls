@@ -99,6 +99,7 @@ namespace ActiproSoftware.SampleBrowser {
 		/// Gets or sets the <see cref="System.Drawing.Color"/> that is currently selected.
 		/// </summary>
 		/// <value>The <see cref="System.Drawing.Color"/> that is currently selected.</value>
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public Color Color {
 			get {
 				return color;

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
@@ -9,33 +9,29 @@
 
 			IMPORTANT NOTES ON VISUAL STUDIO DESIGNER:
 
-			* The first listed framework for multi-target projects will determine the Visual Studio designer support.
+			* The first listed framework for multi-target projects will determine the Visual Studio designer support
 
 			* .NET Framework targets require the product's offline installer to run with the designer support option
 			  even when using NuGet package references.
 
-			* Visual Studio 17.6 designer support for .NET Core-based targets (e.g., 'net6.0-windows') will fail to
-			  initialize if a .NET Framework-based target (e.g., 'net48') is also a listed target. If mixed targets are
-				necessary, list the .NET Framework-based target first (and run the product's installer as noted above)
-				to force the .NET Framework designer support.
-
 		-->
-		
-		<TargetFrameworks Label="Visual Studio 2019 Targets" Condition="'$(VisualStudioVersion)' == '16.0'">net5.0-windows</TargetFrameworks>
-		<TargetFrameworks Label="Default Targets" Condition="'$(TargetFrameworks)' == ''">net8.0-windows</TargetFrameworks>
+
+		<TargetFrameworks>net8.0-windows</TargetFrameworks>
 
 		<DefineConstants>CODE_ANALYSIS;WINFORMS;DESKTOP</DefineConstants>
 
 		<AssemblyName>SampleBrowser</AssemblyName>
 
-		<Version>24.1.1.0</Version>
+		<Version>25.1.0.0</Version>
 
 		<RootNamespace>ActiproSoftware</RootNamespace>
 
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<GenerateResourceWarnOnBinaryFormatterUse>false</GenerateResourceWarnOnBinaryFormatterUse>
 
 		<StartupObject>ActiproSoftware.SampleBrowser.Program</StartupObject>
+		<ApplicationManifest>Properties\app.manifest</ApplicationManifest>
 
 	</PropertyGroup>
 
@@ -58,20 +54,6 @@
 
 	<ItemGroup>
 		<None Include="ProductSamples\SyntaxEditorSamples\Languages\Projects\**\*.langproj" />
-	</ItemGroup>
-
-	<ItemGroup Label="Microsoft Logging" Condition="$([System.Text.RegularExpressions.Regex]::IsMatch($(DefineConstants), '^(.*;)*MS_LOGGING(;.*)*$'))">
-		<PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-	</ItemGroup>
-
-	<ItemGroup Label=".NET Framework References" Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
-		<Reference Include="System" />
-		<Reference Include="System.Core" />
-		<Reference Include="System.Data" />
-		<Reference Include="System.Drawing" />
-		<Reference Include="System.Windows.Forms" />
-		<Reference Include="System.Xml" />
-		<Reference Include="System.Xml.Linq" />
 	</ItemGroup>
 
 	<!-- Define Actipro assembly references -->

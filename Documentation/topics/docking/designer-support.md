@@ -26,7 +26,7 @@ A new tool window will be created and docked to the host container control and t
 *Dock control in the designer with an on the ColorPicker Smart Tags panel*
 
 > [!TIP]
-> The same **Dock in New ToolWindow** action is also available as a designer verb on the context menu of a control when working with .NET Core or .NET 5 and higher.
+> The same **Dock in New ToolWindow** action is also available as a designer verb on the context menu of a control when working with .NET 6 and higher.
 
 ## Creating a Blank Tool Window
 
@@ -38,7 +38,7 @@ To create a blank tool window:
 A blank tool window will be created that is docked in the host container control.  The tool window is a container control, so other child controls such as textboxes can be added to it in the designer.
 
 > [!TIP]
-> The same **Create Tool Window** action is also available as a designer verb on the context menu of a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component when working with .NET Core or .NET 5 and higher.
+> The same **Create Tool Window** action is also available as a designer verb on the context menu of a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component when working with .NET 6 and higher.
 
 ## Moving Tool Windows
 
@@ -78,7 +78,7 @@ To open to **Tool Windows** dialog:
 >
 > Double-click a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component to quickly open the **Tool Windows** dialog using the default designer action for the component.
 >
-> The same **Tool Windows...** action is also available as a designer verb on the context menu of a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component or [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) control when working with .NET Core or .NET 5 and higher.
+> The same **Tool Windows...** action is also available as a designer verb on the context menu of a [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component or [ToolWindow](xref:@ActiproUIRoot.Controls.Docking.ToolWindow) control when working with .NET 6 and higher.
 
 The **Tool Windows** dialog lists all of the tool windows currently being managed by the [DockManager](xref:@ActiproUIRoot.Controls.Docking.DockManager) component.
 

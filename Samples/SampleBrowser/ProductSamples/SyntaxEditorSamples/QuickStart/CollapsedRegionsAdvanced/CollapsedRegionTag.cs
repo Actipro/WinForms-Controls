@@ -24,6 +24,14 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Collapse
 		public float Baseline { get; set; }
 
 		/// <summary>
+		/// Gets whether the spacer appears before the tagged range.
+		/// </summary>
+		/// <value>
+		/// <c>true</c> if the spacer appears before the tagged range; otherwise, <c>false</c>.
+		/// </value>
+		public bool IsSpacerBefore { get; } = true;
+
+		/// <summary>
 		/// Gets or sets an object that can be used to uniquely identify the spacer.
 		/// </summary>
 		/// <value>An object that can be used to uniquely identify the spacer.</value>

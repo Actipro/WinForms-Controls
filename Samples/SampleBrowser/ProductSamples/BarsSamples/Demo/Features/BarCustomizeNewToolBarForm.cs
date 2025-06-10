@@ -99,6 +99,7 @@ namespace ActiproSoftware.ProductSamples.BarsSamples.Demo.Features {
 		/// Gets or sets the toolbar key entered by the user.
 		/// </summary>
 		/// <value>The toolbar key entered by the user.</value>
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		public string ToolBarKey {
 			get {
 				return keyTextBox.Text.Trim();
