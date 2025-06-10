@@ -16,6 +16,40 @@ Per-monitor DPI awareness means applications are configured to run on the DPI of
 > [!TIP]
 > Per-monitor DPI awareness typically provides the best end-user experience and should be supported when possible.
 
+## Declaring Operating System Support
+
+> [!IMPORTANT]
+> Support for DPI awareness is OS-specific and may require your application to explicitly declare support for the related operating system.  Per Monitor V1 requires at least Windows 8.1 and Per Monitor V2 requires at least Windows 10 v1703.
+
+Applications declare supported operating systems using an *app.manifest* file.  Our **Sample Browser** application ships with an *app.manifest* file that can be used as an example.  In general, the following code snippet can be added to the *app.manifest* file to declare support:
+
+```xml
+<assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
+	...
+	<compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+		<application>
+			<!-- A list of the Windows versions that this application has been tested on and is
+			is designed to work with. Uncomment the appropriate elements and Windows will
+			automatically selected the most compatible environment. -->
+
+			<!-- Windows 7 -->
+			<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />
+
+			<!-- Windows 8 -->
+			<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />
+
+			<!-- Windows 8.1 -->
+			<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />
+
+			<!-- Windows 10/11 -->
+			<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />
+
+		</application>
+	</compatibility>
+	...
+</assembly>
+```
+
 ## Known Issues and Limitations
 
 Actipro WinForms Controls target multiple .NET Frameworks, and each target can have drastically different levels of support for DPI awareness. These differences are most prevalent when working with per-monitor DPI awareness. When building DPI awareness for our controls, every effort has been made to support per-monitor DPI awareness, but some scenarios could not be consistently supported.

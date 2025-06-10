@@ -9,6 +9,10 @@ WinForms Studio's documentation has frequent updates, so this topic is the best 
 
 If you are looking for a list of recently-added major new features to WinForms Studio products, please see the **Sample Browser**'s Release History pages instead.
 
+## Updates for v25.1.0
+
+- **All:** Added [Third-Party Software](third-party.md) topic.
+
 ## Updates for v24.1.1
 
 - **SyntaxEditor:** Removed "Control Key Down Opacity" from [Overlay Panes](syntaxeditor/user-interface/editor-view/overlay-panes.md) topic since the WinForms platform does not support that feature.

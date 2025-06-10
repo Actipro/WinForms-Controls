@@ -49,7 +49,7 @@ items:
       href: bars/designer/index.md
     - name: "Designer for .NET Framework"
       href: bars/designer/creating-layouts.netfx.md
-    - name: "Designer for .NET Core / .NET 5 and Higher"
+    - name: "Designer for .NET"
       href: bars/designer/creating-layouts.md
   - name: "Run-Time Customization"
     href: bars/run-time-customization.md
@@ -747,6 +747,8 @@ items:
   items:
   - name: "Overview"
     href: conversion/index.md
+  - name: "Converting to v25.1"
+    href: conversion/converting-to-v25-1.md
   - name: "Converting to v24.1"
     href: conversion/converting-to-v24-1.md
   - name: "Converting to v23.1"
@@ -767,6 +769,8 @@ items:
   href: open-source.md
 - name: "Support"
   href: support.md
+- name: "Third-Party Software"
+  href: third-party.md
 - name: "API Reference"
   href: api/
   homepage: api/index.md

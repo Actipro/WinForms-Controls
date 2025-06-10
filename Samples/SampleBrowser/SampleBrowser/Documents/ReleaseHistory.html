@@ -12,6 +12,76 @@
 			<div class="container">
 
 
+				<h2>Version 25.1</h2>
+
+				<h3>6/10/2025 - v25.1.0</h3>
+
+				<h4>Bars</h4>
+				<ul>
+					<li>Updated BarComboBoxLink dropdown to support a dark mode scrollbar on Windows 11.</li>
+					<li>Updated menus to close on Ctrl+Tab key presses.</li>
+					<li>Fixed an InvalidCastException that might be thrown if UIRendererManager.ColorScheme was configured with WindowsClassic (the default on old versions of Windows) or VisualStudioClassic.</li>
+				</ul>
+				<h4>Docking</h4>
+				<ul>
+					<li>Fixed an issue rendering a glyph in DockContainerTitleBarButton if controls were created on different threads.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Added the IIntraTextSpacerTag.IsSpacerBefore property that allows an intra-text adornment to render after the tagged range instead of before, which is useful for features like AI suggestions.</li>
+					<li>Improved the rendering speed of very long squiggle lines.</li>
+					<li>Improved vertical scrollbar maximum calculation logic when word wrap is active.</li>
+					<li>Improved font selection logic when a character glyph is unsupported by a font to examine Windows' font linking settings, which takes priority over the built-in font fallback logic.</li>
+					<li>Improved font size selection logic for substitute fonts.</li>
+					<li>Improved substitute font alignment logic.</li>
+					<li>Improved selection adjustment logic after text changes.</li>
+					<li>Updated a sample to demonstrate intra-text adornment placement options.</li>
+					<li>Updated the outlining margin to render with the modern appearance found in recent Visual Studio versions.</li>
+					<li>Updated .NET Text assemblies to target .NET 8 instead of .NET 6.  Users needing .NET 6 support can use the .NET Standard 2.0 targets.</li>
+					<li>Updated IntelliPromptCompletionList and NavigableSymbolSelector to support dark mode scrollbars on Windows 11.</li>
+					<li>Fixed an issue where changing the background color of SyntaxEditor between "light" and "dark" colors might not update the caret to use the corresponding contrasting color.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Updated the C# language to syntax highlight interpolated string expressions and support IntelliPrompt within the expressions.</li>
+					<li>Updated the C# parser to support C# 13 syntax.</li>
+					<li>Updated the C# parser to support C# 12 syntax.</li>
+					<li>Updated the C# parser to support C# 11 syntax.</li>
+					<li>Updated the C# parser to support C# 10 syntax.</li>
+					<li>Updated the C# parser to properly handle deconstruction.</li>
+					<li>Updated IntelliPrompt tips to include documentation comment remarks sections for type members, if available.</li>
+					<li>Updated IntelliPrompt completion following a VB For Each to list previously-declared variables.</li>
+					<li>Updated the resolver to properly locate local functions declared in scope but after the context location.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Improved the resolver's logic for locating imported modules with aliases.</li>
+					<li>Updated how the resolver handles name conflicts.</li>
+				</ul>
+				<h5>Web Languages Add-on</h5>
+				<ul>
+					<li>Updated the XML formatter to better retain whitespace at the end of a format selection edit action.</li>
+				</ul>
+				<h4>All</h4>
+				<ul>
+					<li>Added .NET assembly targets for .NET 8.</li>
+					<li>Updated .NET assemblies to target .NET 6 instead of .NET Core 3.1.</li>
+				</ul>
+
+
+				<p>
+					<!-- Older version toggle -->
+					<a id="toggle-link" href="#toggle-link" onclick="var els = document.getElementsByClassName('section-content'); for (var i = 0; i < els.length; i++) els[i].classList.remove('d-none'); this.classList.add('d-none');">See release history for older versions</a>
+				</p>
+
+
+			</div>
+		</div>
+
+		<div class="section-content d-none bg-silver">
+			<div class="container">
+
+
 				<h2>Version 24.1</h2>
 
 
@@ -146,15 +216,10 @@
 				</ul>
 
 
-				<p>
-					<!-- Older version toggle -->
-					<a id="toggle-link" href="#toggle-link" onclick="var els = document.getElementsByClassName('section-content'); for (var i = 0; i < els.length; i++) els[i].classList.remove('d-none'); this.classList.add('d-none');">See release history for older versions</a>
-				</p>
-
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 
@@ -350,15 +415,10 @@
 					<li>Updated .NET 5 targets to .NET 6 since .NET 5 is out of support. Users can continue to use .NET Core 3.1 targets for .NET 5 applications.</li>
 				</ul>
 
-				<p>
-					<!-- Older version toggle -->
-					<a id="toggle-link" href="#toggle-link" onclick="var els = document.getElementsByClassName('section-content'); for (var i = 0; i < els.length; i++) els[i].classList.remove('d-none'); this.classList.add('d-none');">See release history for older versions</a>
-				</p>
-
 			</div>
 		</div>
 
-		<div class="section-content d-none">
+		<div class="section-content d-none bg-silver">
 			<div class="container">
 
 				<h2>Version 22.1</h2>
@@ -562,7 +622,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 				<h2>Version 21.1</h2>
@@ -717,7 +777,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none">
+		<div class="section-content d-none bg-silver">
 			<div class="container">
 
 				<h2>Version 20.1</h2>
@@ -1000,7 +1060,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 				<h2>Version 18.1</h2>
@@ -1077,7 +1137,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none">
+		<div class="section-content d-none bg-silver">
 			<div class="container">
 
 				<h2>Version 16.1</h2>
@@ -1123,7 +1183,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 				<h2>Version 14.1</h2>
@@ -1235,7 +1295,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none">
+		<div class="section-content d-none bg-silver">
 			<div class="container">
 
 				<h2>Version 13.1</h2>
@@ -1304,7 +1364,7 @@
 			</div>
 		</div>
 
-		<div class="section-content d-none bg-silver">
+		<div class="section-content d-none">
 			<div class="container">
 
 				<h2>Version 12.1</h2>

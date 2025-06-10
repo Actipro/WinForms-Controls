@@ -6,11 +6,15 @@ using ActiproSoftware.Text.Languages.DotNet;
 using ActiproSoftware.Text.Languages.DotNet.Reflection;
 using ActiproSoftware.Text.Parsing;
 using ActiproSoftware.Text.Parsing.Implementation;
+using ActiproSoftware.Text.Tagging;
+using ActiproSoftware.Text.Tagging.Implementation;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.Adornments.Implementation;
 using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.Implementation;
 using ActiproSoftware.UI.WinForms.Drawing;
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.IndicatorsDebugging {
@@ -64,6 +68,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Indicato
 			// Register an event sink that allows for handling of clicks in the indicator margin
 			language.RegisterService(new DebuggingPointerInputEventSink());
 
+			// Register services to manage the elapsed time adornment
+			language.RegisterService(new AdornmentManagerProvider<ElapsedTimeAdornmentManager>(typeof(ElapsedTimeAdornmentManager)));
+			language.RegisterService(new CodeDocumentTaggerProvider<ElapsedTimeTagger>(typeof(ElapsedTimeTagger)));
+
 			// Assign the language
 			editor.Document.Language = language;
 		}
@@ -76,6 +84,19 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Indicato
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
 		// NON-PUBLIC PROCEDURES
 		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		/// <summary>
+		/// Hides the elapsed time adornment.
+		/// </summary>
+		private void HideElapsedTime() {
+			// Get the tagger that was created by the language and has been persisted in the document's properties
+			//   while the language is active on the document
+			ElapsedTimeTagger tagger = null;
+			if (editor.Document.Properties.TryGetValue(typeof(ElapsedTimeTagger), out tagger)) {
+				// Clear any tags
+				tagger.Clear();
+			}
+		}
 
 		/// <summary>
 		/// Occurs when the button is clicked.
@@ -104,6 +125,17 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Indicato
 			currentStatementSnapshotOffset = DebuggingHelper.SetCurrentStatement(editor.Document, currentStatementSnapshotOffset);
 			stopDebuggingToolStripButton.Enabled = !currentStatementSnapshotOffset.IsDeleted;
 
+			// Update the elapsed time
+			if (currentStatementSnapshotOffset.IsDeleted)
+				this.HideElapsedTime();
+			else {
+				// For this sample, generate a random timespan under a second long... a real debugging app would measure how long
+				//   it takes to execute from one statement to the next statement
+				var timeSpan = TimeSpan.FromMilliseconds(999.0 * new Random().NextDouble());
+				
+				this.ShowElapsedTime(currentStatementSnapshotOffset.Line, timeSpan);
+			}
+
 			// Focus the editor
 			editor.Focus();
 		}
@@ -117,6 +149,9 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Indicato
 			// Flag as not debugging
 			currentStatementSnapshotOffset = DebuggingHelper.SetCurrentStatement(editor.Document, TextSnapshotOffset.Deleted);
 			stopDebuggingToolStripButton.Enabled = false;
+
+			// Hide the elapsed time
+			this.HideElapsedTime();
 
 			// Focus the editor
 			editor.Focus();
@@ -154,6 +189,31 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.Indicato
 
 			// Focus the editor
 			editor.Focus();
+		}
+		
+		/// <summary>
+		/// Shows an elapsed time at the end of the specified line.
+		/// </summary>
+		/// <param name="snapshotLine">The snapshot line.</param>
+		/// <param name="timeSpan">The elapsed time.</param>
+		private void ShowElapsedTime(ITextSnapshotLine snapshotLine, TimeSpan timeSpan) {
+			// Hide any existing elapsed time
+			this.HideElapsedTime();
+
+			// Get the tagger that was created by the language and has been persisted in the document's properties
+			//   while the language is active on the document
+			ElapsedTimeTagger tagger = null;
+			if (editor.Document.Properties.TryGetValue(typeof(ElapsedTimeTagger), out tagger)) {
+				// Create a version range at the line's end offset
+				var versionRange = new TextSnapshotRange(snapshotLine.Snapshot, snapshotLine.EndOffset).ToVersionRange(TextRangeTrackingModes.Default);
+				
+				// Create a tag that can render an adornment at the end of the line
+				var tag = new ElapsedTimeTag(timeSpan);
+				tag.Size = new Size(editor.ActiveView.DefaultCharacterWidth, 0);
+
+				// Add the tag to the tagger
+				tagger.Add(new TagVersionRange<IIntraTextSpacerTag>(versionRange, tag));
+			}
 		}
 
 		/////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -62,8 +62,7 @@ namespace ActiproSoftware.SampleBrowser {
 			// The Sample Browser project can be changed to "HighDpiMode.PerMonitorV2" to evaluate the individual controls,
 			// but some scaling issues may be present with the environment that hosts the controls for demonstration.
 			//
-			// NOTE: This method call is for .NET Core or .NET 5+ only.  To change DpiAwareness for .NET Framework, change the
-			// "DpiAwareness" in "app.config".
+			// NOTE: This method call is for .NET only.  To change DpiAwareness for .NET Framework, change the "DpiAwareness" in "app.config".
 			Application.SetHighDpiMode(HighDpiMode.SystemAware);
 			#endif
 
@@ -140,7 +139,7 @@ namespace ActiproSoftware.SampleBrowser {
 				// define a different font. For instance, a "header label" might use a larger
 				// font than normal or apply bold style.
 				//
-				// .NET Framework 4.8 and .NET Core consistently scale the fonts of controls
+				// .NET Framework 4.8 and .NET consistently scale the fonts of controls
 				// which define their own fonts, but .NET Framework 4.7.2 (and presumably
 				// earlier versions) do not scale those fonts and manually scaling the font
 				// is required for a consistent appearance at different DPI levels.

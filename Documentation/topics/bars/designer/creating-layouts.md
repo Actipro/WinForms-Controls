@@ -1,12 +1,12 @@
 ---
-title: "Designer for .NET Core / .NET 5 and Higher"
-page-title: "Designer for .NET Core / .NET 5 and Higher - Bars Reference"
+title: "Designer for .NET"
+page-title: "Designer for .NET - Bars Reference"
 order: 3
 ---
-# Designer for .NET Core / .NET 5 and Higher
+# Designer for .NET
 
 > [!IMPORTANT]
-> This topic is about working with .NET Core or .NET 5 and higher. See the [Designer for .NET Framework](creating-layouts.netfx.md) topic for working with .NET Framework.
+> This topic is about working with .NET 6 and higher. See the [Designer for .NET Framework](creating-layouts.netfx.md) topic for working with .NET Framework.
 
 The Bars controls are fully customized in a standalone dialog which enables easy interaction with toolbars, menus, and commands.
 

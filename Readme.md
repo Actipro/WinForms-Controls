@@ -91,9 +91,9 @@ Use these packages for SyntaxEditor's premium language add-ons as needed, which 
 
 ## Supported Technologies
 
-- **Frameworks:** .NET 5+, .NET Core 3.1, and .NET Framework 4.6.2+
+- **Frameworks:** .NET 6+ and .NET Framework 4.6.2+
 - **Architectures:** Any CPU, ARM64, x64, and x86
-- **IDEs:** Visual Studio 2019-2022
+- **IDEs:** Visual Studio 2022
 - **SDKs:** .NET SDK required for sample projects
 
 ## Contributing

@@ -5,7 +5,7 @@ order: 1
 ---
 # Overview
 
-[TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) provides an alternative tab-based control to the `TabControl` that is included in .NET Framework, .NET Core, or .NET 5+. [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) has a more robust user interface in that it fully supports [customized rendering](extensible-rendering.md), [tab alignment](tab-alignments.md) on any side, special handling for [tab overflow](tab-overflow-styles.md), control over minimum/maximum tab sizes, interactive tooltip handling, drag/drop reordering of tabs, and more.
+[TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) provides an alternative tab-based control to the `TabControl` that is included in .NET or .NET Framework. [TabStrip](xref:@ActiproUIRoot.Controls.Docking.TabStrip) has a more robust user interface in that it fully supports [customized rendering](extensible-rendering.md), [tab alignment](tab-alignments.md) on any side, special handling for [tab overflow](tab-overflow-styles.md), control over minimum/maximum tab sizes, interactive tooltip handling, drag/drop reordering of tabs, and more.
 
 ![Screenshot](../images/tabstrip.gif)
 
