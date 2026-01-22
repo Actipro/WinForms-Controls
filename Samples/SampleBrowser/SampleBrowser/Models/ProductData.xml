@@ -14,7 +14,7 @@
 			<Item Kind="InlineSample" BlurbText="Updated!" Category=".NET Languages Add-on Demos" Title="C# Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/DotNetAddonCSharpEditor/" />
 			<Item Kind="InlineSample" BlurbText="Updated!" Category=".NET Languages Add-on Demos" Title="Visual Basic Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/DotNetAddonVBEditor/" />
 
-			<Item Kind="InlineSample" Category="Python Language Add-on Demos" Title="Python Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/PythonAddonPythonEditor/" />
+			<Item Kind="InlineSample" BlurbText="Updated!" Category="Python Language Add-on Demos" Title="Python Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/PythonAddonPythonEditor/" />
 
 			<Item Kind="InlineSample" Category="Web Languages Add-on Demos" Title="JavaScript Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/WebAddonJavaScriptEditor/" />
 			<Item Kind="InlineSample" Category="Web Languages Add-on Demos" Title="HTML Editor" Path="/ProductSamples/SyntaxEditorSamples/Demo/WebAddonHtmlEditor/" />
@@ -58,7 +58,7 @@
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Collapsed Regions - Advanced" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CollapsedRegionsAdvanced/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Column Guides" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/ColumnGuides/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Compare Files" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CompareFiles/" />
-			<Item Kind="InlineSample" BlurbText="Updated!" Category="General QuickStarts" Title="Current Line Highlighting" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CurrentLineHighlighting/" />
+			<Item Kind="InlineSample" Category="General QuickStarts" Title="Current Line Highlighting" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/CurrentLineHighlighting/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Document Sharing" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DocumentSharing/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Document Swapping" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DocumentSwapping/" />
 			<Item Kind="InlineSample" Category="General QuickStarts" Title="Drag and Drop" Path="/ProductSamples/SyntaxEditorSamples/QuickStart/DragAndDrop/" />

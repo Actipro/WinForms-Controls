@@ -14,8 +14,37 @@
 
 				<h2>Version 25.1</h2>
 
-				<h3>6/10/2025 - v25.1.0</h3>
 
+				<h3>1/22/2026 - v25.1.1</h3>
+				<h4>Docking</h4>
+				<ul>
+					<li>Fixed an issue where some modern IDocumentWindowTabStripRenderer instances defaulted the TabStripTabTextStringTrimming property to EllipsisCharacter instead of EllipsisPath.</li>
+				</ul>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Improved the text measurement logic for collapsed region adornments.</li>
+					<li>Updated the recently added IIntraTextSpacerTag.IsSpacerBefore property to have a default implementation in .NET.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Added the static CSharpLexer.OtherPreprocessorDirectives property, which allows additional custom preprocessor directives to be supported.</li>
+					<li>Improved the C# resolver to better handle is pattern variable declarations in certain scenarios.</li>
+					<li>Improved the C# parser's logic for handling local functions.</li>
+					<li>Fixed an issue where IntelliPrompt completion within interpolated string expressions may be incorrect.</li>
+					<li>Fixed an issue in the C# parser grammar where the 'record' keyword couldn't be used as a variable properly.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Added an IncludeSourceLocation option on Python IntelliPrompt providers that can be set to false to hide the source module path.</li>
+					<li>Improved Python code outlining to create nodes for all block statements, list expressions, and dictionary expressions.</li>
+					<li>Improved the Python resolver logic for resolving classes.</li>
+					<li>Updated IntelliPrompt to display docstrings defined for fields and variables.</li>
+					<li>Updated the Python parser to support Python v3.11 syntax.</li>
+					<li>Updated the Python parser to support Python v3.10 syntax.</li>
+				</ul>
+
+
+				<h3>6/10/2025 - v25.1.0</h3>
 				<h4>Bars</h4>
 				<ul>
 					<li>Updated BarComboBoxLink dropdown to support a dark mode scrollbar on Windows 11.</li>
