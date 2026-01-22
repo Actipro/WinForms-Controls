@@ -39,7 +39,7 @@ The following outlines the compatibility of Actipro WinForms Controls with versi
 <td>WinForms Controls v25.1</td>
 <td>
 
-- Visual Studio 2022 v17.0-17.13
+- Visual Studio 2022 v17.0-17.14
 - *Minor updates to v17 are expected to be supported and will be verified as they are released*
 
 </td>
