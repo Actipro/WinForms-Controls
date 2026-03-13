@@ -1,3 +1,4 @@
+using ActiproSoftware.Security;
 using ActiproSoftware.UI.WinForms.Controls;
 using ActiproSoftware.UI.WinForms.Drawing;
 using System;
@@ -176,7 +177,7 @@ namespace ActiproSoftware.SampleBrowser {
 		/// </summary>
 		/// <param name="type">The control type.</param>
 		private void LoadUserControl(Type type) {
-			var userControl = (UserControl)Activator.CreateInstance(type);
+			var userControl = (UserControl)TrustedCodeService.CreateInstance(type);
 			userControl.SuspendLayout();
 			userControl.Dock = DockStyle.Fill;
 
@@ -507,7 +508,7 @@ namespace ActiproSoftware.SampleBrowser {
 				var type = typeof(RootForm).Assembly.GetType(typeName, false, true);
 
 				// Try to open MainForm
-				var form = Activator.CreateInstance(type) as Form;
+				var form = TrustedCodeService.CreateInstance(type) as Form;
 				if (form != null) {
 
 					if (DpiHelper.IsPerMonitorScalingRequired) {
