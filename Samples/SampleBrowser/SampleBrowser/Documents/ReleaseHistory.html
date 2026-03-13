@@ -15,6 +15,24 @@
 				<h2>Version 25.1</h2>
 
 
+				<h3>3/13/2026 - v25.1.2</h3>
+				<h4>SyntaxEditor</h4>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Fixed an issue in the C# parser where nesting a record struct caused a parse error.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Improved how the Python resolver handles with statements.</li>
+					<li>Improved how the Python module loader processes string literal type annotations.</li>
+					<li>Improved support for Python return type annotations.</li>
+				</ul>
+				<h4>Shared</h4>
+				<ul>
+					<li>Added the TrustedCodeService class that manages dynamic loading of types in a secure-by-default manner. This change may be potentially breaking for certain rarely used features, so it's important to review the related documentation for details.</li>
+				</ul>
+
+
 				<h3>1/22/2026 - v25.1.1</h3>
 				<h4>Docking</h4>
 				<ul>

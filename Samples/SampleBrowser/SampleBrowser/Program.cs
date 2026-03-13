@@ -9,10 +9,12 @@ using Microsoft.Win32;
 using System;
 using System.Globalization;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
 using ActiproSoftware.UI.WinForms.Controls;
 using ActiproSoftware.UI.WinForms.Drawing;
+using ActiproSoftware.Security;
 
 namespace ActiproSoftware.SampleBrowser {
 
@@ -42,6 +44,8 @@ namespace ActiproSoftware.SampleBrowser {
 			});
 			#endif
 			logger = LoggerFactory.DefaultInstance.CreateLogger(typeof(Program));
+
+			InitializeTrustedCodeService();
 
 			InitializeSyntaxEditor();
 
@@ -99,6 +103,19 @@ namespace ActiproSoftware.SampleBrowser {
 			ActiproSoftware.Text.Languages.Python.Reflection.AmbientPackageRepositoryProvider.Repository = 
 				new ActiproSoftware.Text.Languages.Python.Reflection.Implementation.FileBasedPackageRepository(appDataPath);
 			logger?.LogDebug("Python Package Repository Path = {0}", appDataPath);
+		}
+
+		/// <summary>
+		/// Performs <see cref="TrustedCodeService"/> initialization.
+		/// </summary>
+		private static void InitializeTrustedCodeService() {
+			// Mark this project's assembly as trusted for dynamic loading of samples
+			TrustedCodeService.AddTrustedAssembly(Assembly.GetExecutingAssembly());
+			TrustedCodeService.TypeResolutionRequested += (sender, e) => {
+				// Some type names in deserialization scenarios may only include the pure assembly name
+				//   (no version or public key token) for context, so trust those types that are defined in this assembly
+				e.IsTrusted |= (e.TrustLevel == StringTypeNameTrustLevel.ConditionallyTrusted) && (e.AssemblyName == Assembly.GetExecutingAssembly().GetName().Name);
+			};
 		}
 
 		/// <summary>
