@@ -145,7 +145,7 @@ namespace SyntaxEditorDemo {
 			/// &lt;typeparam name="T"&gt;The type of the items.&lt;/typeparam&gt;
 			/// &lt;param name="items"&gt;The items to write.&lt;/param&gt;
 			public static void Write&lt;T&gt;(Generics.IEnumerable&lt;T&gt; items) {
-				if (items == null)
+				if (items is null)
 					return;
 
 				bool first = true;

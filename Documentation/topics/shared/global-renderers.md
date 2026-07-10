@@ -56,7 +56,7 @@ Now that the factory class is available, it must be assigned to the [UIRendererM
 This code demonstrates how to set the custom renderer factory:
 
 ```csharp
-UIRendererManager.RegisterRendererFactory(typeof(ITabStripRenderer),
+UIRendererManager.RegisterRendererFactory<ITabStripRenderer>(
 	new CustomTabStripRendererFactory(), overwrite: true);
 ```
 

@@ -10,73 +10,70 @@ namespace ActiproSoftware.SampleBrowser {
 	/// </summary>
 	public class ProductData {
 
-        private ObservableCollection<ProductFamilyInfo> productFamilies		= new ObservableCollection<ProductFamilyInfo>();
-        
-		private static ProductData instance;
-		
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		private static ProductData? _instance;
+
+		// --------------------------------------------------------------------------------------------------
 		// NON-PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+		// --------------------------------------------------------------------------------------------------
+
 		/// <summary>
-		/// Loads product data.
+		/// Loads and returns the product data.
 		/// </summary>
-		/// <returns>The loaded product data.</returns>
 		private static ProductData Load() {
 			var productData = new ProductData();
 
-			var doc = XDocument.Parse(Resources.ProductData); 
-			if ((doc != null) && (doc.Root != null) && (doc.Root.HasElements)) {
+			var doc = XDocument.Parse(Resources.ProductData);
+			if ((doc is not null) && (doc.Root is not null) && (doc.Root.HasElements)) {
 				// Loop through product families
 				foreach (XElement productFamilyEl in doc.Root.Elements()) {
 					var familyInfo = new ProductFamilyInfo();
-					XAttribute attr;
-					
+					XAttribute? attr;
+
 					attr = productFamilyEl.Attribute(XName.Get("Path"));
-					if (attr != null)
+					if (attr is not null)
 						familyInfo.Path = attr.Value;
-							
+
 					attr = productFamilyEl.Attribute(XName.Get("ShortTitle"));
-					if (attr != null)
+					if (attr is not null)
 						familyInfo.ShortTitle = attr.Value;
-					
+
 					attr = productFamilyEl.Attribute(XName.Get("Title"));
-					if (attr != null)
+					if (attr is not null)
 						familyInfo.Title = attr.Value;
-					
-					var el = productFamilyEl.Element(XName.Get("Items"));
-					if (el != null) {
-						foreach (var itemEl in el.Elements()) {
+
+					var element = productFamilyEl.Element(XName.Get("Items"));
+					if (element is not null) {
+						foreach (var itemElement in element.Elements()) {
 							var itemInfo = new ProductItemInfo();
-							
-							attr = itemEl.Attribute(XName.Get("BlurbText"));
-							if (attr != null)
+
+							attr = itemElement.Attribute(XName.Get("BlurbText"));
+							if (attr is not null)
 								itemInfo.BlurbText = attr.Value;
-							
-							attr = itemEl.Attribute(XName.Get("Category"));
-							if (attr != null)
+
+							attr = itemElement.Attribute(XName.Get("Category"));
+							if (attr is not null)
 								itemInfo.Category = attr.Value;
-							
-							attr = itemEl.Attribute(XName.Get("Description"));
-							if (attr != null)
+
+							attr = itemElement.Attribute(XName.Get("Description"));
+							if (attr is not null)
 								itemInfo.Description = attr.Value;
 
-							attr = itemEl.Attribute(XName.Get("IsPrivate"));
-							if (attr != null)
+							attr = itemElement.Attribute(XName.Get("IsPrivate"));
+							if (attr is not null)
 								itemInfo.IsPrivate = bool.Parse(attr.Value);
 
-							attr = itemEl.Attribute(XName.Get("Kind"));
-							if (attr != null)
+							attr = itemElement.Attribute(XName.Get("Kind"));
+							if (attr is not null)
 								itemInfo.Kind = (ProductItemKind)Enum.Parse(typeof(ProductItemKind), attr.Value);
-							
-							attr = itemEl.Attribute(XName.Get("Path"));
-							if (attr != null)
+
+							attr = itemElement.Attribute(XName.Get("Path"));
+							if (attr is not null)
 								itemInfo.Path = attr.Value;
-							
-							attr = itemEl.Attribute(XName.Get("Title"));
-							if (attr != null)
+
+							attr = itemElement.Attribute(XName.Get("Title"));
+							if (attr is not null)
 								itemInfo.Title = attr.Value;
-							
+
 							familyInfo.Items.Add(itemInfo);
 						}
 
@@ -96,32 +93,31 @@ namespace ActiproSoftware.SampleBrowser {
 			return productData;
 		}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// --------------------------------------------------------------------------------------------------
 		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+		// --------------------------------------------------------------------------------------------------
+
 		/// <summary>
 		/// Returns the product family or item from a path.
 		/// </summary>
 		/// <param name="path">The path.</param>
-		/// <returns>The product family or item from a path.</returns>
-		public object GetByPath(string path) {
-			var itemInfo = (from family in productFamilies
+		public object? GetByPath(string path) {
+			var itemInfo = (from family in ProductFamilies
 							from item in family.Items
-							where String.Compare(item.Path, path, StringComparison.OrdinalIgnoreCase) == 0
+							where string.Compare(item.Path, path, StringComparison.OrdinalIgnoreCase) == 0
 							select item).FirstOrDefault();
 
-			if ((itemInfo == null) && (this.ReleaseHistory != null)) {
-				itemInfo = (from item in this.ReleaseHistory.Items
-							where String.Compare(item.Path, path, StringComparison.OrdinalIgnoreCase) == 0
+			if ((itemInfo is null) && (ReleaseHistory is not null)) {
+				itemInfo = (from item in ReleaseHistory.Items
+							where string.Compare(item.Path, path, StringComparison.OrdinalIgnoreCase) == 0
 							select item).FirstOrDefault();
 			}
 
-			if (itemInfo != null)
+			if (itemInfo is not null)
 				return itemInfo;
 
-			var familyInfo = (from family in productFamilies
-							  where String.Compare(family.Path, path, StringComparison.OrdinalIgnoreCase) == 0
+			var familyInfo = (from family in ProductFamilies
+							  where string.Compare(family.Path, path, StringComparison.OrdinalIgnoreCase) == 0
 							  select family).FirstOrDefault();
 
 			return familyInfo;
@@ -131,95 +127,85 @@ namespace ActiproSoftware.SampleBrowser {
 		/// Returns the next product family or item.
 		/// </summary>
 		/// <param name="current">The current product family or item.</param>
-		/// <returns>The next product family or item.</returns>
-		public object GetNext(object current) {
+		public object GetNext(object? current) {
 			int index;
-			ProductFamilyInfo currentFamilyInfo;
+			ProductFamilyInfo? currentFamilyInfo;
 
-			var currentItemInfo = current as ProductItemInfo;
-			if (currentItemInfo != null) {
+			if (current is ProductItemInfo currentItemInfo) {
 				currentFamilyInfo = currentItemInfo.ProductFamily;
-				index = currentFamilyInfo.Items.IndexOf(currentItemInfo);
-				if (index < currentFamilyInfo.Items.Count - 1)
-					return currentFamilyInfo.Items[index + 1];
+				if (currentFamilyInfo is not null) {
+					index = currentFamilyInfo.Items.IndexOf(currentItemInfo);
+					if (index < currentFamilyInfo.Items.Count - 1)
+						return currentFamilyInfo.Items[index + 1];
+				}
 			}
 			else {
 				currentFamilyInfo = current as ProductFamilyInfo;
-				if (currentFamilyInfo != null) {
+				if (currentFamilyInfo is not null) {
 					if (currentFamilyInfo.Items.Count > 0)
 						return currentFamilyInfo.Items[0];
 				}
 			}
 
-			index = productFamilies.IndexOf(currentFamilyInfo);
-			if (index < productFamilies.Count - 1)
-				return productFamilies[index + 1];
+			if (currentFamilyInfo is not null) {
+				index = ProductFamilies.IndexOf(currentFamilyInfo);
+				if (index < ProductFamilies.Count - 1)
+					return ProductFamilies[index + 1];
+			}
 
-			return productFamilies[0];
+			return ProductFamilies[0];
 		}
 
 		/// <summary>
 		/// Returns the previous product family or item.
 		/// </summary>
 		/// <param name="current">The current product family or item.</param>
-		/// <returns>The previous product family or item.</returns>
-		public object GetPrevious(object current) {
+		public object GetPrevious(object? current) {
 			int index;
-			ProductFamilyInfo currentFamilyInfo;
+			ProductFamilyInfo? currentFamilyInfo;
 
-			var currentItemInfo = current as ProductItemInfo;
-			if (currentItemInfo != null) {
+			if (current is ProductItemInfo currentItemInfo) {
 				currentFamilyInfo = currentItemInfo.ProductFamily;
-				index = currentFamilyInfo.Items.IndexOf(currentItemInfo);
-				if (index > 0)
-					return currentFamilyInfo.Items[index - 1];
-				else
-					return currentFamilyInfo;
+				if (currentFamilyInfo is not null) {
+					index = currentFamilyInfo.Items.IndexOf(currentItemInfo);
+					if (index > 0)
+						return currentFamilyInfo.Items[index - 1];
+					else
+						return currentFamilyInfo;
+				}
 			}
 			else {
 				currentFamilyInfo = current as ProductFamilyInfo;
-				if (currentFamilyInfo != null) {
-					index = productFamilies.IndexOf(currentFamilyInfo);
+				if (currentFamilyInfo is not null) {
+					index = ProductFamilies.IndexOf(currentFamilyInfo);
 					if (index > 0)
-						currentFamilyInfo = productFamilies[index - 1];
+						currentFamilyInfo = ProductFamilies[index - 1];
 					else
-						currentFamilyInfo = productFamilies[productFamilies.Count - 1];
+						currentFamilyInfo = ProductFamilies[ProductFamilies.Count - 1];
 
 					return currentFamilyInfo.Items[currentFamilyInfo.Items.Count - 1];
 				}
 			}
 
-			return productFamilies[0];
+			return ProductFamilies[0];
 		}
 
 		/// <summary>
-		/// Gets the <see cref="ProductData"/> instance.
+		/// The <see cref="ProductData"/> instance.
 		/// </summary>
-		/// <value>The <see cref="ProductData"/> instance.</value>
-		public static ProductData Instance {
-			get {
-				if (instance == null)
-					instance = Load();
+		public static ProductData Instance
+			=> _instance ??= Load();
 
-				return instance;
-			}
-		}
-		
-        /// <summary>
-        /// Gets the collection of product families.
-        /// </summary>
-        /// <value>The collection of product families.</value>
-        public ObservableCollection<ProductFamilyInfo> ProductFamilies { 
-            get {
-                return productFamilies;
-            }
-        }
-		
 		/// <summary>
-		/// Gets or sets the <see cref="ProductFamilyInfo"/> that contains release histories.
+		/// The collection of product families.
 		/// </summary>
-		/// <value>The <see cref="ProductFamilyInfo"/> that contains release histories.</value>
-		public ProductFamilyInfo ReleaseHistory { get; set; }
+		/// <value>The collection of product families.</value>
+		public ObservableCollection<ProductFamilyInfo> ProductFamilies { get; } = [];
+
+		/// <summary>
+		/// The <see cref="ProductFamilyInfo"/> that contains release histories.
+		/// </summary>
+		public ProductFamilyInfo? ReleaseHistory { get; set; }
 
 	}
 

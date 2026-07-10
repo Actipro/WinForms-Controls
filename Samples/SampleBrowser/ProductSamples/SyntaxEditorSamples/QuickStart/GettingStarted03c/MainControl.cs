@@ -1,27 +1,22 @@
-﻿using System;
-using System.Windows.Forms;
-using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
+﻿namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingStarted03c;
 
-namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingStarted03c {
+/// <summary>
+/// Provides the main user control for this sample.
+/// </summary>
+public partial class MainControl : UserControl {
+
+	// --------------------------------------------------------------------------------------------------
+	// OBJECT
+	// --------------------------------------------------------------------------------------------------
 
 	/// <summary>
-	/// Provides the main user control for this sample.
+	/// Initializes an instance of the class.
 	/// </summary>
-	public partial class MainControl : UserControl {
-		
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// OBJECT
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		/// <summary>
-		/// Initializes an instance of the <c>MainControl</c> class.
-		/// </summary>
-		public MainControl() {
-			InitializeComponent();
+	public MainControl() {
+		InitializeComponent();
 
-			// Load the custom Simple language defined in this sample
-			editor.Document.Language = new SimpleSyntaxLanguage();
-		}
-
+		// Load the custom Simple language defined in this sample
+		editor.Document.Language = new SimpleSyntaxLanguage();
 	}
+
 }

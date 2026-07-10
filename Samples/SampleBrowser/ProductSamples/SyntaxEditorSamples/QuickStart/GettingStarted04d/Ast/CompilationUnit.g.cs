@@ -36,7 +36,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <value>The members.</value>
         public IList<FunctionDeclaration> Members {
             get {
-                if ((this.membersValue == null)) {
+                if ((this.membersValue is null)) {
                     this.membersValue = new List<FunctionDeclaration>();
                 }
                 return this.membersValue;
@@ -49,7 +49,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <value><c>true</c> if there is at least one item in the collection; otherwise, <c>false</c>.</value>
         public Boolean HasMembers {
             get {
-                if (((this.membersValue != null) 
+                if (((this.membersValue is not null) 
                             && (this.membersValue.Count > 0))) {
                     return true;
                 }
@@ -65,13 +65,13 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <returns>An <c>IEnumerator</c> object that can iterate the child <see cref="IAstNode"/> objects in this node.</returns>
         protected override IEnumerator<IAstNode> GetChildrenEnumerator() {
             IEnumerator<IAstNode> baseEnumerator = base.GetChildrenEnumerator();
-            if ((baseEnumerator != null)) {
+            if ((baseEnumerator is not null)) {
 				while (baseEnumerator.MoveNext())
 					yield return baseEnumerator.Current;
             }
-            if ((this.membersValue != null)) {
+            if ((this.membersValue is not null)) {
 				foreach (IAstNode membersValueItem in this.membersValue)
-					if (membersValueItem != null) yield return membersValueItem;
+					if (membersValueItem is not null) yield return membersValueItem;
             }
         }
     }

@@ -12,7 +12,7 @@ namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing) {
-			if (disposing && (components != null)) {
+			if (disposing && (components is not null)) {
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -152,12 +152,12 @@ namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
             this.navigationBar.Size = new System.Drawing.Size(273, 580);
             this.navigationBar.SmallImageList = this.smallImageList;
             this.navigationBar.TabIndex = 100;
-            this.navigationBar.ContextMenuRequested += new ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationBarContextMenuEventHandler(this.navigationBar_ContextMenuRequested);
-            this.navigationBar.MaximumBarButtonCountChanged += new System.EventHandler(this.navigationBar_MaximumBarButtonCountChanged);
-            this.navigationBar.NavigationPaneActiveChanging += new ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationPaneCancelEventHandler(this.navigationBar_NavigationPaneActiveChanging);
-            this.navigationBar.NavigationPanesReordered += new System.EventHandler(this.navigationBar_NavigationPanesReordered);
-            this.navigationBar.SelectionChanged += new System.EventHandler(this.navigationBar_SelectionChanged);
-            this.navigationBar.SelectionChanging += new ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationPaneCancelEventHandler(this.navigationBar_SelectionChanging);
+            this.navigationBar.ContextMenuRequested += new ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationBarContextMenuEventHandler(this.OnNavigationBarContextMenuRequested);
+            this.navigationBar.MaximumBarButtonCountChanged += new System.EventHandler(this.OnNavigationBarMaximumBarButtonCountChanged);
+            this.navigationBar.NavigationPaneActiveChanging += new ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationPaneCancelEventHandler(this.OnNavigationBarNavigationPaneActiveChanging);
+            this.navigationBar.NavigationPanesReordered += new System.EventHandler(this.OnNavigationBarNavigationPanesReordered);
+            this.navigationBar.SelectionChanged += new System.EventHandler(this.OnNavigationBarSelectionChanged);
+            this.navigationBar.SelectionChanging += new ActiproSoftware.UI.WinForms.Controls.Navigation.NavigationPaneCancelEventHandler(this.OnNavigationBarSelectionChanging);
             // 
             // mailNavigationPane
             // 
@@ -439,7 +439,7 @@ namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
             this.saveLayoutButton.Size = new System.Drawing.Size(75, 23);
             this.saveLayoutButton.TabIndex = 3;
             this.saveLayoutButton.Text = "Save Layout";
-            this.saveLayoutButton.Click += new System.EventHandler(this.saveLayoutButton_Click);
+            this.saveLayoutButton.Click += new System.EventHandler(this.OnSaveLayoutButtonClick);
             // 
             // loadLayoutButton
             // 
@@ -449,7 +449,7 @@ namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
             this.loadLayoutButton.Size = new System.Drawing.Size(75, 23);
             this.loadLayoutButton.TabIndex = 2;
             this.loadLayoutButton.Text = "Load Layout";
-            this.loadLayoutButton.Click += new System.EventHandler(this.loadLayoutButton_Click);
+            this.loadLayoutButton.Click += new System.EventHandler(this.OnLoadLayoutButtonClick);
             // 
             // preventSelectionChangesCheckBox
             // 
@@ -482,7 +482,7 @@ namespace ActiproSoftware.ProductSamples.NavigationSamples.Demo.Features {
             this.rendererDropDownList.Name = "rendererDropDownList";
             this.rendererDropDownList.Size = new System.Drawing.Size(412, 21);
             this.rendererDropDownList.TabIndex = 0;
-            this.rendererDropDownList.SelectedIndexChanged += new System.EventHandler(this.rendererDropDownList_SelectedIndexChanged);
+            this.rendererDropDownList.SelectedIndexChanged += new System.EventHandler(this.OnRendererDropDownListSelectedIndexChanged);
             // 
             // panel
             // 

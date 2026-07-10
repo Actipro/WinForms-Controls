@@ -11,13 +11,6 @@
 		<Title>Actipro WinForms Controls Open-Source Build</Title>
 		<Description>Actipro WinForms Controls Open-Source Build</Description>
 
-		<Version>22.1.1.0</Version>
-
-		<RootNamespace>ActiproSoftware.Tools.Builds</RootNamespace>
-		<Company>Actipro Software LLC</Company>
-		<Authors>Actipro Software LLC</Authors>
-		<Copyright>Copyright (c) 2020-2026 Actipro Software LLC.  All rights reserved.</Copyright>
-
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
 		<NoWarn>CS0649;CS0169</NoWarn>

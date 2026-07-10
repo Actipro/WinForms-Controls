@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+PUBLIC BUILD PROPERTIES
+
+-->
+<Project>
+	<PropertyGroup>
+		<Version>26.1.0$(PreReleaseTagWithDash)</Version>
+		<LangVersion>latest</LangVersion>
+		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+		<Company>Actipro Software LLC</Company>
+		<Authors>Actipro Software LLC</Authors>
+		<Copyright>Copyright (c) 2002-2026 Actipro Software LLC</Copyright>
+	</PropertyGroup>
+</Project>

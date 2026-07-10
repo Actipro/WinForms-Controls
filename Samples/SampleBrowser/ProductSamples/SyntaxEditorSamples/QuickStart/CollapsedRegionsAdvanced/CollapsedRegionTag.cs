@@ -1,63 +1,57 @@
-﻿using System;
-using System.Drawing;
-using ActiproSoftware.Text;
+﻿using ActiproSoftware.Text;
 using ActiproSoftware.Text.Tagging;
 
-namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CollapsedRegionsAdvanced {
-    
+namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.CollapsedRegionsAdvanced;
+
+/// <summary>
+/// Provides an <see cref="ICollapsedRegionTag"/> implementation that controls collapsed regions.
+/// </summary>
+public class CollapsedRegionTag : ICollapsedRegionTag, IIntraTextSpacerTag {
+
+	// --------------------------------------------------------------------------------------------------
+	// OBJECT
+	// --------------------------------------------------------------------------------------------------
+
 	/// <summary>
-	/// Provides an <see cref="ICollapsedRegionTag"/> implementation that controls collapsed regions.
+	/// Initializes an instance of the class.
 	/// </summary>
-	public class CollapsedRegionTag : ICollapsedRegionTag, IIntraTextSpacerTag {
-		
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-		/// <summary>
-		/// Gets the baseline of the spacer, which is the distance from the top of the spacer to the text baseline.
-		/// </summary>
-		/// <value>The baseline of the spacer, which is the distance from the top of the spacer to the text baseline.</value>
-		/// <remarks>
-		/// This property can return the height of the spacer to sit the spacer on top of the text baseline.
-		/// </remarks>
-		public float Baseline { get; set; }
-
-		/// <summary>
-		/// Gets whether the spacer appears before the tagged range.
-		/// </summary>
-		/// <value>
-		/// <c>true</c> if the spacer appears before the tagged range; otherwise, <c>false</c>.
-		/// </value>
-		public bool IsSpacerBefore { get; } = true;
-
-		/// <summary>
-		/// Gets or sets an object that can be used to uniquely identify the spacer.
-		/// </summary>
-		/// <value>An object that can be used to uniquely identify the spacer.</value>
-		public object Key { get; set; }
-	
-		/// <summary>
-		/// Gets the size of the spacer.
-		/// </summary>
-		/// <value>The size of the spacer.</value>
-		public Size Size { get; set; }
-
-		/// <summary>
-		/// Gets or sets the text to display.
-		/// </summary>
-		/// <value>The text to display.</value>
-		public string Text { get; set; }
-
-		/// <summary>
-		/// Creates an <see cref="IIntraTextSpacerTag"/>-based tag snapshot range for this tag.
-		/// </summary>
-		/// <param name="snapshotRange">The <see cref="TextSnapshotRange"/> for the tag.</param>
-		/// <returns>The <see cref="IIntraTextSpacerTag"/>-based tag snapshot range for this tag that was created.</returns>
-		public TagSnapshotRange<IIntraTextSpacerTag> ToIntraTextSpacerTagRange(TextSnapshotRange snapshotRange) {
-			return new TagSnapshotRange<IIntraTextSpacerTag>(snapshotRange, this);
-		}
-
+	/// <param name="key">An object that can be used to uniquely identify the spacer.</param>
+	public CollapsedRegionTag() {
+		// Since the tags in this sample are persisted in a collection while active, the tag will use
+		//   itself as the key. The key is used to retrieve the bounds of the spacer later on so adornments
+		//   can be rendered in it, thus is must be unique
+		Key = this;
 	}
-	
+
+	// --------------------------------------------------------------------------------------------------
+	// PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
+
+	/// <inheritdoc cref="IIntraTextSpacerTag.Baseline"/>
+	public float Baseline { get; set; }
+
+	/// <inheritdoc cref="IIntraTextSpacerTag.IsSpacerBefore"/>
+	public bool IsSpacerBefore
+		=> true;
+
+	/// <summary>
+	/// An object that can be used to uniquely identify the spacer.
+	/// </summary>
+	public object Key { get; }
+
+	/// <inheritdoc cref="IIntraTextSpacerTag.Size"/>
+	public Size Size { get; set; }
+
+	/// <summary>
+	/// The text to display.
+	/// </summary>
+	public string? Text { get; set; }
+
+	/// <summary>
+	/// Creates an <see cref="IIntraTextSpacerTag"/>-based tag snapshot range for this tag.
+	/// </summary>
+	/// <param name="snapshotRange">The <see cref="TextSnapshotRange"/> for the tag.</param>
+	public TagSnapshotRange<IIntraTextSpacerTag> ToIntraTextSpacerTagRange(TextSnapshotRange snapshotRange)
+		=> new(snapshotRange, tag: this);
+
 }

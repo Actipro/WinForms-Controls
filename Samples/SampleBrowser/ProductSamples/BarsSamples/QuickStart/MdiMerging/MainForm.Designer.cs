@@ -10,7 +10,7 @@
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing) {
-			if (disposing && (components != null)) {
+			if (disposing && (components is not null)) {
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -335,9 +335,9 @@
             mergeTestMergeLinkBarButtonLink,
             newMenuNewMenuBarPopupButtonLink4,
             mergeTestMergeLinkBarButtonLink3});
-            newMenuNewMenuBarPopupButtonLink3.DefaultText = "MergableMenu";
-            newMenuNewMenuBarPopupButtonLink3.MergeKey = "MergableMenu";
-            newMenuNewMenuBarPopupButtonLink3.Text = "MergableMenu";
+            newMenuNewMenuBarPopupButtonLink3.DefaultText = "MergeableMenu";
+            newMenuNewMenuBarPopupButtonLink3.MergeKey = "MergeableMenu";
+            newMenuNewMenuBarPopupButtonLink3.Text = "MergeableMenu";
             mergeTestMergeLinkBarButtonLink4.DefaultText = "Parent Form Link 1";
             mergeTestMergeLinkBarButtonLink4.Text = "Parent Form Link 1";
             mergeTestMergeLinkBarButtonLink5.DefaultText = "Parent Form Link";
@@ -448,9 +448,9 @@
             mergeTestMergeLinkBarButtonLink13,
             newMenuNewMenuBarPopupButtonLink15,
             mergeTestMergeLinkBarButtonLink15});
-            newMenuNewMenuBarPopupButtonLink14.DefaultText = "MergableMenu";
-            newMenuNewMenuBarPopupButtonLink14.MergeKey = "MergableMenu";
-            newMenuNewMenuBarPopupButtonLink14.Text = "MergableMenu";
+            newMenuNewMenuBarPopupButtonLink14.DefaultText = "MergeableMenu";
+            newMenuNewMenuBarPopupButtonLink14.MergeKey = "MergeableMenu";
+            newMenuNewMenuBarPopupButtonLink14.Text = "MergeableMenu";
             mergeTestMergeLinkBarButtonLink16.DefaultText = "Parent Form Link 1";
             mergeTestMergeLinkBarButtonLink16.Text = "Parent Form Link 1";
             mergeTestMergeLinkBarButtonLink17.DefaultText = "Parent Form Link";
@@ -571,7 +571,7 @@
             mergeTestMergeLinkBarButtonLink27,
             mergeTestMergeLinkBarButtonLink28});
             newMenuNewMenuBarPopupButtonLink24.MergeAction = ActiproSoftware.UI.WinForms.Controls.Bars.BarMergeAction.Insert;
-            newMenuNewMenuBarPopupButtonLink24.MergeKey = "MergableMenu";
+            newMenuNewMenuBarPopupButtonLink24.MergeKey = "MergeableMenu";
             newMenuNewMenuBarPopupButtonLink24.Text = "InsertMenu";
             mergeTestMergeLinkBarButtonLink29.MergeAction = ActiproSoftware.UI.WinForms.Controls.Bars.BarMergeAction.Insert;
             mergeTestMergeLinkBarButtonLink29.MergeKey = "ParentLink1";
@@ -590,8 +590,8 @@
             mergeTestMergeLinkBarButtonLink29,
             newMenuNewMenuBarPopupButtonLink26,
             mergeTestMergeLinkBarButtonLink31});
-            newMenuNewMenuBarPopupButtonLink25.MergeKey = "MergableMenu";
-            newMenuNewMenuBarPopupButtonLink25.Text = "MergableMenu";
+            newMenuNewMenuBarPopupButtonLink25.MergeKey = "MergeableMenu";
+            newMenuNewMenuBarPopupButtonLink25.Text = "MergeableMenu";
             newMenuNewMenuBarPopupButtonLink27.MergeAction = ActiproSoftware.UI.WinForms.Controls.Bars.BarMergeAction.Remove;
             newMenuNewMenuBarPopupButtonLink27.MergeKey = "RemoveMenu";
             newMenuNewMenuBarPopupButtonLink27.Text = "RemoveMenu";
@@ -610,7 +610,7 @@
             newMenuNewMenuBarPopupButtonLink27,
             newMenuNewMenuBarPopupButtonLink28});
             this.barManager.PopupMenus.Add(childToolBarPopupMenu);
-            this.barManager.CommandClick += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.barManager_CommandClick);
+            this.barManager.CommandClick += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.OnBarManagerCommandClick);
             // 
             // barDockArea1
             // 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ActiproSoftware.UI.WinForms.Controls.Extensions;
+using System;
 using System.Text;
 using System.Windows.Forms;
 
@@ -9,37 +10,36 @@ namespace ActiproSoftware.SampleBrowser {
 	/// </summary>
 	public partial class BrowserControl : UserControl {
 
-		private ProductFamilyInfo familyInfo;
-		private ProductItemInfo itemInfo;
-		
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		private ProductFamilyInfo? _familyInfo;
+		private ProductItemInfo? _itemInfo;
+
+		// --------------------------------------------------------------------------------------------------
 		// OBJECT
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+		// --------------------------------------------------------------------------------------------------
+
 		/// <summary>
-		/// Initializes an instance of the <c>BrowserControl </c> class.
+		/// Initializes an instance of the class.
 		/// </summary>
 		public BrowserControl() {
 			InitializeComponent();
 		}
-		
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		// --------------------------------------------------------------------------------------------------
 		// NON-PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
+		// --------------------------------------------------------------------------------------------------
+
 		/// <summary>
 		/// Occurs when the document has completed loading.
 		/// </summary>
 		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">The <c>WebBrowserDocumentCompletedEventArgs</c> that contains data related to the event.</param>
+		/// <param name="e">The event data.</param>
 		private void OnWebBrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) {
 			// If this is a product family page, look for a samples list to replace
-			if (familyInfo != null) {
-				var samplesElement = webBrowser.Document.GetElementById("inject-samples");
-				if (samplesElement != null) {
+			if (_familyInfo is not null) {
+				if (webBrowser.Document?.GetElementById("inject-samples") is { } samplesElement) {
 					var innerHtml = new StringBuilder();
 
-					foreach (var group in familyInfo.GroupedItems) {
+					foreach (var group in _familyInfo.GroupedItems) {
 						innerHtml.AppendFormat("<h3>{0}</h3>", group.Key);
 						innerHtml.Append("<div>");
 
@@ -52,7 +52,7 @@ namespace ActiproSoftware.SampleBrowser {
 						}
 						innerHtml.Append("</ul>");
 						innerHtml.Append("</div>");
-						
+
 						innerHtml.Append("<div style=\"width: 50%; display: inline-block; vertical-align: top;\">");
 						innerHtml.Append("<ul>");
 						index = 0;
@@ -69,18 +69,15 @@ namespace ActiproSoftware.SampleBrowser {
 					samplesElement.InnerHtml = innerHtml.ToString();
 				}
 			}
-			else if (itemInfo != null) {
-				var titleElement = webBrowser.Document.GetElementById("inject-title");
-				if (titleElement != null)
-					titleElement.InnerText = itemInfo.Title;
+			else if (_itemInfo is not null) {
+				if ((_itemInfo.Title is not null) && (webBrowser.Document?.GetElementById("inject-title") is { } titleElement))
+					titleElement.InnerText = _itemInfo.Title;
 
-				var descriptionElement = webBrowser.Document.GetElementById("inject-description");
-				if (descriptionElement != null)
-					descriptionElement.InnerText = String.Format("{0}\r\n\r\nPlease use the 'Launch Sample' button below to open the sample in another window.", itemInfo.Description).Trim();
+				if (webBrowser.Document?.GetElementById("inject-description") is { } descriptionElement)
+					descriptionElement.InnerText = string.Format("{0}\r\n\r\nPlease use the 'Launch Sample' button below to open the sample in another window.", _itemInfo.Description).Trim();
 
-				var linkElement = webBrowser.Document.GetElementById("inject-launch-link");
-				if (linkElement != null)
-					linkElement.SetAttribute("href", String.Format("open://{0}", itemInfo.Path));
+				if (webBrowser.Document?.GetElementById("inject-launch-link") is { } linkElement)
+					linkElement.SetAttribute("href", string.Format("open://{0}", _itemInfo.Path));
 			}
 		}
 
@@ -88,60 +85,45 @@ namespace ActiproSoftware.SampleBrowser {
 		/// Occurs when navigation is about to begin.
 		/// </summary>
 		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">The <c>WebBrowserNavigatingEventArgs</c> that contains data related to the event.</param>
+		/// <param name="e">The event data.</param>
 		private void OnWebBrowserNavigating(object sender, WebBrowserNavigatingEventArgs e) {
-			if (e.Url.OriginalString.StartsWith("sample://", StringComparison.OrdinalIgnoreCase)) {
+			if (e.Url?.OriginalString is not { } originalUrlString)
+				return;
+
+			if (originalUrlString.StartsWith("sample://", StringComparison.OrdinalIgnoreCase)) {
 				e.Cancel = true;
-
-				var control = this.Parent;
-				while (control != null) {
-					var rootForm = control as RootForm;
-					if (rootForm != null) {
-						rootForm.NavigateToUrl(e.Url.OriginalString);
-						break;
-					}
-
-					control = control.Parent;
-				}
+				this.FindAncestorOfType<RootForm>()?.NavigateToUrl(originalUrlString);
 			}
-			else if (e.Url.OriginalString.StartsWith("open://", StringComparison.OrdinalIgnoreCase)) {
+			else if (originalUrlString.StartsWith("open://", StringComparison.OrdinalIgnoreCase)) {
 				e.Cancel = true;
-
-				var control = this.Parent;
-				while (control != null) {
-					var rootForm = control as RootForm;
-					if (rootForm != null) {
-						rootForm.OpenForm(e.Url.OriginalString);
-						break;
-					}
-
-					control = control.Parent;
-				}
+				this.FindAncestorOfType<RootForm>()?.OpenForm(originalUrlString);
 			}
-			else if (e.Url.OriginalString.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
-				e.Url.OriginalString.StartsWith("https://", StringComparison.OrdinalIgnoreCase)) {
+			else if (originalUrlString.StartsWith("http://", StringComparison.OrdinalIgnoreCase)
+				|| originalUrlString.StartsWith("https://", StringComparison.OrdinalIgnoreCase)) {
+
 				e.Cancel = true;
 
 				// Force all links to open outside of the application
-				Program.LaunchExternalBrowser(e.Url.OriginalString);
+				Program.LaunchExternalBrowser(originalUrlString);
 			}
 		}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// --------------------------------------------------------------------------------------------------
 		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// --------------------------------------------------------------------------------------------------
 
 		/// <summary>
 		/// Navigates to the specified URL.
 		/// </summary>
 		/// <param name="url">The URL to visit.</param>
 		/// <param name="relatedInfo">The related <see cref="ProductFamilyInfo"/> or <see cref="ProductItemInfo"/>.</param>
-		public void Navigate(string url, object relatedInfo) {
-			this.familyInfo = relatedInfo as ProductFamilyInfo;
-			this.itemInfo = relatedInfo as ProductItemInfo;
+		public void Navigate(string url, object? relatedInfo) {
+			_familyInfo = relatedInfo as ProductFamilyInfo;
+			_itemInfo = relatedInfo as ProductItemInfo;
 
 			webBrowser.Navigate(url);
 		}
 
 	}
+
 }

@@ -10,7 +10,7 @@
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing) {
-			if (disposing && (components != null)) {
+			if (disposing && (components is not null)) {
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -133,7 +133,7 @@
             this.startPage.TabIndex = 0;
             this.startPage.WatermarkImage = ((System.Drawing.Image)(resources.GetObject("startPage.WatermarkImage")));
             this.startPage.WatermarkImageLocation = new System.Drawing.Point(96, 18);
-            this.startPage.Resize += new System.EventHandler(this.startPage_Resize);
+            this.startPage.Resize += new System.EventHandler(this.OnStartPageResize);
             // 
             // startPageTableLayoutPanel
             // 
@@ -191,7 +191,7 @@
             this.infoWebSiteLabel.TabStop = true;
             this.infoWebSiteLabel.Text = "https://www.actiprosoftware.com";
             this.infoWebSiteLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.infoWebSiteLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.infoWebSiteLabel_LinkClicked);
+            this.infoWebSiteLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.OnInfoWebSiteLabelLinkClicked);
             // 
             // label2
             // 
@@ -240,7 +240,7 @@
     " users in a friendly way.";
             this.dataCollectionPage.PageTitleBarText = "Step 2";
             this.dataCollectionPage.TabIndex = 14;
-            this.dataCollectionPage.NextButtonClick += new ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPageCancelEventHandler(this.dataCollectionPage_NextButtonClick);
+            this.dataCollectionPage.NextButtonClick += new ActiproSoftware.UI.WinForms.Controls.Wizard.WizardPageCancelEventHandler(this.OnDataCollectionPageNextButtonClick);
             // 
             // dataCollectionPageTableLayoutPanel
             // 
@@ -319,7 +319,7 @@
             this.validatingTextBox.Size = new System.Drawing.Size(431, 20);
             this.validatingTextBox.TabIndex = 16;
             this.validatingTextBox.Text = "Wizard Control Demo";
-            this.validatingTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.validatingTextBox_Validating);
+            this.validatingTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.OnValidatingTextBoxValidating);
             // 
             // label7
             // 
@@ -546,7 +546,7 @@
             this.goToSecondExecutionPathButton.Size = new System.Drawing.Size(202, 22);
             this.goToSecondExecutionPathButton.TabIndex = 3;
             this.goToSecondExecutionPathButton.Text = "View custom appearance features";
-            this.goToSecondExecutionPathButton.Click += new System.EventHandler(this.goToSecondExecutionPathButton_Click);
+            this.goToSecondExecutionPathButton.Click += new System.EventHandler(this.OnGoToSecondExecutionPathButtonClick);
             // 
             // finishPage2
             // 
@@ -635,7 +635,7 @@
             this.windowsXPPage.PageDescription = "A page that has some custom drawing code.";
             this.windowsXPPage.PageTitleBarText = "Step 4 (Execution Path 2)";
             this.windowsXPPage.TabIndex = 18;
-            this.windowsXPPage.Resize += new System.EventHandler(this.windowsXPPage_Resize);
+            this.windowsXPPage.Resize += new System.EventHandler(this.OnWindowsXPPageResize);
             // 
             // windowsXPTabelLayoutPanel
             // 
@@ -779,7 +779,7 @@
             this.customAppearanceListBox.Name = "customAppearanceListBox";
             this.customAppearanceListBox.Size = new System.Drawing.Size(480, 174);
             this.customAppearanceListBox.TabIndex = 1;
-            this.customAppearanceListBox.SelectedIndexChanged += new System.EventHandler(this.customAppearanceListBox_SelectedIndexChanged);
+            this.customAppearanceListBox.SelectedIndexChanged += new System.EventHandler(this.OnCustomAppearanceListBoxSelectedIndexChanged);
             // 
             // MainForm
             // 

@@ -1,50 +1,47 @@
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
 using ActiproSoftware.UI.WinForms.Controls.Bars;
 
-namespace ActiproSoftware.ProductSamples.BarsSamples.QuickStart.MdiMerging {
+#if NETFRAMEWORK || NET10_0_OR_GREATER
+// Avoid ambiguity with System.Windows.Forms.ToolBar from .NET Framework or .NET 10+
+using ToolBar = ActiproSoftware.UI.WinForms.Controls.Bars.ToolBar;
+#endif
+
+namespace ActiproSoftware.ProductSamples.BarsSamples.QuickStart.MdiMerging;
+
+/// <summary>
+/// A form to test the <c>Bar</c> controls' MDI merging.
+/// </summary>
+public partial class ChildForm : Form {
+
+	// --------------------------------------------------------------------------------------------------
+	// OBJECT
+	// --------------------------------------------------------------------------------------------------
 
 	/// <summary>
-	/// A form to test the <c>Bar</c> controls' MDI merging.
+	/// Initializes an instance of the class.
 	/// </summary>
-	public partial class ChildForm : System.Windows.Forms.Form {
+	/// <param name="barManager">The <see cref="BarManager"/> that is managing the commands.</param>
+	public ChildForm(BarManager barManager) {
+		//
+		// Required for Windows Form Designer support
+		//
+		InitializeComponent();
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// OBJECT
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		/// <summary>
-		/// Creates an instance of the <c>ChildForm</c> class.
-		/// </summary>
-		/// <param name="barManager">The <see cref="BarManager"/> that is managing the commands.</param>
-		public ChildForm(BarManager barManager) {
-			//
-			// Required for Windows Form Designer support
-			//
-			InitializeComponent();
-
-			// One way to implement MDI merging is to use a trick where we designed the commands for this toolbar 
-			//   into a PopupMenu on the parent form, then clone the command links and 
-			//   put them into our toolbar for the child
-			toolBar.CommandLinks.AddRange(barManager.PopupMenus["ChildToolBar"].CommandLinks.CloneToArray());
-		}
-
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		/// <summary>
-		/// Gets the <see cref="ToolBar"/> on the form.
-		/// </summary>
-		/// <value>The <see cref="ToolBar"/> on the form.</value>
-		public ActiproSoftware.UI.WinForms.Controls.Bars.ToolBar ToolBar {
-			get {
-				return toolBar;
-			}
-		}
-
+		// One way to implement MDI merging is to use a trick where the commands for this toolbar are designed
+		//   as a PopupMenu on the managing BarManager of the parent form, then the command links can be cloned
+		//   into the toolbar for the MDI child.
+		var childToolBar = barManager.PopupMenus["ChildToolBar"]
+			?? throw new InvalidOperationException("This sample requires that the MDI child toolbar commands are defined in the BarManager as the 'ChildToolBar' popup menu.");
+		toolBar.CommandLinks.AddRange(childToolBar.CommandLinks.CloneToArray());
 	}
+
+	// --------------------------------------------------------------------------------------------------
+	// PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
+
+	/// <summary>
+	/// The <see cref="ToolBar"/> on the form.
+	/// </summary>
+	public ToolBar ToolBar
+		=> toolBar;
+
 }

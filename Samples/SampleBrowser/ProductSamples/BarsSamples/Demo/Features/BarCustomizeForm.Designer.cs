@@ -10,7 +10,7 @@
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing) {
-			if (disposing && (components != null)) {
+			if (disposing && (components is not null)) {
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -89,7 +89,7 @@
             this.okButton.Size = new System.Drawing.Size(67, 22);
             this.okButton.TabIndex = 0;
             this.okButton.Text = "Close";
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.okButton.Click += new System.EventHandler(this.OnOkButtonClick);
             // 
             // tabStrip
             // 
@@ -102,7 +102,7 @@
             this.tabStrip.SelectedIndex = 0;
             this.tabStrip.Size = new System.Drawing.Size(370, 304);
             this.tabStrip.TabIndex = 0;
-            this.tabStrip.SelectedIndexChanged += new System.EventHandler(this.tabStrip_SelectedIndexChanged);
+            this.tabStrip.SelectedIndexChanged += new System.EventHandler(this.OnTabStripSelectedIndexChanged);
             // 
             // toolBarsTab
             // 
@@ -146,8 +146,8 @@
             this.toolBarsTableLayoutPanel.SetRowSpan(this.toolBarListBox, 5);
             this.toolBarListBox.Size = new System.Drawing.Size(250, 249);
             this.toolBarListBox.TabIndex = 1;
-            this.toolBarListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.toolBarListBox_ItemCheck);
-            this.toolBarListBox.SelectedIndexChanged += new System.EventHandler(this.toolBarListBox_SelectedIndexChanged);
+            this.toolBarListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.OnToolBarListBoxItemCheck);
+            this.toolBarListBox.SelectedIndexChanged += new System.EventHandler(this.OnToolBarListBoxSelectedIndexChanged);
             // 
             // toolBarResetButton
             // 
@@ -162,7 +162,7 @@
             this.toolBarResetButton.Size = new System.Drawing.Size(90, 22);
             this.toolBarResetButton.TabIndex = 5;
             this.toolBarResetButton.Text = "&Reset";
-            this.toolBarResetButton.Click += new System.EventHandler(this.toolBarResetButton_Click);
+            this.toolBarResetButton.Click += new System.EventHandler(this.OnToolBarResetButtonClick);
             // 
             // toolBarsLabel
             // 
@@ -187,7 +187,7 @@
             this.toolBarDeleteButton.Size = new System.Drawing.Size(90, 22);
             this.toolBarDeleteButton.TabIndex = 4;
             this.toolBarDeleteButton.Text = "&Delete";
-            this.toolBarDeleteButton.Click += new System.EventHandler(this.toolBarDeleteButton_Click);
+            this.toolBarDeleteButton.Click += new System.EventHandler(this.OnToolBarDeleteButtonClick);
             // 
             // toolBarRenameButton
             // 
@@ -202,7 +202,7 @@
             this.toolBarRenameButton.Size = new System.Drawing.Size(90, 22);
             this.toolBarRenameButton.TabIndex = 3;
             this.toolBarRenameButton.Text = "R&ename...";
-            this.toolBarRenameButton.Click += new System.EventHandler(this.toolBarRenameButton_Click);
+            this.toolBarRenameButton.Click += new System.EventHandler(this.OnToolBarRenameButtonClick);
             // 
             // toolBarNewButton
             // 
@@ -216,7 +216,7 @@
             this.toolBarNewButton.Size = new System.Drawing.Size(90, 22);
             this.toolBarNewButton.TabIndex = 2;
             this.toolBarNewButton.Text = "&New...";
-            this.toolBarNewButton.Click += new System.EventHandler(this.toolBarNewButton_Click);
+            this.toolBarNewButton.Click += new System.EventHandler(this.OnToolBarNewButtonClick);
             // 
             // barCommandsTab
             // 
@@ -285,7 +285,7 @@
             this.modifySelectionButton.Size = new System.Drawing.Size(119, 22);
             this.modifySelectionButton.TabIndex = 1;
             this.modifySelectionButton.Text = "Modify Selection";
-            this.modifySelectionButton.Click += new System.EventHandler(this.modifySelectionButton_Click);
+            this.modifySelectionButton.Click += new System.EventHandler(this.OnModifySelectionButtonClick);
             // 
             // selectedCommandDescriptionLabel
             // 
@@ -313,7 +313,7 @@
             this.barCommandCategoryListBox.Name = "barCommandCategoryListBox";
             this.barCommandCategoryListBox.Size = new System.Drawing.Size(165, 162);
             this.barCommandCategoryListBox.TabIndex = 0;
-            this.barCommandCategoryListBox.SelectedIndexChanged += new System.EventHandler(this.barCommandCategoryListBox_SelectedIndexChanged);
+            this.barCommandCategoryListBox.SelectedIndexChanged += new System.EventHandler(this.OnBarCommandCategoryListBoxSelectedIndexChanged);
             // 
             // barCommandExplanationLabel
             // 
@@ -443,7 +443,7 @@
             this.showCommandsContainingListBox.Size = new System.Drawing.Size(346, 101);
             this.showCommandsContainingListBox.Sorted = true;
             this.showCommandsContainingListBox.TabIndex = 0;
-            this.showCommandsContainingListBox.SelectedIndexChanged += new System.EventHandler(this.showCommandsContainingListBox_SelectedIndexChanged);
+            this.showCommandsContainingListBox.SelectedIndexChanged += new System.EventHandler(this.OnShowCommandsContainingListBoxSelectedIndexChanged);
             // 
             // shortcutCurrentlyUsedByCaptionLabel
             // 
@@ -469,7 +469,7 @@
             this.assignShortcutButton.Size = new System.Drawing.Size(82, 22);
             this.assignShortcutButton.TabIndex = 10;
             this.assignShortcutButton.Text = "Assign";
-            this.assignShortcutButton.Click += new System.EventHandler(this.assignShortcutButton_Click);
+            this.assignShortcutButton.Click += new System.EventHandler(this.OnAssignShortcutButtonClick);
             // 
             // shortcutTextBox
             // 
@@ -478,7 +478,7 @@
             this.shortcutTextBox.Name = "shortcutTextBox";
             this.shortcutTextBox.Size = new System.Drawing.Size(116, 20);
             this.shortcutTextBox.TabIndex = 9;
-            this.shortcutTextBox.TextChanged += new System.EventHandler(this.shortcutTextBox_TextChanged);
+            this.shortcutTextBox.TextChanged += new System.EventHandler(this.OnShortcutTextBoxTextChanged);
             // 
             // showCommandsContainingCaptionLabel
             // 
@@ -499,7 +499,7 @@
             this.showCommandsContainingTextBox.Name = "showCommandsContainingTextBox";
             this.showCommandsContainingTextBox.Size = new System.Drawing.Size(346, 20);
             this.showCommandsContainingTextBox.TabIndex = 1;
-            this.showCommandsContainingTextBox.TextChanged += new System.EventHandler(this.showCommandsContainingTextBox_TextChanged);
+            this.showCommandsContainingTextBox.TextChanged += new System.EventHandler(this.OnShowCommandsContainingTextBoxTextChanged);
             // 
             // useNewShortcutInDropDownList
             // 
@@ -509,7 +509,7 @@
             this.useNewShortcutInDropDownList.Name = "useNewShortcutInDropDownList";
             this.useNewShortcutInDropDownList.Size = new System.Drawing.Size(116, 21);
             this.useNewShortcutInDropDownList.TabIndex = 7;
-            this.useNewShortcutInDropDownList.DropDown += new System.EventHandler(this.useNewShortcutInDropDownList_DropDown);
+            this.useNewShortcutInDropDownList.DropDown += new System.EventHandler(this.OnUseNewShortcutInDropDownListDropDown);
             // 
             // shortcutsForSelectedCommandCaptionLabel
             // 
@@ -556,7 +556,7 @@
             this.removeShortcutButton.Size = new System.Drawing.Size(82, 22);
             this.removeShortcutButton.TabIndex = 5;
             this.removeShortcutButton.Text = "Remove";
-            this.removeShortcutButton.Click += new System.EventHandler(this.removeShortcutButton_Click);
+            this.removeShortcutButton.Click += new System.EventHandler(this.OnRemoveShortcutButtonClick);
             // 
             // shortcutsForSelectedCommandDropDownList
             // 

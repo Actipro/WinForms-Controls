@@ -25,7 +25,7 @@ private void dockManager_SelectedDocumentChanged(object sender, TabbedMdiWindowE
 		// If a new document is selected...
 		if (e.TabbedMdiWindow != null) {
 			// Try to find a MenuStrip and merge it
-			MenuStrip menuStrip = this.FindMergableMenuStrip(e.TabbedMdiWindow);
+			MenuStrip menuStrip = this.FindMergeableMenuStrip(e.TabbedMdiWindow);
 			if (menuStrip != null)
 				ToolStripManager.Merge(menuStrip, mdiParentMenuStrip);
 		}
@@ -33,18 +33,18 @@ private void dockManager_SelectedDocumentChanged(object sender, TabbedMdiWindowE
 }
 
 /// <summary>
-/// Recursively looks for a mergable <c>MenuStrip</c>.
+/// Recursively looks for a mergeable <c>MenuStrip</c>.
 /// </summary>
 /// <param name="parentControl">The parent <c>Control</c> to search.</param>
 /// <returns>The <c>MenuStrip</c> that was found, if any.</returns>
-private MenuStrip FindMergableMenuStrip(Control parentControl) {
+private MenuStrip FindMergeableMenuStrip(Control parentControl) {
 	foreach (Control control in parentControl.Controls) {
 		if (control is MenuStrip) {
 			if (((MenuStrip)control).AllowMerge)
 				return (MenuStrip)control;
 		}				
 		if (control.HasChildren) {
-			MenuStrip menuStrip = this.FindMergableMenuStrip(control);
+			MenuStrip menuStrip = this.FindMergeableMenuStrip(control);
 			if (menuStrip != null)
 				return menuStrip;
 		}

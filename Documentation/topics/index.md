@@ -107,6 +107,10 @@ The [Actipro Shared Library](shared/index.md) contains the base WinUICore framew
 
 The Shared Library components are free for use by any licensed customers of our WinForms control products.
 
+### Core Library
+
+The [Actipro Core Library](core/index.md) is a class library that is completely UI framework agnostic.  It contains numerous helpful utilities and base classes that can be used in your .NET projects.
+
 ## The WinForms Studio Bundle
 
 WinForms Studio is a bundled suite of all Actipro's WinForms control products listed above.

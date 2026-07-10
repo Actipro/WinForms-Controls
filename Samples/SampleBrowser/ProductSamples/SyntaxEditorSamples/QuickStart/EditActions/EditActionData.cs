@@ -1,44 +1,37 @@
-﻿using System;
-using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
+﻿using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
 
-namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditActions {
+namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditActions;
+
+/// <summary>
+/// Stores data about an edit action.
+/// </summary>
+/// <param name="category">The category.</param>
+/// <param name="action">The associated action.</param>
+public class EditActionData(string category, IEditAction action) {
+
+	// --------------------------------------------------------------------------------------------------
+	// PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
 
 	/// <summary>
-	/// Stores data about an edit action.
+	/// The <see cref="IEditAction"/> associated with this data.
 	/// </summary>
-	public class EditActionData {
+	public IEditAction Action { get; } = action ?? throw new ArgumentNullException(nameof(action));
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		/// <summary>
-		/// Gets or sets the <see cref="IEditAction"/> associated with this data.
-		/// </summary>
-		/// <value>The <see cref="IEditAction"/> associated with this data.</value>
-		public IEditAction Action { get; set; }
+	/// <summary>
+	/// The category.
+	/// </summary>
+	public string Category { get; } = category ?? throw new ArgumentNullException(nameof(category));
 
-		/// <summary>
-		/// Gets or sets the category.
-		/// </summary>
-		/// <value>The category.</value>
-		public string Category { get; set; }
+	/// <summary>
+	/// The key that, by default, executes the edit action.
+	/// </summary>
+	public string? Key { get; set; }
 
-		/// <summary>
-		/// Gets or sets the key that by default executes the edit action.
-		/// </summary>
-		/// <value>The key that by default executes the edit action.</value>
-		public string Key { get; set; }
+	/// <summary>
+	/// The string key that uniquely identifies the <see cref="Action"/>.
+	/// </summary>
+	public string? Name
+		=> Action.Key;
 
-		/// <summary>
-		/// Gets the string key that uniquely identifies the <see cref="Action"/>.
-		/// </summary>
-		/// <value>The string key that uniquely identifies the <see cref="Action"/>.</value>
-		public string Name { 
-			get {
-				return this.Action.Key;
-			}
-		}
-		
-	}
 }
