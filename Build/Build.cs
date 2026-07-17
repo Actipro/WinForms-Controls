@@ -29,7 +29,7 @@ namespace ActiproSoftware.Tools.Builds {
 		[Solution("Samples/SampleBrowser/SampleBrowser.sln")]
 		readonly Solution SampleBrowserSolution;
 
-		Solution[] SampleSolutions => new Solution[] { SampleBrowserSolution };  // MSBuild
+		Solution[] SampleSolutions => new Solution[] { SampleBrowserSolution };
 
 		#endregion
 
