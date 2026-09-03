@@ -47,3 +47,9 @@ barManager.PopupMenus["ButtonPopupMenu"].Show(
 If the popup menu was retrieved from the [PopupMenus](xref:@ActiproUIRoot.Controls.Bars.BarManager.PopupMenus) collection of the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager), it will already have the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) reference assigned.  Otherwise, a [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) should be set to the popup menu in its constructor when created.
 
 Once a [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) has been set, the command link clicks can be handled in the [BarManager](xref:@ActiproUIRoot.Controls.Bars.BarManager) events.
+
+## Menu Factory Integration
+
+Actipro Products use a menu factory to create built-in contextual menus.  By setting [MenuFactory](xref:@ActiproUIRoot.Controls.MenuFactory).[Current](xref:@ActiproUIRoot.Controls.MenuFactory.Current) to an instance of [BarsMenuFactory](xref:@ActiproUIRoot.Controls.Bars.BarsMenuFactory), all Actipro products will produce contextual menus based on [Bars PopupMenu](xref:@ActiproUIRoot.Controls.Bars.PopupMenu).
+
+See the [Menu Factory](../../shared/menu-factory.md) topic for more information.

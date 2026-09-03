@@ -160,7 +160,7 @@ namespace IntelliPromptCompletionFilteringQuickStart {
 		}
 
 		protected virtual void OnIntValueChanged(EventArgs e) {
-			if (this.IntValueChanged != null)
+			if (this.IntValueChanged is not null)
 				this.IntValueChanged(this, e);
 		}
 	}

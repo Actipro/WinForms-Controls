@@ -40,7 +40,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <value>The arguments.</value>
         public IList<Expression> Arguments {
             get {
-                if ((this.argumentsValue == null)) {
+                if ((this.argumentsValue is null)) {
                     this.argumentsValue = new List<Expression>();
                 }
                 return this.argumentsValue;
@@ -53,7 +53,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <value><c>true</c> if there is at least one item in the collection; otherwise, <c>false</c>.</value>
         public Boolean HasArguments {
             get {
-                if (((this.argumentsValue != null) 
+                if (((this.argumentsValue is not null) 
                             && (this.argumentsValue.Count > 0))) {
                     return true;
                 }
@@ -82,13 +82,13 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <returns>An <c>IEnumerator</c> object that can iterate the child <see cref="IAstNode"/> objects in this node.</returns>
         protected override IEnumerator<IAstNode> GetChildrenEnumerator() {
             IEnumerator<IAstNode> baseEnumerator = base.GetChildrenEnumerator();
-            if ((baseEnumerator != null)) {
+            if ((baseEnumerator is not null)) {
 				while (baseEnumerator.MoveNext())
 					yield return baseEnumerator.Current;
             }
-            if ((this.argumentsValue != null)) {
+            if ((this.argumentsValue is not null)) {
 				foreach (IAstNode argumentsValueItem in this.argumentsValue)
-					if (argumentsValueItem != null) yield return argumentsValueItem;
+					if (argumentsValueItem is not null) yield return argumentsValueItem;
             }
         }
     }

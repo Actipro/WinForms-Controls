@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor {
 	partial class MainControl {
 		/// <summary> 
@@ -10,7 +12,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing) {
-			if (disposing && (components != null)) {
+			if (disposing && (components is not null)) {
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -250,7 +252,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
             this.hasHorizontalSplitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripSeparator();
             this.isDocumentReadonlyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contentPanel = new System.Windows.Forms.Panel();
+			this.normalizeLineTerminatorsToCRLFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.normalizeLineTerminatorsToLFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem20 = new System.Windows.Forms.ToolStripSeparator();
+			this.contentPanel = new System.Windows.Forms.Panel();
             this.editorPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager)).BeginInit();
             this.astOutputToolWindow.SuspendLayout();
@@ -1057,7 +1062,10 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
             this.duplicateToolStripMenuItem,
             this.deleteBlankLinesToolStripMenuItem,
             this.toolStripMenuItem16,
-            this.moveSelectedLinesUpToolStripMenuItem,
+			this.normalizeLineTerminatorsToCRLFToolStripMenuItem, 
+			this.normalizeLineTerminatorsToLFToolStripMenuItem, 
+			this.toolStripMenuItem20,
+			this.moveSelectedLinesUpToolStripMenuItem,
             this.moveSelectedLinesDownToolStripMenuItem,
             this.transposeLinesToolStripMenuItem,
             this.transposeWordsToolStripMenuItem,
@@ -2062,10 +2070,27 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
             this.editorPanel.Padding = new System.Windows.Forms.Padding(0, 4, 0, 0);
             this.editorPanel.Size = new System.Drawing.Size(582, 358);
             this.editorPanel.TabIndex = 14;
-            // 
-            // MainControl
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+			// 
+			// normalizeLineTerminatorsToCRLFToolStripMenuItem
+			// 
+			this.normalizeLineTerminatorsToCRLFToolStripMenuItem.Name = "normalizeLineTerminatorsToCRLFToolStripMenuItem";
+			this.normalizeLineTerminatorsToCRLFToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+			this.normalizeLineTerminatorsToCRLFToolStripMenuItem.Text = "Normalize Line Terminators to CRLF";
+			// 
+			// normalizeLineTerminatorsToLFToolStripMenuItem
+			// 
+			this.normalizeLineTerminatorsToLFToolStripMenuItem.Name = "normalizeLineTerminatorsToLFToolStripMenuItem";
+			this.normalizeLineTerminatorsToLFToolStripMenuItem.Size = new System.Drawing.Size(263, 22);
+			this.normalizeLineTerminatorsToLFToolStripMenuItem.Text = "Normalize Line Terminators to LF";
+			// 
+			// toolStripMenuItem20
+			// 
+			this.toolStripMenuItem20.Name = "toolStripMenuItem20";
+			this.toolStripMenuItem20.Size = new System.Drawing.Size(260, 6);
+			// 
+			// MainControl
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.Controls.Add(this.contentPanel);
             this.Controls.Add(this.toolWindowContainer2);
@@ -2331,5 +2356,8 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.SdiCodeEditor 
         private System.Windows.Forms.ToolStripMenuItem lightThemeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem darkThemeToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator separatorToolStripMenuItem;
-    }
+		private System.Windows.Forms.ToolStripMenuItem normalizeLineTerminatorsToCRLFToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem normalizeLineTerminatorsToLFToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem20;
+	}
 }

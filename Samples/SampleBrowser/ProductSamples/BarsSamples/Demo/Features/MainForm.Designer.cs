@@ -10,7 +10,7 @@
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing) {
-			if (disposing && (components != null)) {
+			if (disposing && (components is not null)) {
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -1137,16 +1137,16 @@
             editDeleteBarButtonLink6,
             editSelectAllBarButtonLink4});
             this.barManager.PopupMenus.Add(textDocumentContextPopupMenu);
-            this.barManager.ClipboardChanged += new System.EventHandler(this.barManager_ClipboardChanged);
-            this.barManager.CommandClick += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.barManager_CommandClick);
-            this.barManager.CommandPopup += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.barManager_CommandPopup);
-            this.barManager.CommandUpdate += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.barManager_CommandUpdate);
-            this.barManager.CustomizeCommandLinkCreated += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.barManager_CustomizeCommandLinkCreated);
-            this.barManager.CustomizeModeChanged += new System.EventHandler(this.barManager_CustomizeModeChanged);
-            this.barManager.CustomizeSelectedCommandLinkChanged += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.barManager_CustomizeSelectedCommandLinkChanged);
-            this.barManager.KeyTyped += new ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyTypedEventHandler(this.barManager_KeyTyped);
-            this.barManager.MenuTearOff += new ActiproSoftware.UI.WinForms.Controls.Bars.BarControlEventHandler(this.barManager_MenuTearOff);
-            this.barManager.SelectedModeChanged += new System.EventHandler(this.barManager_SelectedModeChanged);
+            this.barManager.ClipboardChanged += new System.EventHandler(this.OnBarManagerClipboardChanged);
+            this.barManager.CommandClick += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.OnBarManagerCommandClick);
+            this.barManager.CommandPopup += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.OnBarManagerCommandPopup);
+            this.barManager.CommandUpdate += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.OnBarManagerCommandUpdate);
+            this.barManager.CustomizeCommandLinkCreated += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.OnBarManagerCustomizeCommandLinkCreated);
+            this.barManager.CustomizeModeChanged += new System.EventHandler(this.OnBarManagerCustomizeModeChanged);
+            this.barManager.CustomizeSelectedCommandLinkChanged += new ActiproSoftware.UI.WinForms.Controls.Bars.BarCommandLinkEventHandler(this.OnBarManagerCustomizeSelectedCommandLinkChanged);
+            this.barManager.KeyTyped += new ActiproSoftware.UI.WinForms.Controls.Bars.BarKeyTypedEventHandler(this.OnBarManagerKeyTyped);
+            this.barManager.MenuTearOff += new ActiproSoftware.UI.WinForms.Controls.Bars.BarControlEventHandler(this.OnBarManagerMenuTearOff);
+            this.barManager.SelectedModeChanged += new System.EventHandler(this.OnBarManagerSelectedModeChanged);
             // 
             // imageList
             // 
@@ -1242,7 +1242,7 @@
             this.dockManager.DocumentMdiStyle = ActiproSoftware.UI.WinForms.Controls.Docking.DocumentMdiStyle.Tabbed;
             this.dockManager.HostContainerControl = this;
             this.dockManager.ImageList = this.imageList;
-            this.dockManager.SelectedDocumentChanged += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_SelectedDocumentChanged);
+            this.dockManager.SelectedDocumentChanged += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerSelectedDocumentChanged);
             // 
             // barManagerPropertiesToolWindow
             // 
@@ -1267,7 +1267,7 @@
             this.barManagerPropertyGridPanel.Name = "barManagerPropertyGridPanel";
             this.barManagerPropertyGridPanel.Size = new System.Drawing.Size(224, 292);
             this.barManagerPropertyGridPanel.TabIndex = 1;
-            this.barManagerPropertyGridPanel.Resize += new System.EventHandler(this.barManagerPropertyGridPanel_Resize);
+            this.barManagerPropertyGridPanel.Resize += new System.EventHandler(this.OnBarManagerPropertyGridPanelResize);
             // 
             // toolWindowContainer1
             // 
@@ -1303,7 +1303,7 @@
             this.toolBarPropertiesPropertyGridPanel.Name = "toolBarPropertiesPropertyGridPanel";
             this.toolBarPropertiesPropertyGridPanel.Size = new System.Drawing.Size(224, 271);
             this.toolBarPropertiesPropertyGridPanel.TabIndex = 1;
-            this.toolBarPropertiesPropertyGridPanel.Resize += new System.EventHandler(this.toolBarPropertiesPropertyGridPanel_Resize);
+            this.toolBarPropertiesPropertyGridPanel.Resize += new System.EventHandler(this.OnToolBarPropertiesPropertyGridPanelResize);
             // 
             // toolBarPropertiesPropertyGrid
             // 
@@ -1326,7 +1326,7 @@
             this.toolBarPropertiesPropertyGridComboBox.Name = "toolBarPropertiesPropertyGridComboBox";
             this.toolBarPropertiesPropertyGridComboBox.Size = new System.Drawing.Size(224, 21);
             this.toolBarPropertiesPropertyGridComboBox.TabIndex = 16;
-            this.toolBarPropertiesPropertyGridComboBox.SelectedIndexChanged += new System.EventHandler(this.toolBarPropertiesPropertyGridComboBox_SelectedIndexChanged);
+            this.toolBarPropertiesPropertyGridComboBox.SelectedIndexChanged += new System.EventHandler(this.OnToolBarPropertiesPropertyGridComboBoxSelectedIndexChanged);
             // 
             // eventsListBox
             // 
@@ -1412,7 +1412,7 @@
             this.statusBar.TabIndex = 12;
             this.statusBar.TabStop = false;
             this.statusBar.Text = "statusBar1";
-            this.statusBar.StatusBarPanelClick += new ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarPanelMouseEventHandler(this.statusBar_StatusBarPanelClick);
+            this.statusBar.StatusBarPanelClick += new ActiproSoftware.UI.WinForms.Controls.Bars.StatusBarPanelMouseEventHandler(this.OnStatusBarStatusBarPanelClick);
             // 
             // autoHideTabStripPanel1
             // 

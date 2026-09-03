@@ -1,83 +1,76 @@
 ﻿using ActiproSoftware.SampleBrowser;
-using ActiproSoftware.Text;
-using ActiproSoftware.Text.Parsing;
 using ActiproSoftware.UI.WinForms.Drawing;
-using System;
-using System.Windows.Forms;
 
-namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingStarted02 {
+namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingStarted02;
+
+/// <summary>
+/// Provides the main user control for this sample.
+/// </summary>
+public partial class MainControl : UserControl {
+
+	// --------------------------------------------------------------------------------------------------
+	// OBJECT
+	// --------------------------------------------------------------------------------------------------
 
 	/// <summary>
-	/// Provides the main user control for this sample.
+	/// Initializes an instance of the class.
 	/// </summary>
-	public partial class MainControl : UserControl {
-		
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// OBJECT
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		/// <summary>
-		/// Initializes an instance of the <c>MainControl</c> class.
-		/// </summary>
-		public MainControl() {
-			InitializeComponent();
+	public MainControl() {
+		InitializeComponent();
 
-			// Load the custom Simple language defined in this sample
-			editor.Document.Language = new SimpleSyntaxLanguage();
-		}
+		// Load the custom Simple language defined in this sample
+		editor.Document.Language = new SimpleSyntaxLanguage();
+	}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// NON-PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+	// --------------------------------------------------------------------------------------------------
+	// NON-PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
 
-		/// <summary>
-		/// Occurs when the document's parse data has changed.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">The <c>EventArgs</c> that contains data related to this event.</param>
-		private void OnCodeEditorDocumentParseDataChanged(object sender, EventArgs e) {
-			// Invoke the handler logic since the parse data change event is raised from a parser worker thread
-			this.Invoke(new Action(() => {
-				var parseData = editor.Document.ParseData as SimpleParseData;
-				if (parseData != null) {
-					// Update function count based on reported parse data
-					UpdateFunctionCount(parseData.Functions.Count);
-				}
-				else {
-					// Invalid parse data
-					UpdateFunctionCount(0);
-				}
-			}));
-		}
-
-		/// <summary>
-		/// Update the function count displayed in the header.
-		/// </summary>
-		/// <param name="functionCount">The number of functions to be displayed.</param>
-		private void UpdateFunctionCount(int functionCount) {
-			functionCountLabel.Text = functionCount.ToString();
-		}
-
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		/// <inheritdoc/>
-		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
-			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
-
-			if (!Program.IsControlFontScalingHandledByRuntime) {
-				// Manually scale control fonts
-				var manualFontControls = new Control[] {
-					functionLabel,
-					functionCountLabel
-				};
-				foreach (var control in manualFontControls)
-					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+	/// <summary>
+	/// Occurs when the document's parse data has changed.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnCodeEditorDocumentParseDataChanged(object sender, EventArgs e) {
+		// Invoke the handler logic since the parse data change event is raised from a parser worker thread
+		Invoke(() => {
+			var parseData = editor.Document.ParseData as SimpleParseData;
+			if (parseData is not null) {
+				// Update function count based on reported parse data
+				UpdateFunctionCount(parseData.Functions.Count);
 			}
+			else {
+				// Invalid parse data
+				UpdateFunctionCount(0);
+			}
+		});
+	}
 
+	/// <summary>
+	/// Update the function count displayed in the header.
+	/// </summary>
+	/// <param name="functionCount">The number of functions to be displayed.</param>
+	private void UpdateFunctionCount(int functionCount) {
+		functionCountLabel.Text = functionCount.ToString();
+	}
+
+	// --------------------------------------------------------------------------------------------------
+	// PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
+
+	/// <inheritdoc/>
+	protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+		base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+		if (!Program.IsControlFontScalingHandledByRuntime) {
+			// Manually scale control fonts
+			var manualFontControls = new Control[] {
+				functionLabel,
+				functionCountLabel
+			};
+			foreach (var control in manualFontControls)
+				control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
 		}
-
 	}
 
 }

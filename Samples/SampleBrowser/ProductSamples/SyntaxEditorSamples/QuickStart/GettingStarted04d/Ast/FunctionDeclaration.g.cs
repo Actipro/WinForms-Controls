@@ -72,7 +72,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <value>The parameters.</value>
         public IList<String> Parameters {
             get {
-                if ((this.parametersValue == null)) {
+                if ((this.parametersValue is null)) {
                     this.parametersValue = new List<String>();
                 }
                 return this.parametersValue;
@@ -85,7 +85,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <value><c>true</c> if there is at least one item in the collection; otherwise, <c>false</c>.</value>
         public Boolean HasParameters {
             get {
-                if (((this.parametersValue != null) 
+                if (((this.parametersValue is not null) 
                             && (this.parametersValue.Count > 0))) {
                     return true;
                 }
@@ -101,11 +101,11 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <returns>An <c>IEnumerator</c> object that can iterate the child <see cref="IAstNode"/> objects in this node.</returns>
         protected override IEnumerator<IAstNode> GetChildrenEnumerator() {
             IEnumerator<IAstNode> baseEnumerator = base.GetChildrenEnumerator();
-            if ((baseEnumerator != null)) {
+            if ((baseEnumerator is not null)) {
 				while (baseEnumerator.MoveNext())
 					yield return baseEnumerator.Current;
             }
-            if ((this.bodyValue != null)) {
+            if ((this.bodyValue is not null)) {
 				yield return this.bodyValue;
             }
         }

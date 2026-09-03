@@ -1,97 +1,85 @@
-﻿using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
-using ActiproSoftware.SampleBrowser;
-using ActiproSoftware.Text.Implementation;
-using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
-using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt;
-using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.Implementation;
+﻿using ActiproSoftware.SampleBrowser;
 using ActiproSoftware.UI.WinForms.Drawing;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 
-namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorViewsSplitting {
+namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorViewsSplitting;
+
+/// <summary>
+/// Provides the main user control for this sample.
+/// </summary>
+public partial class MainControl : UserControl {
+
+	// --------------------------------------------------------------------------------------------------
+	// OBJECT
+	// --------------------------------------------------------------------------------------------------
 
 	/// <summary>
-	/// Provides the main user control for this sample.
+	/// Initializes an instance of the class.
 	/// </summary>
-	public partial class MainControl : UserControl {
+	public MainControl() {
+		InitializeComponent();
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// OBJECT
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		/// <summary>
-		/// Initializes an instance of the <c>MainControl</c> class.
-		/// </summary>
-		public MainControl() {
-			InitializeComponent();
+		// Initialize view based on default editor properties
+		canSplitCheckBox.Checked = editor.CanSplitHorizontally;
+		hasSplitCheckBox.Checked = editor.HasHorizontalSplit;
+	}
 
-			// Initialize view based on default editor properties
-			canSplitCheckBox.Checked = editor.CanSplitHorizontally;
-			hasSplitCheckBox.Checked = editor.HasHorizontalSplit;
+	// --------------------------------------------------------------------------------------------------
+	// NON-PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
+
+	/// <summary>
+	/// Occurs when the checkbox is checked or unchecked.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnCanSplitCheckBoxCheckedChanged(object sender, EventArgs e) {
+		editor.CanSplitHorizontally = canSplitCheckBox.Checked;
+	}
+
+	/// <summary>
+	/// Occurs when a split view is added to the editor.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnEditorViewSplitAdded(object sender, EventArgs e) {
+		hasSplitCheckBox.Checked = true;
+	}
+
+	/// <summary>
+	/// Occurs when a split view is removed from the editor.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnEditorViewSplitRemoved(object sender, EventArgs e) {
+		hasSplitCheckBox.Checked = false;
+	}
+
+	/// <summary>
+	/// Occurs when the checkbox is checked or unchecked.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnHasSplitCheckBoxCheckedChanged(object sender, EventArgs e) {
+		editor.HasHorizontalSplit = hasSplitCheckBox.Checked;
+	}
+
+	// --------------------------------------------------------------------------------------------------
+	// PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
+
+	/// <inheritdoc/>
+	protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+		base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+		if (!Program.IsControlFontScalingHandledByRuntime) {
+			// Manually scale control fonts
+			var manualFontControls = new Control[] {
+				canSplitCheckBox,
+				hasSplitCheckBox
+			};
+			foreach (var control in manualFontControls)
+				control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
 		}
-
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// NON-PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-		/// <summary>
-		/// Occurs when the checkbox is checked or unchecked.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnCanSplitCheckBoxCheckedChanged(object sender, EventArgs e) {
-			editor.CanSplitHorizontally = canSplitCheckBox.Checked;
-		}
-
-		/// <summary>
-		/// Occurs when a split view is added to the editor.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnEditorViewSplitAdded(object sender, EventArgs e) {
-			hasSplitCheckBox.Checked = true;
-		}
-
-		/// <summary>
-		/// Occurs when a split view is removed from the editor.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnEditorViewSplitRemoved(object sender, EventArgs e) {
-			hasSplitCheckBox.Checked = false;
-		}
-
-		/// <summary>
-		/// Occurs when the checkbox is checked or unchecked.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnHasSplitCheckBoxCheckedChanged(object sender, EventArgs e) {
-			editor.HasHorizontalSplit = hasSplitCheckBox.Checked;
-		}
-
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		/// <inheritdoc/>
-		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
-			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
-
-			if (!Program.IsControlFontScalingHandledByRuntime) {
-				// Manually scale control fonts
-				var manualFontControls = new Control[] {
-					canSplitCheckBox,
-					hasSplitCheckBox
-				};
-				foreach (var control in manualFontControls)
-					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
-			}
-
-		}
-
 	}
 
 }

@@ -4,206 +4,195 @@ using ActiproSoftware.Text.Languages.Python.Implementation;
 using ActiproSoftware.Text.Parsing;
 using ActiproSoftware.Text.Parsing.LLParser;
 using ActiproSoftware.UI.WinForms.Drawing;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Security;
-using System.Text;
-using System.Windows.Forms;
 
-namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPythonEditor {
+namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPythonEditor;
+
+/// <summary>
+/// Provides the main user control for this sample.
+/// </summary>
+public partial class MainControl : UserControl {
+
+	private int _documentNumber;
+	private bool _hasPendingParseData;
+
+	// --------------------------------------------------------------------------------------------------
+	// OBJECT
+	// --------------------------------------------------------------------------------------------------
 
 	/// <summary>
-	/// Provides the main user control for this sample.
+	/// Initializes an instance of the class.
 	/// </summary>
-	public partial class MainControl : UserControl {
+	public MainControl() {
+		InitializeComponent();
 
-		private int documentNumber;
-		private bool hasPendingParseData;
+		// Finalize initialization
+		DpiHelper.RescaleListViewColumns(errorListView, DpiHelper.DefaultDeviceDpi, DpiHelper.GetSystemDeviceDpi());
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// OBJECT
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Set the AST output tab stop width
+		astOutputEditor.SetTabStopWidth(1);
 
-		/// <summary>
-		/// Initializes an instance of the <c>MainControl</c> class.
-		/// </summary>
-		public MainControl() {
-			InitializeComponent();
+		//
+		// NOTE: Make sure that you've read through the add-on language's 'Getting Started' topic
+		//   since it tells you how to set up an ambient parse request dispatcher and an ambient
+		//   code repository within your application startup code, and add related cleanup in your
+		//   application OnExit code.  These steps are essential to having the add-on perform well.
+		//
 
-			// Finalize initialization
-			DpiHelper.RescaleListViewColumns(errorListView, DpiHelper.DefaultDeviceDpi, DpiHelper.GetSystemDeviceDpi());
+		// Load the Web Languages Add-on Python language
+		var language = new PythonSyntaxLanguage();
+		codeEditor.Document.Language = language;
+		codeEditor.Document.FileName = "mymodule.py";
+	}
 
-			// Set the AST output tab stop width
-			astOutputEditor.SetTabStopWidth(1);
+	// --------------------------------------------------------------------------------------------------
+	// NON-PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
 
-			//
-			// NOTE: Make sure that you've read through the add-on language's 'Getting Started' topic
-			//   since it tells you how to set up an ambient parse request dispatcher and an ambient
-			//   code repository within your application startup code, and add related cleanup in your
-			//   application OnExit code.  These steps are essential to having the add-on perform well.
-			//
+	/// <summary>
+	/// Creates a new file.
+	/// </summary>
+	private void NewFile()
+		=> OpenFile(string.Format("Document{0}.py", ++_documentNumber), stream: null);
 
-			// Load the Web Languages Add-on Python language
-			var language = new PythonSyntaxLanguage();
-			codeEditor.Document.Language = language;
-			codeEditor.Document.FileName = "mymodule.py";
-		}
+	/// <summary>
+	/// Occurs when the document's parse data has changed.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnCodeEditorDocumentParseDataChanged(object sender, EventArgs e) {
+		//
+		// NOTE: The parse data here is generated in a worker thread... this event handler is called 
+		//   back in the UI thread immediately when the worker thread completes... it is best
+		//   practice to delay UI updates until the end user stops typing... we will flag that
+		//   there is a pending parse data change, which will be handled in the 
+		//   UserInterfaceUpdate event
+		//
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// NON-PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		/// <summary>
-		/// Creates a new file.
-		/// </summary>
-		private void NewFile() {
-			this.OpenFile(String.Format("Document{0}.py", ++documentNumber), null);
-		}
-		
-		/// <summary>
-		/// Occurs when the document's parse data has changed.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">The <c>EventArgs</c> that contains data related to this event.</param>
-		private void OnCodeEditorDocumentParseDataChanged(object sender, EventArgs e) {
-			//
-			// NOTE: The parse data here is generated in a worker thread... this event handler is called 
-			//         back in the UI thread immediately when the worker thread completes... it is best
-			//         practice to delay UI updates until the end user stops typing... we will flag that
-			//         there is a pending parse data change, which will be handled in the 
-			//         UserInterfaceUpdate event
-			//
+		_hasPendingParseData = true;
+	}
 
-			hasPendingParseData = true;
-		}
+	/// <summary>
+	/// Occurs after a brief delay following any document text, parse data, or view selection update, allowing consumers to update the user interface during an idle period.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnCodeEditorUserInterfaceUpdate(object sender, EventArgs e) {
+		// If there is a pending parse data change...
+		if (_hasPendingParseData) {
+			// Clear flag
+			_hasPendingParseData = false;
 
-		/// <summary>
-		/// Occurs after a brief delay following any document text, parse data, or view selection update, allowing consumers to update the user interface during an idle period.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">The <see cref="EventArgs"/> that contains data related to this event.</param>
-		private void OnCodeEditorUserInterfaceUpdate(object sender, EventArgs e) {
-			// If there is a pending parse data change...
-			if (hasPendingParseData) {
-				// Clear flag
-				hasPendingParseData = false;
-
-				var parseData = codeEditor.Document.ParseData as ILLParseData;
-				if (parseData != null) {
-					if (codeEditor.Document.CurrentSnapshot.Length < 10000) {
-						// Show the AST
-						if (parseData.Ast != null)
-							astOutputEditor.Text = parseData.Ast.ToTreeString(0);
-						else
-							astOutputEditor.Text = null;
-					}
-					else
-						astOutputEditor.Text = "(Not displaying large AST for performance reasons)";
-
-					// Output errors
-					this.RefreshErrorList(parseData.Errors);
+			if (codeEditor.Document.ParseData is ILLParseData parseData) {
+				if (codeEditor.Document.CurrentSnapshot.Length < 10000) {
+					// Show the AST
+					astOutputEditor.Text = parseData.Ast?.ToTreeString(0);
 				}
-				else {
-					// Clear UI
-					astOutputEditor.Text = null;
-					this.RefreshErrorList(null);
-				}
+				else
+					astOutputEditor.Text = "(Not displaying large AST for performance reasons)";
+
+				// Output errors
+				RefreshErrorList(parseData.Errors);
+			}
+			else {
+				// Clear UI
+				astOutputEditor.Text = null;
+				RefreshErrorList(errors: null);
 			}
 		}
-		
-		/// <summary>
-		/// Occurs when the control is double-clicked.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnErrorListViewMouseDoubleClick(object sender, MouseEventArgs e) {
-			var item = errorListView.HitTest(e.X, e.Y).Item;
-			if (item != null) {
-				var error = item.Tag as IParseError;
-				if (error != null) {
-					codeEditor.ActiveView.Selection.StartPosition = error.PositionRange.StartPosition;
-					codeEditor.Focus();
-				}
-			}
-		}
+	}
 
-		/// <summary>
-		/// Occurs when the toolstrip item is clicked.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnMainToolStripItemClicked(object sender, ToolStripItemClickedEventArgs e) {
-			switch (e.ClickedItem.Name) {
-				case nameof(commentLinesToolStripButton):
-					codeEditor.ActiveView.TextChangeActions.CommentLines();
-					break;
-				case nameof(locateStandardLibraryToolStripButton):
-					this.OpenStandardLibrary();
-					break;
-				case nameof(newDocumentToolStripButton):
-					this.NewFile();
-					break;
-				case nameof(openDocumentToolStripButton):
-					this.OpenFile();
-					break;
-				case nameof(uncommentLinesToolStripButton):
-					codeEditor.ActiveView.TextChangeActions.UncommentLines();
-					break;
-			}
+	/// <summary>
+	/// Occurs when the control is double-clicked.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnErrorListViewMouseDoubleClick(object sender, MouseEventArgs e) {
+		var item = errorListView.HitTest(e.X, e.Y).Item;
+		if (item?.Tag is IParseError error) {
+			if (error.PositionRange.HasValue)
+				codeEditor.ActiveView.Selection.StartPosition = error.PositionRange.Value.StartPosition;
+			codeEditor.Focus();
 		}
-		
-		/// <summary>
-		/// Opens a file.
-		/// </summary>
-		private void OpenFile() {
-			// Show a file open dialog
-			OpenFileDialog dialog = new OpenFileDialog();
-			dialog.CheckFileExists = true;
-			dialog.Multiselect = false;
-			dialog.Filter = "Python files (*.py)|*.py|All files (*.*)|*.*";
-			if (dialog.ShowDialog() == DialogResult.OK) {
-				// Open a document
-				using (Stream stream = dialog.OpenFile()) {
-					// Read the file
-					this.OpenFile(Path.GetFileName(dialog.FileName), stream);
-				}
-			}
+	}
+
+	/// <summary>
+	/// Occurs when the toolstrip item is clicked.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnMainToolStripItemClicked(object sender, ToolStripItemClickedEventArgs e) {
+		switch (e.ClickedItem?.Name) {
+			case nameof(commentLinesToolStripButton):
+				codeEditor.ActiveView.TextChangeActions.CommentLines();
+				break;
+			case nameof(locateStandardLibraryToolStripButton):
+				OpenStandardLibrary();
+				break;
+			case nameof(newDocumentToolStripButton):
+				NewFile();
+				break;
+			case nameof(openDocumentToolStripButton):
+				OpenFile();
+				break;
+			case nameof(uncommentLinesToolStripButton):
+				codeEditor.ActiveView.TextChangeActions.UncommentLines();
+				break;
 		}
+	}
 
-		/// <summary>
-		/// Opens a file.
-		/// </summary>
-		/// <param name="filename">The filename.</param>
-		/// <param name="stream">The <see cref="Stream"/> to load.</param>
-		private void OpenFile(string filename, Stream stream) {
-			// Load the file
-			if (stream != null)
-				codeEditor.Document.LoadFile(stream, Encoding.UTF8);
-			else
-				codeEditor.Document.SetText(null);
+	/// <summary>
+	/// Opens a file.
+	/// </summary>
+	private void OpenFile() {
+		// Show a file open dialog
+		var dialog = new OpenFileDialog {
+			CheckFileExists = true,
+			Multiselect = false,
+			Filter = "Python files (*.py)|*.py|All files (*.*)|*.*"
+		};
+		if (dialog.ShowDialog() == DialogResult.OK) {
+			// Open a document
+			using var stream = dialog.OpenFile();
 
-			// Set the filename
-			codeEditor.Document.FileName = filename;
+			// Read the file
+			OpenFile(Path.GetFileName(dialog.FileName), stream);
 		}
+	}
 
-		/// <summary>
-		/// Opens the standard library.
-		/// </summary>
-		private void OpenStandardLibrary() {
-			// Show a file open dialog
-			OpenFileDialog dialog = new OpenFileDialog();
-			dialog.CheckFileExists = true;
-			dialog.Title = "Select a file from the Lib folder of your Python standard library";
-			dialog.Multiselect = false;
-			dialog.Filter = "Python files (*.py)|*.py|All files (*.*)|*.*";
-			if (dialog.ShowDialog() == DialogResult.OK) {
-				try {
-					var directoryPath = Path.GetDirectoryName(dialog.FileName);
-					if (Directory.Exists(directoryPath)) {
-						// Add the containing directory as a search path
-						var project = codeEditor.Document.Language.GetProject();
+	/// <summary>
+	/// Opens a file.
+	/// </summary>
+	/// <param name="filename">The filename.</param>
+	/// <param name="stream">The <see cref="Stream"/> to load.</param>
+	private void OpenFile(string filename, Stream? stream) {
+		// Load the file
+		if (stream is not null)
+			codeEditor.Document.LoadFile(stream, Encoding.UTF8);
+		else
+			codeEditor.Document.SetText(string.Empty);
+
+		// Set the filename
+		codeEditor.Document.FileName = filename;
+	}
+
+	/// <summary>
+	/// Opens the standard library.
+	/// </summary>
+	private void OpenStandardLibrary() {
+		// Show a file open dialog
+		var dialog = new OpenFileDialog {
+			CheckFileExists = true,
+			Title = "Select a file from the Lib folder of your Python standard library",
+			Multiselect = false,
+			Filter = "Python files (*.py)|*.py|All files (*.*)|*.*"
+		};
+		if (dialog.ShowDialog() == DialogResult.OK) {
+			try {
+				var directoryPath = Path.GetDirectoryName(dialog.FileName);
+				if (Directory.Exists(directoryPath)) {
+					// Add the containing directory as a search path
+					if (codeEditor.Document.Language.GetProject() is { } project) {
 						project.SearchPaths.Clear();
 						project.SearchPaths.Add(directoryPath);
 
@@ -215,67 +204,68 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.Demo.PythonAddonPyt
 						MessageBox.Show("Standard library location set to '" + directoryPath + "'.");
 					}
 				}
-				catch (ArgumentException) {}
-				catch (IOException) {}
-				catch (SecurityException) {}
 			}
+			catch (ArgumentException) { }
+			catch (IOException) { }
+			catch (SecurityException) { }
 		}
-		
-		/// <summary>
-		/// Refreshes the list.
-		/// </summary>
-		/// <param name="errors">The error collection.</param>
-		private void RefreshErrorList(IEnumerable<IParseError> errors) {
-			errorListView.Items.Clear();
+	}
 
-			if (errors != null) {
-				foreach (var error in errors) {
-					var item = new ListViewItem(new string[] { 
-						error.PositionRange.StartPosition.DisplayLine.ToString(), error.PositionRange.StartPosition.DisplayCharacter.ToString(), error.Description
-					});
+	/// <summary>
+	/// Refreshes the list.
+	/// </summary>
+	/// <param name="errors">The error collection.</param>
+	private void RefreshErrorList(IEnumerable<IParseError>? errors) {
+		errorListView.Items.Clear();
+
+		if (errors is not null) {
+			foreach (var error in errors) {
+				if (error.PositionRange.HasValue) {
+					var item = new ListViewItem([
+						error.PositionRange.Value.StartPosition.DisplayLine.ToString(),
+						error.PositionRange.Value.StartPosition.DisplayCharacter.ToString(),
+						error.Description ?? string.Empty
+					]);
 					item.Tag = error;
 					errorListView.Items.Add(item);
 				}
 			}
 		}
+	}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		/// <inheritdoc/>
-		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
-			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+	// --------------------------------------------------------------------------------------------------
+	// PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
 
-			if (!Program.IsControlFontScalingHandledByRuntime) {
-				// Manually scale control fonts				
-				var manualFontControls = new Control[] {
-					astOutputEditor,
-					errorListView,
-					mainToolStrip,
-					symbolSelector
-				};
-				foreach (var control in manualFontControls)
-					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+	/// <inheritdoc/>
+	protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+		base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
 
-				// Manually scale the buttons/images on the tool strip
-				mainToolStrip.SuspendLayout();
-				mainToolStrip.ImageScalingSize = DpiHelper.RescaleSize(mainToolStrip.ImageScalingSize, deviceDpiOld, deviceDpiNew);
-				var imageButtonSize = DpiHelper.ScaleSize(new Size(23, 22), DpiHelper.GetDpiScale(deviceDpiNew));
-				foreach (var toolStripItem in mainToolStrip.Items) {
-					if (toolStripItem is ToolStripButton toolStripButton) {
-						if (toolStripButton.DisplayStyle == ToolStripItemDisplayStyle.Image) {
-							toolStripButton.AutoSize = false;
-							toolStripButton.Size = imageButtonSize;
-						}
-					}
+		if (!Program.IsControlFontScalingHandledByRuntime) {
+			// Manually scale control fonts
+			var manualFontControls = new Control[] {
+				astOutputEditor,
+				errorListView,
+				mainToolStrip,
+				symbolSelector
+			};
+			foreach (var control in manualFontControls)
+				control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
+
+			// Manually scale the buttons/images on the tool strip
+			mainToolStrip.SuspendLayout();
+			mainToolStrip.ImageScalingSize = DpiHelper.RescaleSize(mainToolStrip.ImageScalingSize, deviceDpiOld, deviceDpiNew);
+			var imageButtonSize = DpiHelper.ScaleSize(new Size(23, 22), DpiHelper.GetDpiScale(deviceDpiNew));
+			foreach (var toolStripButton in mainToolStrip.Items.OfType<ToolStripButton>()) {
+				if (toolStripButton.DisplayStyle == ToolStripItemDisplayStyle.Image) {
+					toolStripButton.AutoSize = false;
+					toolStripButton.Size = imageButtonSize;
 				}
-				mainToolStrip.ResumeLayout();
 			}
-
-			DpiHelper.RescaleListViewColumns(errorListView, deviceDpiOld, deviceDpiNew);
-
+			mainToolStrip.ResumeLayout();
 		}
+
+		DpiHelper.RescaleListViewColumns(errorListView, deviceDpiOld, deviceDpiNew);
 
 	}
 

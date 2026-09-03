@@ -10,7 +10,7 @@
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing) {
-			if (disposing && (components != null)) {
+			if (disposing && (components is not null)) {
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -68,7 +68,6 @@
             this.textStylePreview.Size = new System.Drawing.Size(254, 69);
             this.textStylePreview.TabIndex = 7;
             this.textStylePreview.TabStop = false;
-            this.textStylePreview.Text = "AaBbCcXxYyZz";
             // 
             // italicCheckBox
             // 

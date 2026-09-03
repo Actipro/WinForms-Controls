@@ -1,162 +1,152 @@
 ﻿using ActiproSoftware.SampleBrowser;
-using ActiproSoftware.Text.Languages.CSharp.Implementation;
-using ActiproSoftware.Text.Languages.DotNet;
-using ActiproSoftware.Text.Languages.DotNet.Reflection;
 using ActiproSoftware.Text.Parsing;
 using ActiproSoftware.Text.Parsing.LLParser;
 using ActiproSoftware.UI.WinForms.Drawing;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Reflection;
-using System.Security;
-using System.Text;
-using System.Windows.Forms;
 
-namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingStarted07 {
+namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingStarted07;
+
+/// <summary>
+/// Provides the main user control for this sample.
+/// </summary>
+public partial class MainControl : UserControl {
+
+	private bool _hasPendingParseData;
+
+	// --------------------------------------------------------------------------------------------------
+	// OBJECT
+	// --------------------------------------------------------------------------------------------------
 
 	/// <summary>
-	/// Provides the main user control for this sample.
+	/// Initializes an instance of the class.
 	/// </summary>
-	public partial class MainControl : UserControl {
+	public MainControl() {
+		InitializeComponent();
 
-		private bool hasPendingParseData;
+		// Finalize initialization
+		DpiHelper.RescaleListViewColumns(errorListView, DpiHelper.DefaultDeviceDpi, DpiHelper.GetSystemDeviceDpi());
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// OBJECT
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Load the custom Simple language defined in this sample
+		editor.Document.Language = new SimpleSyntaxLanguage();
 
-		/// <summary>
-		/// Initializes an instance of the <c>MainControl</c> class.
-		/// </summary>
-		public MainControl() {
-			InitializeComponent();
+	}
 
-			// Finalize initialization
-			DpiHelper.RescaleListViewColumns(errorListView, DpiHelper.DefaultDeviceDpi, DpiHelper.GetSystemDeviceDpi());
+	// --------------------------------------------------------------------------------------------------
+	// NON-PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
 
-			// Load the custom Simple language defined in this sample
-			editor.Document.Language = new SimpleSyntaxLanguage();
+	/// <summary>
+	/// Occurs when the document's parse data has changed.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnCodeEditorDocumentParseDataChanged(object sender, EventArgs e) {
+		//
+		// NOTE: The parse data here is generated in a worker thread... this event handler is called 
+		//   back in the UI thread immediately when the worker thread completes... it is best
+		//   practice to delay UI updates until the end user stops typing... we will flag that
+		//   there is a pending parse data change, which will be handled in the 
+		//   UserInterfaceUpdate event
+		//
 
-		}
+		_hasPendingParseData = true;
+	}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// NON-PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+	/// <summary>
+	/// Occurs after a brief delay following any document text, parse data, or view selection update, allowing consumers to update the user interface during an idle period.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnCodeEditorUserInterfaceUpdate(object sender, EventArgs e) {
+		// If there is a pending parse data change...
+		if (_hasPendingParseData) {
+			// Clear flag
+			_hasPendingParseData = false;
 
-		/// <summary>
-		/// Occurs when the document's parse data has changed.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">The <c>EventArgs</c> that contains data related to this event.</param>
-		private void OnCodeEditorDocumentParseDataChanged(object sender, EventArgs e) {
-			//
-			// NOTE: The parse data here is generated in a worker thread... this event handler is called 
-			//         back in the UI thread immediately when the worker thread completes... it is best
-			//         practice to delay UI updates until the end user stops typing... we will flag that
-			//         there is a pending parse data change, which will be handled in the 
-			//         UserInterfaceUpdate event
-			//
-
-			hasPendingParseData = true;
-		}
-
-		/// <summary>
-		/// Occurs after a brief delay following any document text, parse data, or view selection update, allowing consumers to update the user interface during an idle period.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">The <see cref="EventArgs"/> that contains data related to this event.</param>
-		private void OnCodeEditorUserInterfaceUpdate(object sender, EventArgs e) {
-			// If there is a pending parse data change...
-			if (hasPendingParseData) {
-				// Clear flag
-				hasPendingParseData = false;
-
-				var parseData = editor.Document.ParseData as ILLParseData;
-				if (parseData != null) {
-					// Output errors
-					this.RefreshErrorList(parseData.Errors);
-				}
-				else {
-					// Clear UI
-					this.RefreshErrorList(null);
-				}
+			var parseData = editor.Document.ParseData as ILLParseData;
+			if (parseData is not null) {
+				// Output errors
+				RefreshErrorList(parseData.Errors);
+			}
+			else {
+				// Clear UI
+				RefreshErrorList(errors: null);
 			}
 		}
-		
-		/// <summary>
-		/// Occurs when the control is double-clicked.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnErrorListViewMouseDoubleClick(object sender, MouseEventArgs e) {
-			var item = errorListView.HitTest(e.X, e.Y).Item;
-			if (item != null) {
-				var error = item.Tag as IParseError;
-				if (error != null) {
-					editor.ActiveView.Selection.StartPosition = error.PositionRange.StartPosition;
-					editor.Focus();
-				}
-			}
+	}
+
+	/// <summary>
+	/// Occurs when the control is double-clicked.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnErrorListViewMouseDoubleClick(object sender, MouseEventArgs e) {
+		var item = errorListView.HitTest(e.X, e.Y).Item;
+		if (item?.Tag is IParseError error) {
+			if (error.PositionRange.HasValue)
+				editor.ActiveView.Selection.StartPosition = error.PositionRange.Value.StartPosition;
+
+			editor.Focus();
 		}
+	}
 
-		/// <summary>
-		/// Occurs when the toolstrip item is clicked.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnMainToolStripItemClicked(object sender, ToolStripItemClickedEventArgs e) {
-			switch (e.ClickedItem.Name) {
-				case nameof(commentLinesToolStripButton):
-					editor.ActiveView.TextChangeActions.CommentLines();
-					break;
-				case nameof(uncommentLinesToolStripButton):
-					editor.ActiveView.TextChangeActions.UncommentLines();
-					break;
-			}
+	/// <summary>
+	/// Occurs when the toolstrip item is clicked.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnMainToolStripItemClicked(object sender, ToolStripItemClickedEventArgs e) {
+		switch (e.ClickedItem?.Name) {
+			case nameof(commentLinesToolStripButton):
+				editor.ActiveView.TextChangeActions.CommentLines();
+				break;
+			case nameof(uncommentLinesToolStripButton):
+				editor.ActiveView.TextChangeActions.UncommentLines();
+				break;
 		}
+	}
 
-		/// <summary>
-		/// Refreshes the list.
-		/// </summary>
-		/// <param name="errors">The error collection.</param>
-		private void RefreshErrorList(IEnumerable<IParseError> errors) {
-			errorListView.Items.Clear();
+	/// <summary>
+	/// Refreshes the list.
+	/// </summary>
+	/// <param name="errors">The error collection.</param>
+	private void RefreshErrorList(IEnumerable<IParseError>? errors) {
+		errorListView.Items.Clear();
 
-			if (errors != null) {
-				foreach (var error in errors) {
-					var item = new ListViewItem(new string[] { 
-						error.PositionRange.StartPosition.DisplayLine.ToString(), error.PositionRange.StartPosition.DisplayCharacter.ToString(), error.Description
-					});
+		if (errors is not null) {
+			foreach (var error in errors) {
+				if (error.PositionRange.HasValue) {
+					var item = new ListViewItem([
+						error.PositionRange.Value.StartPosition.DisplayLine.ToString(),
+						error.PositionRange.Value.StartPosition.DisplayCharacter.ToString(),
+						error.Description ?? string.Empty
+					]);
 					item.Tag = error;
 					errorListView.Items.Add(item);
 				}
 			}
 		}
+	}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+	// --------------------------------------------------------------------------------------------------
+	// PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
 
-		/// <inheritdoc/>
-		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
-			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+	/// <inheritdoc/>
+	protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+		base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
 
-			if (!Program.IsControlFontScalingHandledByRuntime) {
-				// Manually scale control fonts
-				var manualFontControls = new Control[] {
-					mainToolStrip,
-					errorListView
-				};
-				foreach (var control in manualFontControls)
-					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
-			}
-
-			// Resize the width of ListView columns
-			DpiHelper.RescaleListViewColumns(errorListView, deviceDpiOld, deviceDpiNew);
+		if (!Program.IsControlFontScalingHandledByRuntime) {
+			// Manually scale control fonts
+			var manualFontControls = new Control[] {
+				mainToolStrip,
+				errorListView
+			};
+			foreach (var control in manualFontControls)
+				control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
 		}
 
+		// Resize the width of ListView columns
+		DpiHelper.RescaleListViewColumns(errorListView, deviceDpiOld, deviceDpiNew);
 	}
 
 }

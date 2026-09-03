@@ -1,111 +1,100 @@
-﻿using ActiproSoftware.ProductSamples.SyntaxEditorSamples.Common;
-using ActiproSoftware.SampleBrowser;
-using ActiproSoftware.Text.Implementation;
-using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor;
-using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt;
-using ActiproSoftware.UI.WinForms.Controls.SyntaxEditor.IntelliPrompt.Implementation;
+﻿using ActiproSoftware.SampleBrowser;
 using ActiproSoftware.UI.WinForms.Drawing;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
 
-namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorViewMarginsVisibility {
+namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.EditorViewMarginsVisibility;
+
+/// <summary>
+/// Provides the main user control for this sample.
+/// </summary>
+public partial class MainControl : UserControl {
+
+	// --------------------------------------------------------------------------------------------------
+	// OBJECT
+	// --------------------------------------------------------------------------------------------------
 
 	/// <summary>
-	/// Provides the main user control for this sample.
+	/// Initializes an instance of the class.
 	/// </summary>
-	public partial class MainControl : UserControl {
+	public MainControl() {
+		InitializeComponent();
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// OBJECT
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		/// <summary>
-		/// Initializes an instance of the <c>MainControl</c> class.
-		/// </summary>
-		public MainControl() {
-			InitializeComponent();
+		// Initialize view based on default editor properties
+		indicatorCheckBox.Checked = editor.IsIndicatorMarginVisible;
+		lineNumberCheckBox.Checked = editor.IsLineNumberMarginVisible;
+		outliningCheckBox.Checked = editor.IsOutliningMarginVisible;
+		rulerCheckBox.Checked = editor.IsRulerMarginVisible;
+		selectionCheckBox.Checked = editor.IsSelectionMarginVisible;
+	}
 
-			// Initialize view based on default editor properties
-			indicatorCheckBox.Checked = editor.IsIndicatorMarginVisible;
-			lineNumberCheckBox.Checked = editor.IsLineNumberMarginVisible;
-			outliningCheckBox.Checked = editor.IsOutliningMarginVisible;
-			rulerCheckBox.Checked = editor.IsRulerMarginVisible;
-			selectionCheckBox.Checked = editor.IsSelectionMarginVisible;
+	// --------------------------------------------------------------------------------------------------
+	// NON-PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
+
+	/// <summary>
+	/// Occurs when the checkbox is checked or unchecked.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnIndicatorCheckBoxCheckedChanged(object sender, EventArgs e) {
+		editor.IsIndicatorMarginVisible = indicatorCheckBox.Checked;
+	}
+
+	/// <summary>
+	/// Occurs when the checkbox is checked or unchecked.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnLineNumberCheckBoxCheckedChanged(object sender, EventArgs e) {
+		editor.IsLineNumberMarginVisible = lineNumberCheckBox.Checked;
+	}
+
+	/// <summary>
+	/// Occurs when the checkbox is checked or unchecked.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnOutliningCheckBoxCheckedChanged(object sender, EventArgs e) {
+		editor.IsOutliningMarginVisible = outliningCheckBox.Checked;
+	}
+
+	/// <summary>
+	/// Occurs when the checkbox is checked or unchecked.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnRulerCheckBoxCheckedChanged(object sender, EventArgs e) {
+		editor.IsRulerMarginVisible = rulerCheckBox.Checked;
+	}
+
+	/// <summary>
+	/// Occurs when the checkbox is checked or unchecked.
+	/// </summary>
+	/// <param name="sender">The sender of the event.</param>
+	/// <param name="e">The event data.</param>
+	private void OnSelectionCheckBoxCheckedChanged(object sender, EventArgs e) {
+		editor.IsSelectionMarginVisible = selectionCheckBox.Checked;
+	}
+
+	// --------------------------------------------------------------------------------------------------
+	// PUBLIC PROCEDURES
+	// --------------------------------------------------------------------------------------------------
+
+	/// <inheritdoc/>
+	protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
+		base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
+
+		if (!Program.IsControlFontScalingHandledByRuntime) {
+			// Manually scale control fonts
+			var manualFontControls = new Control[] {
+				indicatorCheckBox,
+				lineNumberCheckBox,
+				outliningCheckBox,
+				rulerCheckBox,
+				selectionCheckBox
+			};
+			foreach (var control in manualFontControls)
+				control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
 		}
-
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// NON-PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		/// <summary>
-		/// Occurs when the checkbox is checked or unchecked.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnIndicatorCheckBoxCheckedChanged(object sender, EventArgs e) {
-			editor.IsIndicatorMarginVisible = indicatorCheckBox.Checked;
-		}
-
-		/// <summary>
-		/// Occurs when the checkbox is checked or unchecked.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnLineNumberCheckBoxCheckedChanged(object sender, EventArgs e) {
-			editor.IsLineNumberMarginVisible = lineNumberCheckBox.Checked;
-		}
-
-		/// <summary>
-		/// Occurs when the checkbox is checked or unchecked.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnOutliningCheckBoxCheckedChanged(object sender, EventArgs e) {
-			editor.IsOutliningMarginVisible = outliningCheckBox.Checked;
-		}
-
-		/// <summary>
-		/// Occurs when the checkbox is checked or unchecked.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnRulerCheckBoxCheckedChanged(object sender, EventArgs e) {
-			editor.IsRulerMarginVisible = rulerCheckBox.Checked;
-		}
-
-		/// <summary>
-		/// Occurs when the checkbox is checked or unchecked.
-		/// </summary>
-		/// <param name="sender">The sender of the event.</param>
-		/// <param name="e">A <see cref="EventArgs"/> that contains the event data.</param>
-		private void OnSelectionCheckBoxCheckedChanged(object sender, EventArgs e) {
-			editor.IsSelectionMarginVisible = selectionCheckBox.Checked;
-		}
-
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		/// <inheritdoc/>
-		protected override void RescaleConstantsForDpi(int deviceDpiOld, int deviceDpiNew) {
-			base.RescaleConstantsForDpi(deviceDpiOld, deviceDpiNew);
-
-			if (!Program.IsControlFontScalingHandledByRuntime) {
-				// Manually scale control fonts
-				var manualFontControls = new Control[] {
-					indicatorCheckBox,
-					lineNumberCheckBox,
-					outliningCheckBox,
-					rulerCheckBox,
-					selectionCheckBox
-				};
-				foreach (var control in manualFontControls)
-					control.Font = DpiHelper.RescaleFont(control.Font, deviceDpiOld, deviceDpiNew);
-			}
-
-		}
-
 	}
 
 }

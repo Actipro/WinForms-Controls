@@ -1,50 +1,45 @@
-﻿using System.Linq;
+﻿namespace ActiproSoftware.SampleBrowser {
 
-namespace ActiproSoftware.SampleBrowser {
-	
-    /// <summary>
-    /// Provides information about a product item.
-    /// </summary>
-    public class ProductItemInfo {
+	/// <summary>
+	/// Provides information about a product item.
+	/// </summary>
+	public class ProductItemInfo {
 
-		private string blurbText;
+		private string? _blurbText;
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// --------------------------------------------------------------------------------------------------
 		// OBJECT
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		/// <summary>
-		/// Initializes a new instance of the <see cref="ProductItemInfo"/> class.
-		/// </summary>
-		public ProductItemInfo() {}
+		// --------------------------------------------------------------------------------------------------
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		/// <summary>
+		/// Initializes an instance of the class.
+		/// </summary>
+		public ProductItemInfo() { }
+
+		// --------------------------------------------------------------------------------------------------
 		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// --------------------------------------------------------------------------------------------------
 
 		/// <summary>
-		/// Gets or sets the blurb text.
+		/// The blurb text.
 		/// </summary>
-		/// <value>The blurb text.</value>
-		public string BlurbText {
-			get => blurbText ?? (IsPrivate ? "Private!" : null);
-			set => blurbText = value;
+		public string? BlurbText {
+			get => _blurbText ?? (IsPrivate ? "Private!" : null);
+			set => _blurbText = value;
 		}
 
 		/// <summary>
-		/// Gets or sets the category.
+		/// The category.
 		/// </summary>
-		/// <value>The category.</value>
-		public string Category { get; set; }
-
-        /// <summary>
-        /// Gets or sets the description.
-        /// </summary>
-        /// <value>The description.</value>
-        public string Description { get; set; }
+		public string? Category { get; set; }
 
 		/// <summary>
-		/// Gets or sets whether this item should render a category header.
+		/// The description.
+		/// </summary>
+		public string? Description { get; set; }
+
+		/// <summary>
+		/// Indicates whether this item should render a category header.
 		/// </summary>
 		/// <value>
 		/// <c>true</c> if this item should render a category header; otherwise, <c>false</c>.
@@ -52,66 +47,60 @@ namespace ActiproSoftware.SampleBrowser {
 		public bool IsCategoryHeaderRequired { get; set; }
 
 		/// <summary>
-		/// Gets or sets Whether this item is a private item not intended for inclusion in public projects.
+		/// Indicates whether this item is a private item not intended for inclusion in public projects.
 		/// </summary>
 		public bool IsPrivate { get; set; }
 
 		/// <summary>
-		/// Gets or sets the <see cref="ProductItemKind"/> of item.
+		/// The <see cref="ProductItemKind"/> of item.
 		/// </summary>
-		/// <value>The <see cref="ProductItemKind"/> of item.</value>
 		public ProductItemKind Kind { get; set; }
 
 		/// <summary>
-		/// Gets the next <see cref="ProductItemInfo"/>, if any.
+		/// The next <see cref="ProductItemInfo"/>, if any.
 		/// </summary>
-		/// <value>The next <see cref="ProductItemInfo"/>, if any.</value>
-		public ProductItemInfo NextItem {
+		public ProductItemInfo? NextItem {
 			get {
-				if (this.ProductFamily != null) {
-					var index = this.ProductFamily.Items.IndexOf(this);
-					if ((index != -1) && (index < this.ProductFamily.Items.Count - 1))
-						return this.ProductFamily.Items[index + 1];
+				if (ProductFamily is not null) {
+					var index = ProductFamily.Items.IndexOf(this);
+					if ((index != -1) && (index < ProductFamily.Items.Count - 1))
+						return ProductFamily.Items[index + 1];
 				}
 
 				return null;
 			}
 		}
-		
-        /// <summary>
-        /// Gets or sets the path to load.
-        /// </summary>
-        /// <value>The path to load.</value>
-        public string Path { get; set; }
 
 		/// <summary>
-		/// Gets the previous <see cref="ProductItemInfo"/>, if any.
+		/// The path to load.
 		/// </summary>
-		/// <value>The previous <see cref="ProductItemInfo"/>, if any.</value>
-		public ProductItemInfo PreviousItem {
+		public string? Path { get; set; }
+
+		/// <summary>
+		/// The previous <see cref="ProductItemInfo"/>, if any.
+		/// </summary>
+		public ProductItemInfo? PreviousItem {
 			get {
-				if (this.ProductFamily != null) {
-					var index = this.ProductFamily.Items.IndexOf(this);
+				if (ProductFamily is not null) {
+					var index = ProductFamily.Items.IndexOf(this);
 					if (index > 0)
-						return this.ProductFamily.Items[index - 1];
+						return ProductFamily.Items[index - 1];
 				}
 
 				return null;
 			}
 		}
-		
+
 		/// <summary>
-		/// Gets or sets the <see cref="ProductFamilyInfo"/> that owns this item.
+		/// The <see cref="ProductFamilyInfo"/> that owns this item.
 		/// </summary>
-		/// <value>The <see cref="ProductFamilyInfo"/> that owns this item.</value>
-		public ProductFamilyInfo ProductFamily { get; set; }
+		public ProductFamilyInfo? ProductFamily { get; set; }
 
-        /// <summary>
-        /// Gets or sets the title.
-        /// </summary>
-        /// <value>The title.</value>
-        public string Title { get; set; }
+		/// <summary>
+		/// The title.
+		/// </summary>
+		public string? Title { get; set; }
 
-    }
+	}
 
 }

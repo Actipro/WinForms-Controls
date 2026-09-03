@@ -35,7 +35,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <value>The child statements.</value>
         public IList<Statement> ChildStatements {
             get {
-                if ((this.childStatementsValue == null)) {
+                if ((this.childStatementsValue is null)) {
                     this.childStatementsValue = new List<Statement>();
                 }
                 return this.childStatementsValue;
@@ -48,7 +48,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <value><c>true</c> if there is at least one item in the collection; otherwise, <c>false</c>.</value>
         public Boolean HasChildStatements {
             get {
-                if (((this.childStatementsValue != null) 
+                if (((this.childStatementsValue is not null) 
                             && (this.childStatementsValue.Count > 0))) {
                     return true;
                 }
@@ -64,13 +64,13 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <returns>An <c>IEnumerator</c> object that can iterate the child <see cref="IAstNode"/> objects in this node.</returns>
         protected override IEnumerator<IAstNode> GetChildrenEnumerator() {
             IEnumerator<IAstNode> baseEnumerator = base.GetChildrenEnumerator();
-            if ((baseEnumerator != null)) {
+            if ((baseEnumerator is not null)) {
 				while (baseEnumerator.MoveNext())
 					yield return baseEnumerator.Current;
             }
-            if ((this.childStatementsValue != null)) {
+            if ((this.childStatementsValue is not null)) {
 				foreach (IAstNode childStatementsValueItem in this.childStatementsValue)
-					if (childStatementsValueItem != null) yield return childStatementsValueItem;
+					if (childStatementsValueItem is not null) yield return childStatementsValueItem;
             }
         }
     }

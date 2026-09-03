@@ -134,7 +134,7 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
                 FieldInfo field = fields[index];
                 if (id.Equals(field.GetValue(null))) {
                     Object[] customAttributes = field.GetCustomAttributes(typeof(DescriptionAttribute), false);
-                    if (((customAttributes != null) 
+                    if (((customAttributes is not null) 
                                 && (customAttributes.Length > 0))) {
                         return ((DescriptionAttribute)(customAttributes[0])).Description;
                     }

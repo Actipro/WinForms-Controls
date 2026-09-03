@@ -50,4 +50,4 @@ barManager.LoadBarLayoutFromFile(path);
 ```
 
 > [!IMPORTANT]
-> In complete layouts, custom [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand) classes serialize their type and assembly name in string format for later restoration during deserialization.  Due to our secure-by-default design, resolution of string type names will fail trust checks and not be loaded without additional configuration and handling described in the [Security](../../../security.md) topic.
+> In complete layouts, custom [BarCommand](xref:@ActiproUIRoot.Controls.Bars.BarCommand) classes serialize their type and assembly name in string format for later restoration during deserialization.  Due to our secure-by-default design, resolution of string type names will fail trust checks and not be loaded without additional configuration and handling described in the [Security](../security.md) topic.

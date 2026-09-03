@@ -10,7 +10,7 @@
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing) {
-			if (disposing && (components != null)) {
+			if (disposing && (components is not null)) {
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -187,28 +187,28 @@
             this.dockManager.ImageList = this.imageList;
             this.dockManager.TabbedMdiContainerTabStripRenderer = metroDocumentWindowTabStripRenderer1;
             this.dockManager.ToolWindowContainerTabStripRenderer = metroToolWindowTabStripRenderer1;
-            this.dockManager.ActiveFilesContextMenu += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowContextMenuEventHandler(this.dockManager_ActiveFilesContextMenu);
-            this.dockManager.AutoHideToolWindowDisplaying += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_AutoHideToolWindowDisplaying);
-            this.dockManager.AutoHideToolWindowHiding += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_AutoHideToolWindowHiding);
-            this.dockManager.LoadCustomToolWindowLayoutData += new ActiproSoftware.UI.WinForms.Controls.Docking.DockLoadCustomToolWindowLayoutDataEventHandler(this.dockManager_LoadCustomToolWindowLayoutData);
-            this.dockManager.NextWindowNavigationSelectionChanged += new ActiproSoftware.UI.WinForms.Controls.Docking.NextWindowNavigationEventHandler(this.dockManager_NextWindowNavigationSelectionChanged);
-            this.dockManager.SaveCustomToolWindowLayoutData += new ActiproSoftware.UI.WinForms.Controls.Docking.DockSaveCustomToolWindowLayoutDataEventHandler(this.dockManager_SaveCustomToolWindowLayoutData);
-            this.dockManager.SelectedDocumentChanged += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_SelectedDocumentChanged);
-            this.dockManager.SelectedTabbedMdiContainerChanged += new System.EventHandler(this.dockManager_SelectedTabbedMdiContainerChanged);
-            this.dockManager.ToolWindowDragged += new System.EventHandler(this.dockManager_ToolWindowDragged);
-            this.dockManager.ToolWindowDragging += new System.ComponentModel.CancelEventHandler(this.dockManager_ToolWindowDragging);
-            this.dockManager.ToolWindowLayoutLoaded += new System.EventHandler(this.dockManager_ToolWindowLayoutLoaded);
-            this.dockManager.ToolWindowLayoutLoading += new System.EventHandler(this.dockManager_ToolWindowLayoutLoading);
-            this.dockManager.WindowActivated += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_WindowActivated);
-            this.dockManager.WindowActivating += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_WindowActivating);
-            this.dockManager.WindowClosed += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_WindowClosed);
-            this.dockManager.WindowClosing += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowClosingEventHandler(this.dockManager_WindowClosing);
-            this.dockManager.WindowContextMenu += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowContextMenuEventHandler(this.dockManager_WindowContextMenu);
-            this.dockManager.WindowCreated += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_WindowCreated);
-            this.dockManager.WindowDisposed += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_WindowDisposed);
-            this.dockManager.WindowFocused += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_WindowFocused);
-            this.dockManager.WindowInitializing += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_WindowInitializing);
-            this.dockManager.WindowTabToolTipDisplaying += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.dockManager_WindowTabToolTipDisplaying);
+            this.dockManager.ActiveFilesContextMenu += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowContextMenuEventHandler(this.OnDockManagerActiveFilesContextMenu);
+            this.dockManager.AutoHideToolWindowDisplaying += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerAutoHideToolWindowDisplaying);
+            this.dockManager.AutoHideToolWindowHiding += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerAutoHideToolWindowHiding);
+            this.dockManager.LoadCustomToolWindowLayoutData += new ActiproSoftware.UI.WinForms.Controls.Docking.DockLoadCustomToolWindowLayoutDataEventHandler(this.OnDockManagerLoadCustomToolWindowLayoutData);
+            this.dockManager.NextWindowNavigationSelectionChanged += new ActiproSoftware.UI.WinForms.Controls.Docking.NextWindowNavigationEventHandler(this.OnDockManagerNextWindowNavigationSelectionChanged);
+            this.dockManager.SaveCustomToolWindowLayoutData += new ActiproSoftware.UI.WinForms.Controls.Docking.DockSaveCustomToolWindowLayoutDataEventHandler(this.OnDockManagerSaveCustomToolWindowLayoutData);
+            this.dockManager.SelectedDocumentChanged += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerSelectedDocumentChanged);
+            this.dockManager.SelectedTabbedMdiContainerChanged += new System.EventHandler(this.OnDockManagerSelectedTabbedMdiContainerChanged);
+            this.dockManager.ToolWindowDragged += new System.EventHandler(this.OnDockManagerToolWindowDragged);
+            this.dockManager.ToolWindowDragging += new System.ComponentModel.CancelEventHandler(this.OnDockManagerToolWindowDragging);
+            this.dockManager.ToolWindowLayoutLoaded += new System.EventHandler(this.OnDockManagerToolWindowLayoutLoaded);
+            this.dockManager.ToolWindowLayoutLoading += new System.EventHandler(this.OnDockManagerToolWindowLayoutLoading);
+            this.dockManager.WindowActivated += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerWindowActivated);
+            this.dockManager.WindowActivating += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerWindowActivating);
+            this.dockManager.WindowClosed += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerWindowClosed);
+            this.dockManager.WindowClosing += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowClosingEventHandler(this.OnDockManagerWindowClosing);
+            this.dockManager.WindowContextMenu += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowContextMenuEventHandler(this.OnDockManagerWindowContextMenu);
+            this.dockManager.WindowCreated += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerWindowCreated);
+            this.dockManager.WindowDisposed += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerWindowDisposed);
+            this.dockManager.WindowFocused += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerWindowFocused);
+            this.dockManager.WindowInitializing += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerWindowInitializing);
+            this.dockManager.WindowTabToolTipDisplaying += new ActiproSoftware.UI.WinForms.Controls.Docking.TabbedMdiWindowEventHandler(this.OnDockManagerWindowTabToolTipDisplaying);
             // 
             // imageList
             // 
@@ -243,7 +243,7 @@
             this.markupLabel.Size = new System.Drawing.Size(182, 109);
             this.markupLabel.TabIndex = 7;
             this.markupLabel.Text = resources.GetString("markupLabel.Text");
-            this.markupLabel.LinkClick += new ActiproSoftware.UI.WinForms.Controls.MarkupLabel.MarkupLabelLinkClickEventHandler(this.markupLabel_LinkClick);
+            this.markupLabel.LinkClick += new ActiproSoftware.UI.WinForms.Controls.MarkupLabel.MarkupLabelLinkClickEventHandler(this.OnMarkupLabelLinkClick);
             // 
             // eventsToolWindow
             // 
@@ -297,7 +297,7 @@
             this.toolWindowPropertyGridPanel.Name = "toolWindowPropertyGridPanel";
             this.toolWindowPropertyGridPanel.Size = new System.Drawing.Size(192, 320);
             this.toolWindowPropertyGridPanel.TabIndex = 1;
-            this.toolWindowPropertyGridPanel.Resize += new System.EventHandler(this.toolWindowPropertyGridPanel_Resize);
+            this.toolWindowPropertyGridPanel.Resize += new System.EventHandler(this.OnToolWindowPropertyGridPanelResize);
             // 
             // toolWindowPropertyGridComboBox
             // 
@@ -308,7 +308,7 @@
             this.toolWindowPropertyGridComboBox.Name = "toolWindowPropertyGridComboBox";
             this.toolWindowPropertyGridComboBox.Size = new System.Drawing.Size(192, 21);
             this.toolWindowPropertyGridComboBox.TabIndex = 0;
-            this.toolWindowPropertyGridComboBox.SelectedIndexChanged += new System.EventHandler(this.toolWindowPropertyGridComboBox_SelectedIndexChanged);
+            this.toolWindowPropertyGridComboBox.SelectedIndexChanged += new System.EventHandler(this.OnToolWindowPropertyGridComboBoxSelectedIndexChanged);
             // 
             // dockManagerPropertiesToolWindow
             // 
@@ -334,7 +334,7 @@
             this.dockManagerPropertyGridPanel.Name = "dockManagerPropertyGridPanel";
             this.dockManagerPropertyGridPanel.Size = new System.Drawing.Size(192, 320);
             this.dockManagerPropertyGridPanel.TabIndex = 2;
-            this.dockManagerPropertyGridPanel.Resize += new System.EventHandler(this.dockManagerPropertyGridPanel_Resize);
+            this.dockManagerPropertyGridPanel.Resize += new System.EventHandler(this.OnDockManagerPropertyGridPanelResize);
             // 
             // dockManagerPropertyGrid
             // 
@@ -365,7 +365,7 @@
             this.dockManagerPropertyGridComboBox.Name = "dockManagerPropertyGridComboBox";
             this.dockManagerPropertyGridComboBox.Size = new System.Drawing.Size(192, 21);
             this.dockManagerPropertyGridComboBox.TabIndex = 3;
-            this.dockManagerPropertyGridComboBox.SelectedIndexChanged += new System.EventHandler(this.dockManagerPropertyGridComboBox_SelectedIndexChanged);
+            this.dockManagerPropertyGridComboBox.SelectedIndexChanged += new System.EventHandler(this.OnDockManagerPropertyGridComboBoxSelectedIndexChanged);
             // 
             // markupLabelToolWindow
             // 
@@ -541,7 +541,7 @@
             this.newTextDocumentToolStripButton.Tag = "NewTextDocument";
             this.newTextDocumentToolStripButton.Text = "toolStripButton1";
             this.newTextDocumentToolStripButton.ToolTipText = "New Text Document";
-            this.newTextDocumentToolStripButton.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.newTextDocumentToolStripButton.Click += new System.EventHandler(this.OnToolStripButtonClick);
             // 
             // openDocumentToolStripButton
             // 
@@ -553,7 +553,7 @@
             this.openDocumentToolStripButton.Tag = "OpenDocument";
             this.openDocumentToolStripButton.Text = "toolStripButton1";
             this.openDocumentToolStripButton.ToolTipText = "Open Document";
-            this.openDocumentToolStripButton.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.openDocumentToolStripButton.Click += new System.EventHandler(this.OnToolStripButtonClick);
             // 
             // saveDocumentToolStripButton
             // 
@@ -565,7 +565,7 @@
             this.saveDocumentToolStripButton.Tag = "SaveDocument";
             this.saveDocumentToolStripButton.Text = "toolStripButton1";
             this.saveDocumentToolStripButton.ToolTipText = "Save Document";
-            this.saveDocumentToolStripButton.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.saveDocumentToolStripButton.Click += new System.EventHandler(this.OnToolStripButtonClick);
             // 
             // toolStripSeparator1
             // 
@@ -582,7 +582,7 @@
             this.cutToolStripButton.Tag = "Cut";
             this.cutToolStripButton.Text = "toolStripButton1";
             this.cutToolStripButton.ToolTipText = "Cut";
-            this.cutToolStripButton.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.cutToolStripButton.Click += new System.EventHandler(this.OnToolStripButtonClick);
             // 
             // copyToolStripButton
             // 
@@ -593,7 +593,7 @@
             this.copyToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.copyToolStripButton.Tag = "Copy";
             this.copyToolStripButton.ToolTipText = "Copy";
-            this.copyToolStripButton.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.copyToolStripButton.Click += new System.EventHandler(this.OnToolStripButtonClick);
             // 
             // pasteToolStripButton
             // 
@@ -605,7 +605,7 @@
             this.pasteToolStripButton.Tag = "Paste";
             this.pasteToolStripButton.Text = "toolStripButton3";
             this.pasteToolStripButton.ToolTipText = "Paste";
-            this.pasteToolStripButton.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.pasteToolStripButton.Click += new System.EventHandler(this.OnToolStripButtonClick);
             // 
             // deleteToolStripButton
             // 
@@ -617,7 +617,7 @@
             this.deleteToolStripButton.Tag = "Delete";
             this.deleteToolStripButton.Text = "toolStripButton4";
             this.deleteToolStripButton.ToolTipText = "Delete";
-            this.deleteToolStripButton.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.deleteToolStripButton.Click += new System.EventHandler(this.OnToolStripButtonClick);
             // 
             // toolStripSeparator2
             // 
@@ -634,7 +634,7 @@
             this.undoToolStripButton.Tag = "Undo";
             this.undoToolStripButton.Text = "toolStripButton5";
             this.undoToolStripButton.ToolTipText = "Undo";
-            this.undoToolStripButton.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.undoToolStripButton.Click += new System.EventHandler(this.OnToolStripButtonClick);
             // 
             // redoToolStripButton
             // 
@@ -646,7 +646,7 @@
             this.redoToolStripButton.Tag = "Redo";
             this.redoToolStripButton.Text = "toolStripButton6";
             this.redoToolStripButton.ToolTipText = "Redo";
-            this.redoToolStripButton.Click += new System.EventHandler(this.toolStripButton_Click);
+            this.redoToolStripButton.Click += new System.EventHandler(this.OnToolStripButtonClick);
             // 
             // menuStrip
             // 
@@ -684,28 +684,28 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
-            this.fileToolStripMenuItem.DropDownOpening += new System.EventHandler(this.fileMenuItem_Popup);
+            this.fileToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnFileMenuItemPopup);
             // 
             // newTextDocumentToolStripMenuItem
             // 
             this.newTextDocumentToolStripMenuItem.Name = "newTextDocumentToolStripMenuItem";
             this.newTextDocumentToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
             this.newTextDocumentToolStripMenuItem.Text = "New Text Document";
-            this.newTextDocumentToolStripMenuItem.Click += new System.EventHandler(this.fileNewTextDocumentMenuItem_Click);
+            this.newTextDocumentToolStripMenuItem.Click += new System.EventHandler(this.OnFileNewTextDocumentMenuItemClick);
             // 
             // openDocumentToolStripMenuItem
             // 
             this.openDocumentToolStripMenuItem.Name = "openDocumentToolStripMenuItem";
             this.openDocumentToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
             this.openDocumentToolStripMenuItem.Text = "Open Document...";
-            this.openDocumentToolStripMenuItem.Click += new System.EventHandler(this.fileOpenDocumentMenuItem_Click);
+            this.openDocumentToolStripMenuItem.Click += new System.EventHandler(this.OnFileOpenDocumentMenuItemClick);
             // 
             // closeDocumentToolStripMenuItem
             // 
             this.closeDocumentToolStripMenuItem.Name = "closeDocumentToolStripMenuItem";
             this.closeDocumentToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
             this.closeDocumentToolStripMenuItem.Text = "Close Document";
-            this.closeDocumentToolStripMenuItem.Click += new System.EventHandler(this.fileCloseDocumentMenuItem_Click);
+            this.closeDocumentToolStripMenuItem.Click += new System.EventHandler(this.OnFileCloseDocumentMenuItemClick);
             // 
             // toolStripMenuItem1
             // 
@@ -717,7 +717,7 @@
             this.saveDocumentToolStripMenuItem.Name = "saveDocumentToolStripMenuItem";
             this.saveDocumentToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
             this.saveDocumentToolStripMenuItem.Text = "Save Document...";
-            this.saveDocumentToolStripMenuItem.Click += new System.EventHandler(this.fileSaveDocumentMenuItem_Click);
+            this.saveDocumentToolStripMenuItem.Click += new System.EventHandler(this.OnFileSaveDocumentMenuItemClick);
             // 
             // toolStripMenuItem2
             // 
@@ -729,14 +729,14 @@
             this.create3ToolWindowsInARowToolStripMenuItem.Name = "create3ToolWindowsInARowToolStripMenuItem";
             this.create3ToolWindowsInARowToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
             this.create3ToolWindowsInARowToolStripMenuItem.Text = "Create 3 Tool Windows in a Row";
-            this.create3ToolWindowsInARowToolStripMenuItem.Click += new System.EventHandler(this.fileCreate3ToolWindowsInARowMenuItem_Click);
+            this.create3ToolWindowsInARowToolStripMenuItem.Click += new System.EventHandler(this.OnFileCreate3ToolWindowsInARowMenuItemClick);
             // 
             // create3ToolWindowsAttachedToolStripMenuItem
             // 
             this.create3ToolWindowsAttachedToolStripMenuItem.Name = "create3ToolWindowsAttachedToolStripMenuItem";
             this.create3ToolWindowsAttachedToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
             this.create3ToolWindowsAttachedToolStripMenuItem.Text = "Create 3 Tool Windows Attached";
-            this.create3ToolWindowsAttachedToolStripMenuItem.Click += new System.EventHandler(this.fileCreate3ToolWindowsAttachedMenuItem_Click);
+            this.create3ToolWindowsAttachedToolStripMenuItem.Click += new System.EventHandler(this.OnFileCreate3ToolWindowsAttachedMenuItemClick);
             // 
             // toolStripMenuItem3
             // 
@@ -748,14 +748,14 @@
             this.loadToolWindowLayoutToolStripMenuItem.Name = "loadToolWindowLayoutToolStripMenuItem";
             this.loadToolWindowLayoutToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
             this.loadToolWindowLayoutToolStripMenuItem.Text = "Load Tool Window Layout...";
-            this.loadToolWindowLayoutToolStripMenuItem.Click += new System.EventHandler(this.fileLoadToolWindowLayoutMenuItem_Click);
+            this.loadToolWindowLayoutToolStripMenuItem.Click += new System.EventHandler(this.OnFileLoadToolWindowLayoutMenuItemClick);
             // 
             // saveToolWindowLayoutToolStripMenuItem
             // 
             this.saveToolWindowLayoutToolStripMenuItem.Name = "saveToolWindowLayoutToolStripMenuItem";
             this.saveToolWindowLayoutToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
             this.saveToolWindowLayoutToolStripMenuItem.Text = "Save Tool Window Layout...";
-            this.saveToolWindowLayoutToolStripMenuItem.Click += new System.EventHandler(this.fileSaveToolWindowLayoutMenuItem_Click);
+            this.saveToolWindowLayoutToolStripMenuItem.Click += new System.EventHandler(this.OnFileSaveToolWindowLayoutMenuItemClick);
             // 
             // toolStripMenuItem4
             // 
@@ -767,14 +767,14 @@
             this.activateAllInactiveToolWindowsToolStripMenuItem.Name = "activateAllInactiveToolWindowsToolStripMenuItem";
             this.activateAllInactiveToolWindowsToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
             this.activateAllInactiveToolWindowsToolStripMenuItem.Text = "Activate All Inactive Tool Windows";
-            this.activateAllInactiveToolWindowsToolStripMenuItem.Click += new System.EventHandler(this.fileActivateAllInactiveToolWindowsMenuItem_Click);
+            this.activateAllInactiveToolWindowsToolStripMenuItem.Click += new System.EventHandler(this.OnFileActivateAllInactiveToolWindowsMenuItemClick);
             // 
             // closeAllToolWindowsToolStripMenuItem
             // 
             this.closeAllToolWindowsToolStripMenuItem.Name = "closeAllToolWindowsToolStripMenuItem";
             this.closeAllToolWindowsToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
             this.closeAllToolWindowsToolStripMenuItem.Text = "Close All Tool Windows";
-            this.closeAllToolWindowsToolStripMenuItem.Click += new System.EventHandler(this.fileCloseAllToolWindowsMenuItem_Click);
+            this.closeAllToolWindowsToolStripMenuItem.Click += new System.EventHandler(this.OnFileCloseAllToolWindowsMenuItemClick);
             // 
             // toolStripMenuItem5
             // 
@@ -786,7 +786,7 @@
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(255, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.fileExitMenuItem_Click);
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.OnFileExitMenuItemClick);
             // 
             // editToolStripMenuItem
             // 
@@ -801,21 +801,21 @@
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "&Edit";
-            this.editToolStripMenuItem.DropDownOpening += new System.EventHandler(this.editMenuItem_Popup);
+            this.editToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnEditMenuItemPopup);
             // 
             // undoToolStripMenuItem
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.undoToolStripMenuItem.Text = "Undo";
-            this.undoToolStripMenuItem.Click += new System.EventHandler(this.editUndoMenuItem_Click);
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.OnEditUndoMenuItemClick);
             // 
             // redoToolStripMenuItem
             // 
             this.redoToolStripMenuItem.Name = "redoToolStripMenuItem";
             this.redoToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.redoToolStripMenuItem.Text = "Redo";
-            this.redoToolStripMenuItem.Click += new System.EventHandler(this.editRedoMenuItem_Click);
+            this.redoToolStripMenuItem.Click += new System.EventHandler(this.OnEditRedoMenuItemClick);
             // 
             // toolStripMenuItem6
             // 
@@ -827,28 +827,28 @@
             this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             this.cutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.cutToolStripMenuItem.Text = "Cut";
-            this.cutToolStripMenuItem.Click += new System.EventHandler(this.editCutMenuItem_Click);
+            this.cutToolStripMenuItem.Click += new System.EventHandler(this.OnEditCutMenuItemClick);
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             this.copyToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.copyToolStripMenuItem.Text = "Copy";
-            this.copyToolStripMenuItem.Click += new System.EventHandler(this.editCopyMenuItem_Click);
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.OnEditCopyMenuItemClick);
             // 
             // pasteToolStripMenuItem
             // 
             this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             this.pasteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
-            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.editPasteMenuItem_Click);
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.OnEditPasteMenuItemClick);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.editDeleteMenuItem_Click);
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.OnEditDeleteMenuItemClick);
             // 
             // viewToolStripMenuItem
             // 
@@ -866,7 +866,7 @@
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "&View";
-            this.viewToolStripMenuItem.DropDownOpening += new System.EventHandler(this.viewMenuItem_Popup);
+            this.viewToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnViewMenuItemPopup);
             // 
             // viewToolWindowBarToolStripMenuItem
             // 
@@ -885,49 +885,49 @@
             this.rendererToolStripMenuItem.Name = "rendererToolStripMenuItem";
             this.rendererToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.rendererToolStripMenuItem.Text = "Renderer";
-            this.rendererToolStripMenuItem.DropDownOpening += new System.EventHandler(this.viewRendererMenuItem_Popup);
+            this.rendererToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnViewRendererMenuItemPopup);
             // 
             // rendererMetroLightToolStripMenuItem
             // 
             this.rendererMetroLightToolStripMenuItem.Name = "rendererMetroLightToolStripMenuItem";
             this.rendererMetroLightToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
             this.rendererMetroLightToolStripMenuItem.Text = "Metro Light";
-            this.rendererMetroLightToolStripMenuItem.Click += new System.EventHandler(this.viewRendererMetroLightMenuItem_Click);
+            this.rendererMetroLightToolStripMenuItem.Click += new System.EventHandler(this.OnViewRendererMetroLightMenuItemClick);
             // 
             // rendererMetroDarkToolStripMenuItem
             // 
             this.rendererMetroDarkToolStripMenuItem.Name = "rendererMetroDarkToolStripMenuItem";
             this.rendererMetroDarkToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
             this.rendererMetroDarkToolStripMenuItem.Text = "Metro Dark";
-            this.rendererMetroDarkToolStripMenuItem.Click += new System.EventHandler(this.viewRendererMetroDarkToolStripMenuItem_Click);
+            this.rendererMetroDarkToolStripMenuItem.Click += new System.EventHandler(this.OnViewRendererMetroDarkToolStripMenuItemClick);
             // 
             // rendererVisualStudio2022BlueToolStripMenuItem
             // 
             this.rendererVisualStudio2022BlueToolStripMenuItem.Name = "rendererVisualStudio2022BlueToolStripMenuItem";
             this.rendererVisualStudio2022BlueToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
             this.rendererVisualStudio2022BlueToolStripMenuItem.Text = "Visual Studio (Blue)";
-            this.rendererVisualStudio2022BlueToolStripMenuItem.Click += new System.EventHandler(this.viewRendererVisualStudio2022BlueMenuItem_Click);
+            this.rendererVisualStudio2022BlueToolStripMenuItem.Click += new System.EventHandler(this.OnViewRendererVisualStudio2022BlueMenuItemClick);
             // 
             // rendererVisualStudio2005ToolStripMenuItem
             // 
             this.rendererVisualStudio2005ToolStripMenuItem.Name = "rendererVisualStudio2005ToolStripMenuItem";
             this.rendererVisualStudio2005ToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
             this.rendererVisualStudio2005ToolStripMenuItem.Text = "Visual Studio (Classic)";
-            this.rendererVisualStudio2005ToolStripMenuItem.Click += new System.EventHandler(this.viewRendererVisualStudio2005MenuItem_Click);
+            this.rendererVisualStudio2005ToolStripMenuItem.Click += new System.EventHandler(this.OnViewRendererVisualStudio2005MenuItemClick);
             // 
             // rendererVisualStudio2002ToolStripMenuItem
             // 
             this.rendererVisualStudio2002ToolStripMenuItem.Name = "rendererVisualStudio2002ToolStripMenuItem";
             this.rendererVisualStudio2002ToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
             this.rendererVisualStudio2002ToolStripMenuItem.Text = "Windows Classic";
-            this.rendererVisualStudio2002ToolStripMenuItem.Click += new System.EventHandler(this.viewRendererVisualStudio2002MenuItem_Click);
+            this.rendererVisualStudio2002ToolStripMenuItem.Click += new System.EventHandler(this.OnViewRendererVisualStudio2002MenuItemClick);
             // 
             // rendererOffice2003ToolStripMenuItem
             // 
             this.rendererOffice2003ToolStripMenuItem.Name = "rendererOffice2003ToolStripMenuItem";
             this.rendererOffice2003ToolStripMenuItem.Size = new System.Drawing.Size(351, 22);
             this.rendererOffice2003ToolStripMenuItem.Text = "Office Classic";
-            this.rendererOffice2003ToolStripMenuItem.Click += new System.EventHandler(this.viewRendererOffice2003MenuItem_Click);
+            this.rendererOffice2003ToolStripMenuItem.Click += new System.EventHandler(this.OnViewRendererOffice2003MenuItemClick);
             // 
             // dockGuideStyleToolStripMenuItem
             // 
@@ -937,21 +937,21 @@
             this.dockGuideStyleToolStripMenuItem.Name = "dockGuideStyleToolStripMenuItem";
             this.dockGuideStyleToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.dockGuideStyleToolStripMenuItem.Text = "Dock Guide Style";
-            this.dockGuideStyleToolStripMenuItem.DropDownOpening += new System.EventHandler(this.viewDockGuideStyleMenuItem_Popup);
+            this.dockGuideStyleToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnViewDockGuideStyleMenuItemPopup);
             // 
             // dockGuideStyleNoneToolStripMenuItem
             // 
             this.dockGuideStyleNoneToolStripMenuItem.Name = "dockGuideStyleNoneToolStripMenuItem";
             this.dockGuideStyleNoneToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.dockGuideStyleNoneToolStripMenuItem.Text = "None";
-            this.dockGuideStyleNoneToolStripMenuItem.Click += new System.EventHandler(this.viewDockGuideStyleNoneMenuItem_Click);
+            this.dockGuideStyleNoneToolStripMenuItem.Click += new System.EventHandler(this.OnViewDockGuideStyleNoneMenuItemClick);
             // 
             // dockGuideStyleModernToolStripMenuItem
             // 
             this.dockGuideStyleModernToolStripMenuItem.Name = "dockGuideStyleModernToolStripMenuItem";
             this.dockGuideStyleModernToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.dockGuideStyleModernToolStripMenuItem.Text = "Modern";
-            this.dockGuideStyleModernToolStripMenuItem.Click += new System.EventHandler(this.viewDockGuideStyleModernMenuItem_Click);
+            this.dockGuideStyleModernToolStripMenuItem.Click += new System.EventHandler(this.OnViewDockGuideStyleModernMenuItemClick);
             // 
             // dockHintStyleToolStripMenuItem
             // 
@@ -961,21 +961,21 @@
             this.dockHintStyleToolStripMenuItem.Name = "dockHintStyleToolStripMenuItem";
             this.dockHintStyleToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.dockHintStyleToolStripMenuItem.Text = "Dock Hint Style";
-            this.dockHintStyleToolStripMenuItem.DropDownOpening += new System.EventHandler(this.viewDockHintStyleMenuItem_Popup);
+            this.dockHintStyleToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnViewDockHintStyleMenuItemPopup);
             // 
             // dockHintStyleRubberBandHatchedToolStripMenuItem
             // 
             this.dockHintStyleRubberBandHatchedToolStripMenuItem.Name = "dockHintStyleRubberBandHatchedToolStripMenuItem";
             this.dockHintStyleRubberBandHatchedToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.dockHintStyleRubberBandHatchedToolStripMenuItem.Text = "Rubber Band (Hatched)";
-            this.dockHintStyleRubberBandHatchedToolStripMenuItem.Click += new System.EventHandler(this.viewDockHintStyleRubberBandHatchedMenuItem_Click);
+            this.dockHintStyleRubberBandHatchedToolStripMenuItem.Click += new System.EventHandler(this.OnViewDockHintStyleRubberBandHatchedMenuItemClick);
             // 
             // dockHintStyleTranslucentToolStripMenuItem
             // 
             this.dockHintStyleTranslucentToolStripMenuItem.Name = "dockHintStyleTranslucentToolStripMenuItem";
             this.dockHintStyleTranslucentToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.dockHintStyleTranslucentToolStripMenuItem.Text = "Translucent";
-            this.dockHintStyleTranslucentToolStripMenuItem.Click += new System.EventHandler(this.viewDockHintStyleTranslucentMenuItem_Click);
+            this.dockHintStyleTranslucentToolStripMenuItem.Click += new System.EventHandler(this.OnViewDockHintStyleTranslucentMenuItemClick);
             // 
             // splitterExtentToolStripMenuItem
             // 
@@ -986,28 +986,28 @@
             this.splitterExtentToolStripMenuItem.Name = "splitterExtentToolStripMenuItem";
             this.splitterExtentToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.splitterExtentToolStripMenuItem.Text = "Splitter Extent";
-            this.splitterExtentToolStripMenuItem.DropDownOpening += new System.EventHandler(this.viewSplitterExtentMenuItem_Popup);
+            this.splitterExtentToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnViewSplitterExtentMenuItemPopup);
             // 
             // splitterExtent3PixelsToolStripMenuItem
             // 
             this.splitterExtent3PixelsToolStripMenuItem.Name = "splitterExtent3PixelsToolStripMenuItem";
             this.splitterExtent3PixelsToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.splitterExtent3PixelsToolStripMenuItem.Text = "3 Pixels";
-            this.splitterExtent3PixelsToolStripMenuItem.Click += new System.EventHandler(this.viewSplitterExtent3PixelsMenuItem_Click);
+            this.splitterExtent3PixelsToolStripMenuItem.Click += new System.EventHandler(this.OnViewSplitterExtent3PixelsMenuItemClick);
             // 
             // splitterExtent4PixelsToolStripMenuItem
             // 
             this.splitterExtent4PixelsToolStripMenuItem.Name = "splitterExtent4PixelsToolStripMenuItem";
             this.splitterExtent4PixelsToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.splitterExtent4PixelsToolStripMenuItem.Text = "4 Pixels";
-            this.splitterExtent4PixelsToolStripMenuItem.Click += new System.EventHandler(this.viewSplitterExtent4PixelsMenuItem_Click);
+            this.splitterExtent4PixelsToolStripMenuItem.Click += new System.EventHandler(this.OnViewSplitterExtent4PixelsMenuItemClick);
             // 
             // splitterExtent5PixelsToolStripMenuItem
             // 
             this.splitterExtent5PixelsToolStripMenuItem.Name = "splitterExtent5PixelsToolStripMenuItem";
             this.splitterExtent5PixelsToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.splitterExtent5PixelsToolStripMenuItem.Text = "5 Pixels";
-            this.splitterExtent5PixelsToolStripMenuItem.Click += new System.EventHandler(this.viewSplitterExtent5PixelsMenuItem_Click);
+            this.splitterExtent5PixelsToolStripMenuItem.Click += new System.EventHandler(this.OnViewSplitterExtent5PixelsMenuItemClick);
             // 
             // magnetismToolStripMenuItem
             // 
@@ -1028,7 +1028,7 @@
             this.magnetism0SnapDistanceToolStripMenuItem.Name = "magnetism0SnapDistanceToolStripMenuItem";
             this.magnetism0SnapDistanceToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.magnetism0SnapDistanceToolStripMenuItem.Text = "Off";
-            this.magnetism0SnapDistanceToolStripMenuItem.Click += new System.EventHandler(this.viewMagnetismSnapDistanceMenuItem_Click);
+            this.magnetism0SnapDistanceToolStripMenuItem.Click += new System.EventHandler(this.OnViewMagnetismSnapDistanceMenuItemClick);
             // 
             // magnetism5SnapDistanceToolStripMenuItem
             // 
@@ -1037,14 +1037,14 @@
             this.magnetism5SnapDistanceToolStripMenuItem.Name = "magnetism5SnapDistanceToolStripMenuItem";
             this.magnetism5SnapDistanceToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.magnetism5SnapDistanceToolStripMenuItem.Text = "5 Pixel Snap Distance";
-            this.magnetism5SnapDistanceToolStripMenuItem.Click += new System.EventHandler(this.viewMagnetismSnapDistanceMenuItem_Click);
+            this.magnetism5SnapDistanceToolStripMenuItem.Click += new System.EventHandler(this.OnViewMagnetismSnapDistanceMenuItemClick);
             // 
             // magnetism10SnapDistanceToolStripMenuItem
             // 
             this.magnetism10SnapDistanceToolStripMenuItem.Name = "magnetism10SnapDistanceToolStripMenuItem";
             this.magnetism10SnapDistanceToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.magnetism10SnapDistanceToolStripMenuItem.Text = "10 Pixel Snap Distance";
-            this.magnetism10SnapDistanceToolStripMenuItem.Click += new System.EventHandler(this.viewMagnetismSnapDistanceMenuItem_Click);
+            this.magnetism10SnapDistanceToolStripMenuItem.Click += new System.EventHandler(this.OnViewMagnetismSnapDistanceMenuItemClick);
             // 
             // toolStripMenuItem11
             // 
@@ -1056,7 +1056,7 @@
             this.magnetism0GapDistanceToolStripMenuItem.Name = "magnetism0GapDistanceToolStripMenuItem";
             this.magnetism0GapDistanceToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.magnetism0GapDistanceToolStripMenuItem.Text = "No Gap";
-            this.magnetism0GapDistanceToolStripMenuItem.Click += new System.EventHandler(this.viewMagnetismGapDistanceMenuItem_Click);
+            this.magnetism0GapDistanceToolStripMenuItem.Click += new System.EventHandler(this.OnViewMagnetismGapDistanceMenuItemClick);
             // 
             // magnetism1GapDistanceToolStripMenuItem
             // 
@@ -1065,21 +1065,21 @@
             this.magnetism1GapDistanceToolStripMenuItem.Name = "magnetism1GapDistanceToolStripMenuItem";
             this.magnetism1GapDistanceToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.magnetism1GapDistanceToolStripMenuItem.Text = "1 Pixel Gap";
-            this.magnetism1GapDistanceToolStripMenuItem.Click += new System.EventHandler(this.viewMagnetismGapDistanceMenuItem_Click);
+            this.magnetism1GapDistanceToolStripMenuItem.Click += new System.EventHandler(this.OnViewMagnetismGapDistanceMenuItemClick);
             // 
             // magnetism2GapDistanceToolStripMenuItem
             // 
             this.magnetism2GapDistanceToolStripMenuItem.Name = "magnetism2GapDistanceToolStripMenuItem";
             this.magnetism2GapDistanceToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.magnetism2GapDistanceToolStripMenuItem.Text = "2 Pixel Gap";
-            this.magnetism2GapDistanceToolStripMenuItem.Click += new System.EventHandler(this.viewMagnetismGapDistanceMenuItem_Click);
+            this.magnetism2GapDistanceToolStripMenuItem.Click += new System.EventHandler(this.OnViewMagnetismGapDistanceMenuItemClick);
             // 
             // tabbedMDITabImagesVisibleToolStripMenuItem
             // 
             this.tabbedMDITabImagesVisibleToolStripMenuItem.Name = "tabbedMDITabImagesVisibleToolStripMenuItem";
             this.tabbedMDITabImagesVisibleToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.tabbedMDITabImagesVisibleToolStripMenuItem.Text = "Tabbed MDI Tab Images Visible";
-            this.tabbedMDITabImagesVisibleToolStripMenuItem.Click += new System.EventHandler(this.viewTabbedMDITabImagesVisibleMenuItem_Click);
+            this.tabbedMDITabImagesVisibleToolStripMenuItem.Click += new System.EventHandler(this.OnViewTabbedMDITabImagesVisibleMenuItemClick);
             // 
             // toolStripMenuItem10
             // 
@@ -1093,7 +1093,7 @@
             this.nextWindowNavigationEnabledToolStripMenuItem.Name = "nextWindowNavigationEnabledToolStripMenuItem";
             this.nextWindowNavigationEnabledToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.nextWindowNavigationEnabledToolStripMenuItem.Text = "Next Window Navigation Enabled";
-            this.nextWindowNavigationEnabledToolStripMenuItem.Click += new System.EventHandler(this.viewNextWindowNavigationEnabledMenuItem_Click);
+            this.nextWindowNavigationEnabledToolStripMenuItem.Click += new System.EventHandler(this.OnViewNextWindowNavigationEnabledMenuItemClick);
             // 
             // nextWindowNavigationTypeToolStripMenuItem
             // 
@@ -1104,28 +1104,28 @@
             this.nextWindowNavigationTypeToolStripMenuItem.Name = "nextWindowNavigationTypeToolStripMenuItem";
             this.nextWindowNavigationTypeToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.nextWindowNavigationTypeToolStripMenuItem.Text = "Next Window Navigation Type";
-            this.nextWindowNavigationTypeToolStripMenuItem.DropDownOpening += new System.EventHandler(this.viewNextWindowNavigationTypeMenuItem_Popup);
+            this.nextWindowNavigationTypeToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnViewNextWindowNavigationTypeMenuItemPopup);
             // 
             // nextWindowNavigationTypeToolAndDocumentWindowToolStripMenuItem
             // 
             this.nextWindowNavigationTypeToolAndDocumentWindowToolStripMenuItem.Name = "nextWindowNavigationTypeToolAndDocumentWindowToolStripMenuItem";
             this.nextWindowNavigationTypeToolAndDocumentWindowToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.nextWindowNavigationTypeToolAndDocumentWindowToolStripMenuItem.Text = "Tool and Document Window";
-            this.nextWindowNavigationTypeToolAndDocumentWindowToolStripMenuItem.Click += new System.EventHandler(this.viewNextWindowNavigationTypeToolAndDocumentWindowMenuItem_Click);
+            this.nextWindowNavigationTypeToolAndDocumentWindowToolStripMenuItem.Click += new System.EventHandler(this.OnViewNextWindowNavigationTypeToolAndDocumentWindowMenuItemClick);
             // 
             // nextWindowNavigationTypeToolWindowToolStripMenuItem
             // 
             this.nextWindowNavigationTypeToolWindowToolStripMenuItem.Name = "nextWindowNavigationTypeToolWindowToolStripMenuItem";
             this.nextWindowNavigationTypeToolWindowToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.nextWindowNavigationTypeToolWindowToolStripMenuItem.Text = "Tool Window Only";
-            this.nextWindowNavigationTypeToolWindowToolStripMenuItem.Click += new System.EventHandler(this.viewNextWindowNavigationTypeToolWindowMenuItem_Click);
+            this.nextWindowNavigationTypeToolWindowToolStripMenuItem.Click += new System.EventHandler(this.OnViewNextWindowNavigationTypeToolWindowMenuItemClick);
             // 
             // nextWindowNavigationTypeDocumentWindowToolStripMenuItem
             // 
             this.nextWindowNavigationTypeDocumentWindowToolStripMenuItem.Name = "nextWindowNavigationTypeDocumentWindowToolStripMenuItem";
             this.nextWindowNavigationTypeDocumentWindowToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
             this.nextWindowNavigationTypeDocumentWindowToolStripMenuItem.Text = "Document Window Only";
-            this.nextWindowNavigationTypeDocumentWindowToolStripMenuItem.Click += new System.EventHandler(this.viewNextWindowNavigationTypeDocumentWindowMenuItem_Click);
+            this.nextWindowNavigationTypeDocumentWindowToolStripMenuItem.Click += new System.EventHandler(this.OnViewNextWindowNavigationTypeDocumentWindowMenuItemClick);
             // 
             // windowToolStripMenuItem
             // 
@@ -1152,7 +1152,7 @@
             this.windowToolStripMenuItem.Name = "windowToolStripMenuItem";
             this.windowToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.windowToolStripMenuItem.Text = "&Window";
-            this.windowToolStripMenuItem.DropDownOpening += new System.EventHandler(this.windowMenuItem_Popup);
+            this.windowToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnWindowMenuItemPopup);
             // 
             // mDIStyleToolStripMenuItem
             // 
@@ -1164,35 +1164,35 @@
             this.mDIStyleToolStripMenuItem.Name = "mDIStyleToolStripMenuItem";
             this.mDIStyleToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.mDIStyleToolStripMenuItem.Text = "MDI Style";
-            this.mDIStyleToolStripMenuItem.DropDownOpening += new System.EventHandler(this.windowMDIStyleMenuItem_Popup);
+            this.mDIStyleToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnWindowMdiStyleMenuItemPopup);
             // 
             // mdiStyleNoneToolStripMenuItem
             // 
             this.mdiStyleNoneToolStripMenuItem.Name = "mdiStyleNoneToolStripMenuItem";
             this.mdiStyleNoneToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.mdiStyleNoneToolStripMenuItem.Text = "None";
-            this.mdiStyleNoneToolStripMenuItem.Click += new System.EventHandler(this.windowMDIStyleNoneMenuItem_Click);
+            this.mdiStyleNoneToolStripMenuItem.Click += new System.EventHandler(this.OnWindowMdiStyleNoneMenuItemClick);
             // 
             // mdiStyleStandardToolStripMenuItem
             // 
             this.mdiStyleStandardToolStripMenuItem.Name = "mdiStyleStandardToolStripMenuItem";
             this.mdiStyleStandardToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.mdiStyleStandardToolStripMenuItem.Text = "Standard";
-            this.mdiStyleStandardToolStripMenuItem.Click += new System.EventHandler(this.windowMDIStyleStandardMenuItem_Click);
+            this.mdiStyleStandardToolStripMenuItem.Click += new System.EventHandler(this.OnWindowMdiStyleStandardMenuItemClick);
             // 
             // mdiStyleTabbedToolStripMenuItem
             // 
             this.mdiStyleTabbedToolStripMenuItem.Name = "mdiStyleTabbedToolStripMenuItem";
             this.mdiStyleTabbedToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.mdiStyleTabbedToolStripMenuItem.Text = "Tabbed";
-            this.mdiStyleTabbedToolStripMenuItem.Click += new System.EventHandler(this.windowMDIStyleTabbedMenuItem_Click);
+            this.mdiStyleTabbedToolStripMenuItem.Click += new System.EventHandler(this.OnWindowMdiStyleTabbedMenuItemClick);
             // 
             // mdiStyleToolWindowInnerFillToolStripMenuItem
             // 
             this.mdiStyleToolWindowInnerFillToolStripMenuItem.Name = "mdiStyleToolWindowInnerFillToolStripMenuItem";
             this.mdiStyleToolWindowInnerFillToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.mdiStyleToolWindowInnerFillToolStripMenuItem.Text = "Tool Window Inner Fill";
-            this.mdiStyleToolWindowInnerFillToolStripMenuItem.Click += new System.EventHandler(this.windowMDIStyleToolWindowInnerFillMenuItem_Click);
+            this.mdiStyleToolWindowInnerFillToolStripMenuItem.Click += new System.EventHandler(this.OnWindowMdiStyleToolWindowInnerFillMenuItemClick);
             // 
             // tabbedMDIButtonsToolStripMenuItem
             // 
@@ -1203,28 +1203,28 @@
             this.tabbedMDIButtonsToolStripMenuItem.Name = "tabbedMDIButtonsToolStripMenuItem";
             this.tabbedMDIButtonsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.tabbedMDIButtonsToolStripMenuItem.Text = "Tabbed MDI Buttons";
-            this.tabbedMDIButtonsToolStripMenuItem.DropDownOpening += new System.EventHandler(this.windowTabbedMdiButtonsMenuItem_Popup);
+            this.tabbedMDIButtonsToolStripMenuItem.DropDownOpening += new System.EventHandler(this.OnWindowTabbedMdiButtonsMenuItemPopup);
             // 
             // tabbedMdiButtonsNoneToolStripMenuItem
             // 
             this.tabbedMdiButtonsNoneToolStripMenuItem.Name = "tabbedMdiButtonsNoneToolStripMenuItem";
             this.tabbedMdiButtonsNoneToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.tabbedMdiButtonsNoneToolStripMenuItem.Text = "None";
-            this.tabbedMdiButtonsNoneToolStripMenuItem.Click += new System.EventHandler(this.windowTabbedMdiButtonsNoneMenuItem_Click);
+            this.tabbedMdiButtonsNoneToolStripMenuItem.Click += new System.EventHandler(this.OnWindowTabbedMdiButtonsNoneMenuItemClick);
             // 
             // tabbedMdiButtonsDropDownButtonToolStripMenuItem
             // 
             this.tabbedMdiButtonsDropDownButtonToolStripMenuItem.Name = "tabbedMdiButtonsDropDownButtonToolStripMenuItem";
             this.tabbedMdiButtonsDropDownButtonToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.tabbedMdiButtonsDropDownButtonToolStripMenuItem.Text = "Drop-Down Button";
-            this.tabbedMdiButtonsDropDownButtonToolStripMenuItem.Click += new System.EventHandler(this.windowTabbedMdiButtonsDropDownButtonMenuItem_Click);
+            this.tabbedMdiButtonsDropDownButtonToolStripMenuItem.Click += new System.EventHandler(this.OnWindowTabbedMdiButtonsDropDownButtonMenuItemClick);
             // 
             // tabbedMdiButtonsScrollButtonsToolStripMenuItem
             // 
             this.tabbedMdiButtonsScrollButtonsToolStripMenuItem.Name = "tabbedMdiButtonsScrollButtonsToolStripMenuItem";
             this.tabbedMdiButtonsScrollButtonsToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.tabbedMdiButtonsScrollButtonsToolStripMenuItem.Text = "Scroll Buttons";
-            this.tabbedMdiButtonsScrollButtonsToolStripMenuItem.Click += new System.EventHandler(this.windowTabbedMdiButtonsScrollButtonsMenuItem_Click);
+            this.tabbedMdiButtonsScrollButtonsToolStripMenuItem.Click += new System.EventHandler(this.OnWindowTabbedMdiButtonsScrollButtonsMenuItemClick);
             // 
             // toolStripMenuItem8
             // 
@@ -1236,35 +1236,35 @@
             this.floatingToolStripMenuItem.Name = "floatingToolStripMenuItem";
             this.floatingToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.floatingToolStripMenuItem.Text = "&Floating";
-            this.floatingToolStripMenuItem.Click += new System.EventHandler(this.windowFloatingMenuItem_Click);
+            this.floatingToolStripMenuItem.Click += new System.EventHandler(this.OnWindowFloatingMenuItemClick);
             // 
             // dockableToolStripMenuItem
             // 
             this.dockableToolStripMenuItem.Name = "dockableToolStripMenuItem";
             this.dockableToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.dockableToolStripMenuItem.Text = "&Dockable";
-            this.dockableToolStripMenuItem.Click += new System.EventHandler(this.windowDockableMenuItem_Click);
+            this.dockableToolStripMenuItem.Click += new System.EventHandler(this.OnWindowDockableMenuItemClick);
             // 
             // tabbedDocumentToolStripMenuItem
             // 
             this.tabbedDocumentToolStripMenuItem.Name = "tabbedDocumentToolStripMenuItem";
             this.tabbedDocumentToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.tabbedDocumentToolStripMenuItem.Text = "&Tabbed Document";
-            this.tabbedDocumentToolStripMenuItem.Click += new System.EventHandler(this.windowTabbedDocumentMenuItem_Click);
+            this.tabbedDocumentToolStripMenuItem.Click += new System.EventHandler(this.OnWindowTabbedDocumentMenuItemClick);
             // 
             // autoHideToolStripMenuItem
             // 
             this.autoHideToolStripMenuItem.Name = "autoHideToolStripMenuItem";
             this.autoHideToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.autoHideToolStripMenuItem.Text = "&Auto-Hide";
-            this.autoHideToolStripMenuItem.Click += new System.EventHandler(this.windowAutoHideMenuItem_Click);
+            this.autoHideToolStripMenuItem.Click += new System.EventHandler(this.OnWindowAutoHideMenuItemClick);
             // 
             // hideToolStripMenuItem
             // 
             this.hideToolStripMenuItem.Name = "hideToolStripMenuItem";
             this.hideToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.hideToolStripMenuItem.Text = "&Hide";
-            this.hideToolStripMenuItem.Click += new System.EventHandler(this.windowHideMenuItem_Click);
+            this.hideToolStripMenuItem.Click += new System.EventHandler(this.OnWindowHideMenuItemClick);
             // 
             // toolStripMenuItem9
             // 
@@ -1276,63 +1276,63 @@
             this.autoHideAllToolStripMenuItem.Name = "autoHideAllToolStripMenuItem";
             this.autoHideAllToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.autoHideAllToolStripMenuItem.Text = "A&uto-Hide All";
-            this.autoHideAllToolStripMenuItem.Click += new System.EventHandler(this.windowAutoHideAllMenuItem_Click);
+            this.autoHideAllToolStripMenuItem.Click += new System.EventHandler(this.OnWindowAutoHideAllMenuItemClick);
             // 
             // newHorizontalTabGroupToolStripMenuItem
             // 
             this.newHorizontalTabGroupToolStripMenuItem.Name = "newHorizontalTabGroupToolStripMenuItem";
             this.newHorizontalTabGroupToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.newHorizontalTabGroupToolStripMenuItem.Text = "New Hori&zontal Tab Group";
-            this.newHorizontalTabGroupToolStripMenuItem.Click += new System.EventHandler(this.windowNewHorizontalTabGroupMenuItem_Click);
+            this.newHorizontalTabGroupToolStripMenuItem.Click += new System.EventHandler(this.OnWindowNewHorizontalTabGroupMenuItemClick);
             // 
             // newVerticalTabGroupToolStripMenuItem
             // 
             this.newVerticalTabGroupToolStripMenuItem.Name = "newVerticalTabGroupToolStripMenuItem";
             this.newVerticalTabGroupToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.newVerticalTabGroupToolStripMenuItem.Text = "New &Vertical Tab Group";
-            this.newVerticalTabGroupToolStripMenuItem.Click += new System.EventHandler(this.windowNewVerticalTabGroupMenuItem_Click);
+            this.newVerticalTabGroupToolStripMenuItem.Click += new System.EventHandler(this.OnWindowNewVerticalTabGroupMenuItemClick);
             // 
             // moveToNextTabGroupToolStripMenuItem
             // 
             this.moveToNextTabGroupToolStripMenuItem.Name = "moveToNextTabGroupToolStripMenuItem";
             this.moveToNextTabGroupToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.moveToNextTabGroupToolStripMenuItem.Text = "Move to Ne&xt Tab Group";
-            this.moveToNextTabGroupToolStripMenuItem.Click += new System.EventHandler(this.windowMoveToNextTabGroupMenuItem_Click);
+            this.moveToNextTabGroupToolStripMenuItem.Click += new System.EventHandler(this.OnWindowMoveToNextTabGroupMenuItemClick);
             // 
             // moveToPreviousTabGroupToolStripMenuItem
             // 
             this.moveToPreviousTabGroupToolStripMenuItem.Name = "moveToPreviousTabGroupToolStripMenuItem";
             this.moveToPreviousTabGroupToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.moveToPreviousTabGroupToolStripMenuItem.Text = "Move to P&revious Tab Group";
-            this.moveToPreviousTabGroupToolStripMenuItem.Click += new System.EventHandler(this.windowMoveToPreviousTabGroupMenuItem_Click);
+            this.moveToPreviousTabGroupToolStripMenuItem.Click += new System.EventHandler(this.OnWindowMoveToPreviousTabGroupMenuItemClick);
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
             this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.cascadeToolStripMenuItem.Text = "&Cascade";
-            this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.windowCascadeMenuItem_Click);
+            this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.OnWindowCascadeMenuItemClick);
             // 
             // tileHorizontallyToolStripMenuItem
             // 
             this.tileHorizontallyToolStripMenuItem.Name = "tileHorizontallyToolStripMenuItem";
             this.tileHorizontallyToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.tileHorizontallyToolStripMenuItem.Text = "Tile Hori&zontally";
-            this.tileHorizontallyToolStripMenuItem.Click += new System.EventHandler(this.windowTileHorizontallyMenuItem_Click);
+            this.tileHorizontallyToolStripMenuItem.Click += new System.EventHandler(this.OnWindowTileHorizontallyMenuItemClick);
             // 
             // tileVerticallyToolStripMenuItem
             // 
             this.tileVerticallyToolStripMenuItem.Name = "tileVerticallyToolStripMenuItem";
             this.tileVerticallyToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.tileVerticallyToolStripMenuItem.Text = "Tile &Vertically";
-            this.tileVerticallyToolStripMenuItem.Click += new System.EventHandler(this.windowTileVerticallyMenuItem_Click);
+            this.tileVerticallyToolStripMenuItem.Click += new System.EventHandler(this.OnWindowTileVerticallyMenuItemClick);
             // 
             // closeAllDocumentsToolStripMenuItem
             // 
             this.closeAllDocumentsToolStripMenuItem.Name = "closeAllDocumentsToolStripMenuItem";
             this.closeAllDocumentsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.closeAllDocumentsToolStripMenuItem.Text = "C&lose All Documents";
-            this.closeAllDocumentsToolStripMenuItem.Click += new System.EventHandler(this.windowCloseAllDocumentsMenuItem_Click);
+            this.closeAllDocumentsToolStripMenuItem.Click += new System.EventHandler(this.OnWindowCloseAllDocumentsMenuItemClick);
             // 
             // windowsBarToolStripMenuItem
             // 
@@ -1354,7 +1354,7 @@
             this.actiproSoftwaresNETWebSiteToolStripMenuItem.Name = "actiproSoftwaresNETWebSiteToolStripMenuItem";
             this.actiproSoftwaresNETWebSiteToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.actiproSoftwaresNETWebSiteToolStripMenuItem.Text = "Actipro Software\'s .NET Web Site";
-            this.actiproSoftwaresNETWebSiteToolStripMenuItem.Click += new System.EventHandler(this.helpWebSiteMenuItem_Click);
+            this.actiproSoftwaresNETWebSiteToolStripMenuItem.Click += new System.EventHandler(this.OnHelpWebSiteMenuItemClick);
             // 
             // toolStripMenuItem7
             // 
@@ -1366,7 +1366,7 @@
             this.aboutWinFormsStudioToolStripMenuItem.Name = "aboutWinFormsStudioToolStripMenuItem";
             this.aboutWinFormsStudioToolStripMenuItem.Size = new System.Drawing.Size(246, 22);
             this.aboutWinFormsStudioToolStripMenuItem.Text = "About WinForms Studio...";
-            this.aboutWinFormsStudioToolStripMenuItem.Click += new System.EventHandler(this.helpAboutMenuItem_Click);
+            this.aboutWinFormsStudioToolStripMenuItem.Click += new System.EventHandler(this.OnHelpAboutMenuItemClick);
             // 
             // statusStrip1
             // 

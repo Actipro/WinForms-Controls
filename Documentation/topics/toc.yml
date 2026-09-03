@@ -728,8 +728,21 @@ items:
   items:
   - name: "Overview"
     href: shared/index.md
+  - name: "Menu Factory"
+    href: shared/menu-factory.md
+  - name: "Extension Methods"
+    href: shared/extension-methods.md
   - name: "Global Renderers"
     href: shared/global-renderers.md
+- name: "Actipro Core Library"
+  href: core/index.md
+  items:
+  - name: "Overview"
+    href: core/index.md
+  - name: "Object Model"
+    href: core/object-model.md
+  - name: "Extension Methods"
+    href: core/extension-methods.md
 - name: "Licensing"
   href: licensing.md
 - name: "NuGet Packages and Feeds"
@@ -747,6 +760,8 @@ items:
   items:
   - name: "Overview"
     href: conversion/index.md
+  - name: "Converting to v26.1"
+    href: conversion/converting-to-v26-1.md
   - name: "Converting to v25.1"
     href: conversion/converting-to-v25-1.md
   - name: "Converting to v24.1"

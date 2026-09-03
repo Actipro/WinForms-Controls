@@ -10,7 +10,7 @@
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing) {
-			if (disposing && (components != null)) {
+			if (disposing && (components is not null)) {
 				components.Dispose();
 			}
 			base.Dispose(disposing);
@@ -38,7 +38,7 @@
 			this.okButton.Size = new System.Drawing.Size(75, 23);
 			this.okButton.TabIndex = 2;
 			this.okButton.Text = "OK";
-			this.okButton.Click += new System.EventHandler(this.okButton_Click);
+			this.okButton.Click += new System.EventHandler(this.OnOkButtonClick);
 			// 
 			// cancelButton
 			// 

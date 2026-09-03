@@ -84,14 +84,14 @@ namespace ActiproSoftware.ProductSamples.SyntaxEditorSamples.QuickStart.GettingS
         /// <returns>An <c>IEnumerator</c> object that can iterate the child <see cref="IAstNode"/> objects in this node.</returns>
         protected override IEnumerator<IAstNode> GetChildrenEnumerator() {
             IEnumerator<IAstNode> baseEnumerator = base.GetChildrenEnumerator();
-            if ((baseEnumerator != null)) {
+            if ((baseEnumerator is not null)) {
 				while (baseEnumerator.MoveNext())
 					yield return baseEnumerator.Current;
             }
-            if ((this.leftExpressionValue != null)) {
+            if ((this.leftExpressionValue is not null)) {
 				yield return this.leftExpressionValue;
             }
-            if ((this.rightExpressionValue != null)) {
+            if ((this.rightExpressionValue is not null)) {
 				yield return this.rightExpressionValue;
             }
         }

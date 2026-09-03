@@ -7,7 +7,7 @@ using Nuke.Common.Tools.NuGet;
 using Serilog;
 using System;
 using System.Linq;
-using static Nuke.Common.Tools.MSBuild.MSBuildTasks;
+using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
 namespace ActiproSoftware.Tools.Builds {
 
@@ -29,7 +29,7 @@ namespace ActiproSoftware.Tools.Builds {
 		[Solution("Samples/SampleBrowser/SampleBrowser.sln")]
 		readonly Solution SampleBrowserSolution;
 
-		Solution[] SampleSolutions => new Solution[] { SampleBrowserSolution };  // MSBuild
+		Solution[] SampleSolutions => new Solution[] { SampleBrowserSolution };
 
 		#endregion
 
@@ -88,13 +88,9 @@ namespace ActiproSoftware.Tools.Builds {
 					var project = solution.AllProjects.FirstOrDefault(p => (string.Compare(p.Name, solution.Name, StringComparison.OrdinalIgnoreCase) == 0));
 					project.NotNull($"No project with name '{solution.Name}' found.");
 
-					MSBuild(_ => _
+					DotNetBuild(_ => _
 						.SetProjectFile(project)
-						.SetRestore(true)
 						.SetConfiguration(Configuration)
-						.SetVerbosity(MSBuildVerbosity.Minimal)
-						.SetMaxCpuCount(Environment.ProcessorCount)
-						.SetProperty("BuildInParallel", "true")
 					);
 					Log.Debug(string.Empty);
 				}

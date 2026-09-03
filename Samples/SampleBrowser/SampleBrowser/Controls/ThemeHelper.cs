@@ -5,8 +5,8 @@ using ActiproSoftware.UI.WinForms.Controls.Extensions;
 using ActiproSoftware.UI.WinForms.Controls.MarkupLabel;
 using ActiproSoftware.UI.WinForms.Drawing;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -21,9 +21,9 @@ namespace ActiproSoftware.SampleBrowser.Controls {
 	/// </summary>
 	internal static class ThemeHelper {
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// --------------------------------------------------------------------------------------------------
 		// NON-PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// --------------------------------------------------------------------------------------------------
 
 		/// <summary>
 		/// Applies scheme-appropriate colors to the children of an object.
@@ -31,22 +31,22 @@ namespace ActiproSoftware.SampleBrowser.Controls {
 		/// <param name="parent">The parent object to examine.</param>
 		/// <param name="colorScheme">The color scheme to apply.</param>
 		private static void ApplyChildrenColors(object parent, IWindowsColorScheme colorScheme) {
-			var processedList = new ArrayList();
+			var processedList = new HashSet<object>();
 			if (parent is DockManager dockManager) {
-				foreach (ToolWindow toolWindow in dockManager.ToolWindows)
+				foreach (var toolWindow in dockManager.ToolWindows)
 					ApplyComponentColors(toolWindow, colorScheme, recurseChildren: true);
-				foreach (DocumentWindow documentWindow in dockManager.DocumentWindows)
+				foreach (var documentWindow in dockManager.DocumentWindows)
 					ApplyComponentColors(documentWindow, colorScheme, recurseChildren: true);
 			}
 			else {
 				if (parent is Control parentControl) {
-					foreach (Control childControl in (System.Windows.Forms.Layout.ArrangedElementCollection)parentControl.Controls) {
+					foreach (var childControl in parentControl.GetChildren()) {
 						processedList.Add(childControl);
 						ApplyComponentColors(childControl, colorScheme, recurseChildren: true);
 					}
 				}
-				if ((parent is ILogicalTreeNode parentTreeNode) && (parentTreeNode.Children != null)) {
-					foreach (ILogicalTreeNode childNode in parentTreeNode.Children) {
+				if (parent is ILogicalTreeNode parentTreeNode) {
+					foreach (var childNode in parentTreeNode.GetLogicalChildren()) {
 						if (processedList.Contains(childNode))
 							continue;
 
@@ -61,13 +61,13 @@ namespace ActiproSoftware.SampleBrowser.Controls {
 		}
 
 		/// <summary>
-		/// Gets if a control should be auto-themed.
+		/// Returns if a control should be auto-themed.
 		/// </summary>
 		/// <param name="component">The control to test.</param>
 		/// <returns><c>true</c> if the control can be auto-themed; otherwise, <c>false</c>.</returns>
 		private static bool CanAutoThemeComponent(Component component) {
-			if (component.GetType().FullName.StartsWith("ActiproSoftware.UI.WinForms.Controls")) {
-				// Only select Actipro-based controls should be auto-themed
+			if (component.GetType().FullName?.StartsWith(nameof(ActiproSoftware.UI.WinForms.Controls)) == true) {
+				// Only a limited selection of Actipro-based controls should be auto-themed
 				if (component is MarkupLabel)
 					return true;
 
@@ -76,8 +76,7 @@ namespace ActiproSoftware.SampleBrowser.Controls {
 
 			// Some native controls have limited theme support and look better without any theme applied
 			if (component is TextBox textBox) {
-				// Single-line text box will always have a white inner border and should not be themed,
-				// but multi-line looks OK
+				// Single-line text box will always have a white inner border and should not be themed, but multi-line looks OK
 				return textBox.Multiline;
 			}
 			else if (component is ComboBox) {
@@ -90,20 +89,19 @@ namespace ActiproSoftware.SampleBrowser.Controls {
 		}
 
 		/// <summary>
-		/// Gets a common border color based on the given color scheme.
+		/// Returns a common border color based on the given color scheme.
 		/// </summary>
 		/// <param name="colorScheme">The color scheme to examine.</param>
 		/// <returns>A <see cref="Color"/> populated with a common color for use with borders.</returns>
 		private static Color GetCommonBorderColor(this IWindowsColorScheme colorScheme) {
-			// High-contrast borders typically look better on light themes,
-			// while low-contrast borders typically look better on dark themes
+			// High-contrast borders typically look better on light themes, while low-contrast borders typically look better on dark themes
 			return colorScheme.IsDarkColorScheme()
 				? colorScheme.GetKnownColor(KnownColor.ControlLight)
 				: colorScheme.GetKnownColor(KnownColor.ControlDark);
 		}
 
 		/// <summary>
-		/// Gets a color to be used for an active link based on the given color scheme.
+		/// Returns a color to be used for an active link based on the given color scheme.
 		/// </summary>
 		/// <param name="colorScheme">The color scheme to examine.</param>
 		/// <returns>A <see cref="Color"/> populated with a color for use with active links.</returns>
@@ -115,7 +113,7 @@ namespace ActiproSoftware.SampleBrowser.Controls {
 		}
 
 		/// <summary>
-		/// Gets a color to be used for a disabled link based on the given color scheme.
+		/// Returns a color to be used for a disabled link based on the given color scheme.
 		/// </summary>
 		/// <param name="colorScheme">The color scheme to examine.</param>
 		/// <returns>A <see cref="Color"/> populated with a color for use with disabled links.</returns>
@@ -126,7 +124,7 @@ namespace ActiproSoftware.SampleBrowser.Controls {
 		}
 
 		/// <summary>
-		/// Gets a color to be used for a link in a normal state based on the given color scheme.
+		/// Returns a color to be used for a link in a normal state based on the given color scheme.
 		/// </summary>
 		/// <param name="colorScheme">The color scheme to examine.</param>
 		/// <returns>A <see cref="Color"/> populated with a color for use with a links in a normal state.</returns>
@@ -138,7 +136,7 @@ namespace ActiproSoftware.SampleBrowser.Controls {
 		}
 
 		/// <summary>
-		/// Gets a color to be used for a visited link based on the given color scheme.
+		/// Returns a color to be used for a visited link based on the given color scheme.
 		/// </summary>
 		/// <param name="colorScheme">The color scheme to examine.</param>
 		/// <returns>A <see cref="Color"/> populated with a color for use with visited links.</returns>
@@ -156,7 +154,7 @@ namespace ActiproSoftware.SampleBrowser.Controls {
 		/// <param name="colorScheme">The color scheme.</param>
 		private static void SetButtonColors(Button control, IWindowsColorScheme colorScheme) {
 			// Only change the color of Flat buttons, otherwise OS chrome will impact the appearance.
-			// Even flat buttons will still have a light-themed color on mouse over.
+			//   Even flat buttons will still have a light-themed color on mouse over.
 			if (control.FlatStyle == FlatStyle.Flat) {
 				if (control.BackColor != Color.Transparent)
 					control.BackColor = colorScheme.GetKnownColor(KnownColor.Window);
@@ -288,9 +286,9 @@ namespace ActiproSoftware.SampleBrowser.Controls {
 				: colorScheme.GetKnownColor(KnownColor.Black);
 		}
 
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// --------------------------------------------------------------------------------------------------
 		// PUBLIC PROCEDURES
-		/////////////////////////////////////////////////////////////////////////////////////////////////////
+		// --------------------------------------------------------------------------------------------------
 
 		/// <summary>
 		/// Applies scheme-appropriate colors to a component and, optionally, it's children.
@@ -357,9 +355,8 @@ namespace ActiproSoftware.SampleBrowser.Controls {
 		/// </summary>
 		/// <param name="colorScheme">The color scheme to examine.</param>
 		/// <returns><c>true</c> if the color scheme is intended for darker colors; otherwise, <c>false</c>.</returns>
-		public static bool IsDarkColorScheme(this IWindowsColorScheme colorScheme) {
-			return colorScheme.Intent.IsDarkColorScheme();
-		}
+		public static bool IsDarkColorScheme(this IWindowsColorScheme colorScheme)
+			=> colorScheme.Intent.IsDarkColorScheme();
 
 		/// <summary>
 		/// Displays a disclaimer to the end user about the limited ability to theme native controls for a dark theme.
