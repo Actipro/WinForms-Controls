@@ -191,7 +191,7 @@ The contents of a *licenses.licx* file are pretty simple.  It needs a single lin
 This single line (update the version to match the one you use) should be added to the *licenses.licx* file in any project that uses Actipro @@PlatformName control or SyntaxEditor add-on products:
 
 ```
-ActiproSoftware.Licensing.ActiproLicenseToken, ActiproSoftware.Shared.WinForms, Version=26.1.0.0, Culture=neutral, PublicKeyToken=c27e062d3c1a4763
+ActiproSoftware.Licensing.ActiproLicenseToken, ActiproSoftware.Shared.WinForms, Version=26.1.1.0, Culture=neutral, PublicKeyToken=c27e062d3c1a4763
 ```
 
 > [!IMPORTANT]
