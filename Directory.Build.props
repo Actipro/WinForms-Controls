@@ -6,7 +6,7 @@ PUBLIC BUILD PROPERTIES
 -->
 <Project>
 	<PropertyGroup>
-		<PreReleaseTagWithDash>-beta.1</PreReleaseTagWithDash>
+		<PreReleaseTagWithDash>-beta.3</PreReleaseTagWithDash>
 		<Version>26.1.1$(PreReleaseTagWithDash)</Version>
 		<LangVersion>latest</LangVersion>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
