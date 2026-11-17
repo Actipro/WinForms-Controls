@@ -15,6 +15,33 @@
 				<h2>Version 26.1</h2>
 
 
+				<h3>11/17/2026 - v26.1.1</h3>
+				<h4>SyntaxEditor</h4>
+				<ul>
+					<li>Improved view line rendering logic related to wide intra-line spacers when word wrap is active.</li>
+					<li>Improved document text storage performance and reduced memory allocations for certain editing operations.</li>
+					<li>Updated IAstNode.ToTreeString implementations to consistently include node offset range information.</li>
+					<li>Updated scanning logic in several of the lexers.</li>
+					<li>Fixed a possible exception when focus was lost during a mouse selection operation.</li>
+				</ul>
+				<h5>.NET Languages Add-on</h5>
+				<ul>
+					<li>Fixed an issue introduced in the previous release where the VB lexer didn't tokenize dot characters followed by CRLF properly.</li>
+					<li>Fixed an issue where C# IntelliPrompt could fail to resolve types referenced through global using directives.</li>
+				</ul>
+				<h5>Python Language Add-on</h5>
+				<ul>
+					<li>Fixed an issue introduced in the previous release where external modules no longer resolved properly, breaking some IntelliPrompt functionality.</li>
+					<li>Fixed an issue introduced in the previous release where base classes and return types from other modules in the same package might not resolve properly.</li>
+					<li>Improved how the Python resolver handles unresolved types in variable assignments.</li>
+					<li>Fixed an issue where reflection cache files could be unnecessarily regenerated between application runs.</li>
+				</ul>
+				<h4>All</h4>
+				<ul>
+					<li>Updated the license dialog logic to better handle licensed customers evaluating an unlicensed product.</li>
+				</ul>
+
+
 				<h3>9/3/2026 - v26.1.0</h3>
 				<h4>Core</h4>
 				<ul>
